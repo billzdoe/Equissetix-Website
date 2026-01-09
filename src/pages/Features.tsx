@@ -6,17 +6,14 @@ import {
   Heart,
   BarChart3,
   DollarSign,
-  Shield,
   Smartphone,
   Zap,
   Database,
   Users,
   Calendar,
-  FileText,
   TrendingUp,
   AlertTriangle,
   Camera,
-  MapPin,
 } from 'lucide-react'
 
 interface Feature {

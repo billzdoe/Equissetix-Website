@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion'
 import { Check, Zap, Star, Crown, ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 interface Tier {
   id: string
   name: string
   description: string
-  price: number
+  price: number | string
   period: string
   icon: JSX.Element
   features: {
