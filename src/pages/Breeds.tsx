@@ -1,163 +1,401 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Trophy, Target, TrendingUp, Heart, Zap } from 'lucide-react'
+import { Trophy, Target, TrendingUp, Heart, Zap, Mountain, Sparkles, Flag, Award, Activity } from 'lucide-react'
+import Section from '../components/Section'
+import Card from '../components/Card'
+import Button from '../components/Button'
 
-type Breed = 'thoroughbred' | 'quarter_horse' | 'arabian' | 'standardbred' | 'other'
+type Breed =
+  | 'thoroughbred'
+  | 'quarter_horse'
+  | 'arabian'
+  | 'standardbred'
+  | 'warmblood'
+  | 'paint'
+  | 'appaloosa'
+  | 'morgan'
+  | 'andalusian'
+  | 'friesian'
 
 interface BreedInfo {
   name: string
+  tagline: string
   description: string
-  features: string[]
-  useCases: string[]
+  primaryDisciplines: string[]
+  physicalTraits: string[]
+  trainingConsiderations: string[]
+  idealFor: string[]
   icon: JSX.Element
+  color: string
 }
 
 const breeds: Record<Breed, BreedInfo> = {
   thoroughbred: {
     name: 'Thoroughbred',
-    description: 'Optimized for racing performance, injury prevention, and peak conditioning. Perfect for racehorse trainers managing high-performance athletes.',
-    features: [
-      'Advanced gait analysis for racing form',
-      'Injury prediction algorithms',
-      'Peak fitness tracking',
-      'Race performance analytics',
-      'Training load optimization',
-      'Recovery protocol management',
+    tagline: 'Speed, athleticism, and racing excellence',
+    description: 'The premier racing breed known for speed, stamina, and competitive spirit. TrainingTree Pro optimizes flat racing performance with ACWR load management, speed metrics, and race-day analytics.',
+    primaryDisciplines: ['Flat Racing', 'Eventing', 'Show Jumping', 'Polo', 'Fox Hunting'],
+    physicalTraits: [
+      'Hot-blooded temperament',
+      'Lean, athletic build',
+      'Deep chest for lung capacity',
+      'Long stride length',
+      'Excellent cardiovascular system',
+      'Natural speed and agility'
     ],
-    useCases: [
-      'Racehorse training programs',
-      'Pre-race conditioning',
-      'Post-race recovery tracking',
-      'Injury prevention monitoring',
-      'Performance optimization',
+    trainingConsiderations: [
+      'High-intensity workouts require careful load monitoring',
+      'Prone to overtraining without ACWR tracking',
+      'Recovery protocols critical for performance',
+      'Mental freshness as important as physical fitness',
+      'Heat and metabolic stress management',
+      'Injury prevention through biomechanical analysis'
     ],
-    icon: <Trophy className="h-12 w-12" />,
+    idealFor: [
+      'Flat racing (sprints and distance)',
+      'Competitive eventing',
+      'Upper-level show jumping',
+      'High-goal polo',
+      'Performance-oriented riders'
+    ],
+    icon: <Trophy className="h-8 w-8" />,
+    color: 'from-blue-500 to-blue-700'
   },
   quarter_horse: {
     name: 'Quarter Horse',
-    description: 'Specialized tools for sprint performance, rodeo events, and western disciplines. Track explosive power and short-distance speed.',
-    features: [
-      'Sprint performance metrics',
-      'Explosive power analysis',
-      'Western discipline tracking',
-      'Rodeo event preparation',
-      'Short-distance speed optimization',
-      'Muscle development tracking',
+    tagline: 'Versatility, power, and western excellence',
+    description: 'America\'s most popular breed, excelling in western performance, sprint racing, and versatile work. Purpose-built for explosive power, agility, and quick maneuvers.',
+    primaryDisciplines: ['Western Performance', 'Barrel Racing', 'Flat Racing (short)', 'Rodeo', 'Ranch Work'],
+    physicalTraits: [
+      'Heavily muscled hindquarters',
+      'Compact, powerful build',
+      'Explosive acceleration',
+      'Calm, willing temperament',
+      'Strong bone structure',
+      'Natural cattle sense'
     ],
-    useCases: [
-      'Rodeo preparation',
-      'Cutting horse training',
-      'Barrel racing optimization',
-      'Reining performance',
-      'Sprint conditioning',
+    trainingConsiderations: [
+      'Pattern consistency in western events',
+      'Explosive power development',
+      'Stop and turn mechanics',
+      'Weight management for athletic performance',
+      'Joint health from high-impact maneuvers',
+      'Lead change accuracy tracking'
     ],
-    icon: <Zap className="h-12 w-12" />,
+    idealFor: [
+      'Cutting and reining competitions',
+      'Barrel racing and rodeo',
+      'Ranch versatility work',
+      'Sprint racing (quarter-mile)',
+      'Western pleasure and trail'
+    ],
+    icon: <Zap className="h-8 w-8" />,
+    color: 'from-orange-500 to-orange-700'
   },
   arabian: {
     name: 'Arabian',
-    description: 'Endurance-focused training tools for long-distance events. Monitor stamina, recovery, and metabolic efficiency.',
-    features: [
-      'Endurance performance tracking',
-      'Stamina optimization',
-      'Metabolic efficiency monitoring',
-      'Long-distance analytics',
-      'Recovery rate analysis',
-      'Heat tolerance tracking',
+    tagline: 'Endurance, intelligence, and ancient heritage',
+    description: 'The ultimate endurance horse with unmatched stamina and heart. Excels in long-distance events with superior metabolic efficiency and recovery rates.',
+    primaryDisciplines: ['Endurance Racing', 'Competitive Trail', 'Distance Riding', 'Dressage', 'Show'],
+    physicalTraits: [
+      'Exceptional cardiovascular efficiency',
+      'Dense bone structure',
+      'Natural high tail carriage',
+      'Intelligent, sensitive temperament',
+      'Heat tolerance',
+      'Efficient metabolism'
     ],
-    useCases: [
-      'Endurance racing',
-      'Long-distance training',
-      'Stamina building programs',
-      'Recovery optimization',
-      'Metabolic health monitoring',
+    trainingConsiderations: [
+      'Heart rate recovery monitoring essential',
+      'Progressive mileage building',
+      'Metabolic efficiency optimization',
+      'Electrolyte and hydration management',
+      'Vet gate preparation',
+      'Long slow distance conditioning'
     ],
-    icon: <Target className="h-12 w-12" />,
+    idealFor: [
+      'Endurance racing (25-100+ miles)',
+      'Competitive trail riding',
+      'Long-distance trail riding',
+      'Lower-level dressage',
+      'Breed showing'
+    ],
+    icon: <Mountain className="h-8 w-8" />,
+    color: 'from-green-500 to-green-700'
   },
   standardbred: {
     name: 'Standardbred',
-    description: 'Harness racing specialization with trotting and pacing analysis. Optimize for consistent speed and form.',
-    features: [
-      'Trotting gait analysis',
-      'Pacing form optimization',
-      'Harness racing metrics',
-      'Consistent speed tracking',
-      'Form consistency monitoring',
-      'Harness-specific analytics',
+    tagline: 'Consistency, gait perfection, harness racing',
+    description: 'Bred specifically for harness racing, with exceptional trotting and pacing ability. Focus on gait consistency, speed uniformity, and sustained performance.',
+    primaryDisciplines: ['Harness Racing', 'Pleasure Driving', 'Combined Driving', 'Trail Driving'],
+    physicalTraits: [
+      'Natural trotting or pacing gait',
+      'Strong, muscular build',
+      'Calm, trainable temperament',
+      'Excellent stamina',
+      'Consistent speed maintenance',
+      'Powerful hindquarters'
     ],
-    useCases: [
-      'Harness racing training',
-      'Trotting form improvement',
-      'Pacing optimization',
-      'Speed consistency',
-      'Harness event preparation',
+    trainingConsiderations: [
+      'Gait purity and consistency',
+      'Break prevention and correction',
+      'Speed uniformity tracking',
+      'Harness equipment adaptation',
+      'Driver-horse synchronization',
+      'Qualifying time optimization'
     ],
-    icon: <TrendingUp className="h-12 w-12" />,
+    idealFor: [
+      'Professional harness racing',
+      'Amateur driving events',
+      'Pleasure driving',
+      'Second careers in riding',
+      'Combined driving events'
+    ],
+    icon: <Activity className="h-8 w-8" />,
+    color: 'from-purple-500 to-purple-700'
   },
-  other: {
-    name: 'Other Breeds',
-    description: 'Flexible platform adaptable to any breed or discipline. Customizable training programs and analytics.',
-    features: [
-      'Custom breed profiles',
-      'Adaptable training programs',
-      'Flexible analytics',
-      'Discipline-specific tracking',
-      'Customizable metrics',
-      'Breed-specific insights',
+  warmblood: {
+    name: 'Warmblood',
+    tagline: 'Athletic grace for jumping and dressage',
+    description: 'Purpose-bred sport horses combining athleticism, trainability, and movement quality. Dominate dressage, show jumping, and eventing at international levels.',
+    primaryDisciplines: ['Dressage', 'Show Jumping', 'Eventing', 'Hunters', 'Equitation'],
+    physicalTraits: [
+      'Excellent movement quality',
+      'Athletic jumping ability',
+      'Balanced conformation',
+      'Trainable temperament',
+      'Strong topline',
+      'Powerful hindquarters'
     ],
-    useCases: [
-      'Mixed breed operations',
-      'Custom discipline training',
-      'Breed-specific programs',
-      'Flexible training needs',
-      'Multi-discipline operations',
+    trainingConsiderations: [
+      'Movement quality development',
+      'Collection and extension training',
+      'Jumping technique refinement',
+      'Test score progression tracking',
+      'Course performance analysis',
+      'Lameness prevention in high-level work'
     ],
-    icon: <Heart className="h-12 w-12" />,
+    idealFor: [
+      'FEI-level dressage',
+      'Grand Prix show jumping',
+      'Advanced eventing',
+      'Professional competition',
+      'Amateur upper-level sport'
+    ],
+    icon: <Sparkles className="h-8 w-8" />,
+    color: 'from-pink-500 to-pink-700'
   },
+  paint: {
+    name: 'Paint Horse',
+    tagline: 'Color, versatility, and western performance',
+    description: 'Combining Quarter Horse athleticism with distinctive coat patterns. Excel in western performance, versatility, and competitive show disciplines.',
+    primaryDisciplines: ['Western Performance', 'Barrel Racing', 'Trail', 'Halter', 'English Pleasure'],
+    physicalTraits: [
+      'Quarter Horse-type build',
+      'Distinctive color patterns',
+      'Muscular, athletic frame',
+      'Versatile movement',
+      'Calm disposition',
+      'Strong, sturdy build'
+    ],
+    trainingConsiderations: [
+      'Pattern work consistency',
+      'Versatility across disciplines',
+      'Explosive power for speed events',
+      'Collection for western pleasure',
+      'Show ring presentation',
+      'Multi-discipline fitness'
+    ],
+    idealFor: [
+      'Western all-around competition',
+      'Youth and amateur programs',
+      'Versatility ranch work',
+      'Breed showing',
+      'Barrel racing and speed events'
+    ],
+    icon: <Heart className="h-8 w-8" />,
+    color: 'from-red-500 to-red-700'
+  },
+  appaloosa: {
+    name: 'Appaloosa',
+    tagline: 'Spotted heritage, versatile performance',
+    description: 'Historic breed with distinctive spotted coat patterns. Versatile performers in western events, endurance, and competitive trail riding.',
+    primaryDisciplines: ['Western Performance', 'Endurance', 'Trail', 'Racing', 'English Pleasure'],
+    physicalTraits: [
+      'Distinctive spotted coat',
+      'Mottled skin and striped hooves',
+      'Compact, muscular build',
+      'Hardy constitution',
+      'Versatile movement',
+      'Excellent stamina'
+    ],
+    trainingConsiderations: [
+      'Multi-discipline versatility',
+      'Endurance conditioning',
+      'Western pattern work',
+      'Trail obstacle training',
+      'Show ring versatility',
+      'Weather adaptability'
+    ],
+    idealFor: [
+      'Western versatility shows',
+      'Endurance and trail riding',
+      'Youth and 4-H programs',
+      'Breed showing',
+      'Recreational riding'
+    ],
+    icon: <Target className="h-8 w-8" />,
+    color: 'from-yellow-500 to-yellow-700'
+  },
+  morgan: {
+    name: 'Morgan',
+    tagline: 'America\'s first breed, endless versatility',
+    description: 'The original American breed known for versatility, stamina, and willing temperament. Excel in driving, saddle disciplines, and endurance.',
+    primaryDisciplines: ['Driving', 'Saddle Seat', 'Dressage', 'Endurance', 'Western'],
+    physicalTraits: [
+      'Compact, refined build',
+      'Arched neck and high-set tail',
+      'Strong, muscular frame',
+      'Willing, intelligent nature',
+      'Natural animation',
+      'Excellent stamina'
+    ],
+    trainingConsiderations: [
+      'Multi-discipline flexibility',
+      'Natural animation enhancement',
+      'Driving technique',
+      'Saddle seat presentation',
+      'Endurance conditioning',
+      'Versatile skill development'
+    ],
+    idealFor: [
+      'Pleasure driving competition',
+      'Saddle seat showing',
+      'Dressage (lower levels)',
+      'Endurance riding',
+      'Versatile family horses'
+    ],
+    icon: <Award className="h-8 w-8" />,
+    color: 'from-teal-500 to-teal-700'
+  },
+  andalusian: {
+    name: 'Andalusian/Lusitano',
+    tagline: 'Baroque elegance, classical dressage',
+    description: 'Spanish and Portuguese breeds known for natural collection, powerful movement, and classical dressage aptitude. Excel in haute école and working equitation.',
+    primaryDisciplines: ['Dressage', 'Working Equitation', 'Haute École', 'Driving', 'Show'],
+    physicalTraits: [
+      'Natural collection ability',
+      'Powerful, elevated movement',
+      'Thick mane and tail',
+      'Compact, muscular build',
+      'Noble head carriage',
+      'Agile and athletic'
+    ],
+    trainingConsiderations: [
+      'Classical training methods',
+      'Collection development',
+      'Lateral work proficiency',
+      'Working equitation obstacles',
+      'High school movements',
+      'Mental engagement'
+    ],
+    idealFor: [
+      'Classical dressage training',
+      'Working equitation',
+      'Haute école performance',
+      'Breed showing',
+      'Advanced amateur riders'
+    ],
+    icon: <Sparkles className="h-8 w-8" />,
+    color: 'from-indigo-500 to-indigo-700'
+  },
+  friesian: {
+    name: 'Friesian',
+    tagline: 'Black beauty, powerful movement',
+    description: 'Striking black horses from the Netherlands with powerful, animated gaits. Popular in dressage, driving, and exhibition performances.',
+    primaryDisciplines: ['Dressage', 'Driving', 'Saddle Seat', 'Exhibition', 'Film/Entertainment'],
+    physicalTraits: [
+      'Jet black coat color',
+      'Luxurious mane and tail',
+      'Powerful, high-stepping trot',
+      'Feathered legs',
+      'Baroque build',
+      'Natural animation'
+    ],
+    trainingConsiderations: [
+      'Movement development',
+      'Weight management',
+      'Feather and hoof care',
+      'Natural animation enhancement',
+      'Driving technique',
+      'Presentation skills'
+    ],
+    idealFor: [
+      'Lower to mid-level dressage',
+      'Pleasure and carriage driving',
+      'Saddle seat showing',
+      'Exhibitions and demonstrations',
+      'Film and entertainment work'
+    ],
+    icon: <Flag className="h-8 w-8" />,
+    color: 'from-slate-600 to-slate-800'
+  }
 }
 
 const Breeds = () => {
   const [activeBreed, setActiveBreed] = useState<Breed>('thoroughbred')
+  const active = breeds[activeBreed]
 
   return (
-    <div className="pt-20 min-h-screen">
-      {/* Header */}
-      <section className="py-16 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-20">
+      <Section background="gradient" className="min-h-[40vh] flex items-center py-12">
+        <div className="text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Breed-Specific</span> Solutions
+              <span className="text-gradient">Every Breed,</span> Optimized
             </h1>
-            <p className="text-xl text-gray-300">
-              Tailored training and analytics for every breed and discipline
+            <p className="text-xl md:text-2xl text-slate-700 mb-8">
+              Tailored training analytics and performance tracking for all major equine breeds
             </p>
           </motion.div>
         </div>
-      </section>
+      </Section>
 
-      {/* Breed Tabs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {Object.entries(breeds).map(([key, breed]) => (
-            <button
-              key={key}
-              onClick={() => setActiveBreed(key as Breed)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                activeBreed === key
-                  ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg shadow-primary-500/50'
-                  : 'glass text-gray-300 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              {breed.name}
-            </button>
-          ))}
+      {/* Breed Selector */}
+      <Section background="white">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          {(Object.keys(breeds) as Breed[]).map((key) => {
+            const breed = breeds[key]
+            const isActive = activeBreed === key
+
+            return (
+              <motion.button
+                key={key}
+                onClick={() => setActiveBreed(key)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`p-4 rounded-xl transition-all duration-200 ${
+                  isActive
+                    ? `bg-gradient-to-br ${breed.color} text-white shadow-lg`
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <div className={`flex flex-col items-center gap-2 ${isActive ? 'text-white' : 'text-slate-600'}`}>
+                  {breed.icon}
+                  <span className="text-sm font-semibold text-center">{breed.name}</span>
+                </div>
+              </motion.button>
+            )
+          })}
         </div>
+      </Section>
 
-        {/* Active Breed Content */}
+      {/* Active Breed Content */}
+      <Section background="gray">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeBreed}
@@ -165,83 +403,103 @@ const Breeds = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="glass-strong rounded-3xl p-8 md:p-12"
           >
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* Left Column - Info */}
-              <div>
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="text-primary-400">
-                    {breeds[activeBreed].icon}
-                  </div>
-                  <h2 className="text-4xl font-bold text-white">
-                    {breeds[activeBreed].name}
-                  </h2>
-                </div>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  {breeds[activeBreed].description}
-                </p>
-
-                {/* Use Cases */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-semibold text-white mb-4">Primary Use Cases</h3>
-                  <ul className="space-y-2">
-                    {breeds[activeBreed].useCases.map((useCase, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 rounded-full bg-primary-400 mt-2 flex-shrink-0" />
-                        <span className="text-gray-300">{useCase}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {/* Header */}
+            <div className="text-center mb-12">
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${active.color} text-white mb-4`}>
+                {active.icon}
               </div>
+              <h2 className="text-4xl font-bold mb-3">{active.name}</h2>
+              <p className="text-xl text-slate-600 mb-4">{active.tagline}</p>
+              <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                {active.description}
+              </p>
+            </div>
 
-              {/* Right Column - Features */}
-              <div>
-                <h3 className="text-2xl font-semibold text-white mb-6">Key Features</h3>
-                <div className="space-y-4">
-                  {breeds[activeBreed].features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="glass p-4 rounded-xl hover:bg-white/10 transition-all duration-200"
-                    >
-                      <div className="flex items-start space-x-3">
-                        <div className="w-6 h-6 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <div className="w-2 h-2 rounded-full bg-primary-400" />
-                        </div>
-                        <span className="text-gray-200">{feature}</span>
-                      </div>
-                    </motion.div>
+            {/* Primary Disciplines */}
+            <Card className="mb-8">
+              <h3 className="text-lg font-bold mb-3 text-navy-900">Primary Disciplines</h3>
+              <div className="flex flex-wrap gap-2">
+                {active.primaryDisciplines.map((discipline, index) => (
+                  <span
+                    key={index}
+                    className={`px-3 py-1.5 rounded-full bg-gradient-to-r ${active.color} text-white text-sm font-semibold`}
+                  >
+                    {discipline}
+                  </span>
+                ))}
+              </div>
+            </Card>
+
+            {/* Three Column Layout */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Physical Traits */}
+              <Card>
+                <h3 className="text-lg font-bold mb-4 text-navy-900">Physical Traits</h3>
+                <ul className="space-y-2">
+                  {active.physicalTraits.map((trait, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm">
+                      <Heart className="h-4 w-4 text-brand-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{trait}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
+                </ul>
+              </Card>
+
+              {/* Training Considerations */}
+              <Card>
+                <h3 className="text-lg font-bold mb-4 text-navy-900">Training Focus</h3>
+                <ul className="space-y-2">
+                  {active.trainingConsiderations.map((consideration, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm">
+                      <Target className="h-4 w-4 text-success-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{consideration}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              {/* Ideal For */}
+              <Card>
+                <h3 className="text-lg font-bold mb-4 text-navy-900">Ideal For</h3>
+                <ul className="space-y-2">
+                  {active.idealFor.map((use, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm">
+                      <Trophy className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{use}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
             </div>
           </motion.div>
         </AnimatePresence>
-      </section>
+      </Section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-900/20 to-accent-900/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            Ready to Optimize Your Breed-Specific Training?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            See how TrainerTree Pro can transform your training program
+      {/* CTA */}
+      <Section background="gradient">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl font-bold mb-6">Optimize Your Breed's Performance</h2>
+          <p className="text-xl text-slate-700 mb-8">
+            TrainingTree Pro adapts to your breed's unique characteristics with specialized analytics and training tools
           </p>
-          <a
-            href="https://equissetix.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:shadow-primary-500/50 transition-all duration-200"
-          >
-            <span>Launch TrainerTree Pro</span>
-          </a>
-        </div>
-      </section>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button to="/disciplines" variant="secondary" size="lg">
+              Explore Disciplines
+              <Trophy className="h-5 w-5" />
+            </Button>
+            <Button to="/contact" variant="primary" size="lg">
+              Get a Free Demo
+              <TrendingUp className="h-5 w-5" />
+            </Button>
+          </div>
+        </motion.div>
+      </Section>
     </div>
   )
 }

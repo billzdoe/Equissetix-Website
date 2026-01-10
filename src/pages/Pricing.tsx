@@ -1,360 +1,434 @@
 import { motion } from 'framer-motion'
-import { Check, Zap, Star, Crown, ArrowRight } from 'lucide-react'
-
-interface Tier {
-  id: string
-  name: string
-  description: string
-  price: number | string
-  period: string
-  icon: JSX.Element
-  features: {
-    included: string[]
-    limits: {
-      horses: number | string
-      users: number | string
-      storage: string
-      apiCalls: string
-    }
-  }
-  popular?: boolean
-  highlight?: string
-}
-
-const tiers: Tier[] = [
-  {
-    id: 'starter',
-    name: 'Starter',
-    description: 'Perfect for small stables and individual trainers',
-    price: 'TBD',
-    period: '',
-    icon: <Zap className="h-8 w-8" />,
-    features: {
-      included: [
-        'Up to 10 horses',
-        'Up to 3 team members',
-        '2GB storage',
-        '10,000 API calls/month',
-        'Basic analytics',
-        'Health tracking',
-        'Training logs',
-        'Mobile app access',
-        'Email support',
-      ],
-      limits: {
-        horses: 10,
-        users: 3,
-        storage: '2GB',
-        apiCalls: '10,000/month',
-      },
-    },
-  },
-  {
-    id: 'pro',
-    name: 'Professional',
-    description: 'Ideal for growing stables and professional operations',
-    price: 'TBD',
-    period: '',
-    icon: <Star className="h-8 w-8" />,
-    popular: true,
-    highlight: 'Most Popular',
-    features: {
-      included: [
-        'Up to 50 horses',
-        'Up to 10 team members',
-        '10GB storage',
-        'Unlimited API calls',
-        'Advanced analytics',
-        'AI-powered recommendations',
-        'Injury prediction',
-        'Financial management',
-        'Wearable device integration',
-        'Priority support',
-        'Custom reports',
-        'API access',
-      ],
-      limits: {
-        horses: 50,
-        users: 10,
-        storage: '10GB',
-        apiCalls: 'Unlimited',
-      },
-    },
-  },
-  {
-    id: 'elite',
-    name: 'Elite',
-    description: 'For large operations and enterprise needs',
-    price: 'TBD',
-    period: '',
-    icon: <Crown className="h-8 w-8" />,
-    features: {
-      included: [
-        'Unlimited horses',
-        'Unlimited team members',
-        '100GB storage',
-        'Unlimited API calls',
-        'All advanced features',
-        'Custom AI models',
-        'White-label options',
-        'Dedicated account manager',
-        '24/7 priority support',
-        'SLA guarantee',
-        'Custom integrations',
-        'On-premise deployment option',
-        'Advanced security features',
-        'Compliance reporting',
-      ],
-      limits: {
-        horses: 'Unlimited',
-        users: 'Unlimited',
-        storage: '100GB',
-        apiCalls: 'Unlimited',
-      },
-    },
-  },
-]
+import { Check, ArrowRight, X } from 'lucide-react'
+import Button from '../components/Button'
+import Card from '../components/Card'
+import Section from '../components/Section'
 
 const Pricing = () => {
+  const tiers = [
+    {
+      name: "Starter",
+      subtitle: "For Small Operations",
+      description: "Perfect for trainers managing 1-10 horses",
+      features: [
+        "Training & workout tracking (23+ types)",
+        "Health monitoring & alerts",
+        "Mobile app with QR code scanning",
+        "Basic analytics & reports",
+        "Email support",
+        "1 user account"
+      ],
+      cta: "Contact for Pricing"
+    },
+    {
+      name: "Professional",
+      subtitle: "For Growing Barns",
+      description: "For trainers managing 10-50 horses",
+      features: [
+        "Everything in Starter",
+        "ACWR training load monitoring",
+        "Financial Lite (invoicing & expenses)",
+        "Team collaboration (up to 5 users)",
+        "Advanced analytics & AI insights",
+        "Priority support",
+        "Owner client portals",
+        "8+ wearable integrations",
+        "Offline mobile mode"
+      ],
+      cta: "Contact for Pricing",
+      highlighted: true
+    },
+    {
+      name: "Enterprise",
+      subtitle: "For Large Facilities",
+      description: "For facilities managing 50+ horses",
+      features: [
+        "Everything in Professional",
+        "Full ERP & accounting suite",
+        "Racing & competition module",
+        "Custom integrations & API access",
+        "Unlimited users",
+        "Dedicated account manager",
+        "On-site training & onboarding",
+        "Custom reporting",
+        "SLA guarantees"
+      ],
+      cta: "Contact Sales"
+    }
+  ]
+
+  const faqs = [
+    {
+      question: "Can I switch plans?",
+      answer: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle."
+    },
+    {
+      question: "What happens to my data if I cancel?",
+      answer: "Your data is yours. You can export all your data before canceling, and we'll keep it available for 90 days after cancellation."
+    },
+    {
+      question: "Do you offer discounts for large facilities?",
+      answer: "Yes! Enterprise pricing is customized based on your needs and number of horses. Contact us for a quote."
+    },
+    {
+      question: "Is training included?",
+      answer: "Starter and Professional plans include video tutorials and email support. Enterprise plans include dedicated onboarding and on-site training."
+    },
+    {
+      question: "Why do you price per month instead of per user?",
+      answer: "We believe in value-based pricing. You pay for what matters—the horses you manage—not how many people use the software."
+    }
+  ]
+
   return (
-    <div className="pt-20 min-h-screen">
-      {/* Header */}
-      <section className="py-16 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Pricing</span> Plans
-            </h1>
-            <p className="text-xl text-gray-300">
-              Choose the plan that fits your operation. Pricing coming soon - contact us for more information.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="pt-20">
+      {/* Hero */}
+      <Section background="gradient" className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Plans Built for <span className="text-gradient">Every Operation Size</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto">
+            From single trainers to large facilities—flexible plans tailored to your needs
+          </p>
+          <p className="text-lg text-slate-600">
+            Contact us to discuss pricing • 14-day free trial available
+          </p>
+        </motion.div>
+      </Section>
 
       {/* Pricing Cards */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <Section background="white">
+        <div className="grid md:grid-cols-3 gap-8">
           {tiers.map((tier, index) => (
             <motion.div
-              key={tier.id}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative glass-strong rounded-3xl p-8 ${
-                tier.popular
-                  ? 'ring-2 ring-primary-500 scale-105 md:scale-110'
-                  : ''
-              }`}
             >
-              {tier.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    {tier.highlight}
-                  </span>
-                </div>
-              )}
+              <Card className={`h-full flex flex-col ${tier.highlighted ? 'border-2 border-brand-500 shadow-modern-lg bg-gradient-to-br from-brand-50/50 via-white to-blue-50/30 relative' : 'hover:border-brand-200'} transition-all`}>
+                {tier.highlighted && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 via-brand-600 to-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-modern-lg">
+                    Most Popular
+                  </div>
+                )}
 
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-500/20 text-primary-400 mb-4">
-                  {tier.icon}
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-2">{tier.name}</h3>
-                <p className="text-gray-400 mb-6">{tier.description}</p>
                 <div className="mb-6">
-                  <span className="text-5xl font-bold text-white">
-                    {typeof tier.price === 'string' ? tier.price : `$${tier.price}`}
-                  </span>
-                  {tier.period && <span className="text-gray-400">/{tier.period}</span>}
+                  <h3 className="text-2xl font-bold mb-1 text-navy-900">{tier.name}</h3>
+                  <p className="text-sm bg-gradient-to-r from-brand-600 to-brand-700 bg-clip-text text-transparent font-semibold mb-4">{tier.subtitle}</p>
+                  <p className="text-slate-600 mb-6">{tier.description}</p>
                 </div>
-              </div>
 
-              {/* Limits */}
-              <div className="mb-6 p-4 glass rounded-xl">
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Horses:</span>
-                    <span className="text-white font-semibold">{tier.features.limits.horses}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Team Members:</span>
-                    <span className="text-white font-semibold">{tier.features.limits.users}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Storage:</span>
-                    <span className="text-white font-semibold">{tier.features.limits.storage}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">API Calls:</span>
-                    <span className="text-white font-semibold">{tier.features.limits.apiCalls}</span>
-                  </div>
+                <div className="flex-grow mb-6">
+                  <ul className="space-y-3">
+                    {tier.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-success-400 to-success-500 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-modern">
+                          <Check className="h-3 w-3 text-white" />
+                        </div>
+                        <span className="text-sm text-slate-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
 
-              {/* Features List */}
-              <ul className="space-y-3 mb-8">
-                {tier.features.included.map((feature, idx) => (
-                  <li key={idx} className="flex items-start space-x-3">
-                    <Check className="h-5 w-5 text-primary-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA Button */}
-              <a
-                href="mailto:info@equissetix.com"
-                className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
-                  tier.popular
-                    ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:shadow-2xl hover:shadow-primary-500/50'
-                    : 'glass text-white hover:bg-white/10'
-                }`}
-              >
-                Contact for Pricing
-              </a>
+                <Button
+                  to="/contact"
+                  variant={tier.highlighted ? 'primary' : 'ghost'}
+                  className="w-full mt-auto"
+                >
+                  {tier.cta}
+                </Button>
+              </Card>
             </motion.div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Feature Comparison Table */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <Section background="gray">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass-strong rounded-3xl p-8 overflow-x-auto"
-        >
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Feature Comparison
-          </h2>
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left py-4 px-4 text-gray-400 font-semibold">Feature</th>
-                <th className="text-center py-4 px-4 text-gray-400 font-semibold">Starter</th>
-                <th className="text-center py-4 px-4 text-gray-400 font-semibold">Professional</th>
-                <th className="text-center py-4 px-4 text-gray-400 font-semibold">Elite</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                'Horse Management',
-                'Training Tracking',
-                'Health Monitoring',
-                'Basic Analytics',
-                'Advanced Analytics',
-                'AI Recommendations',
-                'Injury Prediction',
-                'Financial Management',
-                'Wearable Integration',
-                'Mobile Apps',
-                'API Access',
-                'Custom Integrations',
-                'Priority Support',
-                'Dedicated Account Manager',
-                'SLA Guarantee',
-              ].map((feature, idx) => (
-                <tr key={idx} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                  <td className="py-4 px-4 text-gray-300">{feature}</td>
-                  <td className="py-4 px-4 text-center">
-                    {['Horse Management', 'Training Tracking', 'Health Monitoring', 'Basic Analytics', 'Mobile Apps'].includes(feature) ? (
-                      <Check className="h-5 w-5 text-primary-400 mx-auto" />
-                    ) : (
-                      <span className="text-gray-600">—</span>
-                    )}
-                  </td>
-                  <td className="py-4 px-4 text-center">
-                    {!['Dedicated Account Manager', 'SLA Guarantee'].includes(feature) ? (
-                      <Check className="h-5 w-5 text-primary-400 mx-auto" />
-                    ) : (
-                      <span className="text-gray-600">—</span>
-                    )}
-                  </td>
-                  <td className="py-4 px-4 text-center">
-                    <Check className="h-5 w-5 text-primary-400 mx-auto" />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Feature <span className="text-gradient">Comparison</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Compare plans side-by-side to find the perfect fit for your operation
+          </p>
         </motion.div>
 
-        <div className="space-y-4">
-          {[
-            {
-              q: 'Can I change plans later?',
-              a: 'Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we\'ll prorate any charges accordingly.',
-            },
-            {
-              q: 'What happens if I exceed my plan limits?',
-              a: 'We\'ll notify you before you reach your limits. You can upgrade your plan or purchase additional capacity as needed. Contact us to discuss your specific requirements.',
-            },
-            {
-              q: 'When will pricing be available?',
-              a: 'Pricing will be announced soon. Contact us at info@equissetix.com to be notified when pricing is released and to discuss your specific needs.',
-            },
-            {
-              q: 'Do you offer discounts for annual plans?',
-              a: 'Yes, we plan to offer discounts for annual plans. Contact us at info@equissetix.com for more information about pricing and discounts.',
-            },
-            {
-              q: 'What payment methods do you accept?',
-              a: 'We will accept all major credit cards, ACH transfers, and wire transfers for enterprise plans. Contact us for details.',
-            },
-          ].map((faq, idx) => (
+        <div className="overflow-x-auto">
+          <Card className="p-0 overflow-hidden">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gradient-to-r from-brand-50 via-blue-50/30 to-purple-50/30 border-b-2 border-brand-200">
+                  <th className="text-left p-4 font-bold text-navy-900">Feature</th>
+                  <th className="text-center p-4 font-bold text-navy-900">Starter</th>
+                  <th className="text-center p-4 font-bold text-navy-900 bg-gradient-to-br from-brand-50/50 to-blue-50/30">Professional</th>
+                  <th className="text-center p-4 font-bold text-navy-900">Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Training Features */}
+                <tr className="bg-slate-50/50">
+                  <td colSpan={4} className="p-3 font-bold text-brand-600 uppercase text-xs tracking-wider">Training & Workouts</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Training & workout tracking</td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">ACWR training load monitoring</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">AI workout recommendations</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">GPS route recording</td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+
+                {/* Health Features */}
+                <tr className="bg-slate-50/50">
+                  <td colSpan={4} className="p-3 font-bold text-success-600 uppercase text-xs tracking-wider">Health & Wellness</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Health monitoring & alerts</td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Real-time gait analysis</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Veterinary record management</td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">8+ wearable integrations</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+
+                {/* Financial Features */}
+                <tr className="bg-slate-50/50">
+                  <td colSpan={4} className="p-3 font-bold text-brand-600 uppercase text-xs tracking-wider">Financial Management</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Basic expense tracking</td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Invoicing & expenses</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Full ERP & accounting</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Horse-centric profitability</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+
+                {/* Racing Features */}
+                <tr className="bg-slate-50/50">
+                  <td colSpan={4} className="p-3 font-bold text-purple-600 uppercase text-xs tracking-wider">Racing & Competition</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Race entry management</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">AI race predictions</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Gallop out metrics</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+
+                {/* Collaboration Features */}
+                <tr className="bg-slate-50/50">
+                  <td colSpan={4} className="p-3 font-bold text-blue-600 uppercase text-xs tracking-wider">Team & Collaboration</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">User accounts</td>
+                  <td className="p-4 text-center"><span className="text-sm font-semibold text-slate-700">1 user</span></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><span className="text-sm font-semibold text-slate-700">Up to 5</span></td>
+                  <td className="p-4 text-center"><span className="text-sm font-semibold text-slate-700">Unlimited</span></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Owner client portals</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Team collaboration tools</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+
+                {/* Support Features */}
+                <tr className="bg-slate-50/50">
+                  <td colSpan={4} className="p-3 font-bold text-cyan-600 uppercase text-xs tracking-wider">Support & Services</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Email support</td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Priority support</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">Dedicated account manager</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-4 text-slate-700">On-site training</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700">API access</td>
+                  <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center bg-gradient-to-br from-brand-50/30 to-blue-50/20"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
+                  <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Pricing Philosophy */}
+      <Section background="gray">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-6">
+              Why We Price <span className="text-gradient">Per Operation</span>
+            </h2>
+            <p className="text-lg text-slate-700 mb-4">
+              We believe software pricing should be simple and fair. You pay based on the size of your operation—not how many people use the platform.
+            </p>
+            <p className="text-lg text-slate-700">
+              This means your entire team can collaborate without worrying about per-user fees. Because better training requires teamwork.
+            </p>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* FAQs */}
+      <Section background="white">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Frequently Asked <span className="text-gradient">Questions</span>
+          </h2>
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto space-y-6">
+          {faqs.map((faq, index) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 10 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="glass p-6 rounded-xl"
+              transition={{ delay: index * 0.05 }}
             >
-              <h3 className="text-xl font-semibold text-white mb-2">{faq.q}</h3>
-              <p className="text-gray-400">{faq.a}</p>
+              <Card>
+                <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
+                <p className="text-slate-600">{faq.answer}</p>
+              </Card>
             </motion.div>
           ))}
         </div>
-      </section>
+      </Section>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-primary-900/20 to-accent-900/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-white">
+      {/* CTA */}
+      <Section background="gradient">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join leading trainers and stables using TrainerTree Pro
+          <p className="text-xl text-slate-700 mb-8">
+            Contact us to discuss pricing and start your free 14-day trial
           </p>
-          <a
-            href="mailto:info@equissetix.com"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:shadow-primary-500/50 transition-all duration-200"
-          >
-            <span>Contact Us for Pricing</span>
-            <ArrowRight className="h-5 w-5" />
-          </a>
-        </div>
-      </section>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button to="/contact" variant="primary" size="lg">
+              Contact Us for Pricing
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+            <Button to="/contact" variant="ghost" size="lg">
+              Schedule a Demo
+            </Button>
+          </div>
+        </motion.div>
+      </Section>
     </div>
   )
 }

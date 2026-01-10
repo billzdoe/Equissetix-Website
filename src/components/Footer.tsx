@@ -1,44 +1,40 @@
 import { Link } from 'react-router-dom'
-import { Zap, Mail, Twitter, Linkedin } from 'lucide-react'
+import { Mail, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
+import NewsletterSignup from './NewsletterSignup'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="border-t border-white/10 bg-gray-900/50">
+    <footer className="bg-navy-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Zap className="h-6 w-6 text-primary-400" />
-              <span className="text-xl font-bold text-gradient">Equissetix</span>
+          <div className="lg:col-span-1 space-y-4">
+            <div>
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-forest-500 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-white font-bold text-xl">T</span>
+              </div>
+              <h3 className="text-xl font-bold text-gradient mb-2">TrainingTree</h3>
+              <p className="text-xs text-slate-400">by Equissetix</p>
             </div>
-            <p className="text-gray-400 text-sm">
-              Advanced equine training technology powered by AI and data science.
+            <p className="text-slate-400 text-sm">
+              The complete horse training management platform for professional trainers and horse owners.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Solutions */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h4 className="text-white font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  Home
+                <Link to="/solutions/racing-trainers" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  For Racing Trainers
                 </Link>
               </li>
               <li>
-                <Link to="/breeds" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  Breeds
-                </Link>
-              </li>
-              <li>
-                <Link to="/features" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  Pricing
+                <Link to="/solutions/horse-owners" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  For Horse Owners
                 </Link>
               </li>
             </ul>
@@ -46,81 +42,152 @@ const Footer = () => {
 
           {/* Platform */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Platform</h3>
+            <h4 className="text-white font-semibold mb-4">Platform</h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="https://equissetix.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                >
-                  TrainerTree Pro
-                </a>
+                <Link to="/trainingtree/training" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Training & Workouts
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                >
-                  Documentation
-                </a>
+                <Link to="/trainingtree/health" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Health & Wellness
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                >
-                  API Reference
-                </a>
+                <Link to="/trainingtree/financial" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Financial Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Pricing
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Resources */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3">
+            <h4 className="text-white font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/breeds" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Breeds
+                </Link>
+              </li>
+              <li>
+                <Link to="/disciplines" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Disciplines
+                </Link>
+              </li>
+              <li>
+                <Link to="/compare" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Compare
+                </Link>
+              </li>
+              <li>
+                <Link to="/case-studies" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company & Contact */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/about" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                  Contact
+                </Link>
+              </li>
               <li>
                 <a
                   href="mailto:info@equissetix.com"
-                  className="flex items-center space-x-2 text-gray-400 hover:text-primary-400 transition-colors text-sm"
+                  className="flex items-center space-x-2 text-slate-400 hover:text-teal-400 transition-colors text-sm"
                 >
                   <Mail className="h-4 w-4" />
-                  <span>info@equissetix.com</span>
+                  <span>Email Us</span>
                 </a>
               </li>
-              <li className="flex items-center space-x-4 pt-2">
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-primary-400 transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-primary-400 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
+              <li className="pt-2">
+                <div className="flex items-center space-x-3">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-4 w-4" />
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Equissetix LLC. All rights reserved.
+        {/* Newsletter Signup */}
+        <div className="mt-12 pt-8 border-t border-slate-800">
+          <div className="max-w-md mx-auto">
+            <NewsletterSignup variant="inline" />
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-400 text-sm">
+            © {currentYear} Equissetix. TrainingTree is a trademark of Equissetix.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+          <div className="flex flex-wrap justify-center gap-6">
+            <Link to="/privacy" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+            </Link>
+            <Link to="/terms" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
               Terms of Service
-            </a>
+            </Link>
+            <Link to="/security" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+              Security
+            </Link>
           </div>
         </div>
       </div>

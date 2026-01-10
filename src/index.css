@@ -4,27 +4,112 @@
 
 @layer base {
   body {
-    @apply bg-gray-950 text-gray-100 antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-white text-slate-800 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.01em;
   }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
+    @apply font-display font-bold text-navy-900;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
   }
 }
 
 @layer utilities {
+  /* Modern professional gradient - matching TrainerTree Pro gold/amber theme */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
-    animation: gradient 8s linear infinite;
+    animation: gradient-shift 8s ease infinite;
   }
-  
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Colorful hero gradient backgrounds - matching TrainerTree Pro */
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 15%, #fde68a 30%, #fef3c7 45%, #eff6ff 60%, #dbeafe 75%, #f0f9ff 100%);
+  }
+
+  .bg-hero-gradient-dark {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #1e40af 50%, #1e3a8a 100%);
+  }
+
+  /* Colorful section gradients - matching TrainerTree Pro */
+  .bg-section-gradient {
+    background: linear-gradient(to bottom, #ffffff 0%, #fffbeb 50%, #fef3c7 100%);
+  }
+
+  .bg-section-gradient-alt {
+    background: linear-gradient(to bottom, #fef3c7 0%, #ffffff 50%, #eff6ff 100%);
+  }
+
+  /* Modern accent gradient - gold to amber */
+  .bg-accent-gradient {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  }
+
+  /* Colorful blue gradient */
+  .bg-blue-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  }
+
+  /* Colorful purple gradient */
+  .bg-purple-gradient {
+    background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+  }
+
+  /* Dark enterprise backgrounds */
+  .bg-enterprise {
+    background: linear-gradient(to bottom right, #0f172a, #1e293b, #1e40af);
+  }
+
+  .bg-enterprise-light {
+    background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+  }
+
+  /* Dark section with subtle gradient */
+  .bg-dark-section {
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+  }
+
+  /* Glass morphism effect */
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
-  
-  .glass-strong {
-    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+
+  /* Modern shadow utilities */
+  .shadow-modern {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-modern-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@layer components {
+  /* Card with enterprise feel */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-slate-200 p-8 hover:shadow-md transition-all duration-300;
+  }
+
+  /* Generous padding like OpenGov */
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
 }
 
@@ -33,19 +118,188 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - minimal and elegant */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-900;
+  @apply bg-slate-50;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full;
+  @apply bg-slate-300 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-600;
+  @apply bg-slate-400;
+}
+
+/* Micro-interactions - Global smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover lift effect for interactive elements */
+a, button, [role="button"] {
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover, button:hover, [role="button"]:hover {
+  transform: translateY(-1px);
+}
+
+a:active, button:active, [role="button"]:active {
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth focus states */
+:focus {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Link underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Pulse animation for badges/notifications */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glow effect on hover */
+.glow-on-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.glow-on-hover:hover::before {
+  opacity: 0.7;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Skeleton loading animation */
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 0%,
+    #e2e8f0 20%,
+    #f1f5f9 40%,
+    #f1f5f9 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+/* Fade in animation for content */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* Ripple effect on click */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
 }

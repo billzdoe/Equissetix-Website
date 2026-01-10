@@ -1,63 +1,251 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Button from './Button'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const location = useLocation()
 
-  const navItems = [
-    { path: '/', label: 'Home' },
+  const productLinks = [
+    {
+      category: 'Core Platform',
+      links: [
+        { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'ACWR monitoring, AI recommendations' },
+        { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Real-time health scores, vet integration' },
+        { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Complete ERP for horse operations' },
+        { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'AI predictions, competitor analysis' },
+      ]
+    },
+    {
+      category: 'Features',
+      links: [
+        { path: '/trainingtree/mobile', label: 'Mobile App', desc: 'Barn management on the go' },
+        { path: '/trainingtree/integrations', label: 'Integrations', desc: '8+ wearable devices' },
+        { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Data-driven insights' },
+        { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Multi-user workflows' },
+      ]
+    }
+  ]
+
+  const solutionsLinks = [
+    { path: '/solutions/racing-trainers', label: 'Racing Trainers', desc: 'Optimize performance, prevent injuries' },
+    { path: '/solutions/horse-owners', label: 'Horse Owners', desc: 'Complete transparency and insights' },
+    { path: '/solutions/training-facilities', label: 'Training Facilities', desc: 'Enterprise-grade management' },
+    { path: '/solutions/veterinarians', label: 'Veterinarians', desc: 'Seamless health data integration' },
+  ]
+
+  const resourcesLinks = [
+    { path: '/case-studies', label: 'Case Studies' },
+    { path: '/blog', label: 'Blog' },
     { path: '/breeds', label: 'Breeds' },
-    { path: '/features', label: 'Features' },
-    { path: '/pricing', label: 'Pricing' },
+    { path: '/disciplines', label: 'Disciplines' },
+    { path: '/compare', label: 'Compare' },
   ]
 
   const isActive = (path: string) => location.pathname === path
 
+  const handleMouseEnter = (dropdown: string) => {
+    setActiveDropdown(dropdown)
+  }
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null)
+  }
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-modern">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <Zap className="h-8 w-8 text-primary-400 group-hover:text-primary-300 transition-colors" />
-              <div className="absolute inset-0 bg-primary-400/20 blur-xl rounded-full" />
+          {/* Logo - Equissetix Company */}
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-brand-500 via-brand-600 to-blue-600 rounded-lg flex items-center justify-center group-hover:shadow-modern-lg transition-all transform group-hover:scale-105">
+                <span className="text-white font-bold text-lg">E</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-navy-900 tracking-tight">Equissetix</span>
+                <span className="text-xs text-slate-500 -mt-1">Enterprise Horse Management</span>
+              </div>
             </div>
-            <span className="text-2xl font-bold text-gradient">Equissetix</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive(item.path)
-                    ? 'bg-primary-500/20 text-primary-300'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+          <div className="hidden lg:flex items-center space-x-1">
+            {/* Product (TrainingTree) Mega Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('product')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'product' ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100' : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
                 }`}
               >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href="https://equissetix.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-200"
+                TrainingTree
+                <ChevronDown className="h-4 w-4" />
+              </button>
+
+              <AnimatePresence>
+                {activeDropdown === 'product' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-xl shadow-modern-lg border border-slate-200/50 p-6 backdrop-blur-sm"
+                  >
+                    <div className="grid grid-cols-2 gap-6">
+                      {productLinks.map((category, idx) => (
+                        <div key={idx}>
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                            {category.category}
+                          </h4>
+                          <div className="space-y-1">
+                            {category.links.map((link) => (
+                              <Link
+                                key={link.path}
+                                to={link.path}
+                                className="block px-3 py-2 rounded-md hover:bg-brand-50 transition-colors group"
+                              >
+                                <div className="font-semibold text-sm text-navy-900 group-hover:text-brand-600">
+                                  {link.label}
+                                </div>
+                                <div className="text-xs text-slate-500 mt-0.5">
+                                  {link.desc}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Solutions Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('solutions')}
+              onMouseLeave={handleMouseLeave}
             >
-              Launch Platform
-            </a>
+              <button
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'solutions' ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100' : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                }`}
+              >
+                Solutions
+                <ChevronDown className="h-4 w-4" />
+              </button>
+
+              <AnimatePresence>
+                {activeDropdown === 'solutions' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-modern-lg border border-slate-200/50 p-4 backdrop-blur-sm"
+                  >
+                    <div className="space-y-1">
+                      {solutionsLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-3 py-2 rounded-md hover:bg-brand-50 transition-colors group"
+                        >
+                          <div className="font-semibold text-sm text-navy-900 group-hover:text-brand-600">
+                            {link.label}
+                          </div>
+                          <div className="text-xs text-slate-500 mt-0.5">
+                            {link.desc}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Resources Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('resources')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'resources' ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100' : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                }`}
+              >
+                Resources
+                <ChevronDown className="h-4 w-4" />
+              </button>
+
+              <AnimatePresence>
+                {activeDropdown === 'resources' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-modern-lg border border-slate-200/50 p-2 backdrop-blur-sm"
+                  >
+                    <div className="space-y-1">
+                      {resourcesLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-3 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 rounded-md transition-colors font-medium"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link
+              to="/pricing"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                isActive('/pricing')
+                  ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100'
+                  : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+              }`}
+            >
+              Pricing
+            </Link>
+
+            <Link
+              to="/company"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                isActive('/company')
+                  ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100'
+                  : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+              }`}
+            >
+              Company
+            </Link>
+
+            <div className="ml-4 flex items-center gap-3 pl-4 border-l border-slate-200">
+              <Button to="/contact" variant="primary" size="sm">
+                Request Demo
+              </Button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+            className="lg:hidden p-2 rounded-md text-slate-700 hover:bg-slate-50 transition-colors"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -71,32 +259,66 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-white/10"
+            className="lg:hidden bg-white border-t border-slate-200"
           >
-            <div className="px-4 py-4 space-y-2">
-              {navItems.map((item) => (
+            <div className="px-6 py-6 space-y-6 max-h-[80vh] overflow-y-auto">
+              {/* Mobile TrainingTree */}
+              <div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">TrainingTree</p>
+                <div className="space-y-2">
+                  {productLinks.flatMap(category => category.links).map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-3 py-2 rounded-md text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Solutions */}
+              <div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Solutions</p>
+                <div className="space-y-2">
+                  {solutionsLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-3 py-2 rounded-md text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Other Links */}
+              <div className="space-y-2">
                 <Link
-                  key={item.path}
-                  to={item.path}
+                  to="/pricing"
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-all ${
-                    isActive(item.path)
-                      ? 'bg-primary-500/20 text-primary-300'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
-                  }`}
+                  className="block px-3 py-2 rounded-md text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"
                 >
-                  {item.label}
+                  Pricing
                 </Link>
-              ))}
-              <a
-                href="https://equissetix.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-4 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Launch Platform
-              </a>
+                <Link
+                  to="/company"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 rounded-md text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"
+                >
+                  Company
+                </Link>
+              </div>
+
+              <div className="pt-4 border-t border-slate-200">
+                <Button to="/contact" variant="primary" size="md" className="w-full">
+                  Request Demo
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
