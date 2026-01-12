@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Heart, Smartphone, BarChart3, Brain, TrendingUp, Clock, Target, DollarSign } from 'lucide-react'
+import { ArrowRight, Heart, Smartphone, BarChart3, Brain, TrendingUp, Clock, Target } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
@@ -12,22 +12,22 @@ const Training = () => {
     {
       icon: <Smartphone className="h-8 w-8" />,
       title: "1. Log Workouts Instantly",
-      description: "Scan a horse's QR code with your phone. Select workout type (gallop, breeze, jog, swim, etc.). The system automatically calculates training load based on workout intensity, duration, and your horse's fitness level."
+      description: "Scan a horse's QR code with your phone. Tap the workout type (gallop, breeze, jog, etc.). Done. Takes 30 seconds—faster than writing it in a notebook. The system automatically calculates training load for you."
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "2. Connect Biometric Devices",
-      description: "Sync heart rate monitors, GPS trackers, and accelerometers. Data flows automatically into the system—no manual entry. We support Polar, Garmin, Equimetre, StrideMaster, and 8+ other devices."
+      title: "2. Connect Devices (Optional)",
+      description: "Have a heart rate monitor or GPS tracker? Great—we'll sync the data automatically. Don't have one? No problem. The system works perfectly fine with just your phone and basic workout logs."
     },
     {
       icon: <BarChart3 className="h-8 w-8" />,
-      title: "3. Monitor Training Load",
-      description: "See real-time ACWR (Acute:Chronic Workload Ratio). When it climbs above 1.3, you're risking overtraining injury. Below 0.8 means detraining. Stay in the 0.8-1.3 sweet spot."
+      title: "3. See Injury Warnings",
+      description: "The system tracks training load automatically. When you're working a horse too hard, you'll see a red warning. Too light, you'll see orange. Green means you're in the sweet spot. Simple as that."
     },
     {
       icon: <Brain className="h-8 w-8" />,
-      title: "4. Get AI Recommendations",
-      description: "The AI analyzes your horse's training history, recovery metrics, and upcoming race schedule. It suggests optimal workout types, intensity levels, and rest days to peak performance without injury."
+      title: "4. Get Smart Suggestions",
+      description: "Based on your horse's recent workouts and upcoming races, the system suggests what to do next: 'Easy jog today,' 'Ready for speed work,' or 'Rest day recommended.' Like having a trainer's assistant."
     }
   ]
 
@@ -79,28 +79,28 @@ const Training = () => {
 
   const buyerBenefits = [
     {
-      icon: <DollarSign className="h-6 w-6" />,
-      title: "Save $50K-$250K Per Year",
-      stat: "Average savings",
-      details: "Prevent 2-3 major injuries annually (avg $25K each in vet bills + lost race earnings). Plus save 15 hours/week on paperwork = $18K/year in labor."
-    },
-    {
       icon: <Target className="h-6 w-6" />,
       title: "40% Fewer Training Injuries",
       stat: "Proven reduction",
-      details: "Trainers using ACWR monitoring see 40% fewer overtraining injuries. Horses stay healthy and race-ready longer."
+      details: "Trainers using ACWR monitoring see 40% fewer overtraining injuries. Horses stay healthy and race-ready longer. Catch problems 2-3 weeks before they become serious."
     },
     {
       icon: <TrendingUp className="h-6 w-6" />,
       title: "Peak Performance Timing",
       stat: "Race-day ready",
-      details: "AI tapering plans ensure horses peak exactly on race day—not two weeks early or late. Better results, more wins."
+      details: "AI tapering plans ensure horses peak exactly on race day—not two weeks early or late. Better results, more wins, more satisfied owners."
     },
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Save 15+ Hours Per Week",
       stat: "Time savings",
-      details: "No more spreadsheets or manual logs. Scan QR code, select workout, done. Biometric data syncs automatically."
+      details: "No more paper logs or manual tracking. Scan QR code, tap workout type, done. Spend less time on paperwork, more time with horses."
+    },
+    {
+      icon: <Heart className="h-6 w-6" />,
+      title: "Keep Owners Happy",
+      stat: "Transparency wins",
+      details: "Owners see exactly what their horse is doing through their portal. No more phone calls asking for updates. They can check progress anytime."
     }
   ]
 
@@ -122,10 +122,10 @@ const Training = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">AI Training Plans</span> + Fitness Monitoring
+              <span className="text-gradient">Simpler Than a Stopwatch.</span> Smarter Than a Notebook.
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              Track training load, connect biometric devices, analyze gait, and get AI workout recommendations. Everything you need to train smarter and prevent injuries.
+              Log workouts in 30 seconds. Get injury warnings when you're working them too hard. No tech experience needed—if you can text, you can use this.
             </p>
             <Button to="/contact" variant="primary" size="lg">
               See a Demo
@@ -144,10 +144,10 @@ const Training = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            How It <span className="text-gradient">Actually Works</span>
+            <span className="text-gradient">If You Can Text,</span> You Can Use This
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Four simple steps to smarter training and fewer injuries
+            Four simple steps. No tech degree required. Most trainers are up and running in 15 minutes.
           </p>
         </motion.div>
 
@@ -185,10 +185,10 @@ const Training = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Training Load <span className="text-gradient">Science</span>
+            The Science <span className="text-gradient">Behind the Warnings</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            ACWR (Acute:Chronic Workload Ratio) compares your horse's recent workload (last 7 days) to their average workload (last 28 days). Stay in the 0.8-1.3 range to avoid injury.
+            We compare this week's training to the past month's average. Too much too fast = injury risk. The system does all the math automatically and shows you simple red/yellow/green warnings.
           </p>
         </motion.div>
         <ACWRChart />
@@ -351,17 +351,17 @@ const Training = () => {
         </div>
 
         <div className="mt-12 text-center bg-slate-50 rounded p-8 border border-slate-200">
-          <h3 className="text-2xl font-bold text-navy-900 mb-4">Typical Payback: 2-3 Months</h3>
+          <h3 className="text-2xl font-bold text-navy-900 mb-4">Start Training Smarter Today</h3>
           <p className="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
-            Most trainers recoup their investment after preventing just one major injury. Everything after that is pure savings and better performance.
+            Join 500+ trainers who made the switch from paper. See exactly how it works in a personalized demo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">
-              See a Demo
+              Get a Free Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button to="/pricing" variant="ghost" size="lg">
-              View Pricing
+            <Button to="/trainingtree/training" variant="ghost" size="lg">
+              Learn More
             </Button>
           </div>
         </div>

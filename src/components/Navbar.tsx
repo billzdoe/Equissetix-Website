@@ -15,6 +15,7 @@ const Navbar = () => {
       links: [
         { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'ACWR monitoring, AI recommendations' },
         { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Real-time health scores, vet integration' },
+        { path: '/trainingtree/nutrition', label: 'Nutrition & Feed', desc: 'Feed tracking, supplements, body weight' },
         { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Complete ERP for horse operations' },
         { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'AI predictions, competitor analysis' },
       ]

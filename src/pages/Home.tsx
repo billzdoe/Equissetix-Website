@@ -15,12 +15,15 @@ import {
   BarChart3,
   Check,
   Star,
+  Zap,
 } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
 import TrustBadges from '../components/TrustBadges'
 import VideoEmbed from '../components/VideoEmbed'
+import TrackConditionFeature from '../components/TrackConditionFeature'
+import HowItWorksSteps from '../components/HowItWorksSteps'
 
 const Home = () => {
   const problems = [
@@ -29,69 +32,69 @@ const Home = () => {
       title: "Lost to Injuries",
       stat: "30% of horses",
       description: "sidelined annually due to preventable overtraining",
-      detail: "Without training load monitoring, you're flying blind"
+      detail: "Paper can't tell you when your horse needs a rest day"
     },
     {
       icon: <Clock className="h-8 w-8" />,
-      title: "Lost to Admin",
+      title: "Lost to Paperwork",
       stat: "15-20 hours/week",
-      description: "spent on paperwork and data entry",
-      detail: "Time that should be spent training horses, not updating spreadsheets"
+      description: "spent on paper logs, filing, and record-keeping",
+      detail: "Time that should be spent with horses, not buried in filing cabinets"
     },
     {
       icon: <Link2Off className="h-8 w-8" />,
-      title: "Lost to Disconnection",
-      stat: "7+ different tools",
-      description: "to manage one operation",
-      detail: "Spreadsheets, paper logs, messaging apps, accounting software—nothing talks to each other"
+      title: "Lost to Chaos",
+      stat: "Notebooks everywhere",
+      description: "scattered between trucks, barns, and offices",
+      detail: "Remember when you forgot to write down that workout? Or couldn't read your own handwriting?"
     }
   ]
 
   const features = [
     {
-      icon: <Activity className="h-6 w-6" />,
-      title: "Training Load Monitoring",
-      description: "ACWR science prevents overtraining injuries"
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "30-Second Workout Logging",
+      description: "Scan QR code, tap workout type. Done. Faster than writing in a notebook."
     },
     {
-      icon: <Brain className="h-6 w-6" />,
-      title: "AI Workout Planning",
-      description: "Get smart training plans based on fitness data"
+      icon: <Activity className="h-6 w-6" />,
+      title: "Automatic Barn Walk Insights",
+      description: "Log observations during barn walks. System flags patterns and alerts you to trends."
     },
     {
       icon: <TrendingUp className="h-6 w-6" />,
-      title: "Race Tapering Plans",
-      description: "Automated peak performance scheduling"
+      title: "Track Condition Recommendations",
+      description: "See which track surfaces your horse excels on. System flags races with favorable conditions."
     },
     {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Wearable Device Sync",
-      description: "Connect heart rate monitors and GPS trackers"
-    },
-    {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile App + QR Codes",
-      description: "Scan horses, log workouts from the barn"
-    },
-    {
-      icon: <DollarSign className="h-6 w-6" />,
-      title: "Owner Invoicing",
-      description: "Automatic billing and payment tracking"
+      icon: <Brain className="h-6 w-6" />,
+      title: "AI Training Recommendations",
+      description: "System suggests next workouts based on recent training and upcoming races."
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Owner Portals",
-      description: "Let owners see their horse's progress online"
+      title: "Full Staff Management",
+      description: "Assign tasks, track who fed what, manage schedules. Everyone knows their job."
+    },
+    {
+      icon: <Heart className="h-6 w-6" />,
+      title: "Vet & Health Records",
+      description: "Store exams, medications, vaccinations. Complete health history in one place."
     },
     {
       icon: <Shield className="h-6 w-6" />,
-      title: "Vet Record Management",
-      description: "Store exams, medications, and vaccinations"
+      title: "Feed & Supplement Tracking",
+      description: "Log what each horse eats. Track supplements. Get alerts when supplies run low."
+    },
+    {
+      icon: <DollarSign className="h-6 w-6" />,
+      title: "Owner Invoicing & Portals",
+      description: "Bill owners automatically. They see their horse's progress online anytime."
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
-      title: "Performance Analytics",
-      description: "Track trends and compare horses"
+      title: "Gallop Out & Performance Analytics",
+      description: "Track gallop outs, race performance, and trends across your entire barn."
     }
   ]
 
@@ -160,12 +163,26 @@ const Home = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section - Professional Clean Banner */}
-      <Section background="gradient" className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Subtle background element - single accent color only */}
+      {/* Hero Section - Vibrant & Energetic */}
+      <Section background="gradient" className="relative min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
+        {/* Geometric Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-navy-900/5 rounded-full blur-3xl"></div>
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-teal-500/10 to-blue-500/10"
+          ></motion.div>
+          <motion.div
+            animate={{
+              rotate: [360, 0],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-gold-500/10 to-green-700/10"
+          ></motion.div>
         </div>
 
         <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
@@ -176,59 +193,68 @@ const Home = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded text-sm font-semibold text-slate-700 mb-4 shadow-sm">
-              <span className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></span>
-              Enterprise Horse Management Platform
-            </div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-              Complete Barn Management with{' '}
-              <span className="text-gradient block mt-2">AI Training Plans.</span>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-gold-500 text-sm font-bold text-charcoal-900 mb-4 shadow-md"
+            >
+              <Zap className="h-4 w-4 text-gold-500 animate-pulse" />
+              AI-Powered Horse Training Platform
+            </motion.div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-charcoal-900">
+              The Complete{' '}
+              <span className="text-gradient block mt-2">Horse Training Management Platform</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-2xl">
-              Track workouts, monitor fitness, manage vet records, handle finances, and get AI-powered training recommendations—all in one place.
+            <p className="text-xl md:text-2xl text-charcoal-800 leading-relaxed max-w-2xl font-medium">
+              AI-Powered Insights. Real Science. 8+ Device Integrations. Everything you need to optimize performance and manage operations in one powerful system.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button to="/contact" variant="primary" size="lg" className="group">
-                Get a Free Demo
+                Start Free Trial
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button to="/trainingtree/training" variant="ghost" size="lg">
-                See How It Works
+                Watch Demo Video
               </Button>
             </div>
 
-            {/* Trust Signals */}
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-success-100 flex items-center justify-center">
-                  <Check className="h-3 w-3 text-success-600" />
-                </div>
-                <span>500+ trainers & facilities</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-success-100 flex items-center justify-center">
-                  <Check className="h-3 w-3 text-success-600" />
-                </div>
-                <span>40% fewer injuries</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-success-100 flex items-center justify-center">
-                  <Check className="h-3 w-3 text-success-600" />
-                </div>
-                <span>Save 15+ hours per week</span>
-              </div>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="pt-6">
-              <TrustBadges variant="compact" />
+            {/* Animated Statistics */}
+            <div className="grid grid-cols-3 gap-4 pt-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-center p-4 bg-white border-2 border-teal-500 shadow-md"
+              >
+                <p className="text-3xl font-bold text-teal-600 font-mono">500+</p>
+                <p className="text-sm font-semibold text-charcoal-700">Operations</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-center p-4 bg-white border-2 border-gold-500 shadow-md"
+              >
+                <p className="text-3xl font-bold text-gold-600 font-mono">10K+</p>
+                <p className="text-sm font-semibold text-charcoal-700">Horses Tracked</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-center p-4 bg-white border-2 border-green-700 shadow-md"
+              >
+                <p className="text-3xl font-bold text-green-700 font-mono">8+</p>
+                <p className="text-sm font-semibold text-charcoal-700">Devices</p>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Right Column - Modern Visual */}
+          {/* Right Column - Vibrant Dashboard Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -236,40 +262,48 @@ const Home = () => {
             className="relative"
           >
             <div className="relative">
-              {/* Main card with sharp professional styling */}
-              <div className="relative bg-white rounded p-8 shadow-modern-lg border border-slate-200">
+              {/* Main card with sharp styling and vibrant accents */}
+              <div className="relative bg-white p-8 shadow-elevation border-t-4 border-t-gold-500">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-lg text-navy-900">Training Load Dashboard</h3>
-                    <span className="text-xs bg-success-50 text-success-700 px-3 py-1.5 rounded font-semibold border border-success-200">Optimal Zone</span>
+                    <h3 className="font-bold text-lg text-charcoal-900">Training Load Dashboard</h3>
+                    <span className="text-xs bg-green-600 text-white px-3 py-1.5 font-bold border-2 border-green-700">Optimal Zone</span>
                   </div>
 
-                  {/* Professional chart visualization - single brand color */}
-                  <div className="h-40 bg-slate-50 rounded p-4 flex items-end justify-around gap-2 border border-slate-200">
-                    {[65, 75, 85, 78, 70, 82, 88].map((height, i) => (
+                  {/* Vibrant chart visualization */}
+                  <div className="h-40 bg-slate-100 p-4 flex items-end justify-around gap-2 border-2 border-slate-200">
+                    {[
+                      { height: 65, color: 'teal' },
+                      { height: 75, color: 'blue' },
+                      { height: 85, color: 'gold' },
+                      { height: 78, color: 'green' },
+                      { height: 70, color: 'teal' },
+                      { height: 82, color: 'blue' },
+                      { height: 88, color: 'gold' },
+                    ].map((bar, i) => (
                       <motion.div
                         key={i}
                         initial={{ height: 0 }}
-                        animate={{ height: `${height}%` }}
+                        animate={{ height: `${bar.height}%` }}
                         transition={{ duration: 0.8, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-                        className="w-10 bg-brand-500 rounded-t shadow-sm"
+                        className={`w-10 bg-${bar.color}-500 shadow-sm`}
                       />
                     ))}
                   </div>
 
-                  {/* Clean stats grid */}
+                  {/* Colorful stats grid */}
                   <div className="grid grid-cols-3 gap-4 pt-2">
-                    <div className="text-center p-3 rounded bg-slate-50 border border-slate-200">
-                      <p className="text-xs text-slate-600 font-medium mb-1">Health Score</p>
-                      <p className="text-2xl font-bold text-navy-900">94%</p>
+                    <div className="text-center p-3 bg-teal-50 border-2 border-teal-200">
+                      <p className="text-xs text-teal-800 font-bold mb-1">Health Score</p>
+                      <p className="text-2xl font-bold text-teal-600 font-mono">94%</p>
                     </div>
-                    <div className="text-center p-3 rounded bg-slate-50 border border-slate-200">
-                      <p className="text-xs text-slate-600 font-medium mb-1">Training Load</p>
-                      <p className="text-2xl font-bold text-navy-900">1.2</p>
+                    <div className="text-center p-3 bg-blue-50 border-2 border-blue-200">
+                      <p className="text-xs text-blue-800 font-bold mb-1">Training Load</p>
+                      <p className="text-2xl font-bold text-blue-600 font-mono">1.2</p>
                     </div>
-                    <div className="text-center p-3 rounded bg-slate-50 border border-slate-200">
-                      <p className="text-xs text-slate-600 font-medium mb-1">Race Readiness</p>
-                      <p className="text-2xl font-bold text-brand-500">High</p>
+                    <div className="text-center p-3 bg-gold-50 border-2 border-gold-200">
+                      <p className="text-xs text-gold-800 font-bold mb-1">Readiness</p>
+                      <p className="text-2xl font-bold text-gold-600 font-mono">High</p>
                     </div>
                   </div>
                 </div>
@@ -289,10 +323,10 @@ const Home = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Your Current System Is <span className="text-navy-900">Costing You</span>
+            Paper Logs Are <span className="text-navy-900">Costing You Money</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Every day without proper training management means lost revenue, preventable injuries, and wasted time.
+            Illegible notes, lost records, and no injury warnings. There's a better way.
           </p>
         </motion.div>
 
@@ -393,8 +427,8 @@ const Home = () => {
         </div>
       </Section>
 
-      {/* Key Features Grid */}
-      <Section background="white">
+      {/* Key Features Grid - Vibrant */}
+      <Section background="white" className="bg-section-gradient">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -406,32 +440,42 @@ const Home = () => {
             Everything You Need to <span className="text-gradient">Manage Your Barn</span>
           </h2>
           <p className="text-xl text-slate-600">
-            From daily workouts to owner billing—all in one system
+            From daily workouts to owner billing—all in one powerful system
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <Card className="flex items-start gap-4 hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
-                <div className="w-12 h-12 bg-brand-500 rounded flex items-center justify-center flex-shrink-0 text-white">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="font-bold mb-1 text-navy-900">{feature.title}</h3>
-                  <p className="text-sm text-slate-600">{feature.description}</p>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+          {features.map((feature, index) => {
+            const colors = ['teal', 'blue', 'gold', 'green', 'burgundy', 'teal', 'blue', 'gold', 'green'];
+            const color = colors[index % colors.length];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+              >
+                <Card className={`flex items-start gap-4 hover:border-${color}-500 transition-all border-2 border-slate-200 hover:border-l-4`}>
+                  <div className={`w-12 h-12 bg-${color}-500 flex items-center justify-center flex-shrink-0 text-white shadow-md`}>
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold mb-2 text-charcoal-900">{feature.title}</h3>
+                    <p className="text-sm text-slate-600">{feature.description}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </Section>
+
+      {/* Track Condition Analysis - NEW PROMINENT FEATURE */}
+      <TrackConditionFeature />
+
+      {/* How It Works Section */}
+      <HowItWorksSteps />
 
       {/* Social Proof Section */}
       <Section background="gray">
@@ -480,19 +524,19 @@ const Home = () => {
         <div className="grid md:grid-cols-4 gap-8 text-center mb-12">
           <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
             <p className="text-4xl font-bold text-navy-900 mb-2">500+</p>
-            <p className="text-slate-600 font-medium">Trainers Trust TrainingTree</p>
+            <p className="text-slate-600 font-medium">Trainers Made the Switch</p>
           </div>
           <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
-            <p className="text-4xl font-bold text-navy-900 mb-2">10,000+</p>
-            <p className="text-slate-600 font-medium">Horses Managed</p>
+            <p className="text-4xl font-bold text-navy-900 mb-2">Zero</p>
+            <p className="text-slate-600 font-medium">Went Back to Paper</p>
           </div>
           <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
             <p className="text-4xl font-bold text-navy-900 mb-2">40%</p>
-            <p className="text-slate-600 font-medium">Reduction in Training Injuries</p>
+            <p className="text-slate-600 font-medium">Fewer Training Injuries</p>
           </div>
           <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
-            <p className="text-4xl font-bold text-navy-900 mb-2">$250K</p>
-            <p className="text-slate-600 font-medium">Average Savings Per Year</p>
+            <p className="text-4xl font-bold text-navy-900 mb-2">15 hrs</p>
+            <p className="text-slate-600 font-medium">Saved Per Week</p>
           </div>
         </div>
 
@@ -598,41 +642,73 @@ const Home = () => {
         </motion.div>
       </Section>
 
-      {/* Final CTA - Professional */}
-      <Section background="gradient" className="relative overflow-hidden">
-        {/* Subtle background element */}
+      {/* Final CTA - Vibrant & Compelling */}
+      <section className="relative overflow-hidden bg-section-green py-24">
+        {/* Geometric Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-navy-900/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 transform rotate-45"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/5 transform -rotate-45"></div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto relative z-10"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Transform Your Training Operation?
-          </h2>
-          <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-            Join top trainers using TrainingTree to optimize performance, prevent injuries, and maximize results. Book a personalized demo and see how TrainingTree fits your operation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/contact" variant="primary" size="lg" className="group">
-              Schedule Your Free Demo
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button to="/pricing" variant="secondary" size="lg">
-              Start Free 14-Day Trial
-            </Button>
-          </div>
-          <p className="text-sm text-slate-500 mt-6">
-            No credit card required • Full access • Cancel anytime
-          </p>
-        </motion.div>
-      </Section>
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border-2 border-white/30 text-sm font-bold text-white mb-6"
+            >
+              <Zap className="h-4 w-4 animate-pulse" />
+              Join 500+ Operations Already Using TrainerTree Pro
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+              Ready to Transform Your Training Operation?
+            </h2>
+            <p className="text-xl md:text-2xl text-white/95 mb-10 leading-relaxed font-medium">
+              Get AI-powered insights, prevent injuries, and optimize performance. Start your free trial today—no credit card required.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button to="/contact" variant="primary" size="lg" className="group bg-gold-500 hover:bg-gold-600 text-white text-xl px-10 py-5">
+                Start Free Trial Now
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button to="/pricing" variant="secondary" size="lg" className="bg-white text-green-700 hover:bg-white/90 text-xl px-10 py-5 border-2 border-white">
+                View Pricing Plans
+              </Button>
+            </div>
+
+            {/* Trust Signals */}
+            <div className="flex flex-wrap justify-center gap-8 pt-6 border-t-2 border-white/20">
+              <div className="flex items-center gap-2 text-white font-semibold">
+                <div className="w-6 h-6 bg-white flex items-center justify-center">
+                  <Check className="h-4 w-4 text-green-600" />
+                </div>
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center gap-2 text-white font-semibold">
+                <div className="w-6 h-6 bg-white flex items-center justify-center">
+                  <Check className="h-4 w-4 text-green-600" />
+                </div>
+                <span>Full access for 14 days</span>
+              </div>
+              <div className="flex items-center gap-2 text-white font-semibold">
+                <div className="w-6 h-6 bg-white flex items-center justify-center">
+                  <Check className="h-4 w-4 text-green-600" />
+                </div>
+                <span>Cancel anytime</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   )
 }

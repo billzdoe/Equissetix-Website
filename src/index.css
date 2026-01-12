@@ -1,62 +1,93 @@
+/* Import Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-white text-slate-800 antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    letter-spacing: -0.01em;
+    @apply bg-cream-50 text-charcoal-900 antialiased;
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: 0.01em;
+    font-size: 18px;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-navy-900;
-    letter-spacing: -0.03em;
+    @apply font-display font-bold text-charcoal-900;
+    letter-spacing: -0.02em;
     line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 3.5rem;  /* 56px */
+  }
+
+  h2 {
+    font-size: 2.5rem;  /* 40px */
+  }
+
+  h3 {
+    font-size: 1.875rem;  /* 30px */
   }
 }
 
 @layer utilities {
-  /* Professional accent text - single color only */
+  /* Vibrant gradient text */
   .text-gradient {
-    color: #00A0E4;
+    background: linear-gradient(135deg, #0F5132 0%, #14B8A6 50%, #2563EB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Clean backgrounds - no rainbow gradients */
+  /* Vibrant hero gradients with movement */
   .bg-hero-gradient {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    background: linear-gradient(135deg, #F8FAFC 0%, #14B8A6 0%, #14B8A6 1%, #F8FAFC 1%, #F8FAFC 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
   }
 
-  .bg-hero-gradient-dark {
-    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  .bg-hero-gradient-vibrant {
+    background: linear-gradient(135deg, #0F5132 0%, #14B8A6 50%, #F59E0B 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
   }
 
-  /* Subtle professional gradients */
+  /* Colored section backgrounds - no white */
   .bg-section-gradient {
-    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+    background: linear-gradient(to bottom, #F8FAFC 0%, #e2e8f0 100%);
   }
 
   .bg-section-gradient-alt {
-    background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #e2e8f0 0%, #F8FAFC 100%);
   }
 
-  /* Single color accent - no gradients */
+  .bg-section-teal {
+    background: linear-gradient(135deg, #14B8A6 0%, #0d9488 100%);
+  }
+
+  .bg-section-green {
+    background: linear-gradient(135deg, #0F5132 0%, #16a34a 100%);
+  }
+
+  .bg-section-gold {
+    background: linear-gradient(135deg, #F59E0B 0%, #d97706 100%);
+  }
+
+  /* Vibrant accent gradients */
   .bg-accent-gradient {
-    background: #00A0E4;
+    background: linear-gradient(135deg, #F59E0B 0%, #fbbf24 100%);
   }
 
-  /* Enterprise backgrounds - dark and clean */
+  /* Dark enterprise backgrounds */
   .bg-enterprise {
-    background: linear-gradient(to bottom right, #0f172a, #1e293b);
+    background: linear-gradient(to bottom right, #0F172A, #334155);
   }
 
-  .bg-enterprise-light {
-    background: #f8fafc;
-  }
-
-  /* Dark section - subtle */
   .bg-dark-section {
-    background: linear-gradient(to bottom, #1e293b, #0f172a);
+    background: linear-gradient(135deg, #0F172A 0%, #1e293b 100%);
   }
 
   /* Glass morphism effect */
@@ -90,6 +121,16 @@
 
   .container-custom {
     @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+}
+
+/* Gradient shift animation for vibrant backgrounds */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 

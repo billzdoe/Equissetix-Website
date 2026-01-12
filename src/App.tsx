@@ -17,6 +17,7 @@ import TrainingFacilities from './pages/solutions/TrainingFacilities'
 // TrainingTree pages
 import Training from './pages/platform/Training'
 import Health from './pages/platform/Health'
+import Nutrition from './pages/platform/Nutrition'
 import Financial from './pages/platform/Financial'
 import Racing from './pages/platform/Racing'
 import Mobile from './pages/platform/Mobile'
@@ -56,6 +57,7 @@ function App() {
           {/* TrainingTree routes */}
           <Route path="/trainingtree/training" element={<Training />} />
           <Route path="/trainingtree/health" element={<Health />} />
+          <Route path="/trainingtree/nutrition" element={<Nutrition />} />
           <Route path="/trainingtree/financial" element={<Financial />} />
           <Route path="/trainingtree/racing" element={<Racing />} />
           <Route path="/trainingtree/mobile" element={<Mobile />} />

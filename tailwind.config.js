@@ -7,36 +7,78 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand - Professional Cyan (inspired by Enduro Equine)
-        brand: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#00A0E4',  // Primary cyan-blue accent
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
-          950: '#083344',
+        // Primary Colors - Vibrant & Professional (from build prompt)
+        green: {
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#0F5132',  // Deep Racing Green - Primary brand
+          800: '#166534',
+          900: '#14532d',
+          950: '#052e16',
         },
-        // Secondary - Deep Blue for enterprise feel
+        // Energetic Gold/Amber - Primary accent
+        gold: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#F59E0B',  // Primary CTA color
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+          950: '#451a03',
+        },
+        // Bright Turquoise/Teal - Secondary accent
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14B8A6',  // Technology, clarity
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
+        },
+        // Rich Burgundy - Tertiary accent
+        burgundy: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#991B1B',  // Strength, tradition, premium
+          800: '#7f1d1d',
+          900: '#7f1d1d',
+          950: '#450a0a',
+        },
+        // Vibrant Blue - Information accent
         blue: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#2563EB',  // Trust, technology
+          600: '#1d4ed8',
+          700: '#1e40af',
+          800: '#1e3a8a',
+          900: '#1e3a8a',
+          950: '#172554',
         },
-        // Navy - Deep professional dark
-        navy: {
+        // Neutral Colors
+        charcoal: {
           50: '#f8fafc',
           100: '#f1f5f9',
           200: '#e2e8f0',
@@ -46,10 +88,15 @@ export default {
           600: '#475569',
           700: '#334155',
           800: '#1e293b',
-          900: '#0f172a',
+          900: '#0F172A',  // Charcoal Black - text, depth
           950: '#020617',
         },
-        // Slate - Clean professional grays
+        cream: {
+          50: '#F8FAFC',  // Light Cream - backgrounds
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+        },
+        // Slate - Keep for backward compatibility
         slate: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -63,38 +110,11 @@ export default {
           900: '#0f172a',
           950: '#020617',
         },
-        // Accent - Cyan (alias for brand)
-        accent: {
-          50: '#ecfeff',
-          100: '#cffafe',
-          200: '#a5f3fc',
-          300: '#67e8f9',
-          400: '#22d3ee',
-          500: '#00A0E4',
-          600: '#0891b2',
-          700: '#0e7490',
-          800: '#155e75',
-          900: '#164e63',
-          950: '#083344',
-        },
-        // Success - Professional green (minimal use)
-        success: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
-          950: '#052e16',
-        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Outfit', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',
@@ -130,9 +150,13 @@ export default {
         'soft': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
         'medium': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         'sharp': '0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.1)',
+        'modern': '0 4px 12px rgba(0, 0, 0, 0.08)',
+        'modern-lg': '0 8px 24px rgba(0, 0, 0, 0.12)',
+        'elevation': '0 10px 40px rgba(0, 0, 0, 0.15)',
       },
       borderRadius: {
-        'card': '4px',
+        'none': '0',
+        'DEFAULT': '0',  // Sharp corners by default
       }
     },
   },

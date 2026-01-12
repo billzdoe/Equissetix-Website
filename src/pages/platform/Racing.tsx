@@ -1,15 +1,38 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Trophy, Check, Gauge, TrendingUp, Activity, AlertCircle, CheckCircle } from 'lucide-react'
+import { ArrowRight, Trophy, Check, Gauge, TrendingUp, Activity, AlertCircle, CheckCircle, CloudRain, Sun, Wind } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
 import Breadcrumbs from '../../components/Breadcrumbs'
 
 const Racing = () => {
+  const trackConditionFeatures = [
+    {
+      icon: <CloudRain className="h-8 w-8" />,
+      title: "Track Surface Recommendations",
+      description: "System analyzes your horse's past performance on different surfaces (dirt, turf, synthetic) and track conditions (fast, good, muddy, sloppy). See which conditions they excel in and which to avoid."
+    },
+    {
+      icon: <TrendingUp className="h-8 w-8" />,
+      title: "Performance Pattern Recognition",
+      description: "AI identifies patterns like 'runs 2 lengths faster on wet tracks' or 'struggles in deep ground.' Based on actual race times and finishes across hundreds of past races."
+    },
+    {
+      icon: <Sun className="h-8 w-8" />,
+      title: "Weather-Based Entry Decisions",
+      description: "System flags upcoming races where track conditions favor your horse. Get alerts like 'Heavy rain expected - good conditions for Horse X' or 'Fast track - enter Horse Y instead.'"
+    },
+    {
+      icon: <Wind className="h-8 w-8" />,
+      title: "Track-Specific Training Plans",
+      description: "Automatically adjust training based on upcoming race track conditions. System suggests pool work before muddy track races, or speed work before fast track conditions."
+    }
+  ]
+
   const capabilities = [
     "AI-powered race predictions based on historical performance data",
     "Competitor analysis and benchmarking against the field",
-    "Track condition analysis and performance forecasting",
+    "Track condition recommendations based on past performance patterns",
     "Race readiness scoring based on training load and health metrics",
     "Post-race performance analysis and recovery tracking",
     "Race entry management and scheduling",
@@ -124,9 +147,9 @@ const Racing = () => {
             <ul className="space-y-1.5 text-xs text-slate-700">
               <li>• AI race predictions</li>
               <li>• Competitor analysis</li>
+              <li>• Track condition recommendations</li>
               <li>• Race readiness scoring</li>
-              <li>• Gallop out metrics</li>
-              <li>• Track condition analysis</li>
+              <li>• Gallop out tracking</li>
             </ul>
           </Card>
         </div>
@@ -161,8 +184,77 @@ const Racing = () => {
         </div>
       </Section>
 
-      {/* Gallop Out Metrics Section */}
+      {/* Track Condition Intelligence */}
       <Section background="white">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-gradient">Track Condition Intelligence</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Know exactly which track conditions your horses excel in—and which to avoid
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {trackConditionFeatures.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="h-full border border-slate-200 hover:border-brand-500 transition-all hover:shadow-md">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-brand-500 rounded flex items-center justify-center flex-shrink-0 text-white">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-navy-900">{feature.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-12 bg-slate-50 rounded p-8 border border-slate-200">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-navy-900 mb-4 text-center">Real Example</h3>
+            <div className="bg-white rounded p-6 border border-slate-200">
+              <p className="text-slate-700 mb-4">
+                <span className="font-bold text-navy-900">"Horse A"</span> has raced 12 times across 3 track conditions:
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-3 bg-success-50 rounded border border-success-200">
+                  <span className="font-semibold text-slate-700">Fast Track (Dry):</span>
+                  <span className="text-success-700 font-bold">Avg finish: 2.1 position</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-orange-50 rounded border border-orange-200">
+                  <span className="font-semibold text-slate-700">Good Track (Damp):</span>
+                  <span className="text-orange-700 font-bold">Avg finish: 4.3 position</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-red-50 rounded border border-red-200">
+                  <span className="font-semibold text-slate-700">Muddy Track (Wet):</span>
+                  <span className="text-red-700 font-bold">Avg finish: 6.2 position</span>
+                </div>
+              </div>
+              <p className="text-slate-600 mt-4 text-sm">
+                <span className="font-semibold">System Recommendation:</span> Enter Horse A in races with fast track conditions. Scratch if heavy rain expected. Consider different horse for muddy conditions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Gallop Out Metrics Section */}
+      <Section background="gray">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -170,7 +262,7 @@ const Racing = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient">Gallop Out Metric Trackers</span>
+            <span className="text-gradient">Gallop Out Tracking</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Track how horses continue running after the finish line—a critical indicator of fitness, stamina, and distance potential
