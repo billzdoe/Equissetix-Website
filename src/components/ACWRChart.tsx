@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { TrendingUp, AlertTriangle, CheckCircle, Info } from 'lucide-react'
+import { AlertTriangle, CheckCircle, Info } from 'lucide-react'
 
 interface DataPoint {
   week: string

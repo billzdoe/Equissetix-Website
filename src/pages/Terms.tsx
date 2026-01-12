@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FileText, Scale, AlertCircle, CheckCircle } from 'lucide-react'
+import { FileText, Scale, AlertCircle } from 'lucide-react'
 import Section from '../components/Section'
 import Card from '../components/Card'
 import Breadcrumbs from '../components/Breadcrumbs'

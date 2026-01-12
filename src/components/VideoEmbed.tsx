@@ -67,7 +67,7 @@ const VideoEmbed = ({
           >
             {getThumbnailUrl() ? (
               <img
-                src={getThumbnailUrl()}
+                src={getThumbnailUrl() || undefined}
                 alt={title}
                 className="w-full h-full object-cover"
               />

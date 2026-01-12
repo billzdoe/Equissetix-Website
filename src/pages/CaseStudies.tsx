@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, TrendingUp, Users, Award, Calendar, MapPin } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowRight, TrendingUp, Users, Award, MapPin } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
@@ -58,8 +57,6 @@ const CaseStudies = () => {
       featured: false
     }
   ]
-
-  const categories = ['All', 'Racing Trainers', 'Training Facilities', 'Injury Prevention', 'Time Savings']
 
   return (
     <div className="pt-20">

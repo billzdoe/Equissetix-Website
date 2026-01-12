@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Trophy, Target, Check, Gauge, TrendingUp, Activity, AlertCircle, CheckCircle } from 'lucide-react'
+import { ArrowRight, Trophy, Check, Gauge, TrendingUp, Activity, AlertCircle, CheckCircle } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'

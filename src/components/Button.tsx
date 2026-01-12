@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
 }
 
 const Button = ({
@@ -21,6 +22,7 @@ const Button = ({
   onClick,
   className = '',
   type = 'button',
+  disabled = false,
 }: ButtonProps) => {
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 gap-2'
 
@@ -55,7 +57,7 @@ const Button = ({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes} disabled={disabled}>
       {children}
     </button>
   )

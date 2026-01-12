@@ -160,7 +160,7 @@ const ROICalculator = () => {
           </div>
           <p className="text-3xl font-bold">{roi}%</p>
           <p className="text-xs opacity-90 mt-1">
-            {roi > 0 ? `${(12 / (annualSubscriptionCost / monthlySavings)).toFixed(1)} month payback` : 'Adjust inputs'}
+            {parseFloat(roi) > 0 ? `${(12 / (annualSubscriptionCost / monthlySavings)).toFixed(1)} month payback` : 'Adjust inputs'}
           </p>
         </motion.div>
       </div>

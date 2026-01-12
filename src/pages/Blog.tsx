@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Calendar, User, Tag, Search } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowRight, Calendar, User, Tag } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
@@ -70,8 +69,6 @@ const Blog = () => {
       featured: false
     }
   ]
-
-  const categories = ['All', 'Training Science', 'Health & Wellness', 'Technology', 'Business']
 
   return (
     <div className="pt-20">

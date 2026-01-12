@@ -4,7 +4,6 @@ import {
   Trophy,
   Target,
   Mountain,
-  Heart,
   Sparkles,
   Flag,
   Timer,

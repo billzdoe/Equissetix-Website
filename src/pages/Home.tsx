@@ -16,94 +16,12 @@ import {
   BarChart3,
   Check,
   Star,
-  ChevronDown
 } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
 import TrustBadges from '../components/TrustBadges'
 import VideoEmbed from '../components/VideoEmbed'
-import { useState } from 'react'
-
-const FAQAccordion = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const faqs = [
-    {
-      question: "How does TrainingTree prevent injuries?",
-      answer: "TrainingTree uses ACWR (Acute:Chronic Workload Ratio) monitoring to track training load and identify when horses are at risk of overtraining. Our AI algorithms analyze training patterns, health metrics, and gait data to alert you 3-4 weeks before injuries typically develop, allowing you to adjust training proactively."
-    },
-    {
-      question: "Do I need multiple devices to use TrainingTree?",
-      answer: "No! TrainingTree works great on its own with manual data entry. However, integrating wearable devices (8+ supported) automatically syncs data and provides more comprehensive insights. You can start with just the mobile app and add integrations later."
-    },
-    {
-      question: "How long does it take to set up?",
-      answer: "Most trainers are up and running in under an hour. Our mobile app makes it easy to add horses, start logging workouts, and track health data immediately. For Enterprise customers, we provide dedicated onboarding and on-site training."
-    },
-    {
-      question: "Can I export my data?",
-      answer: "Yes, absolutely. Your data belongs to you. You can export all training records, health data, and financial information at any time in multiple formats (CSV, PDF, Excel). We also keep your data available for 90 days after cancellation."
-    },
-    {
-      question: "Does TrainingTree work offline?",
-      answer: "Yes! Our mobile app has full offline functionality. You can log workouts, record health data, and manage horses even without internet connection. All data syncs automatically when you're back online."
-    },
-    {
-      question: "How does the AI recommendation system work?",
-      answer: "Our AI analyzes thousands of data points including training load, health scores, gait symmetry, recovery rates, and historical performance. It uses machine learning models (Random Forest & Gradient Boosting) trained on professional racing data to provide personalized workout recommendations and injury risk assessments."
-    },
-    {
-      question: "What if I need help getting started?",
-      answer: "All plans include email support and video tutorials. Professional and Enterprise plans include priority support. Enterprise customers also get dedicated account managers and optional on-site training. We're here to help you succeed!"
-    }
-  ]
-
-  return (
-    <div className="max-w-3xl mx-auto space-y-4">
-      {faqs.map((faq, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.05 }}
-        >
-          <Card className="bg-gradient-to-br from-white via-blue-50/20 to-purple-50/20 border-2 border-slate-200 hover:border-brand-300 transition-all">
-            <button
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full flex items-center justify-between gap-4 text-left"
-            >
-              <h3 className="font-bold text-lg text-navy-900 pr-4">{faq.question}</h3>
-              <ChevronDown
-                className={`h-5 w-5 text-brand-600 flex-shrink-0 transition-transform ${
-                  openIndex === index ? 'transform rotate-180' : ''
-                }`}
-              />
-            </button>
-            {openIndex === index && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-4 pt-4 border-t border-slate-200"
-              >
-                <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            )}
-          </Card>
-        </motion.div>
-      ))}
-      
-      <div className="text-center pt-4">
-        <Button to="/pricing" variant="ghost" size="md">
-          View All FAQs
-          <ArrowRight className="h-4 w-4" />
-        </Button>
-      </div>
-    </div>
-  )
-}
 
 const Home = () => {
   const problems = [

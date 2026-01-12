@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Home, Search, ArrowLeft, FileQuestion } from 'lucide-react'
+import { Home, Search, FileQuestion } from 'lucide-react'
 import Button from '../components/Button'
 import Section from '../components/Section'
 

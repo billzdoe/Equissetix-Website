@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Building2, Users, TrendingUp, AlertCircle, CheckCircle, BarChart3, Shield } from 'lucide-react'
+import { ArrowRight, Building2, Users, AlertCircle, CheckCircle, BarChart3, Shield } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
