@@ -24,12 +24,12 @@ const Button = ({
   type = 'button',
   disabled = false,
 }: ButtonProps) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 gap-2'
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded transition-all duration-200 gap-2'
 
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-modern hover:shadow-modern-lg transform hover:-translate-y-0.5',
-    secondary: 'bg-gradient-to-r from-brand-500 to-brand-600 text-white hover:from-brand-600 hover:to-brand-700 shadow-modern hover:shadow-modern-lg transform hover:-translate-y-0.5',
-    ghost: 'border-2 border-slate-300 text-slate-700 hover:border-brand-500 hover:text-brand-600 hover:bg-brand-50',
+    primary: 'bg-brand-500 text-white hover:bg-brand-600 shadow-sm hover:shadow-md',
+    secondary: 'bg-navy-900 text-white hover:bg-navy-800 shadow-sm hover:shadow-md',
+    ghost: 'border border-slate-300 text-slate-700 hover:border-brand-500 hover:text-brand-500 hover:bg-slate-50',
   }
 
   const sizeStyles = {

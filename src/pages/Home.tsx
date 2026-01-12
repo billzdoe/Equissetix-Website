@@ -12,7 +12,6 @@ import {
   Smartphone,
   Shield,
   Users,
-  Calendar,
   BarChart3,
   Check,
   Star,
@@ -50,49 +49,49 @@ const Home = () => {
 
   const features = [
     {
-      icon: <Brain className="h-6 w-6" />,
-      title: "AI-Powered Recommendations",
-      description: "Science-based insights for every decision"
+      icon: <Activity className="h-6 w-6" />,
+      title: "Training Load Monitoring",
+      description: "ACWR science prevents overtraining injuries"
     },
     {
-      icon: <Activity className="h-6 w-6" />,
-      title: "8+ Wearable Integrations",
-      description: "Real-time biometric tracking"
+      icon: <Brain className="h-6 w-6" />,
+      title: "AI Workout Planning",
+      description: "Get smart training plans based on fitness data"
     },
     {
       icon: <TrendingUp className="h-6 w-6" />,
-      title: "ACWR Training Load Science",
-      description: "Prevent injuries before they happen"
-    },
-    {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile QR Code System",
-      description: "Manage from the barn, not the office"
+      title: "Race Tapering Plans",
+      description: "Automated peak performance scheduling"
     },
     {
       icon: <Heart className="h-6 w-6" />,
-      title: "Horse-Centric Design",
-      description: "Built for racing, not adapted from generic software"
+      title: "Wearable Device Sync",
+      description: "Connect heart rate monitors and GPS trackers"
     },
     {
-      icon: <BarChart3 className="h-6 w-6" />,
-      title: "Real-Time Analytics",
-      description: "Data-driven decisions, every day"
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "Mobile App + QR Codes",
+      description: "Scan horses, log workouts from the barn"
     },
     {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Enterprise Security",
-      description: "Bank-level encryption and audit trails"
+      icon: <DollarSign className="h-6 w-6" />,
+      title: "Owner Invoicing",
+      description: "Automatic billing and payment tracking"
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Owner Client Portals",
-      description: "Transparency that builds trust"
+      title: "Owner Portals",
+      description: "Let owners see their horse's progress online"
     },
     {
-      icon: <Calendar className="h-6 w-6" />,
-      title: "Offline Mobile Mode",
-      description: "Works everywhere, even without signal"
+      icon: <Shield className="h-6 w-6" />,
+      title: "Vet Record Management",
+      description: "Store exams, medications, and vaccinations"
+    },
+    {
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "Performance Analytics",
+      description: "Track trends and compare horses"
     }
   ]
 
@@ -161,13 +160,12 @@ const Home = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section - Colorful Professional Banner */}
+      {/* Hero Section - Professional Clean Banner */}
       <Section background="gradient" className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Colorful background decorative elements */}
+        {/* Subtle background element - single accent color only */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-300/40 to-brand-400/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-300/40 to-purple-300/30 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-200/20 via-brand-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-navy-900/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
@@ -178,18 +176,18 @@ const Home = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-brand-100 to-blue-100 border border-brand-300 rounded-full text-sm font-semibold text-brand-700 mb-4 shadow-modern">
-              <span className="w-2 h-2 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded text-sm font-semibold text-slate-700 mb-4 shadow-sm">
+              <span className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></span>
               Enterprise Horse Management Platform
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-              Stop Juggling Spreadsheets.{' '}
-              <span className="text-gradient block mt-2">Start Winning Races.</span>
+              Complete Barn Management with{' '}
+              <span className="text-gradient block mt-2">AI Training Plans.</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-2xl">
-              TrainingTree combines training, health, financials, and racing analytics into one powerful platform—so you can focus on what matters: your horses.
+              Track workouts, monitor fitness, manage vet records, handle finances, and get AI-powered training recommendations—all in one place.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -208,19 +206,19 @@ const Home = () => {
                 <div className="w-5 h-5 rounded-full bg-success-100 flex items-center justify-center">
                   <Check className="h-3 w-3 text-success-600" />
                 </div>
-                <span>Used by 500+ trainers</span>
+                <span>500+ trainers & facilities</span>
               </div>
               <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
                 <div className="w-5 h-5 rounded-full bg-success-100 flex items-center justify-center">
                   <Check className="h-3 w-3 text-success-600" />
                 </div>
-                <span>Prevents 40% of training injuries</span>
+                <span>40% fewer injuries</span>
               </div>
               <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
                 <div className="w-5 h-5 rounded-full bg-success-100 flex items-center justify-center">
                   <Check className="h-3 w-3 text-success-600" />
                 </div>
-                <span>Saves 15 hours/week</span>
+                <span>Save 15+ hours per week</span>
               </div>
             </div>
 
@@ -238,67 +236,50 @@ const Home = () => {
             className="relative"
           >
             <div className="relative">
-              {/* Main card with colorful modern styling */}
-              <div className="relative bg-white rounded-2xl p-8 shadow-modern-lg border-2 border-brand-200/50 backdrop-blur-sm">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-400 via-blue-500 to-purple-500 rounded-2xl opacity-30 blur"></div>
-                <div className="relative bg-gradient-to-br from-white to-amber-50/30 rounded-2xl p-6 space-y-6">
+              {/* Main card with sharp professional styling */}
+              <div className="relative bg-white rounded p-8 shadow-modern-lg border border-slate-200">
+                <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <h3 className="font-bold text-lg text-navy-900">Training Load Dashboard</h3>
-                    <span className="text-xs bg-success-100 text-success-700 px-3 py-1.5 rounded-full font-semibold">Optimal Zone</span>
+                    <span className="text-xs bg-success-50 text-success-700 px-3 py-1.5 rounded font-semibold border border-success-200">Optimal Zone</span>
                   </div>
-                  
-                  {/* Colorful chart visualization */}
-                  <div className="h-40 bg-gradient-to-br from-blue-50 via-amber-50 to-purple-50 rounded-xl p-4 flex items-end justify-around gap-2 border-2 border-brand-200/50">
-                    {[65, 75, 85, 78, 70, 82, 88].map((height, i) => {
-                      const colors = [
-                        'from-blue-500 to-blue-600',
-                        'from-brand-500 to-brand-600',
-                        'from-purple-500 to-purple-600',
-                        'from-cyan-500 to-cyan-600',
-                        'from-blue-500 to-blue-600',
-                        'from-brand-500 to-brand-600',
-                        'from-purple-500 to-purple-600',
-                      ];
-                      return (
-                        <motion.div
-                          key={i}
-                          initial={{ height: 0 }}
-                          animate={{ height: `${height}%` }}
-                          transition={{ duration: 0.8, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-                          className={`w-10 bg-gradient-to-t ${colors[i]} rounded-t-lg shadow-modern`}
-                        />
-                      );
-                    })}
+
+                  {/* Professional chart visualization - single brand color */}
+                  <div className="h-40 bg-slate-50 rounded p-4 flex items-end justify-around gap-2 border border-slate-200">
+                    {[65, 75, 85, 78, 70, 82, 88].map((height, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ height: `${height}%` }}
+                        transition={{ duration: 0.8, delay: 0.3 + i * 0.1, ease: "easeOut" }}
+                        className="w-10 bg-brand-500 rounded-t shadow-sm"
+                      />
+                    ))}
                   </div>
-                  
-                  {/* Colorful stats grid */}
+
+                  {/* Clean stats grid */}
                   <div className="grid grid-cols-3 gap-4 pt-2">
-                    <div className="text-center p-3 rounded-lg bg-gradient-to-br from-success-50 to-success-100 border border-success-200">
+                    <div className="text-center p-3 rounded bg-slate-50 border border-slate-200">
                       <p className="text-xs text-slate-600 font-medium mb-1">Health Score</p>
-                      <p className="text-2xl font-bold text-success-600">94%</p>
+                      <p className="text-2xl font-bold text-navy-900">94%</p>
                     </div>
-                    <div className="text-center p-3 rounded-lg bg-gradient-to-br from-brand-50 to-brand-100 border border-brand-200">
+                    <div className="text-center p-3 rounded bg-slate-50 border border-slate-200">
                       <p className="text-xs text-slate-600 font-medium mb-1">Training Load</p>
-                      <p className="text-2xl font-bold text-brand-600">1.2</p>
+                      <p className="text-2xl font-bold text-navy-900">1.2</p>
                     </div>
-                    <div className="text-center p-3 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
+                    <div className="text-center p-3 rounded bg-slate-50 border border-slate-200">
                       <p className="text-xs text-slate-600 font-medium mb-1">Race Readiness</p>
-                      <p className="text-2xl font-bold text-blue-600">High</p>
+                      <p className="text-2xl font-bold text-brand-500">High</p>
                     </div>
                   </div>
                 </div>
               </div>
-
-              {/* Colorful floating accent elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-300 to-purple-400 rounded-full blur-2xl opacity-60"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-brand-300 to-brand-400 rounded-full blur-2xl opacity-60"></div>
-              <div className="absolute top-1/2 right-0 w-20 h-20 bg-gradient-to-br from-cyan-300 to-cyan-400 rounded-full blur-xl opacity-50"></div>
             </div>
           </motion.div>
         </div>
       </Section>
 
-      {/* Problem-Agitation Section - Colorful */}
+      {/* Problem-Agitation Section - Professional */}
       <Section background="gray">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -308,7 +289,7 @@ const Home = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Your Current System Is <span className="text-coral-900">Costing You</span>
+            Your Current System Is <span className="text-navy-900">Costing You</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Every day without proper training management means lost revenue, preventable injuries, and wasted time.
@@ -324,14 +305,14 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="text-center h-full border-2 border-coral-200 hover:border-coral-400 transition-all hover:shadow-modern-lg bg-gradient-to-br from-white to-coral-50/30">
-                <div className="text-coral-600 mb-4 flex justify-center">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-coral-100 to-coral-200 flex items-center justify-center shadow-modern">
+              <Card className="text-center h-full border border-slate-200 hover:border-slate-300 transition-all hover:shadow-md">
+                <div className="text-slate-700 mb-4 flex justify-center">
+                  <div className="w-16 h-16 rounded bg-slate-100 flex items-center justify-center border border-slate-200">
                     {problem.icon}
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-navy-900">{problem.title}</h3>
-                <p className="text-3xl font-bold bg-gradient-to-r from-coral-600 to-coral-700 bg-clip-text text-transparent mb-2">{problem.stat}</p>
+                <p className="text-3xl font-bold text-navy-900 mb-2">{problem.stat}</p>
                 <p className="text-slate-600 mb-4">{problem.description}</p>
                 <p className="text-sm text-slate-500 italic">{problem.detail}</p>
               </Card>
@@ -340,7 +321,7 @@ const Home = () => {
         </div>
       </Section>
 
-      {/* Solution Section - Colorful */}
+      {/* Solution Section - Professional */}
       <Section background="white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -358,55 +339,55 @@ const Home = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <Card className="text-center hover:border-blue-400 transition-all hover:shadow-modern-lg bg-gradient-to-br from-white to-blue-50/40 border-2 border-blue-200">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-modern-lg">
+          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
+            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <Activity className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Training Intelligence</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">Fitness & Training</h3>
             <p className="text-sm text-slate-600 mb-4">
-              23+ workout types, AI recommendations, GPS tracking, injury prevention
+              Track workouts, monitor training load, prevent overtraining with ACWR science, and get AI-powered tapering plans
             </p>
-            <p className="text-xs font-semibold text-blue-600">
-              Train horses at peak performance without the guesswork
+            <p className="text-xs font-semibold text-slate-700">
+              Know exactly when your horse is ready to perform
             </p>
           </Card>
 
-          <Card className="text-center hover:border-success-400 transition-all hover:shadow-modern-lg bg-gradient-to-br from-white to-success-50/40 border-2 border-success-200">
-            <div className="w-14 h-14 bg-gradient-to-br from-success-400 to-success-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-modern-lg">
+          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
+            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <Heart className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Health Monitoring</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">Vet & Health Records</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Real-time health scores, vet records, vaccination tracking, 8+ wearable integrations
+              Manage vet visits, track medications, monitor vitals, and store vaccination records all in one place
             </p>
-            <p className="text-xs font-semibold text-success-600">
-              Catch health issues before they become expensive problems
+            <p className="text-xs font-semibold text-slate-700">
+              Complete health history at your fingertips
             </p>
           </Card>
 
-          <Card className="text-center hover:border-brand-400 transition-all hover:shadow-modern-lg bg-gradient-to-br from-white to-brand-50/40 border-2 border-brand-200">
-            <div className="w-14 h-14 bg-gradient-to-br from-brand-400 to-brand-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-modern-lg">
+          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
+            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <DollarSign className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Financial Command</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">Barn Financials</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Invoicing, expense tracking, horse-centric profitability, owner portals
+              Invoice owners, track expenses, manage payroll, and see which horses are profitable
             </p>
-            <p className="text-xs font-semibold text-brand-600">
-              Know exactly which horses are profitable and why
+            <p className="text-xs font-semibold text-slate-700">
+              Run your barn like a real business
             </p>
           </Card>
 
-          <Card className="text-center hover:border-purple-400 transition-all hover:shadow-modern-lg bg-gradient-to-br from-white to-purple-50/40 border-2 border-purple-200">
-            <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-modern-lg">
-              <TrendingUp className="h-7 w-7 text-white" />
+          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
+            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
+              <Brain className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Racing Edge</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">AI Training Plans</h3>
             <p className="text-sm text-slate-600 mb-4">
-              AI race predictions, competitor analysis, performance tracking
+              Get personalized workout recommendations, optimal rest days, and race prep schedules based on your horse's data
             </p>
-            <p className="text-xs font-semibold text-purple-600">
-              Enter races with data-backed confidence
+            <p className="text-xs font-semibold text-slate-700">
+              Let AI handle the planning, you focus on training
             </p>
           </Card>
         </div>
@@ -422,10 +403,10 @@ const Home = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Powerful Features That <span className="text-gradient">Set Us Apart</span>
+            Everything You Need to <span className="text-gradient">Manage Your Barn</span>
           </h2>
           <p className="text-xl text-slate-600">
-            Built specifically for horse racing—not adapted from generic software
+            From daily workouts to owner billing—all in one system
           </p>
         </motion.div>
 
@@ -438,8 +419,8 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <Card className="flex items-start gap-4 hover:border-brand-300 transition-all hover:shadow-modern-lg bg-gradient-to-br from-white to-brand-50/30 border-2 border-brand-100">
-                <div className="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-lg flex items-center justify-center flex-shrink-0 text-white shadow-modern">
+              <Card className="flex items-start gap-4 hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
+                <div className="w-12 h-12 bg-brand-500 rounded flex items-center justify-center flex-shrink-0 text-white">
                   {feature.icon}
                 </div>
                 <div>
@@ -481,7 +462,7 @@ const Home = () => {
               <Card className="h-full">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-gold-900 text-gold-900" />
+                    <Star key={i} className="h-5 w-5 fill-brand-500 text-brand-500" />
                   ))}
                 </div>
                 <p className="text-slate-700 mb-6 italic">"{testimonial.quote}"</p>
@@ -495,23 +476,23 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Colorful Stats */}
+        {/* Professional Stats */}
         <div className="grid md:grid-cols-4 gap-8 text-center mb-12">
-          <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 backdrop-blur-sm border-2 border-blue-200 shadow-modern">
-            <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent mb-2">500+</p>
-            <p className="text-slate-700 font-medium">Trainers Trust TrainingTree</p>
+          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
+            <p className="text-4xl font-bold text-navy-900 mb-2">500+</p>
+            <p className="text-slate-600 font-medium">Trainers Trust TrainingTree</p>
           </div>
-          <div className="p-6 rounded-xl bg-gradient-to-br from-brand-50 to-brand-100/50 backdrop-blur-sm border-2 border-brand-200 shadow-modern">
-            <p className="text-4xl font-bold bg-gradient-to-r from-brand-600 to-brand-700 bg-clip-text text-transparent mb-2">10,000+</p>
-            <p className="text-slate-700 font-medium">Horses Managed</p>
+          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
+            <p className="text-4xl font-bold text-navy-900 mb-2">10,000+</p>
+            <p className="text-slate-600 font-medium">Horses Managed</p>
           </div>
-          <div className="p-6 rounded-xl bg-gradient-to-br from-success-50 to-success-100/50 backdrop-blur-sm border-2 border-success-200 shadow-modern">
-            <p className="text-4xl font-bold bg-gradient-to-r from-success-600 to-success-700 bg-clip-text text-transparent mb-2">40%</p>
-            <p className="text-slate-700 font-medium">Reduction in Training Injuries</p>
+          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
+            <p className="text-4xl font-bold text-navy-900 mb-2">40%</p>
+            <p className="text-slate-600 font-medium">Reduction in Training Injuries</p>
           </div>
-          <div className="p-6 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100/50 backdrop-blur-sm border-2 border-purple-200 shadow-modern">
-            <p className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-700 bg-clip-text text-transparent mb-2">$250K</p>
-            <p className="text-slate-700 font-medium">Average Savings Per Year</p>
+          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
+            <p className="text-4xl font-bold text-navy-900 mb-2">$250K</p>
+            <p className="text-slate-600 font-medium">Average Savings Per Year</p>
           </div>
         </div>
 
@@ -547,19 +528,19 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className={`h-full ${tier.highlighted ? 'border-2 border-brand-500 shadow-modern-lg bg-gradient-to-br from-brand-50 via-white to-blue-50/30' : 'hover:border-brand-300 bg-gradient-to-br from-white to-slate-50/50'} transition-all`}>
+              <Card className={`h-full ${tier.highlighted ? 'border-2 border-brand-500 shadow-md' : 'hover:border-brand-500 border border-slate-200'} transition-all`}>
                 {tier.highlighted && (
-                  <div className="bg-gradient-to-r from-brand-500 via-brand-600 to-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full inline-block mb-4 shadow-modern-lg">
+                  <div className="bg-brand-500 text-white text-xs font-bold px-4 py-1.5 rounded inline-block mb-4">
                     Most Popular
                   </div>
                 )}
                 <h3 className="text-2xl font-bold mb-1 text-navy-900">{tier.name}</h3>
-                <p className="text-sm bg-gradient-to-r from-brand-600 to-brand-700 bg-clip-text text-transparent font-semibold mb-2">{tier.subtitle}</p>
+                <p className="text-sm text-brand-500 font-semibold mb-2">{tier.subtitle}</p>
                 <p className="text-slate-600 mb-6">{tier.description}</p>
                 <ul className="space-y-3 mb-6">
                   {tier.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-success-400 to-success-500 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-modern">
+                      <div className="w-5 h-5 rounded-full bg-success-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="h-3 w-3 text-white" />
                       </div>
                       <span className="text-slate-700">{feature}</span>
@@ -617,13 +598,12 @@ const Home = () => {
         </motion.div>
       </Section>
 
-      {/* Final CTA - Colorful Professional */}
+      {/* Final CTA - Professional */}
       <Section background="gradient" className="relative overflow-hidden">
-        {/* Colorful background decorative elements */}
+        {/* Subtle background element */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-brand-300/40 to-brand-400/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tr from-blue-300/40 to-purple-300/30 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-cyan-200/30 via-brand-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-navy-900/5 rounded-full blur-3xl"></div>
         </div>
 
         <motion.div

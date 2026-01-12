@@ -56,13 +56,13 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 shadow-modern">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo - Equissetix Company */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-brand-500 via-brand-600 to-blue-600 rounded-lg flex items-center justify-center group-hover:shadow-modern-lg transition-all transform group-hover:scale-105">
+              <div className="w-10 h-10 bg-brand-500 rounded flex items-center justify-center group-hover:bg-brand-600 transition-all">
                 <span className="text-white font-bold text-lg">E</span>
               </div>
               <div className="flex flex-col">
@@ -81,8 +81,8 @@ const Navbar = () => {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  activeDropdown === 'product' ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100' : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                className={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'product' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
                 }`}
               >
                 TrainingTree
@@ -96,7 +96,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-xl shadow-modern-lg border border-slate-200/50 p-6 backdrop-blur-sm"
+                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded shadow-md border border-slate-200 p-6"
                   >
                     <div className="grid grid-cols-2 gap-6">
                       {productLinks.map((category, idx) => (
@@ -135,8 +135,8 @@ const Navbar = () => {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  activeDropdown === 'solutions' ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100' : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                className={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'solutions' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
                 }`}
               >
                 Solutions
@@ -150,7 +150,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-modern-lg border border-slate-200/50 p-4 backdrop-blur-sm"
+                    className="absolute top-full left-0 mt-2 w-80 bg-white rounded shadow-md border border-slate-200 p-4"
                   >
                     <div className="space-y-1">
                       {solutionsLinks.map((link) => (
@@ -180,8 +180,8 @@ const Navbar = () => {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  activeDropdown === 'resources' ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100' : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                className={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'resources' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
                 }`}
               >
                 Resources
@@ -195,7 +195,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-modern-lg border border-slate-200/50 p-2 backdrop-blur-sm"
+                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded shadow-md border border-slate-200 p-2"
                   >
                     <div className="space-y-1">
                       {resourcesLinks.map((link) => (
@@ -215,10 +215,10 @@ const Navbar = () => {
 
             <Link
               to="/pricing"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 ${
                 isActive('/pricing')
-                  ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100'
-                  : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                  ? 'text-brand-500 bg-slate-50'
+                  : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
               }`}
             >
               Pricing
@@ -226,10 +226,10 @@ const Navbar = () => {
 
             <Link
               to="/company"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 ${
                 isActive('/company')
-                  ? 'text-brand-600 bg-gradient-to-r from-brand-50 to-brand-100'
-                  : 'text-slate-700 hover:text-brand-600 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100'
+                  ? 'text-brand-500 bg-slate-50'
+                  : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
               }`}
             >
               Company

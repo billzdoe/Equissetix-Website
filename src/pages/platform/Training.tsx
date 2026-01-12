@@ -1,25 +1,107 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Activity, Check, AlertCircle, CheckCircle } from 'lucide-react'
+import { ArrowRight, Heart, Smartphone, BarChart3, Brain, TrendingUp, Clock, Target, DollarSign } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import ACWRChart from '../../components/ACWRChart'
+import GaitSymmetryViz from '../../components/GaitSymmetryViz'
 
 const Training = () => {
-  const capabilities = [
-    "23+ thoroughbred-specific workout types with customizable favorites",
-    "Real-time ACWR calculation: 7-day acute vs 28-day chronic load (optimal 0.8-1.3)",
-    "Patent-pending multi-sensor fusion: IMU up to 60 Hz, GPS, video analysis",
-    "Training Stress Score (TSS) with heart rate zone multipliers",
-    "Database-triggered automatic load scoring using workout-type multipliers",
-    "AI workout recommendations trained on Random Forest & Gradient Boosting models",
-    "Injury risk scoring: ACWR (0.25 weight), progression (0.15), HRV (0.15), fatigue (0.20)",
-    "Mobile gait analysis with 25 keypoint pose estimation (Conv1D-LSTM)",
-    "GPS route recording with surface type tracking (dirt, turf, synthetic, pool)",
-    "Hierarchical training tree with AI confidence scores and prerequisites",
-    "Video recording with metrics overlay and frame-by-frame analysis",
-    "Offline-first mobile app with QR code horse identification"
+  const howItWorksSteps = [
+    {
+      icon: <Smartphone className="h-8 w-8" />,
+      title: "1. Log Workouts Instantly",
+      description: "Scan a horse's QR code with your phone. Select workout type (gallop, breeze, jog, swim, etc.). The system automatically calculates training load based on workout intensity, duration, and your horse's fitness level."
+    },
+    {
+      icon: <Heart className="h-8 w-8" />,
+      title: "2. Connect Biometric Devices",
+      description: "Sync heart rate monitors, GPS trackers, and accelerometers. Data flows automatically into the system—no manual entry. We support Polar, Garmin, Equimetre, StrideMaster, and 8+ other devices."
+    },
+    {
+      icon: <BarChart3 className="h-8 w-8" />,
+      title: "3. Monitor Training Load",
+      description: "See real-time ACWR (Acute:Chronic Workload Ratio). When it climbs above 1.3, you're risking overtraining injury. Below 0.8 means detraining. Stay in the 0.8-1.3 sweet spot."
+    },
+    {
+      icon: <Brain className="h-8 w-8" />,
+      title: "4. Get AI Recommendations",
+      description: "The AI analyzes your horse's training history, recovery metrics, and upcoming race schedule. It suggests optimal workout types, intensity levels, and rest days to peak performance without injury."
+    }
+  ]
+
+  const gaitAnalysisDetails = [
+    {
+      title: "Video-Based Motion Capture",
+      description: "Record your horse from your phone. Our AI tracks 25 body keypoints at 60fps—shoulders, hips, knees, fetlocks, hooves. No special equipment needed, just your smartphone."
+    },
+    {
+      title: "Symmetry Analysis",
+      description: "The system compares left vs right movement patterns. Detects lameness, compensation patterns, and subtle asymmetries before they become injuries. See exact percentages for each gait phase."
+    },
+    {
+      title: "Stride Metrics",
+      description: "Measures stride length, stride frequency, ground contact time, and flight time. Track improvements over time and compare against breed averages and your horse's baseline."
+    },
+    {
+      title: "Early Injury Detection",
+      description: "Changes in gait symmetry often appear 2-3 weeks before visible lameness. The system alerts you when patterns shift outside normal ranges, so you can intervene early."
+    }
+  ]
+
+  const biometricIntegrations = [
+    {
+      device: "Heart Rate Monitors",
+      brands: "Polar H10, Garmin HRM-Dual",
+      data: "Real-time BPM, heart rate zones, recovery heart rate, HRV (heart rate variability)",
+      benefit: "Know exact training intensity. Stop guessing if a workout was hard enough or too hard."
+    },
+    {
+      device: "GPS Trackers",
+      brands: "Garmin, Equimetre, StrideMaster",
+      data: "Speed, distance, elevation, surface type (dirt, turf, synthetic), route mapping",
+      benefit: "Automatically log workout distances and speeds. See exactly where you trained."
+    },
+    {
+      device: "Accelerometers",
+      brands: "Equimetre, StrideMaster IMU",
+      data: "Stride count, stride length, stride frequency, vertical oscillation, body tilt angles",
+      benefit: "Biomechanics data without video. Perfect for track work where cameras can't follow."
+    },
+    {
+      device: "Smart Treadmills",
+      brands: "HorseGym, Equine Fitness",
+      data: "Speed, incline, duration, heart rate sync",
+      benefit: "Controlled training environment data flows directly into the system."
+    }
+  ]
+
+  const buyerBenefits = [
+    {
+      icon: <DollarSign className="h-6 w-6" />,
+      title: "Save $50K-$250K Per Year",
+      stat: "Average savings",
+      details: "Prevent 2-3 major injuries annually (avg $25K each in vet bills + lost race earnings). Plus save 15 hours/week on paperwork = $18K/year in labor."
+    },
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "40% Fewer Training Injuries",
+      stat: "Proven reduction",
+      details: "Trainers using ACWR monitoring see 40% fewer overtraining injuries. Horses stay healthy and race-ready longer."
+    },
+    {
+      icon: <TrendingUp className="h-6 w-6" />,
+      title: "Peak Performance Timing",
+      stat: "Race-day ready",
+      details: "AI tapering plans ensure horses peak exactly on race day—not two weeks early or late. Better results, more wins."
+    },
+    {
+      icon: <Clock className="h-6 w-6" />,
+      title: "Save 15+ Hours Per Week",
+      stat: "Time savings",
+      details: "No more spreadsheets or manual logs. Scan QR code, select workout, done. Biometric data syncs automatically."
+    }
   ]
 
   return (
@@ -40,148 +122,249 @@ const Training = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Patent-Pending Training Intelligence</span> That Prevents Injuries
+              <span className="text-gradient">AI Training Plans</span> + Fitness Monitoring
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              The only system using ACWR (Acute:Chronic Workload Ratio) science and AI to prevent overtraining injuries before they happen. Reduce injury risk by 40% with data-driven training load monitoring.
+              Track training load, connect biometric devices, analyze gait, and get AI workout recommendations. Everything you need to train smarter and prevent injuries.
             </p>
             <Button to="/contact" variant="primary" size="lg">
-              See It In Action
+              See a Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
           </motion.div>
         </div>
       </Section>
 
-      {/* Problem & Solution - Compact */}
-      <Section background="white">
-        <div className="grid lg:grid-cols-3 gap-4">
-          {/* Pain Points */}
-          <Card className="bg-gradient-to-br from-coral-50 to-coral-100/50 border-2 border-coral-200">
-            <div className="flex items-center gap-2 mb-3">
-              <AlertCircle className="h-5 w-5 text-coral-600" />
-              <h3 className="text-lg font-bold text-coral-900">Common Pains</h3>
-            </div>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-coral-600 rounded-full mt-1.5 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-coral-900 text-xs">30% sidelined yearly</p>
-                  <p className="text-xs text-coral-700">Preventable overtraining injuries</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-coral-600 rounded-full mt-1.5 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-coral-900 text-xs">Flying blind</p>
-                  <p className="text-xs text-coral-700">No training load visibility</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-coral-600 rounded-full mt-1.5 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-coral-900 text-xs">Lost races & vet bills</p>
-                  <p className="text-xs text-coral-700">Expensive consequences</p>
-                </div>
-              </li>
-            </ul>
-          </Card>
-
-          {/* Solution */}
-          <Card className="bg-gradient-to-br from-success-50 to-success-100/50 border-2 border-success-200">
-            <div className="flex items-center gap-2 mb-3">
-              <CheckCircle className="h-5 w-5 text-success-600" />
-              <h3 className="text-lg font-bold text-success-900">Our Solution</h3>
-            </div>
-            <p className="text-sm text-slate-700 mb-3">
-              Real-time ACWR calculation (Acute 7-day / Chronic 28-day). Optimal range 0.8-1.3. Above 1.5 = 2-5x injury risk.
-            </p>
-            <div className="bg-white/50 rounded-lg p-2">
-              <p className="text-xl font-bold text-success-900 mb-1">40%</p>
-              <p className="text-xs text-slate-600">Reduction in injuries</p>
-            </div>
-          </Card>
-
-          {/* Key Features */}
-          <Card className="bg-gradient-to-br from-brand-50 to-blue-50/30 border-2 border-brand-200">
-            <div className="flex items-center gap-2 mb-3">
-              <Activity className="h-5 w-5 text-brand-600" />
-              <h3 className="text-lg font-bold text-navy-900">Key Features</h3>
-            </div>
-            <ul className="space-y-1.5 text-xs text-slate-700">
-              <li>• Patent-pending ACWR monitoring</li>
-              <li>• AI workout recommendations</li>
-              <li>• TSS with HR zone multipliers</li>
-              <li>• Injury risk scoring</li>
-              <li>• 23+ workout types</li>
-            </ul>
-          </Card>
-        </div>
-      </Section>
-
-      {/* ACWR Visualization */}
+      {/* How It Works */}
       <Section background="white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-2">
-            See <span className="text-gradient">ACWR</span> In Action
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            How It <span className="text-gradient">Actually Works</span>
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Real-time training load monitoring prevents overtraining injuries by keeping you in the optimal 0.8-1.3 range
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Four simple steps to smarter training and fewer injuries
           </p>
         </motion.div>
-        <ACWRChart />
-      </Section>
 
-      <Section background="gray">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-6"
-        >
-          <h2 className="text-3xl font-bold mb-2">
-            Key <span className="text-gradient">Capabilities</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {capabilities.map((capability, index) => (
+        <div className="grid md:grid-cols-2 gap-8">
+          {howItWorksSteps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.03 }}
-              className="flex items-start gap-2 text-sm"
+              transition={{ delay: index * 0.1 }}
             >
-              <Check className="h-4 w-4 text-success-600 flex-shrink-0 mt-0.5" />
-              <p className="text-slate-700">{capability}</p>
+              <Card className="h-full border border-slate-200 hover:border-brand-500 transition-all hover:shadow-md">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-brand-500 rounded flex items-center justify-center flex-shrink-0 text-white">
+                    {step.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-navy-900">{step.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+              </Card>
             </motion.div>
           ))}
         </div>
       </Section>
 
-      <Section background="gradient">
+      {/* ACWR Visualization */}
+      <Section background="gray">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-6">Start Using Training Intelligence</h2>
-          <p className="text-xl text-slate-700 mb-8">
-            Train horses at peak performance without the guesswork.
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Training Load <span className="text-gradient">Science</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            ACWR (Acute:Chronic Workload Ratio) compares your horse's recent workload (last 7 days) to their average workload (last 28 days). Stay in the 0.8-1.3 range to avoid injury.
           </p>
-          <Button to="/contact" variant="primary" size="lg">
-            Get a Free Demo
-            <ArrowRight className="h-5 w-5" />
-          </Button>
         </motion.div>
+        <ACWRChart />
+        <div className="mt-8 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <Card className="text-center border border-slate-200">
+            <div className="text-3xl font-bold text-red-600 mb-2">&gt; 1.3</div>
+            <div className="text-sm font-semibold text-slate-700 mb-2">Danger Zone</div>
+            <p className="text-xs text-slate-600">2-5x higher injury risk. Back off training intensity.</p>
+          </Card>
+          <Card className="text-center border-2 border-success-500 bg-success-50">
+            <div className="text-3xl font-bold text-success-700 mb-2">0.8-1.3</div>
+            <div className="text-sm font-semibold text-slate-700 mb-2">Sweet Spot</div>
+            <p className="text-xs text-slate-600">Optimal training stimulus without injury risk.</p>
+          </Card>
+          <Card className="text-center border border-slate-200">
+            <div className="text-3xl font-bold text-orange-600 mb-2">&lt; 0.8</div>
+            <div className="text-sm font-semibold text-slate-700 mb-2">Detraining</div>
+            <p className="text-xs text-slate-600">Not enough work. Fitness declining.</p>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Gait Analysis Section */}
+      <Section background="white">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Video <span className="text-gradient">Gait Analysis</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            AI-powered motion tracking detects lameness and asymmetries 2-3 weeks before you can see them with the naked eye
+          </p>
+        </motion.div>
+
+        <div className="mb-12">
+          <GaitSymmetryViz />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {gaitAnalysisDetails.map((detail, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="h-full border border-slate-200">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-brand-500 rounded flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">
+                    {index + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2 text-navy-900">{detail.title}</h3>
+                    <p className="text-slate-600">{detail.description}</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Biometric Integrations */}
+      <Section background="gray">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Connect <span className="text-gradient">Any Device</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            We integrate with all major wearable devices. Data syncs automatically—no manual entry required.
+          </p>
+        </motion.div>
+
+        <div className="space-y-6">
+          {biometricIntegrations.map((integration, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="border border-slate-200">
+                <div className="grid md:grid-cols-4 gap-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-navy-900 mb-1">{integration.device}</h3>
+                    <p className="text-sm text-brand-500 font-semibold">{integration.brands}</p>
+                  </div>
+                  <div className="md:col-span-2">
+                    <div className="text-xs font-semibold text-slate-500 uppercase mb-1">Data Captured</div>
+                    <p className="text-sm text-slate-600">{integration.data}</p>
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-500 uppercase mb-1">Benefit</div>
+                    <p className="text-sm text-slate-700">{integration.benefit}</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <p className="text-slate-600 mb-4">Don't see your device? We add new integrations every month.</p>
+          <Button to="/contact" variant="ghost">
+            Request an Integration
+          </Button>
+        </div>
+      </Section>
+
+      {/* ROI & Buyer Benefits */}
+      <Section background="white">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Why Trainers <span className="text-gradient">Buy This</span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Real ROI from fewer injuries, better race results, and massive time savings
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {buyerBenefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="h-full border border-slate-200 hover:border-brand-500 transition-all hover:shadow-md">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-brand-500 rounded flex items-center justify-center flex-shrink-0 text-white">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-1">{benefit.title}</h3>
+                    <p className="text-sm text-brand-500 font-semibold">{benefit.stat}</p>
+                  </div>
+                </div>
+                <p className="text-slate-600 leading-relaxed">{benefit.details}</p>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center bg-slate-50 rounded p-8 border border-slate-200">
+          <h3 className="text-2xl font-bold text-navy-900 mb-4">Typical Payback: 2-3 Months</h3>
+          <p className="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
+            Most trainers recoup their investment after preventing just one major injury. Everything after that is pure savings and better performance.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button to="/contact" variant="primary" size="lg">
+              See a Demo
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+            <Button to="/pricing" variant="ghost" size="lg">
+              View Pricing
+            </Button>
+          </div>
+        </div>
       </Section>
     </div>
   )
