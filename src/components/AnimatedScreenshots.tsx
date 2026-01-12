@@ -1,6 +1,5 @@
 import { motion, useAnimation } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { ChevronRight } from 'lucide-react'
 
 interface Screenshot {
   id: string
