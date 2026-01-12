@@ -24,6 +24,7 @@ import TrustBadges from '../components/TrustBadges'
 import VideoEmbed from '../components/VideoEmbed'
 import TrackConditionFeature from '../components/TrackConditionFeature'
 import HowItWorksSteps from '../components/HowItWorksSteps'
+import GeometricPattern from '../components/GeometricPattern'
 
 const Home = () => {
   const problems = [
@@ -165,6 +166,9 @@ const Home = () => {
     <div className="pt-20">
       {/* Hero Section - Vibrant & Energetic */}
       <Section background="gradient" className="relative min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
+        {/* Geometric Pattern Background */}
+        <GeometricPattern variant="mixed" opacity={0.04} color="#0F5132" animated={true} />
+
         {/* Geometric Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -314,16 +318,18 @@ const Home = () => {
       </Section>
 
       {/* Problem-Agitation Section - Professional */}
-      <Section background="gray">
+      <Section background="gray" className="relative">
+        <GeometricPattern variant="triangles" opacity={0.025} color="#991B1B" animated={false} />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Paper Logs Are <span className="text-navy-900">Costing You Money</span>
+            Paper Logs Are <span className="text-burgundy-700">Costing You Money</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Illegible notes, lost records, and no injury warnings. There's a better way.
@@ -356,13 +362,15 @@ const Home = () => {
       </Section>
 
       {/* Solution Section - Professional */}
-      <Section background="white">
+      <Section background="white" className="relative">
+        <GeometricPattern variant="diamonds" opacity={0.03} color="#14B8A6" animated={true} />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-gradient">One Platform.</span> Complete Control.
@@ -428,13 +436,15 @@ const Home = () => {
       </Section>
 
       {/* Key Features Grid - Vibrant */}
-      <Section background="white" className="bg-section-gradient">
+      <Section background="white" className="bg-section-gradient relative">
+        <GeometricPattern variant="lines" opacity={0.02} color="#2563EB" animated={true} />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Everything You Need to <span className="text-gradient">Manage Your Barn</span>
@@ -478,13 +488,15 @@ const Home = () => {
       <HowItWorksSteps />
 
       {/* Social Proof Section */}
-      <Section background="gray">
+      <Section background="gray" className="relative">
+        <GeometricPattern variant="mixed" opacity={0.025} color="#F59E0B" animated={true} />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Trusted by <span className="text-gradient">Top Trainers</span> Nationwide
@@ -644,6 +656,9 @@ const Home = () => {
 
       {/* Final CTA - Vibrant & Compelling */}
       <section className="relative overflow-hidden bg-section-green py-24">
+        {/* Geometric Pattern Background */}
+        <GeometricPattern variant="mixed" opacity={0.08} color="#ffffff" animated={true} />
+
         {/* Geometric Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 transform rotate-45"></div>

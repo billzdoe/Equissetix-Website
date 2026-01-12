@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { TrendingUp, CheckCircle, Target, Cloud, Sun, Droplets } from 'lucide-react'
 import Button from './Button'
+import GeometricPattern from './GeometricPattern'
 
 const TrackConditionFeature = () => {
   const conditions = [
@@ -20,6 +21,9 @@ const TrackConditionFeature = () => {
 
   return (
     <section className="relative overflow-hidden bg-section-teal py-24">
+      {/* Geometric Pattern Background */}
+      <GeometricPattern variant="diamonds" opacity={0.06} color="#ffffff" animated={true} />
+
       {/* Geometric Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 transform rotate-45"></div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { UserPlus, Database, Play, TrendingUp, ArrowRight } from 'lucide-react'
+import GeometricPattern from './GeometricPattern'
 
 const HowItWorksSteps = () => {
   const steps = [
@@ -38,8 +39,11 @@ const HowItWorksSteps = () => {
   ]
 
   return (
-    <section className="py-24 bg-section-gradient">
-      <div className="container-custom">
+    <section className="py-24 bg-section-gradient relative overflow-hidden">
+      {/* Geometric Pattern Background */}
+      <GeometricPattern variant="triangles" opacity={0.03} color="#0F5132" animated={true} />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
