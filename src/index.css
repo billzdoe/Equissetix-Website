@@ -10,8 +10,16 @@
     @apply bg-cream-50 text-charcoal-900 antialiased;
     font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
     letter-spacing: 0.01em;
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Mobile-first responsive font sizes */
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px;
+      line-height: 1.7;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -21,15 +29,45 @@
   }
 
   h1 {
-    font-size: 3.5rem;  /* 56px */
+    font-size: 2rem;  /* 32px mobile */
+  }
+
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 2.5rem;  /* 40px tablet */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3.5rem;  /* 56px desktop */
+    }
   }
 
   h2 {
-    font-size: 2.5rem;  /* 40px */
+    font-size: 1.75rem;  /* 28px mobile */
+  }
+
+  @media (min-width: 640px) {
+    h2 {
+      font-size: 2rem;  /* 32px tablet */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 2.5rem;  /* 40px desktop */
+    }
   }
 
   h3 {
-    font-size: 1.875rem;  /* 30px */
+    font-size: 1.5rem;  /* 24px mobile */
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 1.875rem;  /* 30px desktop */
+    }
   }
 }
 
@@ -109,18 +147,18 @@
 }
 
 @layer components {
-  /* Card with sharp enterprise feel */
+  /* Card with sharp enterprise feel - mobile optimized */
   .card {
-    @apply bg-white rounded shadow-sm border border-slate-200 p-8 hover:shadow-md transition-all duration-200;
+    @apply bg-white shadow-sm border border-slate-200 p-4 sm:p-6 lg:p-8 hover:shadow-md transition-all duration-200;
   }
 
-  /* Professional spacing */
+  /* Professional spacing - mobile optimized */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 lg:py-24;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-12;
   }
 }
 

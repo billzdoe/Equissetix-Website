@@ -25,6 +25,7 @@ import VideoEmbed from '../components/VideoEmbed'
 import TrackConditionFeature from '../components/TrackConditionFeature'
 import HowItWorksSteps from '../components/HowItWorksSteps'
 import GeometricPattern from '../components/GeometricPattern'
+import GaitSymmetryShowcase from '../components/GaitSymmetryShowcase'
 
 const Home = () => {
   const problems = [
@@ -207,12 +208,12 @@ const Home = () => {
               AI-Powered Horse Training Platform
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-charcoal-900">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:leading-[1.1] tracking-tight text-charcoal-900">
               The Complete{' '}
-              <span className="text-gradient block mt-2">Horse Training Management Platform</span>
+              <span className="text-gradient block mt-1 sm:mt-2">Horse Training Management Platform</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-charcoal-800 leading-relaxed max-w-2xl font-medium">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-charcoal-800 leading-relaxed max-w-2xl font-medium">
               AI-Powered Insights. Real Science. 8+ Device Integrations. Everything you need to optimize performance and manage operations in one powerful system.
             </p>
 
@@ -227,33 +228,33 @@ const Home = () => {
             </div>
 
             {/* Animated Statistics */}
-            <div className="grid grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-center p-4 bg-white border-2 border-teal-500 shadow-md"
+                className="text-center p-2 sm:p-4 bg-white border-2 border-teal-500 shadow-md"
               >
-                <p className="text-3xl font-bold text-teal-600 font-mono">500+</p>
-                <p className="text-sm font-semibold text-charcoal-700">Operations</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-teal-600 font-mono">500+</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Operations</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center p-4 bg-white border-2 border-gold-500 shadow-md"
+                className="text-center p-2 sm:p-4 bg-white border-2 border-gold-500 shadow-md"
               >
-                <p className="text-3xl font-bold text-gold-600 font-mono">10K+</p>
-                <p className="text-sm font-semibold text-charcoal-700">Horses Tracked</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-600 font-mono">10K+</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Horses Tracked</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-center p-4 bg-white border-2 border-green-700 shadow-md"
+                className="text-center p-2 sm:p-4 bg-white border-2 border-green-700 shadow-md"
               >
-                <p className="text-3xl font-bold text-green-700 font-mono">8+</p>
-                <p className="text-sm font-semibold text-charcoal-700">Devices</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700 font-mono">8+</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Devices</p>
               </motion.div>
             </div>
           </motion.div>
@@ -263,11 +264,11 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="relative">
               {/* Main card with sharp styling and vibrant accents */}
-              <div className="relative bg-white p-8 shadow-elevation border-t-4 border-t-gold-500">
+              <div className="relative bg-white p-6 lg:p-8 shadow-elevation border-t-4 border-t-gold-500">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <h3 className="font-bold text-lg text-charcoal-900">Training Load Dashboard</h3>
@@ -326,12 +327,12 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative z-10"
+          className="text-center mb-12 sm:mb-16 relative z-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Paper Logs Are <span className="text-burgundy-700">Costing You Money</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
             Illegible notes, lost records, and no injury warnings. There's a better way.
           </p>
         </motion.div>
@@ -370,12 +371,12 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative z-10"
+          className="text-center mb-12 sm:mb-16 relative z-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-gradient">One Platform.</span> Complete Control.
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
             Everything you need to train smarter, prevent injuries, and maximize performance—all in one place.
           </p>
         </motion.div>
@@ -444,12 +445,12 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative z-10"
+          className="text-center mb-12 sm:mb-16 relative z-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Everything You Need to <span className="text-gradient">Manage Your Barn</span>
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-lg sm:text-xl text-slate-600">
             From daily workouts to owner billing—all in one powerful system
           </p>
         </motion.div>
@@ -484,6 +485,9 @@ const Home = () => {
       {/* Track Condition Analysis - NEW PROMINENT FEATURE */}
       <TrackConditionFeature />
 
+      {/* Gait Symmetry Analysis - AI-POWERED LAMENESS DETECTION */}
+      <GaitSymmetryShowcase />
+
       {/* How It Works Section */}
       <HowItWorksSteps />
 
@@ -496,12 +500,12 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative z-10"
+          className="text-center mb-12 sm:mb-16 relative z-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Trusted by <span className="text-gradient">Top Trainers</span> Nationwide
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-lg sm:text-xl text-slate-600">
             Join leading professionals who choose TrainingTree for better results
           </p>
         </motion.div>
@@ -533,22 +537,22 @@ const Home = () => {
         </div>
 
         {/* Professional Stats */}
-        <div className="grid md:grid-cols-4 gap-8 text-center mb-12">
-          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
-            <p className="text-4xl font-bold text-navy-900 mb-2">500+</p>
-            <p className="text-slate-600 font-medium">Trainers Made the Switch</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center mb-12">
+          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">500+</p>
+            <p className="text-sm sm:text-base text-slate-600 font-medium">Trainers Made the Switch</p>
           </div>
-          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
-            <p className="text-4xl font-bold text-navy-900 mb-2">Zero</p>
-            <p className="text-slate-600 font-medium">Went Back to Paper</p>
+          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">Zero</p>
+            <p className="text-sm sm:text-base text-slate-600 font-medium">Went Back to Paper</p>
           </div>
-          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
-            <p className="text-4xl font-bold text-navy-900 mb-2">40%</p>
-            <p className="text-slate-600 font-medium">Fewer Training Injuries</p>
+          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">40%</p>
+            <p className="text-sm sm:text-base text-slate-600 font-medium">Fewer Training Injuries</p>
           </div>
-          <div className="p-6 rounded bg-white border border-slate-200 shadow-sm">
-            <p className="text-4xl font-bold text-navy-900 mb-2">15 hrs</p>
-            <p className="text-slate-600 font-medium">Saved Per Week</p>
+          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">15 hrs</p>
+            <p className="text-sm sm:text-base text-slate-600 font-medium">Saved Per Week</p>
           </div>
         </div>
 
@@ -565,12 +569,12 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Plans Built for <span className="text-gradient">Every Operation Size</span>
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-lg sm:text-xl text-slate-600">
             From single trainers to large facilities—we've got you covered
           </p>
         </motion.div>
@@ -630,12 +634,12 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             See TrainingTree <span className="text-gradient">In Action</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
             Watch how TrainingTree helps trainers optimize performance, prevent injuries, and save time
           </p>
         </motion.div>
@@ -684,10 +688,10 @@ const Home = () => {
               Join 500+ Operations Already Using TrainerTree Pro
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
               Ready to Transform Your Training Operation?
             </h2>
-            <p className="text-xl md:text-2xl text-white/95 mb-10 leading-relaxed font-medium">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-8 sm:mb-10 leading-relaxed font-medium">
               Get AI-powered insights, prevent injuries, and optimize performance. Start your free trial today—no credit card required.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -701,22 +705,22 @@ const Home = () => {
             </div>
 
             {/* Trust Signals */}
-            <div className="flex flex-wrap justify-center gap-8 pt-6 border-t-2 border-white/20">
-              <div className="flex items-center gap-2 text-white font-semibold">
-                <div className="w-6 h-6 bg-white flex items-center justify-center">
-                  <Check className="h-4 w-4 text-green-600" />
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8 pt-6 border-t-2 border-white/20">
+              <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
+                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
                 </div>
                 <span>No credit card required</span>
               </div>
-              <div className="flex items-center gap-2 text-white font-semibold">
-                <div className="w-6 h-6 bg-white flex items-center justify-center">
-                  <Check className="h-4 w-4 text-green-600" />
+              <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
+                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
                 </div>
                 <span>Full access for 14 days</span>
               </div>
-              <div className="flex items-center gap-2 text-white font-semibold">
-                <div className="w-6 h-6 bg-white flex items-center justify-center">
-                  <Check className="h-4 w-4 text-green-600" />
+              <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
+                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
                 </div>
                 <span>Cancel anytime</span>
               </div>
