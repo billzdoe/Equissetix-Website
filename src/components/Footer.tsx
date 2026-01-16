@@ -15,8 +15,8 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-forest-500 rounded-lg flex items-center justify-center mb-3">
                 <span className="text-white font-bold text-xl">T</span>
               </div>
-              <h3 className="text-xl font-bold text-gradient mb-2">TrainingTree</h3>
-              <p className="text-xs text-slate-400">by Equissetix</p>
+              <h3 className="text-xl font-bold text-gradient mb-2">TrainingTree<sup className="text-xs">™</sup></h3>
+              <p className="text-xs text-slate-400">by Equissetix<sup className="text-xs">™</sup></p>
             </div>
             <p className="text-slate-400 text-sm">
               The complete horse training management platform for professional trainers and horse owners.
@@ -176,7 +176,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-400 text-sm">
-            © {currentYear} Equissetix. TrainingTree is a trademark of Equissetix.
+            © {currentYear} Equissetix<sup className="text-xs">™</sup>. All rights reserved. TrainingTree<sup className="text-xs">™</sup> and Equissetix<sup className="text-xs">™</sup> are trademarks of Equissetix.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <Link to="/privacy" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">

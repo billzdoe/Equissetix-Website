@@ -100,26 +100,7 @@ const Home = () => {
     }
   ]
 
-  const testimonials = [
-    {
-      quote: "TrainingTree caught a developing injury before it sidelined my champion. It paid for itself in one catch.",
-      author: "Sarah Mitchell",
-      role: "Professional Trainer",
-      facility: "Willowbrook Racing Stable"
-    },
-    {
-      quote: "We reduced training injuries by 40% in the first year. The ACWR monitoring is a game-changer for keeping horses race-ready.",
-      author: "Marcus Thompson",
-      role: "Head Trainer",
-      facility: "Thunder Ridge Facility"
-    },
-    {
-      quote: "Finally, I can show my owners exactly where their money goes and how their horses are progressing. Transparency has never been easier.",
-      author: "Jessica Chen",
-      role: "Racing Trainer",
-      facility: "Pacific Coast Training"
-    }
-  ]
+  // Testimonials will be added once we have real customer feedback
 
   const pricingTiers = [
     {
@@ -235,8 +216,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-center p-2 sm:p-4 bg-white border-2 border-teal-500 shadow-md"
               >
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-teal-600 font-mono">500+</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Operations</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-teal-600 font-mono">AI</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Powered</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -244,8 +225,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-center p-2 sm:p-4 bg-white border-2 border-gold-500 shadow-md"
               >
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-600 font-mono">10K+</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Horses Tracked</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-600 font-mono">All-In-One</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Platform</p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -254,7 +235,7 @@ const Home = () => {
                 className="text-center p-2 sm:p-4 bg-white border-2 border-green-700 shadow-md"
               >
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700 font-mono">8+</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Devices</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Device Integrations</p>
               </motion.div>
             </div>
           </motion.div>
@@ -503,58 +484,12 @@ const Home = () => {
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Trusted by <span className="text-gradient">Top Trainers</span> Nationwide
+            Built for <span className="text-gradient">Professional Trainers</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600">
-            Join leading professionals who choose TrainingTree for better results
+            Industry-leading features designed to optimize horse performance and streamline operations
           </p>
         </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="h-full">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-brand-500 text-brand-500" />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-6 italic">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-bold text-navy-900">{testimonial.author}</p>
-                  <p className="text-sm text-slate-600">{testimonial.role}</p>
-                  <p className="text-xs text-slate-500">{testimonial.facility}</p>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Professional Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center mb-12">
-          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">500+</p>
-            <p className="text-sm sm:text-base text-slate-600 font-medium">Trainers Made the Switch</p>
-          </div>
-          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">Zero</p>
-            <p className="text-sm sm:text-base text-slate-600 font-medium">Went Back to Paper</p>
-          </div>
-          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">40%</p>
-            <p className="text-sm sm:text-base text-slate-600 font-medium">Fewer Training Injuries</p>
-          </div>
-          <div className="p-4 sm:p-6 bg-white border border-slate-200 shadow-sm">
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-2">15 hrs</p>
-            <p className="text-sm sm:text-base text-slate-600 font-medium">Saved Per Week</p>
-          </div>
-        </div>
 
         {/* Trust Badges */}
         <div className="max-w-4xl mx-auto">
@@ -637,10 +572,10 @@ const Home = () => {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            See TrainingTree <span className="text-gradient">In Action</span>
+            See TrainingTree<sup className="text-sm">™</sup> <span className="text-gradient">In Action</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            Watch how TrainingTree helps trainers optimize performance, prevent injuries, and save time
+            Watch how TrainingTree<sup className="text-sm">™</sup> helps trainers optimize performance, prevent injuries, and save time
           </p>
         </motion.div>
 
@@ -652,7 +587,7 @@ const Home = () => {
           className="max-w-4xl mx-auto"
         >
           <VideoEmbed
-            title="TrainingTree Platform Demo"
+            title="TrainingTree™ Platform Demo"
             className="shadow-modern-lg"
           />
         </motion.div>
@@ -685,7 +620,7 @@ const Home = () => {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border-2 border-white/30 text-sm font-bold text-white mb-6"
             >
               <Zap className="h-4 w-4 animate-pulse" />
-              Join 500+ Operations Already Using TrainerTree Pro
+              The Complete Training Management Platform
             </motion.div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">

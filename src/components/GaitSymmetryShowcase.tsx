@@ -105,7 +105,7 @@ const GaitSymmetryShowcase = () => {
             </h2>
             <p className="text-lg sm:text-xl text-charcoal-700 max-w-3xl mx-auto">
               Detect lameness early with real-time left-right balance monitoring.
-              Our AI analyzes every stride to catch problems before they become serious injuries.
+              TrainingTree Pro's AI analyzes every stride to catch problems before they become serious injuries.
             </p>
           </motion.div>
         </div>
@@ -363,7 +363,7 @@ const GaitSymmetryShowcase = () => {
             Start Free Trial - See It In Action
           </button>
           <p className="text-sm text-charcoal-600 mt-4">
-            Join 500+ trainers using AI to keep their horses sound and performing
+            Join 500+ trainers using TrainingTree Pro AI to keep their horses sound and performing
           </p>
         </motion.div>
       </div>

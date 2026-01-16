@@ -67,7 +67,7 @@ const Navbar = () => {
                 <span className="text-white font-bold text-lg">E</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-navy-900 tracking-tight">Equissetix</span>
+                <span className="text-xl font-bold text-navy-900 tracking-tight">Equissetix<sup className="text-xs">™</sup></span>
                 <span className="text-xs text-slate-500 -mt-1">Enterprise Horse Management</span>
               </div>
             </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
                   activeDropdown === 'product' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
                 }`}
               >
-                TrainingTree
+                TrainingTree<sup className="text-xs">™</sup>
                 <ChevronDown className="h-4 w-4" />
               </button>
 

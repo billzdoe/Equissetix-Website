@@ -14,13 +14,13 @@ const TrustBadges = ({ variant = 'default', className = '' }: TrustBadgesProps) 
     },
     {
       icon: <Lock className="h-5 w-5" />,
-      label: "SOC 2 Compliant",
-      description: "Security certified"
+      label: "Secure Cloud Storage",
+      description: "AWS infrastructure"
     },
     {
       icon: <CheckCircle className="h-5 w-5" />,
-      label: "HIPAA Ready",
-      description: "Health data protected"
+      label: "Data Privacy",
+      description: "Your data protected"
     },
     {
       icon: <Award className="h-5 w-5" />,

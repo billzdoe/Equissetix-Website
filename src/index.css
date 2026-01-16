@@ -17,8 +17,14 @@
   /* Mobile-first responsive font sizes */
   @media (min-width: 768px) {
     body {
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.7;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 18px;
     }
   }
 
@@ -175,6 +181,17 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+body, html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure all sections are mobile-friendly */
+section, div {
+  max-width: 100%;
 }
 
 /* Custom scrollbar - minimal and elegant */
