@@ -55,47 +55,47 @@ const Home = () => {
     {
       icon: <Smartphone className="h-6 w-6" />,
       title: "30-Second Workout Logging",
-      description: "Scan QR code, tap workout type. Done. Faster than writing in a notebook."
+      description: "Scan a horse's QR code and tap the workout type to log training sessions in seconds. Faster than writing in a notebook, with automatic timestamps and location tracking. Access complete workout history instantly from any device."
     },
     {
       icon: <Activity className="h-6 w-6" />,
       title: "Automatic Barn Walk Insights",
-      description: "Log observations during barn walks. System flags patterns and alerts you to trends."
+      description: "Log observations during morning and evening barn walks using voice notes or quick taps. The system analyzes patterns across all horses, flagging unusual behaviors or trends that might indicate health issues before they become serious problems."
     },
     {
       icon: <TrendingUp className="h-6 w-6" />,
       title: "Track Condition Recommendations",
-      description: "See which track surfaces your horse excels on. System flags races with favorable conditions."
+      description: "Analyze which track surfaces each horse performs best on based on historical race data and workout sessions. Receive automated alerts when upcoming races match your horse's preferred conditions, helping you make smarter entry decisions."
     },
     {
       icon: <Brain className="h-6 w-6" />,
       title: "AI Training Recommendations",
-      description: "Get intelligent suggestions for workouts, farrier visits, vet care, nutrition, hot walking, massages, and more. Use them or ignore them—you're always in control."
+      description: "Get intelligent suggestions for workouts, farrier scheduling, vet care, nutrition adjustments, hot walking schedules, massage therapy, and recovery protocols based on each horse's training patterns and performance data. Accept, modify, or dismiss any recommendation—your professional judgment always takes precedence."
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Full Staff Management",
-      description: "Assign tasks, track who fed what, manage schedules. Everyone knows their job."
+      title: "Complete Staff Management",
+      description: "Assign daily tasks to team members, track completion status, and manage staff schedules with role-based permissions. Everyone sees their assignments clearly, reducing miscommunication and ensuring consistent care across all horses in your operation."
     },
     {
       icon: <Heart className="h-6 w-6" />,
-      title: "Vet & Health Records",
-      description: "Store exams, medications, vaccinations. Complete health history in one place."
+      title: "Comprehensive Health Records",
+      description: "Maintain complete veterinary records including exams, diagnoses, medications, vaccinations, and treatment plans for every horse. Attach documents, lab results, and radiographs for easy access. Generate health summaries for vets, owners, or insurance with one click."
     },
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Feed & Supplement Tracking",
-      description: "Log what each horse eats. Track supplements. Get alerts when supplies run low."
+      description: "Document feeding schedules, supplement regimens, and body weight changes for each horse. Track inventory levels for all feed and supplements, receiving automated alerts when supplies run low. Monitor nutrition costs per horse for accurate billing and budgeting."
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
       title: "Owner Invoicing & Portals",
-      description: "Bill owners automatically. They see their horse's progress online anytime."
+      description: "Generate professional invoices automatically based on training days, services, and expenses. Owners access secure portals to view their horse's training schedule, health records, photos, videos, and financial statements anytime. Reduce billing questions and improve owner satisfaction with complete transparency."
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
-      title: "Gallop Out & Performance Analytics",
-      description: "Track gallop outs, race performance, and trends across your entire barn."
+      title: "Performance Analytics & Reporting",
+      description: "Track gallop out times, race performance metrics, and workout progressions across your entire barn. Identify which training approaches produce the best results. Generate comprehensive performance reports for owners showing measurable progress toward racing goals."
     }
   ]
 
@@ -366,12 +366,12 @@ const Home = () => {
             <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <Activity className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Fitness & Training</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">Fitness & Training Management</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Track workouts, monitor training load, prevent overtraining with ACWR science, and get AI-powered tapering plans
+              Monitor training load using ACWR (Acute Chronic Workload Ratio) science to identify injury risk before it becomes a problem. Track every workout with detailed exercise logs, durations, and intensity levels. Receive AI-powered recommendations for rest days and tapering schedules optimized for race preparation.
             </p>
             <p className="text-xs font-semibold text-slate-700">
-              Know exactly when your horse is ready to perform
+              Know exactly when your horse is ready to perform at peak level
             </p>
           </Card>
 
@@ -379,12 +379,12 @@ const Home = () => {
             <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <Heart className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Vet & Health Records</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">Veterinary & Health Records</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Manage vet visits, track medications, monitor vitals, and store vaccination records all in one place
+              Maintain comprehensive medical records including vet visits, diagnoses, treatment plans, medications, and vaccination schedules for every horse. Store lab results, radiographs, and medical documents securely. Set automated reminders for upcoming vaccinations, dental work, and preventive care appointments.
             </p>
             <p className="text-xs font-semibold text-slate-700">
-              Complete health history at your fingertips
+              Complete health history accessible instantly for vets, owners, and insurance
             </p>
           </Card>
 
@@ -392,12 +392,12 @@ const Home = () => {
             <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <DollarSign className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Barn Financials</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">Financial Management & ERP</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Invoice owners, track expenses, manage payroll, and see which horses are profitable
+              Generate professional invoices automatically based on training days, board fees, and services rendered. Track all expenses by horse for accurate cost analysis and profitability reporting. Manage payroll, vendor payments, and accounts receivable with complete financial transparency. Identify which horses are profitable and which require cost optimization.
             </p>
             <p className="text-xs font-semibold text-slate-700">
-              Run your barn like a real business
+              Run your operation with enterprise-grade financial management and reporting
             </p>
           </Card>
 
@@ -405,12 +405,12 @@ const Home = () => {
             <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <Brain className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">AI Training Assistance</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">AI-Powered Training Assistance</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Get smart suggestions for workouts, farrier scheduling, vet care, nutrition adjustments, and recovery protocols—use your own plans or let AI assist
+              Receive intelligent recommendations for workout scheduling, farrier appointments, veterinary check-ups, nutrition adjustments, hot walking protocols, massage therapy, and recovery periods based on each horse's training patterns, performance data, and historical outcomes. Accept recommendations as-is, modify them to fit your approach, or dismiss them entirely—your professional expertise always takes precedence over algorithmic suggestions.
             </p>
             <p className="text-xs font-semibold text-slate-700">
-              You're always in control. AI recommends, you decide.
+              AI provides insights and recommendations. You maintain complete control over all training decisions.
             </p>
           </Card>
         </div>
@@ -483,28 +483,28 @@ const Home = () => {
           </h2>
 
           <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed">
-            Professional trainers know their horses best. TrainingTree<sup className="text-sm">™</sup> doesn't replace your expertise—it enhances it. Use your own custom training plans, feeding schedules, and care routines. The system provides intelligent recommendations for farrier visits, vet appointments, nutrition adjustments, hot walking schedules, massage therapy, and more—but you always have final say.
+            Professional trainers possess deep expertise developed through years of hands-on experience. TrainingTree<sup className="text-sm">™</sup> is designed to augment that expertise, not replace it. Implement your own training methodologies, feeding protocols, and care schedules exactly as you've developed them. The platform provides data-driven recommendations for farrier scheduling, veterinary appointments, nutrition adjustments, hot walking protocols, massage therapy, and recovery periods based on performance analytics—but every decision remains firmly in your control. Use the insights that align with your professional assessment and disregard those that do not.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 text-left">
             <Card className="border-2 border-slate-200">
-              <h3 className="font-bold text-lg mb-2 text-navy-900">Your Plans, Your Way</h3>
+              <h3 className="font-bold text-lg mb-2 text-navy-900">Custom Training Methodologies</h3>
               <p className="text-sm text-slate-600">
-                Create custom training protocols, feeding schedules, and care routines. The system adapts to your methodology.
+                Build and implement your own training protocols, exercise progressions, feeding schedules, and care routines. The platform adapts to your established methodologies rather than imposing a predefined system. Maintain full control over your proven approaches while leveraging digital efficiency.
               </p>
             </Card>
 
             <Card className="border-2 border-slate-200">
-              <h3 className="font-bold text-lg mb-2 text-navy-900">Smart Suggestions</h3>
+              <h3 className="font-bold text-lg mb-2 text-navy-900">Intelligent Recommendations</h3>
               <p className="text-sm text-slate-600">
-                Get AI recommendations for scheduling farrier, vet, nutrition changes, recovery protocols—accept or ignore them.
+                Receive data-driven suggestions for farrier scheduling, veterinary check-ups, nutrition modifications, and recovery protocols based on training load analytics and performance patterns. Review each recommendation and accept, modify, or dismiss based on your professional assessment of individual horse needs and circumstances.
               </p>
             </Card>
 
             <Card className="border-2 border-slate-200">
-              <h3 className="font-bold text-lg mb-2 text-navy-900">Professional Override</h3>
+              <h3 className="font-bold text-lg mb-2 text-navy-900">Professional Autonomy</h3>
               <p className="text-sm text-slate-600">
-                Every AI suggestion can be modified or dismissed. Your professional judgment always takes precedence.
+                Maintain complete authority over all training and care decisions. Every AI-generated suggestion functions as an advisory input that requires your explicit approval before implementation. Your professional judgment, informed by direct observation and hands-on experience, always takes precedence over algorithmic recommendations.
               </p>
             </Card>
           </div>

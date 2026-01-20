@@ -13,29 +13,29 @@ const Navbar = () => {
     {
       category: 'Core Platform',
       links: [
-        { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'ACWR & AI insights' },
-        { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Vet records & alerts' },
-        { path: '/trainingtree/nutrition', label: 'Nutrition & Feed', desc: 'Feed & supplements' },
-        { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Invoicing & expenses' },
-        { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'Performance tracking' },
+        { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'Track training load and get AI recommendations to prevent injuries' },
+        { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Maintain complete health records with automated vet and farrier reminders' },
+        { path: '/trainingtree/nutrition', label: 'Nutrition & Feed', desc: 'Monitor feeding programs and supplements with automated inventory alerts' },
+        { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Automate owner billing and expense tracking with complete financial reporting' },
+        { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'Analyze race performance and track conditions to optimize entry decisions' },
       ]
     },
     {
       category: 'Features',
       links: [
-        { path: '/trainingtree/mobile', label: 'Mobile App', desc: 'Manage on the go' },
-        { path: '/trainingtree/integrations', label: 'Integrations', desc: 'Wearable devices' },
-        { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Smart insights' },
-        { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Staff coordination' },
+        { path: '/trainingtree/mobile', label: 'Mobile App', desc: 'Log workouts and access horse data from your mobile device instantly' },
+        { path: '/trainingtree/integrations', label: 'Integrations', desc: 'Connect wearable sensors and tracking devices for real-time performance data' },
+        { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Get data-driven insights to optimize training and prevent overtraining' },
+        { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Coordinate tasks across your team with role-based access and assignments' },
       ]
     }
   ]
 
   const solutionsLinks = [
-    { path: '/solutions/racing-trainers', label: 'Racing Trainers', desc: 'Performance & injury prevention' },
-    { path: '/solutions/horse-owners', label: 'Horse Owners', desc: 'Track your investment' },
-    { path: '/solutions/training-facilities', label: 'Large Barn Operations', desc: 'Multi-trainer management' },
-    { path: '/solutions/veterinarians', label: 'Veterinarians', desc: 'Health data integration' },
+    { path: '/solutions/racing-trainers', label: 'Racing Trainers', desc: 'Optimize performance and prevent injuries with data-driven training insights' },
+    { path: '/solutions/horse-owners', label: 'Horse Owners', desc: 'Track your investment with complete transparency and real-time updates' },
+    { path: '/solutions/training-facilities', label: 'Large Barn Operations', desc: 'Manage multiple trainers and owners with unified enterprise-grade tools' },
+    { path: '/solutions/veterinarians', label: 'Veterinarians', desc: 'Access complete health data and collaborate seamlessly with trainers' },
   ]
 
   const resourcesLinks = [
