@@ -121,7 +121,7 @@ const HowItWorksSteps = () => {
           className="text-center mt-16"
         >
           <p className="text-lg text-slate-600 mb-6">
-            Join 500+ trainers who transformed their operations with TrainerTree Pro
+            Transform your training operation with data-driven insights and streamlined management
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

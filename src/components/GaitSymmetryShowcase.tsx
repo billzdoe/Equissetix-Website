@@ -363,7 +363,7 @@ const GaitSymmetryShowcase = () => {
             Start Free Trial - See It In Action
           </button>
           <p className="text-sm text-charcoal-600 mt-4">
-            Join 500+ trainers using TrainingTree Pro AI to keep their horses sound and performing
+            Use AI-powered gait analysis to keep your horses sound and performing at their peak
           </p>
         </motion.div>
       </div>

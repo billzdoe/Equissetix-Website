@@ -353,7 +353,7 @@ const Training = () => {
         <div className="mt-12 text-center bg-slate-50 rounded p-8 border border-slate-200">
           <h3 className="text-2xl font-bold text-navy-900 mb-4">Start Training Smarter Today</h3>
           <p className="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
-            Join 500+ trainers who made the switch from paper. See exactly how it works in a personalized demo.
+            Make the switch from paper to digital training management. See exactly how it works in a personalized demo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">
