@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Activity, AlertTriangle, CheckCircle, TrendingUp, Brain, Smartphone, Zap } from 'lucide-react'
+import { Activity, AlertTriangle, CheckCircle, Brain, Smartphone, Zap } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const GaitSymmetryShowcase = () => {

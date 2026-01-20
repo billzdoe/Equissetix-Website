@@ -14,7 +14,6 @@ import {
   Users,
   BarChart3,
   Check,
-  Star,
   Zap,
 } from 'lucide-react'
 import Button from '../components/Button'
