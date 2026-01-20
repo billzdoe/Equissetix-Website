@@ -147,7 +147,7 @@ const Home = () => {
   return (
     <div className="pt-20">
       {/* Hero Section - Vibrant & Energetic */}
-      <Section background="gradient" className="relative min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
+      <Section background="gradient" className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
         {/* Geometric Pattern Background */}
         <GeometricPattern variant="mixed" opacity={0.04} color="#0F5132" animated={true} />
 
@@ -171,31 +171,31 @@ const Home = () => {
           ></motion.div>
         </div>
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center px-4 sm:px-0">
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-gold-500 text-sm font-bold text-charcoal-900 mb-4 shadow-md"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white border-2 border-gold-500 text-xs sm:text-sm font-bold text-charcoal-900 mb-4 shadow-md"
             >
-              <Zap className="h-4 w-4 text-gold-500 animate-pulse" />
-              AI-Powered Horse Training Platform
+              <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-gold-500 animate-pulse" />
+              <span className="whitespace-nowrap">AI-Powered Horse Training Platform</span>
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:leading-[1.1] tracking-tight text-charcoal-900">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:leading-[1.1] tracking-tight text-charcoal-900">
               The Complete{' '}
               <span className="text-gradient block mt-1 sm:mt-2">Horse Training Management Platform</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-charcoal-800 leading-relaxed max-w-2xl font-medium">
-              AI-Powered Insights. Real Science. 8+ Device Integrations. Everything you need to optimize performance and manage operations in one powerful system.
+            <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-charcoal-800 leading-relaxed max-w-2xl font-medium">
+              AI-Powered Insights. Real Science. Everything you need to optimize performance and manage operations in one powerful system.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -234,8 +234,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="text-center p-2 sm:p-4 bg-white border-2 border-green-700 shadow-md"
               >
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700 font-mono">8+</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Device Integrations</p>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700 font-mono">Real-Time</p>
+                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Insights</p>
               </motion.div>
             </div>
           </motion.div>
