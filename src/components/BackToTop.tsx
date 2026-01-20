@@ -6,18 +6,25 @@ const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
+    let rafId: number | null = null
+
+    const update = () => {
+      rafId = null
+      const next = window.pageYOffset > 300
+      setIsVisible((prev) => (prev === next ? prev : next))
     }
 
-    window.addEventListener('scroll', toggleVisibility)
+    const onScroll = () => {
+      if (rafId !== null) return
+      rafId = window.requestAnimationFrame(update)
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', toggleVisibility)
+      if (rafId !== null) window.cancelAnimationFrame(rafId)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 

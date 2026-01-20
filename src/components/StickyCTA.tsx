@@ -8,19 +8,25 @@ const StickyCTA = () => {
   const [isDismissed, setIsDismissed] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      // Show after scrolling down 400px
-      if (window.pageYOffset > 400 && !isDismissed) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
+    let rafId: number | null = null
+
+    const update = () => {
+      rafId = null
+      const next = window.pageYOffset > 400 && !isDismissed
+      setIsVisible((prev) => (prev === next ? prev : next))
     }
 
-    window.addEventListener('scroll', toggleVisibility)
+    const onScroll = () => {
+      if (rafId !== null) return
+      rafId = window.requestAnimationFrame(update)
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', toggleVisibility)
+      if (rafId !== null) window.cancelAnimationFrame(rafId)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [isDismissed])
 

@@ -30,7 +30,7 @@ const AnimatedPlatformShowcase = ({
 
   return (
     <div ref={containerRef} className="relative py-24">
-      <motion.div style={{ opacity }} className="container-custom">
+      <motion.div style={{ opacity, willChange: 'opacity' }} className="container-custom">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{title}</h2>
@@ -46,7 +46,7 @@ const AnimatedPlatformShowcase = ({
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative z-20 max-w-5xl mx-auto"
+            className="relative z-20 max-w-5xl mx-auto will-change-transform"
           >
             {/* Monitor Frame */}
             <div className="relative bg-charcoal-900 p-3 shadow-elevation">
@@ -61,6 +61,8 @@ const AnimatedPlatformShowcase = ({
                     transition={{ delay: 0.3, duration: 0.8 }}
                     src={desktopImage}
                     alt="Desktop platform view"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
 
@@ -94,7 +96,7 @@ const AnimatedPlatformShowcase = ({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="absolute right-0 top-1/2 transform translate-x-1/4 -translate-y-1/2 z-30"
+              className="absolute right-0 top-1/2 transform translate-x-1/4 -translate-y-1/2 z-30 will-change-transform"
             >
               {/* Phone Frame */}
               <div className="relative bg-charcoal-900 p-3 shadow-2xl w-64">
@@ -110,6 +112,8 @@ const AnimatedPlatformShowcase = ({
                     transition={{ delay: 0.6, duration: 0.8 }}
                     src={mobileImage}
                     alt="Mobile app view"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
 
@@ -144,7 +148,7 @@ const AnimatedPlatformShowcase = ({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute left-0 top-1/2 transform -translate-x-1/4 -translate-y-1/2 z-10"
+              className="absolute left-0 top-1/2 transform -translate-x-1/4 -translate-y-1/2 z-10 will-change-transform"
             >
               {/* Tablet Frame */}
               <div className="relative bg-charcoal-900 p-4 shadow-2xl w-80">
@@ -156,6 +160,8 @@ const AnimatedPlatformShowcase = ({
                     transition={{ delay: 0.7, duration: 0.8 }}
                     src={tabletImage}
                     alt="Tablet view"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
