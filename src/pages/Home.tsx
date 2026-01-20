@@ -303,10 +303,10 @@ const Home = () => {
         <GeometricPattern variant="triangles" opacity={0.025} color="#991B1B" animated={false} />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -321,10 +321,10 @@ const Home = () => {
           {problems.map((problem, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+              transition={{ duration: 0.4 }}
             >
               <Card className="text-center h-full border border-slate-200 hover:border-slate-300 transition-all hover:shadow-md">
                 <div className="text-slate-700 mb-4 flex justify-center">
@@ -347,10 +347,10 @@ const Home = () => {
         <GeometricPattern variant="diamonds" opacity={0.03} color="#14B8A6" animated={true} />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -421,10 +421,10 @@ const Home = () => {
         <GeometricPattern variant="lines" opacity={0.02} color="#2563EB" animated={true} />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -442,10 +442,10 @@ const Home = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+                transition={{ duration: 0.3 }}
               >
                 <Card className={`flex items-start gap-4 hover:border-${color}-500 transition-all border-2 border-slate-200 hover:border-l-4`}>
                   <div className={`w-12 h-12 bg-${color}-500 flex items-center justify-center flex-shrink-0 text-white shadow-md`}>
@@ -467,10 +467,10 @@ const Home = () => {
         <GeometricPattern variant="diamonds" opacity={0.03} color="#0F5132" animated={true} />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="max-w-4xl mx-auto text-center relative z-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border-2 border-green-600 text-sm font-bold text-green-800 mb-6">
@@ -525,10 +525,10 @@ const Home = () => {
         <GeometricPattern variant="mixed" opacity={0.025} color="#F59E0B" animated={true} />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -548,10 +548,10 @@ const Home = () => {
       {/* Pricing Teaser */}
       <Section background="white">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -566,10 +566,10 @@ const Home = () => {
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+              transition={{ duration: 0.3 }}
             >
               <Card className={`h-full ${tier.highlighted ? 'border-2 border-brand-500 shadow-md' : 'hover:border-brand-500 border border-slate-200'} transition-all`}>
                 {tier.highlighted && (
@@ -613,10 +613,10 @@ const Home = () => {
       {/* Video Section */}
       <Section background="white">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -628,10 +628,10 @@ const Home = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 0.4 }}
           className="max-w-4xl mx-auto"
         >
           <VideoEmbed
@@ -654,10 +654,10 @@ const Home = () => {
 
         <div className="container-custom relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.4 }}
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div
