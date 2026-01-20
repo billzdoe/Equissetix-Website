@@ -130,8 +130,8 @@ const Home = () => {
     },
     {
       name: "Enterprise",
-      subtitle: "For Large Facilities",
-      description: "For facilities managing 50+ horses",
+      subtitle: "For Large Barn Operations",
+      description: "For operations managing 50+ horses",
       features: [
         "Everything in Professional",
         "Full ERP & accounting",
@@ -558,7 +558,7 @@ const Home = () => {
             Plans Built for <span className="text-gradient">Every Operation Size</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600">
-            From single trainers to large facilities—we've got you covered
+            From single trainers to large barn operations—we've got you covered
           </p>
         </motion.div>
 

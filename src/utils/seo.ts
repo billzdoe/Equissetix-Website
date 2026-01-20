@@ -44,7 +44,7 @@ export const pageSEO = {
   },
   pricing: {
     title: 'Pricing - Equissetix TrainingTree',
-    description: 'Flexible pricing plans for every operation size. From single trainers to large facilities. Contact us for custom pricing.',
+    description: 'Flexible pricing plans for every operation size. From single trainers to large barn operations. Contact us for custom pricing.',
   },
   contact: {
     title: 'Contact Us - Equissetix',

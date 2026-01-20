@@ -40,8 +40,8 @@ const Pricing = () => {
     },
     {
       name: "Enterprise",
-      subtitle: "For Large Facilities",
-      description: "For facilities managing 50+ horses",
+      subtitle: "For Large Barn Operations",
+      description: "For operations managing 50+ horses",
       features: [
         "Everything in Professional",
         "Full ERP & accounting suite",
@@ -67,7 +67,7 @@ const Pricing = () => {
       answer: "Your data is yours. You can export all your data before canceling, and we'll keep it available for 90 days after cancellation."
     },
     {
-      question: "Do you offer discounts for large facilities?",
+      question: "Do you offer discounts for large barn operations?",
       answer: "Yes! Enterprise pricing is customized based on your needs and number of horses. Contact us for a quote."
     },
     {
@@ -93,7 +93,7 @@ const Pricing = () => {
             Plans Built for <span className="text-gradient">Every Operation Size</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto">
-            From single trainers to large facilities—flexible plans tailored to your needs
+            From single trainers to large barn operations—flexible plans tailored to your needs
           </p>
           <p className="text-lg text-slate-600">
             Contact us to discuss pricing • 14-day free trial available

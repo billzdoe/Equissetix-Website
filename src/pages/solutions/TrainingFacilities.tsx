@@ -13,7 +13,7 @@ const TrainingFacilities = () => {
     },
     {
       problem: "No unified view of operations",
-      impact: "Can't optimize facility-wide performance"
+      impact: "Can't optimize barn-wide performance"
     },
     {
       problem: "Owner transparency and communication",
@@ -31,10 +31,10 @@ const TrainingFacilities = () => {
       title: "Enterprise Operations Management",
       description: "Manage multiple trainers, hundreds of horses, and dozens of owners from one unified platform with role-based access and comprehensive oversight.",
       benefits: [
-        "Unified dashboard for facility-wide visibility",
+        "Unified dashboard for barn-wide visibility",
         "Multi-trainer coordination and scheduling",
         "Centralized horse and owner management",
-        "Facility-wide analytics and reporting"
+        "Barn-wide analytics and reporting"
       ]
     },
     {
@@ -50,7 +50,7 @@ const TrainingFacilities = () => {
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
-      title: "Facility-Wide Analytics",
+      title: "Barn-Wide Analytics",
       description: "Track performance metrics across all horses, trainers, and operations to identify trends, optimize resources, and demonstrate value.",
       benefits: [
         "Cross-horse performance analysis",
@@ -62,7 +62,7 @@ const TrainingFacilities = () => {
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Enterprise Security & Compliance",
-      description: "Bank-level security, audit trails, and compliance features designed for large facilities with multiple stakeholders and regulatory requirements.",
+      description: "Bank-level security, audit trails, and compliance features designed for large operations with multiple stakeholders and regulatory requirements.",
       benefits: [
         "SOC 2 Type II certified infrastructure",
         "Comprehensive audit logging",
@@ -75,7 +75,7 @@ const TrainingFacilities = () => {
   const capabilities = [
     "Manage 50+ horses with unlimited users and trainers",
     "Multi-owner portals with privacy controls",
-    "Facility-wide analytics and performance dashboards",
+    "Barn-wide analytics and performance dashboards",
     "Enterprise financial management with full ERP",
     "Custom integrations and API access",
     "Dedicated account manager and onboarding",
@@ -91,7 +91,7 @@ const TrainingFacilities = () => {
         <div className="container-custom">
           <Breadcrumbs items={[
             { label: 'Solutions', path: '/' },
-            { label: 'For Training Facilities' }
+            { label: 'For Large Barn Operations' }
           ]} />
         </div>
       </Section>
@@ -104,7 +104,7 @@ const TrainingFacilities = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Enterprise Management for <span className="text-gradient">Large Training Facilities</span>
+              Enterprise Management for <span className="text-gradient">Large Barn Operations</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
               Scale your operation with unified management for multiple trainers, hundreds of horses, and dozens of owners—all in one platform.
@@ -146,7 +146,7 @@ const TrainingFacilities = () => {
               <h3 className="text-lg font-bold text-success-900">Our Solution</h3>
             </div>
             <p className="text-sm text-slate-700 mb-3">
-              Enterprise platform designed for large facilities. Unified management, multi-owner portals, facility-wide analytics, and enterprise security.
+              Enterprise platform designed for large operations. Unified management, multi-owner portals, barn-wide analytics, and enterprise security.
             </p>
             <div className="bg-white/50 rounded-lg p-2">
               <p className="text-xl font-bold text-success-900 mb-1">50+ horses</p>
@@ -163,7 +163,7 @@ const TrainingFacilities = () => {
             <ul className="space-y-1.5 text-xs text-slate-700">
               <li>• Multi-trainer coordination</li>
               <li>• Owner portals</li>
-              <li>• Facility-wide analytics</li>
+              <li>• Barn-wide analytics</li>
               <li>• Enterprise ERP</li>
               <li>• Custom integrations</li>
             </ul>
@@ -257,10 +257,10 @@ const TrainingFacilities = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-4xl font-bold mb-6">
-            Scale Your Facility Operations
+            Scale Your Barn Operations
           </h2>
           <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree Enterprise helps large facilities manage complexity, improve efficiency, and deliver better results.
+            See how TrainingTree Enterprise helps large barn operations manage complexity, improve efficiency, and deliver better results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">

@@ -13,29 +13,29 @@ const Navbar = () => {
     {
       category: 'Core Platform',
       links: [
-        { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'ACWR monitoring, AI recommendations' },
-        { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Real-time health scores, vet integration' },
-        { path: '/trainingtree/nutrition', label: 'Nutrition & Feed', desc: 'Feed tracking, supplements, body weight' },
-        { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Complete ERP for horse operations' },
-        { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'AI predictions, competitor analysis' },
+        { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'ACWR & AI insights' },
+        { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Vet records & alerts' },
+        { path: '/trainingtree/nutrition', label: 'Nutrition & Feed', desc: 'Feed & supplements' },
+        { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Invoicing & expenses' },
+        { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'Performance tracking' },
       ]
     },
     {
       category: 'Features',
       links: [
-        { path: '/trainingtree/mobile', label: 'Mobile App', desc: 'Barn management on the go' },
-        { path: '/trainingtree/integrations', label: 'Integrations', desc: '8+ wearable devices' },
-        { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Data-driven insights' },
-        { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Multi-user workflows' },
+        { path: '/trainingtree/mobile', label: 'Mobile App', desc: 'Manage on the go' },
+        { path: '/trainingtree/integrations', label: 'Integrations', desc: 'Wearable devices' },
+        { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Smart insights' },
+        { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Staff coordination' },
       ]
     }
   ]
 
   const solutionsLinks = [
-    { path: '/solutions/racing-trainers', label: 'Racing Trainers', desc: 'Optimize performance, prevent injuries' },
-    { path: '/solutions/horse-owners', label: 'Horse Owners', desc: 'Complete transparency and insights' },
-    { path: '/solutions/training-facilities', label: 'Training Facilities', desc: 'Enterprise-grade management' },
-    { path: '/solutions/veterinarians', label: 'Veterinarians', desc: 'Seamless health data integration' },
+    { path: '/solutions/racing-trainers', label: 'Racing Trainers', desc: 'Performance & injury prevention' },
+    { path: '/solutions/horse-owners', label: 'Horse Owners', desc: 'Track your investment' },
+    { path: '/solutions/training-facilities', label: 'Large Barn Operations', desc: 'Multi-trainer management' },
+    { path: '/solutions/veterinarians', label: 'Veterinarians', desc: 'Health data integration' },
   ]
 
   const resourcesLinks = [
@@ -86,7 +86,7 @@ const Navbar = () => {
                   activeDropdown === 'product' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
                 }`}
               >
-                TrainingTree<sup className="text-xs">™</sup>
+                TrainingTree<sup className="text-[9px] -ml-0.5">™</sup>
                 <ChevronDown className="h-4 w-4" />
               </button>
 

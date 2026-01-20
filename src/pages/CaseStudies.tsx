@@ -26,10 +26,10 @@ const CaseStudies = () => {
     },
     {
       id: 2,
-      title: "Streamlining Operations at Thunder Ridge Facility",
-      client: "Thunder Ridge Facility",
+      title: "Streamlining Operations at Thunder Ridge Stables",
+      client: "Thunder Ridge Stables",
       location: "California, USA",
-      industry: "Large Training Facility",
+      industry: "Large Barn Operation",
       results: [
         "50% reduction in administrative time",
         "Better owner communication and transparency",
@@ -81,7 +81,7 @@ const CaseStudies = () => {
               Success <span className="text-gradient">Stories</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              See how TrainingTree helps trainers and facilities achieve real results
+              See how TrainingTree helps trainers and barn operations achieve real results
             </p>
           </motion.div>
         </div>
@@ -166,7 +166,7 @@ const CaseStudies = () => {
             All <span className="text-gradient">Case Studies</span>
           </h2>
           <p className="text-xl text-slate-600">
-            Real results from real trainers and facilities
+            Real results from real trainers and barn operations
           </p>
         </motion.div>
 
