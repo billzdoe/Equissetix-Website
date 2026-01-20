@@ -70,7 +70,7 @@ const Home = () => {
     {
       icon: <Brain className="h-6 w-6" />,
       title: "AI Training Recommendations",
-      description: "System suggests next workouts based on recent training and upcoming races."
+      description: "Get intelligent suggestions for workouts, farrier visits, vet care, nutrition, hot walking, massages, and more. Use them or ignore them—you're always in control."
     },
     {
       icon: <Users className="h-6 w-6" />,
@@ -405,12 +405,12 @@ const Home = () => {
             <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
               <Brain className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">AI Training Plans</h3>
+            <h3 className="font-bold text-lg mb-2 text-navy-900">AI Training Assistance</h3>
             <p className="text-sm text-slate-600 mb-4">
-              Get personalized workout recommendations, optimal rest days, and race prep schedules based on your horse's data
+              Get smart suggestions for workouts, farrier scheduling, vet care, nutrition adjustments, and recovery protocols—use your own plans or let AI assist
             </p>
             <p className="text-xs font-semibold text-slate-700">
-              Let AI handle the planning, you focus on training
+              You're always in control. AI recommends, you decide.
             </p>
           </Card>
         </div>
@@ -460,6 +460,55 @@ const Home = () => {
             );
           })}
         </div>
+      </Section>
+
+      {/* Trainer Control Section */}
+      <Section background="white" className="relative">
+        <GeometricPattern variant="diamonds" opacity={0.03} color="#0F5132" animated={true} />
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto text-center relative z-10"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border-2 border-green-600 text-sm font-bold text-green-800 mb-6">
+            <Shield className="h-4 w-4" />
+            You're Always in Control
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            Your Expertise. <span className="text-gradient">AI-Powered Assistance.</span>
+          </h2>
+
+          <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed">
+            Professional trainers know their horses best. TrainingTree<sup className="text-sm">™</sup> doesn't replace your expertise—it enhances it. Use your own custom training plans, feeding schedules, and care routines. The system provides intelligent recommendations for farrier visits, vet appointments, nutrition adjustments, hot walking schedules, massage therapy, and more—but you always have final say.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 text-left">
+            <Card className="border-2 border-slate-200">
+              <h3 className="font-bold text-lg mb-2 text-navy-900">Your Plans, Your Way</h3>
+              <p className="text-sm text-slate-600">
+                Create custom training protocols, feeding schedules, and care routines. The system adapts to your methodology.
+              </p>
+            </Card>
+
+            <Card className="border-2 border-slate-200">
+              <h3 className="font-bold text-lg mb-2 text-navy-900">Smart Suggestions</h3>
+              <p className="text-sm text-slate-600">
+                Get AI recommendations for scheduling farrier, vet, nutrition changes, recovery protocols—accept or ignore them.
+              </p>
+            </Card>
+
+            <Card className="border-2 border-slate-200">
+              <h3 className="font-bold text-lg mb-2 text-navy-900">Professional Override</h3>
+              <p className="text-sm text-slate-600">
+                Every AI suggestion can be modified or dismissed. Your professional judgment always takes precedence.
+              </p>
+            </Card>
+          </div>
+        </motion.div>
       </Section>
 
       {/* Track Condition Analysis - NEW PROMINENT FEATURE */}
