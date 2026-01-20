@@ -97,7 +97,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded shadow-md border border-slate-200 p-6"
+                    className="absolute top-full left-0 mt-2 w-[48rem] max-w-[calc(100vw-2rem)] bg-white rounded shadow-md border border-slate-200 p-6"
                   >
                     <div className="grid grid-cols-2 gap-6">
                       {productLinks.map((category, idx) => (
