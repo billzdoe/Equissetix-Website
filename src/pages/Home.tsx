@@ -207,36 +207,52 @@ const Home = () => {
               </Button>
             </div>
 
-            {/* Animated Statistics */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-center p-2 sm:p-4 bg-white border-2 border-teal-500 shadow-md"
-              >
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-teal-600 font-mono">AI</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Powered</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center p-2 sm:p-4 bg-white border-2 border-gold-500 shadow-md"
-              >
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold-600 font-mono">All-In-One</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Platform</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-center p-2 sm:p-4 bg-white border-2 border-green-700 shadow-md"
-              >
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700 font-mono">Real-Time</p>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal-700">Insights</p>
-              </motion.div>
-            </div>
+            {/* Core Features List */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="pt-6 bg-white border-2 border-brand-500 shadow-lg p-4 sm:p-6"
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-teal-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Training & Fitness</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Financial Management</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-600 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Nutrition & Feed</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-red-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Vet Records & Health</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gold-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Operations Alerts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Detailed Scheduling</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-indigo-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Team Collaboration</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-pink-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Owner Portals</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-cyan-500 flex-shrink-0"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">AI-Powered Insights</span>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Vibrant Dashboard Visual */}
