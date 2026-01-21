@@ -2,8 +2,6 @@ import { motion } from 'framer-motion'
 import {
   ArrowRight,
   AlertCircle,
-  Clock,
-  Link2Off,
   Activity,
   Heart,
   DollarSign,
@@ -29,25 +27,39 @@ import GaitSymmetryShowcase from '../components/GaitSymmetryShowcase'
 const Home = () => {
   const problems = [
     {
+      icon: <DollarSign className="h-8 w-8" />,
+      title: "Financial Blind Spots",
+      stat: "Lost revenue",
+      description: "from unbilled services, missing expenses, and poor profitability visibility",
+      detail: "You're training horses, but don't know which ones are actually profitable until tax season"
+    },
+    {
       icon: <AlertCircle className="h-8 w-8" />,
-      title: "Lost to Injuries",
+      title: "Owner Trust Issues",
+      stat: "Constant calls",
+      description: "from owners asking for updates on training, health, and billing",
+      detail: "Owners have zero visibility into how their horse is being trained or medically treated"
+    },
+    {
+      icon: <Activity className="h-8 w-8" />,
+      title: "Preventable Injuries",
       stat: "30% of horses",
-      description: "sidelined annually due to preventable overtraining",
-      detail: "Paper can't tell you when your horse needs a rest day"
+      description: "sidelined annually due to overtraining without data-driven monitoring",
+      detail: "No scientific training load tracking means you're training blind and risking costly injuries"
     },
     {
-      icon: <Clock className="h-8 w-8" />,
-      title: "Lost to Paperwork",
-      stat: "15-20 hours/week",
-      description: "spent on paper logs, filing, and record-keeping",
-      detail: "Time that should be spent with horses, not buried in filing cabinets"
+      icon: <Users className="h-8 w-8" />,
+      title: "Operations Chaos",
+      stat: "Daily confusion",
+      description: "over who feeds what, vet schedules, and staff assignments",
+      detail: "Hotwalkers don't know which horses walked, farriers are double-booked, supplements run out unexpectedly"
     },
     {
-      icon: <Link2Off className="h-8 w-8" />,
-      title: "Lost to Chaos",
-      stat: "Notebooks everywhere",
-      description: "scattered between trucks, barns, and offices",
-      detail: "Remember when you forgot to write down that workout? Or couldn't read your own handwriting?"
+      icon: <Heart className="h-8 w-8" />,
+      title: "Health Data Gaps",
+      stat: "Scattered records",
+      description: "mean you can't spot patterns in lameness, nutrition, or recovery",
+      detail: "Vet records in one notebook, feed changes in another, workouts on your phone—impossible to connect the dots"
     }
   ]
 
