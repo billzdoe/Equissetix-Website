@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import StickyCTA from './components/StickyCTA'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
@@ -39,6 +40,7 @@ import Compare from './pages/Compare'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white">
         <Navbar />
         <Routes>

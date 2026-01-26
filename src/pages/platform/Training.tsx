@@ -188,7 +188,7 @@ const Training = () => {
             The Science <span className="text-gradient">Behind the Warnings</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            We compare this week's training to the past month's average. Too much too fast = injury risk. The system does all the math automatically and shows you simple red/yellow/green warnings.
+            We compare this week's training (blue bars) to the past month's average (purple bars). The system calculates your ACWR ratio and shows injury risk with color-coded status indicators.
           </p>
         </motion.div>
         <ACWRChart />

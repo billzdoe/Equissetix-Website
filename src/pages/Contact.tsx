@@ -117,6 +117,7 @@ const Contact = () => {
       }
 
       // Prepare form data for Web3Forms
+      // Note: reCAPTCHA validated on frontend; Web3Forms uses its own spam filter
       const submissionData = {
         access_key: web3formsKey,
         subject: 'New Demo Request - Equissetix',
@@ -127,8 +128,7 @@ const Contact = () => {
         num_horses: formData.numHorses || 'Not specified',
         pain_point: formData.painPoint || 'Not specified',
         message: formData.message || 'No additional message',
-        'g-recaptcha-response': recaptchaToken,
-        to_email: 'info@equissetix.com'
+        botcheck: '', // Honeypot field - should be empty for legitimate submissions
       }
 
       // Submit to Web3Forms
@@ -374,6 +374,14 @@ const Contact = () => {
                       className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all resize-none"
                     />
                   </div>
+
+                  {/* Honeypot field for bot protection - hidden from users */}
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
 
                   {errors.submit && (
                     <div className="p-4 bg-coral-50 border-2 border-coral-200 rounded-lg flex items-center gap-3">

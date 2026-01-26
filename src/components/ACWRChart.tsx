@@ -69,7 +69,7 @@ const ACWRChart = () => {
       </div>
 
       {/* Chart */}
-      <div className="relative h-64 mb-4">
+      <div className="relative h-64 mb-4 bg-slate-50 rounded-lg p-4">
         {/* Y-axis labels */}
         <div className="absolute left-0 top-0 bottom-0 w-12 flex flex-col justify-between text-xs text-slate-500 text-right pr-2">
           <span>{maxValue}</span>
@@ -100,33 +100,38 @@ const ACWRChart = () => {
             return (
               <div key={index} className="flex-1 flex flex-col items-center gap-1 h-full justify-end group relative">
                 {/* Tooltip */}
-                <div className="absolute bottom-full mb-2 hidden group-hover:block z-10 w-32">
-                  <div className="bg-navy-900 text-white text-xs rounded-lg p-2 shadow-lg">
-                    <p className="font-semibold mb-1">{point.week}</p>
-                    <p>Acute: {point.acute}</p>
-                    <p>Chronic: {point.chronic}</p>
-                    <p className="font-bold mt-1">ACWR: {point.acwr.toFixed(2)}</p>
+                <div className="absolute bottom-full mb-2 hidden group-hover:block z-10 w-32 pointer-events-none">
+                  <div className="bg-slate-900 text-white text-xs rounded-lg p-3 shadow-xl border border-slate-700">
+                    <p className="font-semibold mb-1.5 text-white">{point.week}</p>
+                    <p className="text-white">Acute: {point.acute}</p>
+                    <p className="text-white">Chronic: {point.chronic}</p>
+                    <p className="font-bold mt-1.5 text-blue-300">ACWR: {point.acwr.toFixed(2)}</p>
                   </div>
                 </div>
 
                 {/* Bars */}
-                <div className="w-full flex gap-0.5">
+                <div className="w-full flex gap-0.5 h-full items-end">
                   <motion.div
                     initial={{ height: 0 }}
                     animate={{ height: `${acuteHeight}%` }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="flex-1 bg-gradient-to-t from-blue-500 to-blue-400 rounded-t group-hover:from-blue-600 group-hover:to-blue-500 transition-colors"
+                    className="flex-1 bg-gradient-to-t from-blue-500 to-blue-400 rounded-t group-hover:from-blue-600 group-hover:to-blue-500 min-h-[2px]"
+                    style={{ height: `${acuteHeight}%` }}
                   />
                   <motion.div
                     initial={{ height: 0 }}
                     animate={{ height: `${chronicHeight}%` }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="flex-1 bg-gradient-to-t from-purple-500 to-purple-400 rounded-t group-hover:from-purple-600 group-hover:to-purple-500 transition-colors"
+                    className="flex-1 bg-gradient-to-t from-purple-500 to-purple-400 rounded-t group-hover:from-purple-600 group-hover:to-purple-500 min-h-[2px]"
+                    style={{ height: `${chronicHeight}%` }}
                   />
                 </div>
 
-                {/* ACWR indicator dot */}
-                <div className={`w-2 h-2 rounded-full ${acwrStatus.bg} border-2 ${acwrStatus.color.replace('text-', 'border-')}`} />
+                {/* ACWR indicator dot - color coded by risk level */}
+                <div
+                  className={`w-3 h-3 rounded-full ${acwrStatus.bg} border-2 ${acwrStatus.color.replace('text-', 'border-')} shadow-sm`}
+                  title={`${acwrStatus.label}: ${point.acwr.toFixed(2)}`}
+                />
               </div>
             )
           })}
