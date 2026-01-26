@@ -211,16 +211,13 @@ section, div {
   @apply bg-slate-400;
 }
 
-/* Micro-interactions - Global smooth transitions */
-* {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* Micro-interactions - Removed global transitions to prevent choppy loading */
+/* Only specific elements will have transitions applied via classes */
 
-/* Hover lift effect for interactive elements */
+/* Hover lift effect for interactive elements - optimized */
 a, button, [role="button"] {
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  will-change: transform;
 }
 
 a:hover, button:hover, [role="button"]:hover {
@@ -303,16 +300,13 @@ a:active, button:active, [role="button"]:active {
   opacity: 0.3;
 }
 
-/* Smooth image loading */
+/* Smooth image loading - removed opacity flicker */
 img {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
+/* Images load normally without flickering */
 img[loading="lazy"] {
-  opacity: 0;
-}
-
-img[loading="lazy"].loaded {
   opacity: 1;
 }
 
