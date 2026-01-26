@@ -1,11 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
 
 const Contact = () => {
+  const { executeRecaptcha } = useGoogleReCaptcha()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -76,7 +79,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     // Validate all fields
     const newErrors: Record<string, string> = {}
     if (!formData.name.trim()) newErrors.name = 'Name is required'
@@ -94,13 +97,56 @@ const Contact = () => {
       return
     }
 
+    if (!executeRecaptcha) {
+      setErrors({ submit: 'reCAPTCHA not loaded. Please refresh the page and try again.' })
+      return
+    }
+
     setIsSubmitting(true)
     setErrors({})
 
     try {
-      // Simulate API call - replace with actual form submission
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
+      // Get reCAPTCHA token
+      const recaptchaToken = await executeRecaptcha('contact_form')
+
+      // Get Web3Forms access key
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY
+
+      if (!web3formsKey) {
+        throw new Error('Web3Forms key not configured')
+      }
+
+      // Prepare form data for Web3Forms
+      const submissionData = {
+        access_key: web3formsKey,
+        subject: 'New Demo Request - Equissetix',
+        from_name: formData.name,
+        email: formData.email,
+        phone: formData.phone || 'Not provided',
+        operation_type: formData.operationType || 'Not specified',
+        num_horses: formData.numHorses || 'Not specified',
+        pain_point: formData.painPoint || 'Not specified',
+        message: formData.message || 'No additional message',
+        'g-recaptcha-response': recaptchaToken,
+        to_email: 'info@equissetix.com'
+      }
+
+      // Submit to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(submissionData)
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to submit form')
+      }
+
       setIsSuccess(true)
       setFormData({
         name: '',
@@ -117,7 +163,8 @@ const Contact = () => {
         setIsSuccess(false)
       }, 5000)
     } catch (error) {
-      setErrors({ submit: 'Something went wrong. Please try again or contact us directly.' })
+      console.error('Form submission error:', error)
+      setErrors({ submit: 'Something went wrong. Please try again or contact us directly at info@equissetix.com.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -335,10 +382,10 @@ const Contact = () => {
                     </div>
                   )}
 
-                  <Button 
-                    type="submit" 
-                    variant="primary" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
                     className="w-full"
                     disabled={isSubmitting || isSuccess}
                   >
@@ -358,9 +405,22 @@ const Contact = () => {
                   </Button>
 
                   {!isSuccess && (
-                    <p className="text-sm text-slate-600 text-center">
-                      We'll respond within 24 hours to schedule your personalized demo
-                    </p>
+                    <>
+                      <p className="text-sm text-slate-600 text-center">
+                        We'll respond within 24 hours to schedule your personalized demo
+                      </p>
+                      <p className="text-xs text-slate-500 text-center mt-2">
+                        This site is protected by reCAPTCHA and the Google{' '}
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">
+                          Privacy Policy
+                        </a>{' '}
+                        and{' '}
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">
+                          Terms of Service
+                        </a>{' '}
+                        apply.
+                      </p>
+                    </>
                   )}
                 </form>
               </Card>
