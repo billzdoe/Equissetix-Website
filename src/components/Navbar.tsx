@@ -27,6 +27,7 @@ const Navbar = () => {
         { path: '/trainingtree/integrations', label: 'Integrations', desc: 'Connect wearable sensors and tracking devices for real-time performance data' },
         { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Get data-driven insights to optimize training and prevent overtraining' },
         { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Coordinate tasks across your team with role-based access and assignments' },
+        { path: '/trainingtree/owner-portal', label: 'Owner Portal', desc: 'Give owners 24/7 access to their horses with customizable privacy controls' },
       ]
     }
   ]

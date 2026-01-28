@@ -9,6 +9,16 @@ const Blog = () => {
   // Placeholder blog posts - can be replaced with real content
   const blogPosts = [
     {
+      id: 7,
+      title: "Introducing Owner Portal: Modern Transparency for Horse Owners",
+      excerpt: "Give your owners 24/7 access to their horses' information with customizable privacy controls, QR code profiles, and instant updates—without spending hours on the phone.",
+      author: "TrainingTree Team",
+      date: "2024-01-28",
+      category: "Product Updates",
+      readTime: "5 min read",
+      featured: true
+    },
+    {
       id: 1,
       title: "Understanding ACWR: The Science Behind Training Load Monitoring",
       excerpt: "Learn how Acute:Chronic Workload Ratio helps prevent injuries and optimize performance in racehorses.",
@@ -16,7 +26,7 @@ const Blog = () => {
       date: "2024-01-15",
       category: "Training Science",
       readTime: "8 min read",
-      featured: true
+      featured: false
     },
     {
       id: 2,

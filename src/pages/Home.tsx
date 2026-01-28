@@ -13,6 +13,7 @@ import {
   BarChart3,
   Check,
   Zap,
+  ClipboardList,
 } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
@@ -85,7 +86,7 @@ const Home = () => {
       description: "Get intelligent suggestions for workouts, farrier scheduling, vet care, nutrition adjustments, hot walking schedules, massage therapy, and recovery protocols based on each horse's training patterns and performance data. Accept, modify, or dismiss any recommendation—your professional judgment always takes precedence."
     },
     {
-      icon: <Users className="h-6 w-6" />,
+      icon: <ClipboardList className="h-6 w-6" />,
       title: "Complete Staff Management",
       description: "Assign daily tasks to team members, track completion status, and manage staff schedules with role-based permissions. Everyone sees their assignments clearly, reducing miscommunication and ensuring consistent care across all horses in your operation."
     },
@@ -102,7 +103,7 @@ const Home = () => {
     {
       icon: <DollarSign className="h-6 w-6" />,
       title: "Owner Invoicing & Portals",
-      description: "Generate professional invoices automatically based on training days, services, and expenses. Owners access secure portals to view their horse's training schedule, health records, photos, videos, and financial statements anytime. Reduce billing questions and improve owner satisfaction with complete transparency."
+      description: "Generate professional invoices automatically based on training days, services, and expenses. Owners access secure portals with customizable permissions to view their horse's data anytime. Create beautiful marketing profiles with QR codes for race submissions and partnerships. Reduce billing questions and improve owner satisfaction with complete transparency."
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,

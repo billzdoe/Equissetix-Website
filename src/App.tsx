@@ -25,6 +25,7 @@ import Mobile from './pages/platform/Mobile'
 import Integrations from './pages/platform/Integrations'
 import Analytics from './pages/platform/Analytics'
 import Collaboration from './pages/platform/Collaboration'
+import OwnerPortal from './pages/platform/OwnerPortal'
 
 // Other pages
 import NotFound from './pages/NotFound'
@@ -66,6 +67,7 @@ function App() {
           <Route path="/trainingtree/integrations" element={<Integrations />} />
           <Route path="/trainingtree/analytics" element={<Analytics />} />
           <Route path="/trainingtree/collaboration" element={<Collaboration />} />
+          <Route path="/trainingtree/owner-portal" element={<OwnerPortal />} />
 
           {/* Resources routes */}
           <Route path="/case-studies" element={<CaseStudies />} />
