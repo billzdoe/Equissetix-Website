@@ -107,10 +107,10 @@ const Contact = () => {
 
     try {
       // Get reCAPTCHA token
-      const recaptchaToken = await executeRecaptcha('contact_form')
+      await executeRecaptcha('contact_form')
 
       // Get Web3Forms access key
-      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY
+      const web3formsKey = (import.meta as any).env.VITE_WEB3FORMS_KEY
 
       if (!web3formsKey) {
         throw new Error('Web3Forms key not configured')
