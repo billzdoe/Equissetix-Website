@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { Home, Search, FileQuestion } from 'lucide-react'
 import Button from '../components/Button'
 import Section from '../components/Section'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 const NotFound = () => {
   const popularLinks = [
@@ -16,6 +18,7 @@ const NotFound = () => {
 
   return (
     <div className="pt-20 min-h-screen">
+      <SEO title={pageSEO.notFound.title} description={pageSEO.notFound.description} noindex />
       <Section background="gradient" className="min-h-[70vh] flex items-center">
         <div className="text-center max-w-3xl mx-auto">
           <motion.div

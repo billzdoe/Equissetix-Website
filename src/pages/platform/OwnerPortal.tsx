@@ -3,6 +3,8 @@ import { ArrowRight, Smartphone, Shield, QrCode, Bell, Eye, Lock, BarChart3, Fil
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const OwnerPortal = () => {
   const features = [
@@ -67,6 +69,7 @@ const OwnerPortal = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.platformOwnerPortal.title} description={pageSEO.platformOwnerPortal.description} path="/trainingtree/owner-portal" />
       {/* Hero Section */}
       <Section background="gradient" className="min-h-[70vh] flex items-center">
         <div className="text-center max-w-4xl mx-auto">

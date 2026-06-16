@@ -13,6 +13,8 @@ import {
   Award,
   Activity
 } from 'lucide-react'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 import Section from '../components/Section'
 import Card from '../components/Card'
 import Button from '../components/Button'
@@ -337,6 +339,7 @@ const Disciplines = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.disciplines.title} description={pageSEO.disciplines.description} path="/disciplines" />
       <Section background="gradient" className="min-h-[40vh] flex items-center py-12">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div

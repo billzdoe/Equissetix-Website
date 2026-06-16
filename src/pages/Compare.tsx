@@ -4,10 +4,13 @@ import Section from '../components/Section'
 import Button from '../components/Button'
 import ComparisonTable from '../components/ComparisonTable'
 import ROICalculator from '../components/ROICalculator'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 const Compare = () => {
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.compare.title} description={pageSEO.compare.description} path="/compare" />
       <Section background="gradient" className="min-h-[40vh] flex items-center py-12">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div

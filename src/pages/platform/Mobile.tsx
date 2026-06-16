@@ -3,6 +3,8 @@ import { ArrowRight, Smartphone, Check, AlertCircle, CheckCircle } from 'lucide-
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const Mobile = () => {
   const capabilities = [
@@ -18,6 +20,7 @@ const Mobile = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.platformMobile.title} description={pageSEO.platformMobile.description} path="/trainingtree/mobile" />
       <Section background="gradient" className="min-h-[40vh] flex items-center py-12">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div

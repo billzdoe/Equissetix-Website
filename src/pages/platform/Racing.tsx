@@ -4,6 +4,8 @@ import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const Racing = () => {
   const trackConditionFeatures = [
@@ -60,6 +62,7 @@ const Racing = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.platformRacing.title} description={pageSEO.platformRacing.description} path="/trainingtree/racing" />
       <Section background="white" className="py-6">
         <div className="container-custom">
           <Breadcrumbs items={[

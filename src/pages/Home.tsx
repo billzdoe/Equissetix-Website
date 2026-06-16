@@ -15,6 +15,8 @@ import {
   Zap,
   ClipboardList,
 } from 'lucide-react'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
@@ -158,6 +160,7 @@ const Home = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.home.title} description={pageSEO.home.description} path="/" />
       {/* Hero Section - Vibrant & Energetic */}
       <Section background="gradient" className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
         {/* Geometric Pattern Background */}

@@ -3,6 +3,8 @@ import { ArrowRight, Link2, Zap, Check } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const Integrations = () => {
   const capabilities = [
@@ -42,7 +44,7 @@ const Integrations = () => {
       color: "from-purple-500 to-purple-700"
     },
     { 
-      name: "Garmin Blaze", 
+      name: "Wellness Monitors", 
       desc: "GPS and activity tracking",
       features: ["GPS routes", "Distance tracking", "Speed metrics"],
       color: "from-cyan-500 to-cyan-700"
@@ -69,6 +71,7 @@ const Integrations = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.platformIntegrations.title} description={pageSEO.platformIntegrations.description} path="/trainingtree/integrations" />
       <Section background="gradient" className="min-h-[60vh] flex items-center">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div

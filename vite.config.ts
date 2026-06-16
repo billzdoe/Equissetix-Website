@@ -9,8 +9,20 @@ export default defineConfig({
     port: 5174,
     open: true
   },
+  // Strip console.* and debugger from production bundles.
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'motion-vendor': ['framer-motion'],
+        },
+      },
+    },
   }
 })

@@ -43,7 +43,7 @@ const features: Feature[] = [
     title: 'Real-Time Biometric Monitoring',
     description: 'Integrate with 8+ wearable devices for continuous health and performance tracking.',
     details: [
-      'Garmin Blaze integration',
+      'Wearable device integration',
       'Steed QE2 biometric sensors',
       'Horseteq gait analysis',
       'Equimetre racing performance',
@@ -292,7 +292,7 @@ const Features = () => {
             Experience All Features in Action
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Start your free trial and see how TrainerTree Pro can transform your operations
+            Start your free trial and see how TrainingTree Pro can transform your operations
           </p>
           <a
             href="https://equissetix.com"

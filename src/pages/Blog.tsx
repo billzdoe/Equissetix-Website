@@ -4,84 +4,14 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
 import Breadcrumbs from '../components/Breadcrumbs'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
+import { blogPosts } from '../utils/blog'
 
 const Blog = () => {
-  // Placeholder blog posts - can be replaced with real content
-  const blogPosts = [
-    {
-      id: 7,
-      title: "Introducing Owner Portal: Modern Transparency for Horse Owners",
-      excerpt: "Give your owners 24/7 access to their horses' information with customizable privacy controls, QR code profiles, and instant updates—without spending hours on the phone.",
-      author: "TrainingTree Team",
-      date: "2024-01-28",
-      category: "Product Updates",
-      readTime: "5 min read",
-      featured: true
-    },
-    {
-      id: 1,
-      title: "Understanding ACWR: The Science Behind Training Load Monitoring",
-      excerpt: "Learn how Acute:Chronic Workload Ratio helps prevent injuries and optimize performance in racehorses.",
-      author: "Dr. Sarah Mitchell",
-      date: "2024-01-15",
-      category: "Training Science",
-      readTime: "8 min read",
-      featured: false
-    },
-    {
-      id: 2,
-      title: "5 Signs Your Horse May Be Overtrained",
-      excerpt: "Early warning signs that indicate your horse needs more recovery time before the next workout.",
-      author: "Marcus Thompson",
-      date: "2024-01-10",
-      category: "Health & Wellness",
-      readTime: "6 min read",
-      featured: false
-    },
-    {
-      id: 3,
-      title: "How to Choose the Right Wearable Device for Your Horse",
-      excerpt: "A comprehensive guide to selecting wearable devices that integrate with TrainingTree.",
-      author: "Jessica Chen",
-      date: "2024-01-05",
-      category: "Technology",
-      readTime: "10 min read",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "Financial Management for Horse Trainers: A Complete Guide",
-      excerpt: "Best practices for tracking expenses, invoicing owners, and understanding profitability per horse.",
-      author: "TrainingTree Team",
-      date: "2023-12-28",
-      category: "Business",
-      readTime: "12 min read",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "The Future of Equine Training: AI and Data Science",
-      excerpt: "How artificial intelligence is revolutionizing horse training and injury prevention.",
-      author: "Dr. Sarah Mitchell",
-      date: "2023-12-20",
-      category: "Technology",
-      readTime: "9 min read",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Building Trust with Horse Owners Through Transparency",
-      excerpt: "How owner portals and real-time updates improve relationships and retention.",
-      author: "TrainingTree Team",
-      date: "2023-12-15",
-      category: "Business",
-      readTime: "7 min read",
-      featured: false
-    }
-  ]
-
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.blog.title} description={pageSEO.blog.description} path="/blog" />
       <Section background="white" className="py-6">
         <div className="container-custom">
           <Breadcrumbs items={[

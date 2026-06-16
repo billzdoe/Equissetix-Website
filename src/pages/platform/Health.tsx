@@ -4,6 +4,8 @@ import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const Health = () => {
   const capabilities = [
@@ -11,7 +13,7 @@ const Health = () => {
     "Biomechanical metrics: stride length/frequency, cadence, stance/swing/flight phases",
     "Symmetry analysis (left-right, front-hind, diagonal) with normalized difference scoring",
     "Gait classification: walk (below 1.0 Hz), trot (1.0-2.0 Hz), canter (2.0-3.0 Hz), gallop (above 3.0 Hz)",
-    "8+ wearable device integrations: Equimetre, Polar Equine, StrideSAFE, Horseteq, Garmin Blaze",
+    "8+ wearable device integrations: Equimetre, Polar Equine, StrideSAFE, Horseteq, and more",
     "Health Score (0-100) combining VO2 Max, lactate threshold, recovery rate, fatigue index",
     "Automated veterinary record management with exam history and treatment protocols",
     "Vaccination tracking with automated reminders and due date alerts",
@@ -23,6 +25,7 @@ const Health = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.platformHealth.title} description={pageSEO.platformHealth.description} path="/trainingtree/health" />
       <Section background="white" className="py-6">
         <div className="container-custom">
           <Breadcrumbs items={[

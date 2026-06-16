@@ -4,6 +4,8 @@ import { Trophy, Target, TrendingUp, Heart, Zap, Mountain, Sparkles, Flag, Award
 import Section from '../components/Section'
 import Card from '../components/Card'
 import Button from '../components/Button'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 type Breed =
   | 'thoroughbred'
@@ -348,6 +350,7 @@ const Breeds = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.breeds.title} description={pageSEO.breeds.description} path="/breeds" />
       <Section background="gradient" className="min-h-[40vh] flex items-center py-12">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div

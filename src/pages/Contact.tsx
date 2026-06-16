@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { Mail, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 const Contact = () => {
   const { executeRecaptcha } = useGoogleReCaptcha()
@@ -12,7 +14,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     operationType: '',
     numHorses: '',
     painPoint: '',
@@ -28,12 +29,6 @@ const Contact = () => {
     return emailRegex.test(email)
   }
 
-  const validatePhone = (phone: string) => {
-    if (!phone) return true // Phone is optional
-    const phoneRegex = /^[\d\s\-\(\)]+$/
-    return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10
-  }
-
   const validateField = (name: string, value: string) => {
     const newErrors: Record<string, string> = {}
 
@@ -47,10 +42,6 @@ const Contact = () => {
       } else if (!validateEmail(value)) {
         newErrors.email = 'Please enter a valid email address'
       }
-    }
-
-    if (name === 'phone' && value && !validatePhone(value)) {
-      newErrors.phone = 'Please enter a valid phone number'
     }
 
     setErrors(prev => ({ ...prev, ...newErrors }))
@@ -88,9 +79,6 @@ const Contact = () => {
     } else if (!validateEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email address'
     }
-    if (formData.phone && !validatePhone(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number'
-    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -123,7 +111,6 @@ const Contact = () => {
         subject: 'New Demo Request - Equissetix',
         from_name: formData.name,
         email: formData.email,
-        phone: formData.phone || 'Not provided',
         operation_type: formData.operationType || 'Not specified',
         num_horses: formData.numHorses || 'Not specified',
         pain_point: formData.painPoint || 'Not specified',
@@ -151,7 +138,6 @@ const Contact = () => {
       setFormData({
         name: '',
         email: '',
-        phone: '',
         operationType: '',
         numHorses: '',
         painPoint: '',
@@ -172,6 +158,7 @@ const Contact = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.contact.title} description={pageSEO.contact.description} path="/contact" />
       <Section background="gradient" className="min-h-[40vh] flex items-center">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
@@ -245,58 +232,30 @@ const Contact = () => {
                     )}
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-navy-900 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={`w-full px-4 py-3 rounded-lg border-2 outline-none transition-all ${
-                          errors.email
-                            ? 'border-coral-300 focus:border-coral-500 focus:ring-2 focus:ring-coral-100'
-                            : 'border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100'
-                        }`}
-                      />
-                      {errors.email && (
-                        <p className="mt-1 text-sm text-coral-600 flex items-center gap-1">
-                          <AlertCircle className="h-4 w-4" />
-                          {errors.email}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-navy-900 mb-2">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        placeholder="(123) 456-7890"
-                        className={`w-full px-4 py-3 rounded-lg border-2 outline-none transition-all ${
-                          errors.phone
-                            ? 'border-coral-300 focus:border-coral-500 focus:ring-2 focus:ring-coral-100'
-                            : 'border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100'
-                        }`}
-                      />
-                      {errors.phone && (
-                        <p className="mt-1 text-sm text-coral-600 flex items-center gap-1">
-                          <AlertCircle className="h-4 w-4" />
-                          {errors.phone}
-                        </p>
-                      )}
-                    </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-navy-900 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-3 rounded-lg border-2 outline-none transition-all ${
+                        errors.email
+                          ? 'border-coral-300 focus:border-coral-500 focus:ring-2 focus:ring-coral-100'
+                          : 'border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100'
+                      }`}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-coral-600 flex items-center gap-1">
+                        <AlertCircle className="h-4 w-4" />
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
@@ -453,17 +412,6 @@ const Contact = () => {
                       <p className="font-semibold text-sm text-navy-900">Email</p>
                       <a href="mailto:info@equissetix.com" className="text-brand-600 hover:text-brand-700 transition-colors">
                         info@equissetix.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white shadow-modern">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm text-navy-900">Phone</p>
-                      <a href="tel:+1234567890" className="text-brand-600 hover:text-brand-700 transition-colors">
-                        (123) 456-7890
                       </a>
                     </div>
                   </div>

@@ -25,7 +25,7 @@ Professional hero video background with gradient overlay - a proven B2B SaaS tec
 
 ## 🎨 Gradient Overlay Options
 
-### 1. **Vibrant** (Recommended for TrainerTree Pro)
+### 1. **Vibrant** (Recommended for TrainingTree Pro)
 ```tsx
 gradientOverlay="vibrant"
 ```
@@ -65,11 +65,11 @@ gradientOverlay="subtle"
 
 ## 📹 Video Recommendations
 
-### Video Content Ideas for TrainerTree Pro
+### Video Content Ideas for TrainingTree Pro
 
 #### Option 1: **Platform Demo Video** (IBM Maximo Style)
 **Content:**
-- Screen recordings of TrainerTree Pro dashboard
+- Screen recordings of TrainingTree Pro dashboard
 - Show AI training recommendations in action
 - Display track condition analysis charts
 - Highlight mobile app QR code scanning
@@ -173,7 +173,7 @@ import HeroVideoBackground from '../components/HeroVideoBackground'
 <Section background="gradient" className="relative min-h-[90vh] flex items-center overflow-hidden">
   {/* Video Background with Gradient */}
   <HeroVideoBackground
-    videoUrl="/videos/trainertree-demo.mp4"
+    videoUrl="/videos/trainingtree-demo.mp4"
     posterImage="/images/hero-poster.jpg"
     gradientOverlay="vibrant"
     autoPlay={true}
@@ -219,7 +219,7 @@ import HeroVideoBackground from '../components/HeroVideoBackground'
 #### 3. **Custom Video Production**
 - Hire videographer at local equestrian facility
 - Cost: $500-2000 for professional shoot
-- Best ROI: Authentic TrainerTree Pro in action
+- Best ROI: Authentic TrainingTree Pro in action
 
 ### Free Options to Start With
 
@@ -270,7 +270,7 @@ import HeroVideoBackground from '../components/HeroVideoBackground'
 - Vibrant, energetic overlay
 - Aspirational, lifestyle-focused
 
-#### **TrainerTree Pro** (Recommended):
+#### **TrainingTree Pro** (Recommended):
 - **Mix both approaches**:
   - Start with horse training footage (emotional hook)
   - Transition to platform UI (solution)
@@ -419,7 +419,7 @@ If video isn't ready yet, use animated gradient:
 
 ---
 
-## 🎯 Recommended Implementation for TrainerTree Pro
+## 🎯 Recommended Implementation for TrainingTree Pro
 
 ### Phase 1: Quick Start (This Week)
 1. **Use high-quality stock video** from Pexels/Pixabay
@@ -429,7 +429,7 @@ If video isn't ready yet, use animated gradient:
 5. **Test**: Ensure performance and autoplay work
 
 ### Phase 2: Custom Content (Next Month)
-1. **Screen record**: TrainerTree Pro platform demo
+1. **Screen record**: TrainingTree Pro platform demo
 2. **Hire videographer**: Professional horse training footage
 3. **Edit together**: Mixed video (platform + horses)
 4. **Optimize**: Compress to under 10MB
@@ -459,7 +459,7 @@ The **HeroVideoBackground component** provides:
 - Mobile optimization
 - Sharp corner consistency
 
-**Recommended**: Start with vibrant gradient + stock horse video, then upgrade to custom TrainerTree Pro content.
+**Recommended**: Start with vibrant gradient + stock horse video, then upgrade to custom TrainingTree Pro content.
 
 ---
 

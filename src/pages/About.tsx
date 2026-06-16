@@ -4,10 +4,13 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
 import GeometricPattern from '../components/GeometricPattern'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 const About = () => {
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.about.title} description={pageSEO.about.description} path="/about" />
       <Section background="gradient" className="relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Animated Background Pattern */}
         <GeometricPattern variant="diamonds" opacity={0.04} color="#0F5132" animated={true} />

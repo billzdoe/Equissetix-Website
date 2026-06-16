@@ -1,8 +1,8 @@
-# TrainerTree Pro Marketing Website - Comprehensive Build Prompt
+# TrainingTree Pro Marketing Website - Comprehensive Build Prompt
 
 ## PROJECT OVERVIEW
 
-Build the most compelling, conversion-optimized marketing website for TrainerTree Pro, an enterprise-grade horse training management platform. This website must appeal to equine professionals (trainers, barn managers, owners) who are middle-aged men and women (ages 30-50), combining cutting-edge design with proven marketing psychology to drive sign-ups and conversions.
+Build the most compelling, conversion-optimized marketing website for TrainingTree Pro, an enterprise-grade horse training management platform. This website must appeal to equine professionals (trainers, barn managers, owners) who are middle-aged men and women (ages 30-50), combining cutting-edge design with proven marketing psychology to drive sign-ups and conversions.
 
 ---
 
@@ -169,7 +169,7 @@ Based on B2B SaaS marketing research and equine industry analysis:
 
 #### Section 2: Problem/Solution
 - Pain points equine professionals face
-- How TrainerTree Pro solves each problem
+- How TrainingTree Pro solves each problem
 - Visual comparison (before/after, or vs. competitors)
 
 #### Section 3: Core Features (6-8 Key Features)
@@ -354,7 +354,7 @@ Each feature should have:
 ### 3. Problem/Solution Section
 - Split layout (problem left, solution right)
 - Pain points listed with icons
-- Solution highlighted with TrainerTree Pro features
+- Solution highlighted with TrainingTree Pro features
 - Visual comparison chart or before/after
 
 ### 4. Features Grid

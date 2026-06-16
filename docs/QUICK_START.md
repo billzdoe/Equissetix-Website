@@ -67,7 +67,7 @@ colors: {
 - **Pricing**: `src/pages/Pricing.tsx`
 
 ### Update Links
-- **TrainerTree Pro link**: Update the `href` in:
+- **TrainingTree Pro link**: Update the `href` in:
   - `src/components/Navbar.tsx`
   - `src/components/Footer.tsx`
   - All page CTA buttons
