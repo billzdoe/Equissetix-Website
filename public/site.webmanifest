@@ -1,0 +1,15 @@
+{
+  "name": "Equissetix - Advanced Equine Training Platform",
+  "short_name": "Equissetix",
+  "description": "AI-powered horse training, health monitoring, and performance analytics. Powering TrainingTree Pro.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#052e16",
+  "theme_color": "#0F5132",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/favicon-32.png", "type": "image/png", "sizes": "32x32" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" },
+    { "src": "/logo.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ]
+}

@@ -3,6 +3,8 @@ import { Check, ArrowRight, X } from 'lucide-react'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 const Pricing = () => {
   const tiers = [
@@ -82,6 +84,7 @@ const Pricing = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.pricing.title} description={pageSEO.pricing.description} path="/pricing" />
       {/* Hero */}
       <Section background="gradient" className="text-center">
         <motion.div

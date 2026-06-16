@@ -1,6 +1,6 @@
 # Equissetix Website
 
-Modern, cutting-edge website for Equissetix LLC - the company behind TrainerTree Pro.
+Modern, cutting-edge website for Equissetix LLC - the company behind TrainingTree Pro.
 
 ## Features
 

@@ -1,112 +1,132 @@
-# Equissetix - Squarespace Content (Copy/Paste Ready)
+# Equissetix Website - Squarespace Implementation Guide
 
-All content formatted for easy copy-paste into Squarespace blocks.
+This guide provides all content, structure, and design specifications for building the Equissetix website on Squarespace.
+
+## Brand Colors
+
+**Primary Color (Blue):**
+- Primary: `#0ea5e9` (Primary-500)
+- Light: `#38bdf8` (Primary-400)
+- Dark: `#0284c7` (Primary-600)
+
+**Accent Color (Purple):**
+- Accent: `#d946ef` (Accent-500)
+- Light: `#e879f9` (Accent-400)
+- Dark: `#c026d3` (Accent-600)
+
+**Background:**
+- Dark: `#030712` (Gray-950)
+- Cards: `rgba(255, 255, 255, 0.05)` with blur effect
+
+## Typography
+
+**Headings:** Poppins (Bold, 600-800 weight)
+**Body:** Inter (Regular, 400-500 weight)
+
+## Site Structure
+
+### Pages Needed:
+1. **Home** - Landing page with hero, features, CTA
+2. **Breeds** - Tabbed interface for breed-specific features
+3. **Features** - Comprehensive feature showcase
+4. **Pricing** - Tier comparison (Starter, Pro, Elite)
 
 ---
 
-## NAVIGATION MENU
-
-**Items:**
-- Home
-- Breeds  
-- Features
-- Pricing
-- Launch Platform (button style)
-
----
-
-## HOME PAGE
+## PAGE 1: HOME
 
 ### Hero Section
 
-**Headline (H1):**
+**Headline:**
 ```
 Equissetix
 Revolutionizing Equine Training
 ```
 
-**Subheadline (Paragraph):**
+**Subheadline:**
 ```
-Powering TrainerTree Pro - the most advanced platform for comprehensive horse training, health monitoring, and performance analytics.
+Powering TrainingTree Pro - the most advanced platform for comprehensive horse training, health monitoring, and performance analytics.
 ```
 
-**Button 1 (Primary):**
-- Text: "View Pricing"
-- Link: /pricing
+**CTA Buttons:**
+- Primary: "View Pricing" (link to /pricing)
+- Secondary: "Explore Features" (link to /features)
 
-**Button 2 (Secondary):**
-- Text: "Explore Features"  
-- Link: /features
+**Design Notes:**
+- Dark background with gradient overlay
+- Large, bold typography
+- Animated gradient text effect on "Equissetix"
+- Full-width section
 
 ---
 
-### Section: Cutting-Edge Technology
+### Features Grid Section
 
-**Section Title (H2):**
+**Section Title:**
 ```
 Cutting-Edge Technology
 ```
 
-**Section Subtitle:**
+**Subtitle:**
 ```
 Everything you need to manage, train, and optimize your equine operations.
 ```
 
-**Feature Card 1:**
-- **Icon:** Brain/AI
-- **Title:** AI-Powered Training
-- **Description:** Advanced algorithms optimize training programs based on individual horse performance data.
+**6 Feature Cards:**
 
-**Feature Card 2:**
-- **Icon:** Activity/Chart
-- **Title:** Real-Time Monitoring
-- **Description:** Track vital signs, gait analysis, and performance metrics in real-time with wearable integration.
+1. **AI-Powered Training**
+   - Icon: Brain/AI symbol
+   - Description: "Advanced algorithms optimize training programs based on individual horse performance data."
 
-**Feature Card 3:**
-- **Icon:** Heart
-- **Title:** Health Management
-- **Description:** Comprehensive health tracking including vaccinations, medications, and vet records.
+2. **Real-Time Monitoring**
+   - Icon: Activity/Chart symbol
+   - Description: "Track vital signs, gait analysis, and performance metrics in real-time with wearable integration."
 
-**Feature Card 4:**
-- **Icon:** Bar Chart
-- **Title:** Advanced Analytics
-- **Description:** Deep insights into performance trends, injury prediction, and training optimization.
+3. **Health Management**
+   - Icon: Heart symbol
+   - Description: "Comprehensive health tracking including vaccinations, medications, and vet records."
 
-**Feature Card 5:**
-- **Icon:** Dollar Sign
-- **Title:** Financial Management
-- **Description:** Complete ERP system for tracking costs, revenue, and profitability per horse.
+4. **Advanced Analytics**
+   - Icon: Bar chart symbol
+   - Description: "Deep insights into performance trends, injury prediction, and training optimization."
 
-**Feature Card 6:**
-- **Icon:** Shield
-- **Title:** Enterprise Security
-- **Description:** Bank-level encryption, audit trails, and granular permission controls.
+5. **Financial Management**
+   - Icon: Dollar sign
+   - Description: "Complete ERP system for tracking costs, revenue, and profitability per horse."
+
+6. **Enterprise Security**
+   - Icon: Shield
+   - Description: "Bank-level encryption, audit trails, and granular permission controls."
+
+**Design Notes:**
+- 3-column grid (2 columns on tablet, 1 on mobile)
+- Glassmorphism card effect
+- Hover effects on cards
 
 ---
 
 ### Final CTA Section
 
-**Headline (H2):**
+**Headline:**
 ```
 Ready to Transform Your Training?
 ```
 
 **Subheadline:**
 ```
-Join leading trainers and stables using TrainerTree Pro to optimize performance and maximize results.
+Join leading trainers and stables using TrainingTree Pro to optimize performance and maximize results.
 ```
 
-**Button:**
-- Text: "Get Started Today"
-- Link: /pricing
+**CTA Button:**
+- "Get Started Today" (link to /pricing)
 
 ---
 
-## BREEDS PAGE
+## PAGE 2: BREEDS
 
-### Header
+### Header Section
 
-**Title (H1):**
+**Title:**
 ```
 Breed-Specific Solutions
 ```
@@ -118,9 +138,9 @@ Tailored training and analytics for every breed and discipline
 
 ---
 
-### Tab Content
+### Breed Tabs Content
 
-#### Tab 1: Thoroughbred
+#### TAB 1: Thoroughbred
 
 **Title:** Thoroughbred
 
@@ -129,14 +149,14 @@ Tailored training and analytics for every breed and discipline
 Optimized for racing performance, injury prevention, and peak conditioning. Perfect for racehorse trainers managing high-performance athletes.
 ```
 
-**Primary Use Cases (Bullet List):**
+**Primary Use Cases:**
 - Racehorse training programs
 - Pre-race conditioning
 - Post-race recovery tracking
 - Injury prevention monitoring
 - Performance optimization
 
-**Key Features (Bullet List):**
+**Key Features:**
 - Advanced gait analysis for racing form
 - Injury prediction algorithms
 - Peak fitness tracking
@@ -146,7 +166,7 @@ Optimized for racing performance, injury prevention, and peak conditioning. Perf
 
 ---
 
-#### Tab 2: Quarter Horse
+#### TAB 2: Quarter Horse
 
 **Title:** Quarter Horse
 
@@ -172,7 +192,7 @@ Specialized tools for sprint performance, rodeo events, and western disciplines.
 
 ---
 
-#### Tab 3: Arabian
+#### TAB 3: Arabian
 
 **Title:** Arabian
 
@@ -198,7 +218,7 @@ Endurance-focused training tools for long-distance events. Monitor stamina, reco
 
 ---
 
-#### Tab 4: Standardbred
+#### TAB 4: Standardbred
 
 **Title:** Standardbred
 
@@ -224,7 +244,7 @@ Harness racing specialization with trotting and pacing analysis. Optimize for co
 
 ---
 
-#### Tab 5: Other Breeds
+#### TAB 5: Other Breeds
 
 **Title:** Other Breeds
 
@@ -250,7 +270,7 @@ Flexible platform adaptable to any breed or discipline. Customizable training pr
 
 ---
 
-### CTA Section
+### CTA Section (Bottom of Breeds Page)
 
 **Headline:**
 ```
@@ -259,20 +279,19 @@ Ready to Optimize Your Breed-Specific Training?
 
 **Subheadline:**
 ```
-See how TrainerTree Pro can transform your training program
+See how TrainingTree Pro can transform your training program
 ```
 
-**Button:**
-- Text: "Launch TrainerTree Pro"
-- Link: (your platform URL)
+**CTA Button:**
+- "Launch TrainingTree Pro" (link to platform)
 
 ---
 
-## FEATURES PAGE
+## PAGE 3: FEATURES
 
-### Header
+### Header Section
 
-**Title (H1):**
+**Title:**
 ```
 Platform Features
 ```
@@ -284,8 +303,9 @@ Comprehensive tools for modern equine training operations
 
 ---
 
-### Feature Categories (Filter Buttons)
+### Category Filters
 
+**Categories:**
 - All Features
 - Training
 - Health
@@ -295,18 +315,17 @@ Comprehensive tools for modern equine training operations
 
 ---
 
-### Feature 1: AI-Powered Training Trees
+### Feature List (12 Features)
 
+#### 1. AI-Powered Training Trees
 **Category:** Training
-
-**Title:** AI-Powered Training Trees
 
 **Description:**
 ```
 Intelligent training program generation based on individual horse performance, goals, and historical data.
 ```
 
-**Details (Bullet List):**
+**Details:**
 - Automated training phase recommendations
 - Dynamic workout adjustments based on performance
 - Injury risk prediction and prevention
@@ -315,11 +334,8 @@ Intelligent training program generation based on individual horse performance, g
 
 ---
 
-### Feature 2: Real-Time Biometric Monitoring
-
+#### 2. Real-Time Biometric Monitoring
 **Category:** Health
-
-**Title:** Real-Time Biometric Monitoring
 
 **Description:**
 ```
@@ -336,11 +352,8 @@ Integrate with 8+ wearable devices for continuous health and performance trackin
 
 ---
 
-### Feature 3: Advanced Performance Analytics
-
+#### 3. Advanced Performance Analytics
 **Category:** Analytics
-
-**Title:** Advanced Performance Analytics
 
 **Description:**
 ```
@@ -357,11 +370,8 @@ Deep insights into training effectiveness, performance trends, and predictive an
 
 ---
 
-### Feature 4: Comprehensive Health Management
-
+#### 4. Comprehensive Health Management
 **Category:** Health
-
-**Title:** Comprehensive Health Management
 
 **Description:**
 ```
@@ -378,11 +388,8 @@ Complete health records, vaccination tracking, medication management, and vet co
 
 ---
 
-### Feature 5: Financial ERP System
-
+#### 5. Financial ERP System
 **Category:** Financial
-
-**Title:** Financial ERP System
 
 **Description:**
 ```
@@ -399,11 +406,8 @@ Complete financial management from simple expense tracking to full double-entry 
 
 ---
 
-### Feature 6: Team & Permission Management
-
+#### 6. Team & Permission Management
 **Category:** Management
-
-**Title:** Team & Permission Management
 
 **Description:**
 ```
@@ -420,11 +424,8 @@ Granular access controls for trainers, owners, vets, farriers, and support staff
 
 ---
 
-### Feature 7: Integrated Calendar System
-
+#### 7. Integrated Calendar System
 **Category:** Management
-
-**Title:** Integrated Calendar System
 
 **Description:**
 ```
@@ -441,11 +442,8 @@ Unified scheduling for training, vet visits, races, and all stable activities.
 
 ---
 
-### Feature 8: Mobile App with QR Codes
-
+#### 8. Mobile App with QR Codes
 **Category:** Management
-
-**Title:** Mobile App with QR Codes
 
 **Description:**
 ```
@@ -462,11 +460,8 @@ Native mobile apps with QR code scanning for instant horse identification and qu
 
 ---
 
-### Feature 9: Training Load Optimization
-
+#### 9. Training Load Optimization
 **Category:** Training
-
-**Title:** Training Load Optimization
 
 **Description:**
 ```
@@ -483,11 +478,8 @@ Scientific approach to training load management with periodization and tapering.
 
 ---
 
-### Feature 10: Injury Prediction & Prevention
-
+#### 10. Injury Prediction & Prevention
 **Category:** Health
-
-**Title:** Injury Prediction & Prevention
 
 **Description:**
 ```
@@ -504,11 +496,8 @@ AI-powered algorithms identify injury risk patterns before they become problems.
 
 ---
 
-### Feature 11: Video Analysis & Pose Estimation
-
+#### 11. Video Analysis & Pose Estimation
 **Category:** Analytics
-
-**Title:** Video Analysis & Pose Estimation
 
 **Description:**
 ```
@@ -525,11 +514,8 @@ Computer vision technology for automated gait analysis and form assessment.
 
 ---
 
-### Feature 12: Comprehensive Data Management
-
+#### 12. Comprehensive Data Management
 **Category:** Management
-
-**Title:** Comprehensive Data Management
 
 **Description:**
 ```
@@ -546,7 +532,7 @@ Centralized data hub for all horse information, training records, and performanc
 
 ---
 
-### CTA Section
+### CTA Section (Bottom of Features Page)
 
 **Headline:**
 ```
@@ -555,20 +541,19 @@ Experience All Features in Action
 
 **Subheadline:**
 ```
-Start your free trial and see how TrainerTree Pro can transform your operations
+Start your free trial and see how TrainingTree Pro can transform your operations
 ```
 
-**Button:**
-- Text: "Start Free Trial"
-- Link: (your platform URL)
+**CTA Button:**
+- "Start Free Trial" (link to platform)
 
 ---
 
-## PRICING PAGE
+## PAGE 4: PRICING
 
-### Header
+### Header Section
 
-**Title (H1):**
+**Title:**
 ```
 Pricing Plans
 ```
@@ -580,24 +565,24 @@ Choose the plan that fits your operation. Pricing coming soon - contact us for m
 
 ---
 
-### Pricing Tier 1: Starter
+### Pricing Tiers
 
+#### TIER 1: Starter
 **Price:** TBD
-
-**Title:** Starter
+**Badge:** None
 
 **Description:**
 ```
 Perfect for small stables and individual trainers
 ```
 
-**Limits Box:**
+**Limits:**
 - Horses: Up to 10
 - Team Members: Up to 3
 - Storage: 2GB
 - API Calls: 10,000/month
 
-**Features List:**
+**Features Included:**
 - Up to 10 horses
 - Up to 3 team members
 - 2GB storage
@@ -608,32 +593,27 @@ Perfect for small stables and individual trainers
 - Mobile app access
 - Email support
 
-**Button:**
-- Text: "Contact for Pricing"
-- Link: mailto:info@equissetix.com
+**CTA Button:**
+- "Start Free Trial"
 
 ---
 
-### Pricing Tier 2: Professional (HIGHLIGHT THIS ONE)
-
-**Badge:** "Most Popular"
-
+#### TIER 2: Professional
 **Price:** TBD
-
-**Title:** Professional
+**Badge:** "Most Popular" (highlight this one)
 
 **Description:**
 ```
 Ideal for growing stables and professional operations
 ```
 
-**Limits Box:**
+**Limits:**
 - Horses: Up to 50
 - Team Members: Up to 10
 - Storage: 10GB
 - API Calls: Unlimited
 
-**Features List:**
+**Features Included:**
 - Up to 50 horses
 - Up to 10 team members
 - 10GB storage
@@ -647,30 +627,27 @@ Ideal for growing stables and professional operations
 - Custom reports
 - API access
 
-**Button:**
-- Text: "Contact for Pricing"
-- Link: mailto:info@equissetix.com
+**CTA Button:**
+- "Start Free Trial"
 
 ---
 
-### Pricing Tier 3: Elite
-
+#### TIER 3: Elite
 **Price:** TBD
-
-**Title:** Elite
+**Badge:** None
 
 **Description:**
 ```
 For large operations and enterprise needs
 ```
 
-**Limits Box:**
+**Limits:**
 - Horses: Unlimited
 - Team Members: Unlimited
 - Storage: 100GB
 - API Calls: Unlimited
 
-**Features List:**
+**Features Included:**
 - Unlimited horses
 - Unlimited team members
 - 100GB storage
@@ -686,62 +663,53 @@ For large operations and enterprise needs
 - Advanced security features
 - Compliance reporting
 
-**Button:**
-- Text: "Contact for Pricing"
-- Link: mailto:info@equissetix.com
+**CTA Button:**
+- "Start Free Trial"
 
 ---
 
 ### Feature Comparison Table
 
-**Table Headers:**
-| Feature | Starter | Professional | Elite |
+**Features to Compare:**
+- Horse Management
+- Training Tracking
+- Health Monitoring
+- Basic Analytics
+- Advanced Analytics
+- AI Recommendations
+- Injury Prediction
+- Financial Management
+- Wearable Integration
+- Mobile Apps
+- API Access
+- Custom Integrations
+- Priority Support
+- Dedicated Account Manager
+- SLA Guarantee
 
-**Rows:**
-- Horse Management | ✓ | ✓ | ✓
-- Training Tracking | ✓ | ✓ | ✓
-- Health Monitoring | ✓ | ✓ | ✓
-- Basic Analytics | ✓ | ✓ | ✓
-- Advanced Analytics | — | ✓ | ✓
-- AI Recommendations | — | ✓ | ✓
-- Injury Prediction | — | ✓ | ✓
-- Financial Management | — | ✓ | ✓
-- Wearable Integration | — | ✓ | ✓
-- Mobile Apps | ✓ | ✓ | ✓
-- API Access | — | ✓ | ✓
-- Custom Integrations | — | — | ✓
-- Priority Support | — | ✓ | ✓
-- Dedicated Account Manager | — | — | ✓
-- SLA Guarantee | — | — | ✓
+**Checkmarks:**
+- Starter: ✓ for Horse Management, Training Tracking, Health Monitoring, Basic Analytics, Mobile Apps
+- Professional: ✓ for all except Dedicated Account Manager, SLA Guarantee
+- Elite: ✓ for everything
 
 ---
 
 ### FAQ Section
 
-**Title (H2):**
-```
-Frequently Asked Questions
-```
+**Q: Can I change plans later?**
+A: Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges.
 
-**Q1:**
-**Question:** Can I change plans later?
-**Answer:** Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges accordingly.
+**Q: What happens if I exceed my plan limits?**
+A: We'll notify you before you reach your limits. You can upgrade your plan or purchase additional capacity as needed.
 
-**Q2:**
-**Question:** What happens if I exceed my plan limits?
-**Answer:** We'll notify you before you reach your limits. You can upgrade your plan or purchase additional capacity as needed. Contact us to discuss your specific requirements.
+**Q: Is there a free trial?**
+A: Yes! All plans include a 14-day free trial with full access to all features. No credit card required.
 
-**Q3:**
-**Question:** When will pricing be available?
-**Answer:** Pricing will be announced soon. Contact us at info@equissetix.com to be notified when pricing is released and to discuss your specific needs.
+**Q: Do you offer discounts for annual plans?**
+A: Yes, we offer 20% off when you pay annually. Contact us for more information.
 
-**Q4:**
-**Question:** Do you offer discounts for annual plans?
-**Answer:** Yes, we plan to offer discounts for annual plans. Contact us at info@equissetix.com for more information about pricing and discounts.
-
-**Q5:**
-**Question:** What payment methods do you accept?
-**Answer:** We will accept all major credit cards, ACH transfers, and wire transfers for enterprise plans. Contact us for details.
+**Q: What payment methods do you accept?**
+A: We accept all major credit cards, ACH transfers, and wire transfers for enterprise plans.
 
 ---
 
@@ -754,89 +722,68 @@ Ready to Get Started?
 
 **Subheadline:**
 ```
-Join leading trainers and stables using TrainerTree Pro
+Join leading trainers and stables using TrainingTree Pro
 ```
 
-**Button:**
-- Text: "Contact Us for Pricing"
-- Link: mailto:info@equissetix.com
+**CTA Button:**
+- "Start Your Free Trial" (link to platform)
 
 ---
 
-## FOOTER
+## Navigation Menu
+
+**Items:**
+- Home
+- Breeds
+- Features
+- Pricing
+- Launch Platform (CTA button style)
+
+---
+
+## Footer Content
 
 ### Column 1: Brand
-
-**Logo/Title:** Equissetix
-
+**Logo:** Equissetix
 **Description:**
 ```
 Advanced equine training technology powered by AI and data science.
 ```
 
----
-
 ### Column 2: Quick Links
-
-**Title:** Quick Links
-
-**Links:**
-- Home (/)
-- Breeds (/breeds)
-- Features (/features)
-- Pricing (/pricing)
-
----
+- Home
+- Breeds
+- Features
+- Pricing
 
 ### Column 3: Platform
-
-**Title:** Platform
-
-**Links:**
-- TrainerTree Pro (platform URL)
-- Documentation (docs URL)
-- API Reference (API URL)
-
----
+- TrainingTree Pro
+- Documentation
+- API Reference
 
 ### Column 4: Contact
-
-**Title:** Contact
-
 **Email:** info@equissetix.com
-
-**Social Media:**
-- Twitter icon (link)
-- LinkedIn icon (link)
-
----
+**Social:** Twitter, LinkedIn icons
 
 ### Bottom Bar
-
-**Copyright:**
-```
-© 2024 Equissetix LLC. All rights reserved.
-```
-
-**Links:**
-- Privacy Policy
-- Terms of Service
+**Copyright:** © 2024 Equissetix LLC. All rights reserved.
+**Links:** Privacy Policy, Terms of Service
 
 ---
 
-## META TAGS (Site Settings)
+## Design Implementation Tips for Squarespace
 
-**Site Title:**
-```
-Equissetix - Advanced Equine Training Platform
-```
+1. **Use Code Blocks** for custom styling and animations
+2. **Custom CSS** for glassmorphism effects and gradients
+3. **Image Blocks** for icons (or use Squarespace's icon library)
+4. **Summary Blocks** for feature grids
+5. **Tabs Block** for breed tabs
+6. **Pricing Tables** extension or custom code block
+7. **Dark Theme** template or custom CSS override
+8. **Custom Fonts** via Google Fonts (Poppins, Inter)
 
-**Site Description:**
-```
-Equissetix - the cutting-edge platform for comprehensive horse training, health monitoring, and performance analytics. Powering TrainerTree Pro.
-```
+---
 
-**Keywords:**
-```
-equine training, horse training software, equine health monitoring, horse performance analytics, TrainerTree Pro, equine management platform
-```
+## Custom CSS Snippets
+
+See `SQUARESPACE_CSS.md` for ready-to-use CSS code blocks.

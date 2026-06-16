@@ -245,7 +245,7 @@ Pattern inspired by: https://t4.ftcdn.net/jpg/04/19/64/63/360_F_419646314_KYF7Ud
 - Diagonal lines and angular composition
 - Subtle, repeating patterns
 - Modern, professional aesthetic
-- **Customized for**: TrainerTree Pro brand colors and sharp corner philosophy
+- **Customized for**: TrainingTree Pro brand colors and sharp corner philosophy
 
 ---
 
@@ -259,7 +259,7 @@ The geometric patterns **perfectly complement** the vibrant color palette and sh
 ✨ **Visual Hierarchy** - Patterns help define section boundaries
 ✨ **Memorable Experience** - Unique, distinctive design stands out
 
-The website now has **visual depth, movement, and polish** that matches the ambition of the TrainerTree Pro platform itself - cutting-edge, powerful, and distinctly modern.
+The website now has **visual depth, movement, and polish** that matches the ambition of the TrainingTree Pro platform itself - cutting-edge, powerful, and distinctly modern.
 
 ---
 

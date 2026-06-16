@@ -57,7 +57,7 @@ If you see version numbers, you're good! ✅
 
 ### Navigate to Your Project
 ```powershell
-cd "E:\Software Project\TrainerTree Pro\equissetix-website"
+cd "E:\Software Project\TrainingTree Pro\equissetix-website"
 ```
 
 ### Install Dependencies
@@ -222,7 +222,7 @@ When you want to update the website:
 
 ```powershell
 # Navigate to project
-cd "E:\Software Project\TrainerTree Pro\equissetix-website"
+cd "E:\Software Project\TrainingTree Pro\equissetix-website"
 
 # Make your changes to files, then:
 git add .

@@ -4,6 +4,8 @@ import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const Veterinarians = () => {
   const painPoints = [
@@ -63,7 +65,7 @@ const Veterinarians = () => {
         "Health Score calculated from multiple biometric sources",
         "Trend analysis showing health improvements or declines",
         "Baseline comparisons to identify anomalies",
-        "Integration with Equimetre, Polar Equine, StrideSAFE, Horseteq, Garmin Blaze",
+        "Integration with Equimetre, Polar Equine, StrideSAFE, Horseteq, and more",
         "Historical health data for pattern recognition"
       ]
     },
@@ -163,6 +165,7 @@ const Veterinarians = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.solutionsVeterinarians.title} description={pageSEO.solutionsVeterinarians.description} path="/solutions/veterinarians" />
       <Section background="white" className="py-6">
         <div className="container-custom">
           <Breadcrumbs items={[

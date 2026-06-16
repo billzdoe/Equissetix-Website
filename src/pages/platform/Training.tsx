@@ -6,6 +6,8 @@ import Section from '../../components/Section'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import ACWRChart from '../../components/ACWRChart'
 import GaitSymmetryViz from '../../components/GaitSymmetryViz'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const Training = () => {
   const howItWorksSteps = [
@@ -53,13 +55,13 @@ const Training = () => {
   const biometricIntegrations = [
     {
       device: "Heart Rate Monitors",
-      brands: "Polar H10, Garmin HRM-Dual",
+      brands: "Polar H10, Bluetooth HR monitors",
       data: "Real-time BPM, heart rate zones, recovery heart rate, HRV (heart rate variability)",
       benefit: "Know exact training intensity. Stop guessing if a workout was hard enough or too hard."
     },
     {
       device: "GPS Trackers",
-      brands: "Garmin, Equimetre, StrideMaster",
+      brands: "GPS trackers, Equimetre, StrideMaster",
       data: "Speed, distance, elevation, surface type (dirt, turf, synthetic), route mapping",
       benefit: "Automatically log workout distances and speeds. See exactly where you trained."
     },
@@ -106,6 +108,7 @@ const Training = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.platformTraining.title} description={pageSEO.platformTraining.description} path="/trainingtree/training" />
       <Section background="white" className="py-6">
         <div className="container-custom">
           <Breadcrumbs items={[

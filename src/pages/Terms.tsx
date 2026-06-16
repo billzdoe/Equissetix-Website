@@ -3,10 +3,13 @@ import { FileText, Scale, AlertCircle } from 'lucide-react'
 import Section from '../components/Section'
 import Card from '../components/Card'
 import Breadcrumbs from '../components/Breadcrumbs'
+import SEO from '../components/SEO'
+import { pageSEO } from '../utils/seo'
 
 const Terms = () => {
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.terms.title} description={pageSEO.terms.description} path="/terms" />
       <Section background="white" className="py-6">
         <div className="container-custom">
           <Breadcrumbs items={[{ label: 'Terms of Service' }]} />

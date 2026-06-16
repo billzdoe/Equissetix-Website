@@ -59,7 +59,7 @@ You don't need another AI tool - I've created **3 powerful components** that tra
 
 ## 📸 How to Use Your Screenshots
 
-### Step 1: Take Screenshots of TrainerTree Pro
+### Step 1: Take Screenshots of TrainingTree Pro
 
 **What to Capture:**
 
@@ -165,7 +165,7 @@ import AnimatedScreenshots from '../components/AnimatedScreenshots'
 
 <section className="py-24 bg-section-gradient">
   <div className="container-custom">
-    <h2>See TrainerTree Pro in Action</h2>
+    <h2>See TrainingTree Pro in Action</h2>
 
     <AnimatedScreenshots
       screenshots={[
@@ -319,7 +319,7 @@ import AnimatedPlatformShowcase from '../components/AnimatedPlatformShowcase'
 
 ### Option 1: Send Me Screenshots, I'll Animate Them
 
-1. **You:** Take screenshots of TrainerTree Pro
+1. **You:** Take screenshots of TrainingTree Pro
 2. **You:** Send them to me (or save to project)
 3. **Me:** I'll implement the animated components
 4. **Me:** Add effects, overlays, animations
@@ -335,7 +335,7 @@ import AnimatedPlatformShowcase from '../components/AnimatedPlatformShowcase'
 
 ---
 
-## 🎯 Recommended Implementation for TrainerTree Pro
+## 🎯 Recommended Implementation for TrainingTree Pro
 
 ### Phase 1: Hero Section (Screenshot Carousel)
 **Replace video with:**
@@ -412,7 +412,7 @@ import AnimatedPlatformShowcase from '../components/AnimatedPlatformShowcase'
 ## 🚀 Next Steps
 
 ### Option A: Send Me Your Screenshots
-1. Take 5-7 screenshots of TrainerTree Pro
+1. Take 5-7 screenshots of TrainingTree Pro
 2. Send them to me (or add to project folder)
 3. I'll implement all 3 animated components
 4. You'll have a video-like experience without video!

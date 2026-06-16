@@ -3,6 +3,8 @@ import { ArrowRight, Eye, DollarSign, Heart, BarChart3, QrCode, Smartphone, Shie
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
+import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 
 const HorseOwners = () => {
   const benefits = [
@@ -53,6 +55,7 @@ const HorseOwners = () => {
 
   return (
     <div className="pt-20">
+      <SEO title={pageSEO.solutionsHorseOwners.title} description={pageSEO.solutionsHorseOwners.description} path="/solutions/horse-owners" />
       <Section background="gradient" className="min-h-[60vh] flex items-center">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div

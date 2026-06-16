@@ -1,49 +1,64 @@
+import { useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import StickyCTA from './components/StickyCTA'
 import ScrollToTop from './components/ScrollToTop'
-import Home from './pages/Home'
-import Pricing from './pages/Pricing'
-import Contact from './pages/Contact'
-import About from './pages/About'
+import ExitIntentPopup from './components/ExitIntentPopup'
+import { initGA4, initFacebookPixel } from './utils/analytics'
+import { usePageTracking } from './hooks/useAnalytics'
+
+// Core pages (lazy-loaded for code splitting)
+const Home = lazy(() => import('./pages/Home'))
+const Pricing = lazy(() => import('./pages/Pricing'))
+const Contact = lazy(() => import('./pages/Contact'))
+const About = lazy(() => import('./pages/About'))
 
 // Solutions pages
-import RacingTrainers from './pages/solutions/RacingTrainers'
-import HorseOwners from './pages/solutions/HorseOwners'
-import Veterinarians from './pages/solutions/Veterinarians'
-import TrainingFacilities from './pages/solutions/TrainingFacilities'
+const RacingTrainers = lazy(() => import('./pages/solutions/RacingTrainers'))
+const HorseOwners = lazy(() => import('./pages/solutions/HorseOwners'))
+const Veterinarians = lazy(() => import('./pages/solutions/Veterinarians'))
+const TrainingFacilities = lazy(() => import('./pages/solutions/TrainingFacilities'))
 
 // TrainingTree pages
-import Training from './pages/platform/Training'
-import Health from './pages/platform/Health'
-import Nutrition from './pages/platform/Nutrition'
-import Financial from './pages/platform/Financial'
-import Racing from './pages/platform/Racing'
-import Mobile from './pages/platform/Mobile'
-import Integrations from './pages/platform/Integrations'
-import Analytics from './pages/platform/Analytics'
-import Collaboration from './pages/platform/Collaboration'
-import OwnerPortal from './pages/platform/OwnerPortal'
+const Training = lazy(() => import('./pages/platform/Training'))
+const Health = lazy(() => import('./pages/platform/Health'))
+const Nutrition = lazy(() => import('./pages/platform/Nutrition'))
+const Financial = lazy(() => import('./pages/platform/Financial'))
+const Racing = lazy(() => import('./pages/platform/Racing'))
+const Mobile = lazy(() => import('./pages/platform/Mobile'))
+const Integrations = lazy(() => import('./pages/platform/Integrations'))
+const Analytics = lazy(() => import('./pages/platform/Analytics'))
+const Collaboration = lazy(() => import('./pages/platform/Collaboration'))
+const OwnerPortal = lazy(() => import('./pages/platform/OwnerPortal'))
 
 // Other pages
-import NotFound from './pages/NotFound'
-import CaseStudies from './pages/CaseStudies'
-import Blog from './pages/Blog'
-import Privacy from './pages/Privacy'
-import Terms from './pages/Terms'
-import Security from './pages/Security'
-import Breeds from './pages/Breeds'
-import Disciplines from './pages/Disciplines'
-import Compare from './pages/Compare'
+const NotFound = lazy(() => import('./pages/NotFound'))
+const CaseStudies = lazy(() => import('./pages/CaseStudies'))
+const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+const Terms = lazy(() => import('./pages/Terms'))
+const Security = lazy(() => import('./pages/Security'))
+const Breeds = lazy(() => import('./pages/Breeds'))
+const Disciplines = lazy(() => import('./pages/Disciplines'))
+const Compare = lazy(() => import('./pages/Compare'))
 
-function App() {
+const PageLoader = () => (
+  <div className="min-h-[60vh] flex items-center justify-center" role="status" aria-label="Loading">
+    <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-coral-500 animate-spin" />
+  </div>
+)
+
+function AppContent() {
+  // Track page views automatically
+  usePageTracking()
+
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white">
-        <Navbar />
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
@@ -73,7 +88,7 @@ function App() {
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/:id" element={<CaseStudies />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/resources" element={<Blog />} />
           <Route path="/breeds" element={<Breeds />} />
           <Route path="/disciplines" element={<Disciplines />} />
@@ -87,10 +102,26 @@ function App() {
           {/* 404 catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
-        <BackToTop />
-        <StickyCTA />
-      </div>
+      </Suspense>
+      <Footer />
+      <BackToTop />
+      <StickyCTA />
+      <ExitIntentPopup delay={8000} exitIntent={true} scrollTrigger={40} />
+    </div>
+  )
+}
+
+function App() {
+  useEffect(() => {
+    // Initialize analytics on app mount
+    initGA4()
+    initFacebookPixel()
+  }, [])
+
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppContent />
     </Router>
   )
 }

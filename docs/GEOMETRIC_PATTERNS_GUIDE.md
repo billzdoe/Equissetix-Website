@@ -1,7 +1,7 @@
 # Geometric Patterns Integration Guide
 
 ## Overview
-Successfully integrated sharp, angular geometric patterns throughout the TrainerTree Pro website inspired by modern geometric design patterns. These patterns add visual depth and movement while maintaining the sharp corner design philosophy.
+Successfully integrated sharp, angular geometric patterns throughout the TrainingTree Pro website inspired by modern geometric design patterns. These patterns add visual depth and movement while maintaining the sharp corner design philosophy.
 
 ---
 
