@@ -154,7 +154,7 @@ const About = () => {
 
       {/* Why We're Different Section */}
       <Section background="white" className="relative">
-        <GeometricPattern variant="lines" opacity={0.03} color="#2563EB" animated={true} />
+        <GeometricPattern variant="lines" opacity={0.04} color="#0F5132" animated={true} />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

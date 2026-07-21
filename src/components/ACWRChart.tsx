@@ -63,7 +63,7 @@ const ACWRChart = () => {
           </div>
           <div className="text-right">
             <p className="text-sm text-slate-600">Acute: <span className="font-bold text-blue-600">{data[data.length - 1].acute}</span></p>
-            <p className="text-sm text-slate-600">Chronic: <span className="font-bold text-purple-600">{data[data.length - 1].chronic}</span></p>
+            <p className="text-sm text-slate-600">Chronic: <span className="font-bold text-gold-600">{data[data.length - 1].chronic}</span></p>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ const ACWRChart = () => {
                     initial={{ height: 0 }}
                     animate={{ height: `${chronicHeight}%` }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="flex-1 bg-gradient-to-t from-purple-500 to-purple-400 rounded-t group-hover:from-purple-600 group-hover:to-purple-500 min-h-[2px]"
+                    className="flex-1 bg-gradient-to-t from-gold-500 to-gold-400 rounded-t group-hover:from-gold-600 group-hover:to-gold-500 min-h-[2px]"
                     style={{ height: `${chronicHeight}%` }}
                   />
                 </div>
@@ -152,7 +152,7 @@ const ACWRChart = () => {
           <span className="text-sm text-slate-600">Acute Load (7-day)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-gradient-to-br from-purple-500 to-purple-400 rounded" />
+          <div className="w-4 h-4 bg-gradient-to-br from-gold-500 to-gold-400 rounded" />
           <span className="text-sm text-slate-600">Chronic Load (28-day)</span>
         </div>
       </div>

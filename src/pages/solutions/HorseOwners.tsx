@@ -63,10 +63,11 @@ const HorseOwners = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Know Your Horse Is in <span className="text-gradient">Good Hands</span>
+            <span className="eyebrow justify-center mb-4">For horse owners</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
+              Know your horse is in <span className="text-gradient">good hands</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8">
+            <p className="text-xl md:text-2xl text-navy-600 mb-8">
               Stay informed about your horse's training, health, and performance—with complete transparency from your trainer.
             </p>
             <Button to="/contact" variant="primary" size="lg">
@@ -84,8 +85,9 @@ const HorseOwners = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            What You Get as an <span className="text-gradient">Owner</span>
+          <span className="eyebrow justify-center mb-4">Peace of mind</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy-900">
+            What you get as an <span className="text-gradient">owner</span>
           </h2>
         </motion.div>
 
@@ -98,12 +100,12 @@ const HorseOwners = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full">
-                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4 text-teal-900">
+              <Card className="h-full border-l-2 border-l-transparent hover:border-l-gold-500">
+                <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 text-brand-700 ring-1 ring-brand-100">
                   {benefit.icon}
                 </div>
-                <h3 className="font-bold text-xl mb-2">{benefit.title}</h3>
-                <p className="text-slate-600">{benefit.description}</p>
+                <h3 className="font-bold text-xl mb-2 text-navy-900">{benefit.title}</h3>
+                <p className="text-navy-600">{benefit.description}</p>
               </Card>
             </motion.div>
           ))}
@@ -117,10 +119,11 @@ const HorseOwners = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <span className="eyebrow justify-center mb-4 text-gold-400">The owner portal</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Introducing the <span className="text-gradient">Owner Portal</span>
+            Introducing the <span className="text-gold-400">Owner Portal</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
             A dedicated dashboard designed specifically for horse owners. Stay connected to your investment with transparency and peace of mind.
           </p>
         </motion.div>
@@ -134,12 +137,12 @@ const HorseOwners = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full bg-slate-800 border-slate-700">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center mb-4 text-white">
+              <Card hover={false} className="h-full bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-colors">
+                <div className="w-16 h-16 bg-gold-500 rounded-xl flex items-center justify-center mb-4 text-navy-900 shadow-gold-glow">
                   {feature.icon}
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-white">{feature.title}</h3>
-                <p className="text-slate-300">{feature.description}</p>
+                <p className="text-white/75">{feature.description}</p>
               </Card>
             </motion.div>
           ))}
@@ -149,12 +152,12 @@ const HorseOwners = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 p-8 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl text-center"
+          className="mt-16 p-8 sm:p-10 bg-accent-gradient rounded-2xl text-center shadow-gold-glow"
         >
-          <h3 className="text-3xl font-bold mb-4 text-white">
-            See Your Horse's Full Story
+          <h3 className="text-3xl font-bold mb-4 text-navy-900">
+            See your horse's full story
           </h3>
-          <p className="text-xl text-amber-50 mb-6 max-w-2xl mx-auto">
+          <p className="text-xl text-navy-900/80 mb-6 max-w-2xl mx-auto">
             From training sessions to race day performance, get the complete picture of your horse's journey—with your trainer's expert guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -162,7 +165,7 @@ const HorseOwners = () => {
               View Owner Portal Features
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button to="/contact" variant="primary" size="lg" className="bg-white text-amber-600 hover:bg-slate-50">
+            <Button to="/contact" variant="ghost" size="lg" className="bg-white">
               Request a Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
@@ -177,9 +180,9 @@ const HorseOwners = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl font-bold mb-6">Ask Your Trainer About TrainingTree</h2>
-          <p className="text-xl text-slate-700 mb-8">
-            Encourage your trainer to use TrainingTree for better communication and transparency.
+          <h2 className="text-4xl font-bold mb-6 text-navy-900">Ask your trainer about TrainingTree<sup className="text-base">™</sup> Pro</h2>
+          <p className="text-xl text-navy-600 mb-8">
+            Encourage your trainer to use TrainingTree<sup className="text-sm">™</sup> Pro for better communication and transparency.
           </p>
           <Button to="/contact" variant="primary" size="lg">
             Learn More

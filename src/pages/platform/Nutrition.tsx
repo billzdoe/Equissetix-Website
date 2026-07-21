@@ -68,7 +68,7 @@ const Nutrition = () => {
     {
       problem: "Horse Losing Weight During Training",
       solution: "Track daily feed intake and weekly weights in one place. See exactly when weight loss started. Correlate it with training intensity changes. Adjust rations and monitor response.",
-      icon: <AlertTriangle className="h-6 w-6 text-orange-600" />
+      icon: <AlertTriangle className="h-6 w-6 text-burgundy-600" />
     },
     {
       problem: "Supplement Chaos",

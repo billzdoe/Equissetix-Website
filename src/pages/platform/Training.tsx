@@ -196,20 +196,20 @@ const Training = () => {
         </motion.div>
         <ACWRChart />
         <div className="mt-8 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Card className="text-center border border-slate-200">
-            <div className="text-3xl font-bold text-red-600 mb-2">&gt; 1.3</div>
-            <div className="text-sm font-semibold text-slate-700 mb-2">Danger Zone</div>
-            <p className="text-xs text-slate-600">2-5x higher injury risk. Back off training intensity.</p>
+          <Card hover={false} className="text-center border border-burgundy-200 bg-burgundy-50/50">
+            <div className="text-3xl font-bold text-burgundy-700 mb-2">&gt; 1.3</div>
+            <div className="text-sm font-semibold text-navy-700 mb-2">Danger Zone</div>
+            <p className="text-xs text-navy-600">2-5x higher injury risk. Back off training intensity.</p>
           </Card>
-          <Card className="text-center border-2 border-success-500 bg-success-50">
-            <div className="text-3xl font-bold text-success-700 mb-2">0.8-1.3</div>
-            <div className="text-sm font-semibold text-slate-700 mb-2">Sweet Spot</div>
-            <p className="text-xs text-slate-600">Optimal training stimulus without injury risk.</p>
+          <Card hover={false} className="text-center border-2 border-brand-500 bg-brand-50">
+            <div className="text-3xl font-bold text-brand-700 mb-2">0.8-1.3</div>
+            <div className="text-sm font-semibold text-navy-700 mb-2">Sweet Spot</div>
+            <p className="text-xs text-navy-600">Optimal training stimulus without injury risk.</p>
           </Card>
-          <Card className="text-center border border-slate-200">
-            <div className="text-3xl font-bold text-orange-600 mb-2">&lt; 0.8</div>
-            <div className="text-sm font-semibold text-slate-700 mb-2">Detraining</div>
-            <p className="text-xs text-slate-600">Not enough work. Fitness declining.</p>
+          <Card hover={false} className="text-center border border-gold-200 bg-gold-50/50">
+            <div className="text-3xl font-bold text-gold-700 mb-2">&lt; 0.8</div>
+            <div className="text-sm font-semibold text-navy-700 mb-2">Detraining</div>
+            <p className="text-xs text-navy-600">Not enough work. Fitness declining.</p>
           </Card>
         </div>
       </Section>

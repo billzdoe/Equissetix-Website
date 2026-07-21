@@ -292,9 +292,9 @@ const Financial = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
             >
-              <Card className="h-full bg-gradient-to-br from-white via-blue-50/20 to-purple-50/20 border-2 border-slate-200 hover:border-brand-300 transition-all">
+              <Card className="h-full hover:border-brand-300 transition-all">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-brand-500 to-blue-600 rounded-lg flex items-center justify-center text-white shadow-modern flex-shrink-0">
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-600 to-brand-800 rounded-lg flex items-center justify-center text-gold-400 shadow-green-glow flex-shrink-0">
                     {feature.icon}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -404,7 +404,7 @@ const Financial = () => {
             </ul>
           </Card>
 
-          <Card className="bg-gradient-to-br from-white to-purple-50/30 border-2 border-purple-200">
+          <Card hover={false} className="bg-navy-50 border border-navy-200">
             <h3 className="text-lg font-bold mb-2 text-navy-900">Enterprise</h3>
             <p className="text-xs text-slate-600 mb-3">Full ERP</p>
             <ul className="space-y-1.5 text-xs">

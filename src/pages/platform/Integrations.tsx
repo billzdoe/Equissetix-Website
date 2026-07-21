@@ -19,53 +19,45 @@ const Integrations = () => {
   ]
 
   const devices = [
-    { 
-      name: "Equimetre", 
+    {
+      name: "Equimetre",
       desc: "Real-time biomechanics and performance data",
       features: ["Biomechanical metrics", "Performance analytics", "Training load"],
-      color: "from-blue-500 to-blue-700"
     },
-    { 
-      name: "Polar Equine", 
+    {
+      name: "Polar Equine",
       desc: "Heart rate and fitness monitoring",
       features: ["Heart rate zones", "VO2 Max tracking", "Recovery metrics"],
-      color: "from-brand-500 to-brand-700"
     },
-    { 
-      name: "StrideSAFE", 
+    {
+      name: "StrideSAFE",
       desc: "Gait analysis and lameness detection",
       features: ["Gait symmetry", "Lameness alerts", "Stride analysis"],
-      color: "from-success-500 to-success-700"
     },
-    { 
-      name: "Horseteq", 
+    {
+      name: "Horseteq",
       desc: "Advanced gait and performance tracking",
       features: ["25-keypoint pose", "Gait classification", "Symmetry analysis"],
-      color: "from-purple-500 to-purple-700"
     },
-    { 
-      name: "Wellness Monitors", 
+    {
+      name: "Wellness Monitors",
       desc: "GPS and activity tracking",
       features: ["GPS routes", "Distance tracking", "Speed metrics"],
-      color: "from-cyan-500 to-cyan-700"
     },
-    { 
-      name: "Smart Halters", 
+    {
+      name: "Smart Halters",
       desc: "24/7 health and behavior monitoring",
       features: ["Activity monitoring", "Behavior patterns", "Health alerts"],
-      color: "from-coral-500 to-coral-700"
     },
-    { 
-      name: "Temperature Sensors", 
+    {
+      name: "Temperature Sensors",
       desc: "Core body temperature tracking",
       features: ["Real-time temp", "Fever detection", "Health monitoring"],
-      color: "from-orange-500 to-orange-700"
     },
-    { 
-      name: "Custom Devices", 
+    {
+      name: "Custom Devices",
       desc: "API support for proprietary wearables",
       features: ["Custom API", "Webhook support", "Flexible integration"],
-      color: "from-slate-500 to-slate-700"
     }
   ]
 
@@ -79,10 +71,11 @@ const Integrations = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">One Platform,</span> All Your Data
+            <span className="eyebrow justify-center mb-4">Integrations</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
+              <span className="text-gradient">One platform,</span> all your data
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8">
+            <p className="text-xl md:text-2xl text-navy-600 mb-8">
               Seamlessly integrate with 8+ wearable devices, veterinary systems, and business tools—all in one place.
             </p>
             <Button to="/contact" variant="primary" size="lg">
@@ -177,15 +170,15 @@ const Integrations = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
             >
-              <Card className="text-center h-full bg-gradient-to-br from-white via-slate-50/30 to-blue-50/20 border-2 border-slate-200 hover:border-brand-300 transition-all hover:shadow-modern-lg">
-                <div className={`w-16 h-16 bg-gradient-to-br ${device.color} rounded-xl flex items-center justify-center mx-auto mb-4 text-white shadow-modern-lg`}>
+              <Card className="text-center h-full hover:border-brand-300 transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-600 to-brand-800 rounded-xl flex items-center justify-center mx-auto mb-4 text-gold-400 shadow-green-glow">
                   <Link2 className="h-8 w-8" />
                 </div>
                 <h3 className="font-bold text-lg text-navy-900 mb-2">{device.name}</h3>
-                <p className="text-sm text-slate-600 mb-4">{device.desc}</p>
+                <p className="text-sm text-navy-600 mb-4">{device.desc}</p>
                 <div className="space-y-1">
                   {device.features.map((feature, i) => (
-                    <div key={i} className="flex items-center justify-center gap-1 text-xs text-slate-500">
+                    <div key={i} className="flex items-center justify-center gap-1 text-xs text-navy-500">
                       <Check className="h-3 w-3 text-brand-600" />
                       <span>{feature}</span>
                     </div>

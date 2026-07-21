@@ -115,15 +115,16 @@ const ExitIntentPopup = ({
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
           />
 
-          {/* Popup */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg mx-4 z-[9999]"
-          >
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+          {/* Popup wrapper — full-screen flex centering so the card stays centered on every viewport */}
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="w-full max-w-lg pointer-events-auto"
+            >
+            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
               {/* Close button */}
               <button
                 onClick={handleClose}
@@ -229,7 +230,8 @@ const ExitIntentPopup = ({
                 </>
               )}
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>

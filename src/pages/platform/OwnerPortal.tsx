@@ -110,8 +110,8 @@ const OwnerPortal = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6">
-              Stop Fielding Constant <span className="text-red-600">Owner Calls</span>
+            <h2 className="text-4xl font-bold mb-6 text-navy-900">
+              Stop fielding constant <span className="text-burgundy-700">owner calls</span>
             </h2>
             <p className="text-lg text-slate-600 mb-6">
               Trainers spend hours every week answering the same questions: "How's my horse doing?" "When's the next race?" "What's my bill this month?"

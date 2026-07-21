@@ -4,19 +4,20 @@ interface SectionProps {
   children: ReactNode
   className?: string
   background?: 'white' | 'gray' | 'gradient' | 'light' | 'dark'
+  id?: string
 }
 
-const Section = ({ children, className = '', background = 'white' }: SectionProps) => {
+const Section = ({ children, className = '', background = 'white', id }: SectionProps) => {
   const bgStyles = {
     white: 'bg-white',
-    gray: 'bg-gradient-to-br from-slate-50 via-amber-50/30 to-blue-50/30',
+    gray: 'bg-section-gradient',
     gradient: 'bg-hero-gradient',
-    light: 'bg-gradient-to-br from-slate-50 via-amber-50/30 to-blue-50/30',
-    dark: 'bg-slate-900',
+    light: 'bg-section-gradient-alt',
+    dark: 'bg-section-green',
   }
 
   return (
-    <section className={`section-padding ${bgStyles[background]} ${className}`}>
+    <section id={id} className={`section-padding ${bgStyles[background]} ${className} scroll-mt-24`}>
       <div className="container-custom">{children}</div>
     </section>
   )

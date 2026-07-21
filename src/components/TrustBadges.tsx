@@ -24,8 +24,8 @@ const TrustBadges = ({ variant = 'default', className = '' }: TrustBadgesProps) 
     },
     {
       icon: <Award className="h-5 w-5" />,
-      label: "99.9% Uptime",
-      description: "Reliable service"
+      label: "Built by Horsemen",
+      description: "On peer-reviewed science"
     }
   ]
 
@@ -50,9 +50,9 @@ const TrustBadges = ({ variant = 'default', className = '' }: TrustBadgesProps) 
       {badges.map((badge, index) => (
         <div
           key={index}
-          className="flex flex-col items-center gap-2 p-4 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 rounded-xl border-2 border-slate-200 hover:border-brand-300 transition-all text-center"
+          className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-navy-100 hover:border-brand-300 hover:shadow-modern transition-all text-center"
         >
-          <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-blue-600 rounded-lg flex items-center justify-center text-white shadow-modern">
+          <div className="w-12 h-12 bg-gradient-to-br from-brand-600 to-brand-800 rounded-lg flex items-center justify-center text-gold-400 shadow-green-glow">
             {badge.icon}
           </div>
           <div>

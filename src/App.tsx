@@ -15,11 +15,24 @@ const Pricing = lazy(() => import('./pages/Pricing'))
 const Contact = lazy(() => import('./pages/Contact'))
 const About = lazy(() => import('./pages/About'))
 
+// Product family pages
+const ProductsOverview = lazy(() => import('./pages/products/ProductsOverview'))
+const StableTree = lazy(() => import('./pages/products/StableTree'))
+const TrainingTreePro = lazy(() => import('./pages/products/TrainingTreePro'))
+const Performance = lazy(() => import('./pages/products/Performance'))
+
 // Solutions pages
 const RacingTrainers = lazy(() => import('./pages/solutions/RacingTrainers'))
 const HorseOwners = lazy(() => import('./pages/solutions/HorseOwners'))
 const Veterinarians = lazy(() => import('./pages/solutions/Veterinarians'))
 const TrainingFacilities = lazy(() => import('./pages/solutions/TrainingFacilities'))
+const BoardingBarns = lazy(() => import('./pages/solutions/BoardingBarns'))
+const BreedingFarms = lazy(() => import('./pages/solutions/BreedingFarms'))
+
+// Why Equissetix pages
+const WhyCompliance = lazy(() => import('./pages/why/Compliance'))
+const WhyOwnerTransparency = lazy(() => import('./pages/why/OwnerTransparency'))
+const WhyTheScience = lazy(() => import('./pages/why/TheScience'))
 
 // TrainingTree pages
 const Training = lazy(() => import('./pages/platform/Training'))
@@ -66,8 +79,23 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/company" element={<About />} />
 
+          {/* Product family routes */}
+          <Route path="/products" element={<ProductsOverview />} />
+          <Route path="/products/stabletree" element={<StableTree />} />
+          <Route path="/products/trainingtree-pro" element={<TrainingTreePro />} />
+          <Route path="/products/performance" element={<Performance />} />
+
           {/* Solutions routes */}
           <Route path="/solutions/racing-trainers" element={<RacingTrainers />} />
+          {/* New stable-first audience pages */}
+          <Route path="/solutions/boarding-barns" element={<BoardingBarns />} />
+          <Route path="/solutions/breeding-farms" element={<BreedingFarms />} />
+          <Route path="/solutions/large-operations" element={<TrainingFacilities />} />
+
+          {/* Why Equissetix routes */}
+          <Route path="/why/compliance" element={<WhyCompliance />} />
+          <Route path="/why/owner-transparency" element={<WhyOwnerTransparency />} />
+          <Route path="/why/the-science" element={<WhyTheScience />} />
           <Route path="/solutions/horse-owners" element={<HorseOwners />} />
           <Route path="/solutions/veterinarians" element={<Veterinarians />} />
           <Route path="/solutions/training-facilities" element={<TrainingFacilities />} />

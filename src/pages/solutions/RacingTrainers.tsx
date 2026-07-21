@@ -73,11 +73,12 @@ const RacingTrainers = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Train Champions, Not <span className="text-gradient">Spreadsheets</span>
+            <span className="eyebrow justify-center mb-4">For racing trainers</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
+              Train champions, not <span className="text-gradient">spreadsheets</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              TrainingTree gives you the tools to prevent injuries, optimize performance, and prove your value to owners—all from your phone.
+            <p className="text-xl md:text-2xl text-navy-600 mb-8">
+              TrainingTree<sup className="text-sm">™</sup> Pro gives you the tools to prevent injuries, optimize performance, and prove your value to owners—all from your phone.
             </p>
             <Button to="/contact" variant="primary" size="lg">
               See How It Works for Trainers
@@ -95,10 +96,11 @@ const RacingTrainers = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            What This Means <span className="text-gradient">For You</span>
+          <span className="eyebrow justify-center mb-4">Problem → Solution → Result</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy-900">
+            What this means <span className="text-gradient">for you</span>
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-xl text-navy-600">
             Real solutions to the daily challenges racing trainers face
           </p>
         </motion.div>
@@ -112,19 +114,19 @@ const RacingTrainers = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card>
-                <div className="grid md:grid-cols-3 gap-6 items-center">
-                  <div>
-                    <p className="text-sm font-semibold text-coral-900 mb-1">PROBLEM</p>
-                    <p className="text-slate-700">{item.problem}</p>
+              <Card hover={false} className="hover:shadow-modern-lg transition-all">
+                <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+                  <div className="md:pr-6 md:border-r md:border-navy-100">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy-600 mb-2">The problem</p>
+                    <p className="text-navy-700">{item.problem}</p>
+                  </div>
+                  <div className="md:pr-6 md:border-r md:border-navy-100">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-600 mb-2">TrainingTree<sup>™</sup> Pro solution</p>
+                    <p className="text-navy-700">{item.solution}</p>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-teal-900 mb-1">TRAININGTREE SOLUTION</p>
-                    <p className="text-slate-700">{item.solution}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-forest-900 mb-1">BENEFIT</p>
-                    <p className="font-bold text-navy-900">{item.benefit}</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-600 mb-2">The result</p>
+                    <p className="font-bold text-navy-900 text-lg">{item.benefit}</p>
                   </div>
                 </div>
               </Card>
@@ -141,8 +143,9 @@ const RacingTrainers = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Key Features for <span className="text-gradient">Racing Trainers</span>
+          <span className="eyebrow justify-center mb-4">Built for the backstretch</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy-900">
+            Key features for <span className="text-gradient">racing trainers</span>
           </h2>
         </motion.div>
 
@@ -155,13 +158,13 @@ const RacingTrainers = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="flex items-start gap-4 h-full">
-                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0 text-teal-900">
+              <Card className="flex items-start gap-4 h-full border-l-2 border-l-transparent hover:border-l-gold-500">
+                <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center flex-shrink-0 text-brand-700 ring-1 ring-brand-100">
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-                  <p className="text-slate-600">{feature.description}</p>
+                  <h3 className="font-bold text-lg mb-2 text-navy-900">{feature.title}</h3>
+                  <p className="text-navy-600">{feature.description}</p>
                 </div>
               </Card>
             </motion.div>
@@ -177,11 +180,11 @@ const RacingTrainers = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Train Smarter?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-navy-900">
+            Ready to train smarter?
           </h2>
-          <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree helps racing trainers prevent injuries, win more races, and build stronger relationships with owners.
+          <p className="text-xl text-navy-600 mb-8">
+            See how TrainingTree<sup className="text-sm">™</sup> Pro helps racing trainers prevent injuries, win more races, and build stronger relationships with owners.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">

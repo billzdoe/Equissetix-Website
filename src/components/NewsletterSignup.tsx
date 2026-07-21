@@ -109,9 +109,9 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
 
   // Default variant
   return (
-    <div className={`bg-gradient-to-br from-brand-50 via-blue-50/30 to-purple-50/30 rounded-xl p-6 border-2 border-brand-200 ${className}`}>
+    <div className={`bg-brand-50 rounded-xl p-6 border border-brand-200 ${className}`}>
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 bg-gradient-to-br from-brand-500 to-blue-600 rounded-lg flex items-center justify-center text-white">
+        <div className="w-10 h-10 bg-gradient-to-br from-brand-600 to-brand-800 rounded-lg flex items-center justify-center text-gold-400">
           <Mail className="h-5 w-5" />
         </div>
         <div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 interface ButtonProps {
   children: ReactNode
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'accent'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   to?: string
@@ -24,12 +24,17 @@ const Button = ({
   type = 'button',
   disabled = false,
 }: ButtonProps) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-300 gap-2 hover:scale-105 active:scale-100 shadow-md hover:shadow-lg'
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 gap-2 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
 
   const variantStyles = {
-    primary: 'bg-gold-500 text-white hover:bg-gold-600 border-2 border-gold-500 hover:border-gold-600',
-    secondary: 'bg-charcoal-900 text-white hover:bg-charcoal-800 border-2 border-charcoal-900 hover:border-charcoal-800',
-    ghost: 'border-2 border-slate-300 text-slate-700 hover:border-gold-500 hover:text-gold-600 hover:bg-gold-50 bg-white',
+    // Primary = gold, the single loud CTA.
+    primary: 'bg-gold-500 text-navy-900 hover:bg-gold-400 shadow-gold-glow hover:-translate-y-0.5 focus-visible:ring-gold-500',
+    // Accent = brand green, the confident secondary action.
+    accent: 'bg-brand-600 text-white hover:bg-brand-500 shadow-green-glow hover:-translate-y-0.5 focus-visible:ring-brand-500',
+    // Secondary = solid ink.
+    secondary: 'bg-navy-900 text-white hover:bg-navy-800 hover:-translate-y-0.5 focus-visible:ring-navy-700',
+    // Ghost = quiet outline that warms to brand green.
+    ghost: 'border border-navy-200 text-navy-700 bg-white hover:border-brand-500 hover:text-brand-600 hover:bg-brand-50 focus-visible:ring-brand-500',
   }
 
   const sizeStyles = {

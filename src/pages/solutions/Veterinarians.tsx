@@ -182,11 +182,12 @@ const Veterinarians = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Better Horse Health Through <span className="text-gradient">Data-Driven Care</span>
+            <span className="eyebrow justify-center mb-4">For veterinarians</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
+              Better horse health through <span className="text-gradient">data-driven care</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              TrainingTree provides veterinarians with real-time health monitoring, automated notifications, and comprehensive medical records—helping you catch issues earlier and provide better care.
+            <p className="text-xl md:text-2xl text-navy-600 mb-8">
+              TrainingTree<sup className="text-sm">™</sup> Pro provides veterinarians with real-time health monitoring, automated notifications, and comprehensive medical records—helping you catch issues earlier and provide better care.
             </p>
             <Button to="/contact" variant="primary" size="lg">
               See How It Works for Vets
@@ -204,10 +205,11 @@ const Veterinarians = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            What This Means <span className="text-gradient">For Veterinarians</span>
+          <span className="eyebrow justify-center mb-4">Problem → Solution → Result</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy-900">
+            What this means <span className="text-gradient">for veterinarians</span>
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-xl text-navy-600">
             Real solutions to improve horse health outcomes and streamline your practice
           </p>
         </motion.div>
@@ -221,18 +223,18 @@ const Veterinarians = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="bg-gradient-to-br from-white via-success-50/40 to-blue-50/30 border-2 border-success-300 hover:border-success-400 transition-all hover:shadow-modern-lg">
-                <div className="grid md:grid-cols-3 gap-6 items-center">
-                  <div>
-                    <p className="text-sm font-semibold text-coral-600 mb-1">PROBLEM</p>
-                    <p className="text-slate-700">{item.problem}</p>
+              <Card hover={false} className="hover:shadow-modern-lg transition-all">
+                <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+                  <div className="md:pr-6 md:border-r md:border-navy-100">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy-600 mb-2">The problem</p>
+                    <p className="text-navy-700">{item.problem}</p>
+                  </div>
+                  <div className="md:pr-6 md:border-r md:border-navy-100">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-600 mb-2">TrainingTree<sup>™</sup> Pro solution</p>
+                    <p className="text-navy-700">{item.solution}</p>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-brand-600 mb-1">TRAININGTREE SOLUTION</p>
-                    <p className="text-slate-700">{item.solution}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-success-600 mb-1">BENEFIT</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-600 mb-2">The result</p>
                     <p className="font-bold text-navy-900">{item.benefit}</p>
                   </div>
                 </div>
@@ -374,10 +376,10 @@ const Veterinarians = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <Card className="bg-gradient-to-br from-brand-50 via-white to-blue-50/50 border-2 border-brand-400 shadow-modern-lg">
+          <Card hover={false} className="bg-brand-50/60 border border-brand-200 shadow-modern-lg">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4 text-navy-900">Real-World Example</h2>
-              <p className="text-lg text-slate-700">How TrainingTree helps vets catch issues early</p>
+              <h2 className="text-3xl font-bold mb-4 text-navy-900">Real-world example</h2>
+              <p className="text-lg text-navy-600">How TrainingTree<sup className="text-sm">™</sup> Pro helps vets catch issues early</p>
             </div>
             
             <div className="space-y-6">

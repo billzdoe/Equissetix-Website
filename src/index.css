@@ -7,7 +7,8 @@
 
 @layer base {
   body {
-    @apply bg-cream-50 text-charcoal-900 antialiased;
+    @apply text-navy-900 antialiased;
+    background-color: #FBFAF6; /* warm paper, not cold blue-white */
     font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
     letter-spacing: 0.01em;
     font-size: 16px;
@@ -29,9 +30,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-charcoal-900;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    @apply font-display font-bold text-navy-900;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
   }
 
   h1 {
@@ -78,51 +79,55 @@
 }
 
 @layer utilities {
-  /* Vibrant gradient text */
+  /* Disciplined gradient text — green into gold, the two brand colors only */
   .text-gradient {
-    background: linear-gradient(135deg, #0F5132 0%, #14B8A6 50%, #2563EB 100%);
+    background: linear-gradient(120deg, #0F5132 0%, #1f6e43 45%, #b45c09 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Vibrant hero gradients with movement */
+  /* Warm, quiet hero canvas — cream with a faint green wash */
   .bg-hero-gradient {
-    background: linear-gradient(135deg, #F8FAFC 0%, #14B8A6 0%, #14B8A6 1%, #F8FAFC 1%, #F8FAFC 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(15, 81, 50, 0.06), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(245, 158, 11, 0.05), transparent 55%),
+      linear-gradient(180deg, #FBFAF6 0%, #F4F2EC 100%);
   }
 
   .bg-hero-gradient-vibrant {
-    background: linear-gradient(135deg, #0F5132 0%, #14B8A6 50%, #F59E0B 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    background: linear-gradient(135deg, #0a3322 0%, #0F5132 55%, #1f6e43 100%);
   }
 
-  /* Colored section backgrounds - no white */
+  /* Neutral section backgrounds — warm paper tones, no rainbow */
   .bg-section-gradient {
-    background: linear-gradient(to bottom, #F8FAFC 0%, #e2e8f0 100%);
+    background: linear-gradient(180deg, #FBFAF6 0%, #F1EFE8 100%);
   }
 
   .bg-section-gradient-alt {
-    background: linear-gradient(to bottom, #e2e8f0 0%, #F8FAFC 100%);
+    background: linear-gradient(180deg, #F1EFE8 0%, #FBFAF6 100%);
   }
 
   .bg-section-teal {
-    background: linear-gradient(135deg, #14B8A6 0%, #0d9488 100%);
+    background: linear-gradient(135deg, #0F5132 0%, #1f6e43 100%);
   }
 
   .bg-section-green {
-    background: linear-gradient(135deg, #0F5132 0%, #16a34a 100%);
+    background: linear-gradient(135deg, #0a3322 0%, #0F5132 60%, #1f6e43 100%);
   }
 
   .bg-section-gold {
-    background: linear-gradient(135deg, #F59E0B 0%, #d97706 100%);
+    background: linear-gradient(135deg, #b45c09 0%, #F59E0B 100%);
   }
 
-  /* Vibrant accent gradients */
+  /* Gold accent gradient — for CTA surfaces */
   .bg-accent-gradient {
-    background: linear-gradient(135deg, #F59E0B 0%, #fbbf24 100%);
+    background: linear-gradient(135deg, #F59E0B 0%, #d97e06 100%);
+  }
+
+  /* Fine hairline used to separate sections elegantly */
+  .rule-gold {
+    background: linear-gradient(90deg, transparent, #F59E0B, transparent);
   }
 
   /* Dark enterprise backgrounds */
@@ -153,9 +158,14 @@
 }
 
 @layer components {
-  /* Card with sharp enterprise feel - mobile optimized */
+  /* Premium card — soft radius, hairline border, layered shadow */
   .card {
-    @apply bg-white shadow-sm border border-slate-200 p-4 sm:p-6 lg:p-8 hover:shadow-md transition-all duration-200;
+    @apply bg-white rounded-xl shadow-modern border border-navy-100 p-4 sm:p-6 lg:p-8 hover:shadow-modern-lg transition-all duration-300;
+  }
+
+  /* Eyebrow label above section headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-600;
   }
 
   /* Professional spacing - mobile optimized */
@@ -238,9 +248,9 @@ a:active, button:active, [role="button"]:active {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Sharp focus states */
+/* Focus states — brand green ring */
 :focus {
-  outline: 2px solid #00A0E4;
+  outline: 2px solid #1f6e43;
   outline-offset: 2px;
 }
 
@@ -289,7 +299,7 @@ a:active, button:active, [role="button"]:active {
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: #00A0E4;
+  background: #F59E0B;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -372,4 +382,13 @@ img[loading="lazy"] {
   pointer-events: none;
   transform: scale(0);
   animation: ripple 0.6s ease-out;
+}
+
+/* Hide scrollbar for horizontal jump-bar / tab rows (still scrollable) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

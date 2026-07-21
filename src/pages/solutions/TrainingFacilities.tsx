@@ -106,10 +106,11 @@ const TrainingFacilities = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Enterprise Management for <span className="text-gradient">Large Barn Operations</span>
+            <span className="eyebrow justify-center mb-4">For large operations</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
+              Enterprise management for <span className="text-gradient">large barn operations</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8">
+            <p className="text-xl md:text-2xl text-navy-600 mb-8">
               Scale your operation with unified management for multiple trainers, hundreds of horses, and dozens of owners—all in one platform.
             </p>
             <Button to="/contact" variant="primary" size="lg">
@@ -124,18 +125,18 @@ const TrainingFacilities = () => {
       <Section background="white">
         <div className="grid lg:grid-cols-3 gap-4">
           {/* Pain Points */}
-          <Card className="bg-gradient-to-br from-coral-50 to-coral-100/50 border-2 border-coral-200">
+          <Card hover={false} className="bg-burgundy-50 border border-burgundy-200">
             <div className="flex items-center gap-2 mb-3">
-              <AlertCircle className="h-5 w-5 text-coral-600" />
-              <h3 className="text-lg font-bold text-coral-900">Common Pains</h3>
+              <AlertCircle className="h-5 w-5 text-burgundy-600" />
+              <h3 className="text-lg font-bold text-burgundy-700">Common Pains</h3>
             </div>
             <ul className="space-y-2 text-sm">
               {painPoints.map((point, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-coral-600 rounded-full mt-1.5 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 bg-burgundy-500 rounded-full mt-1.5 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-coral-900 text-xs">{point.problem}</p>
-                    <p className="text-xs text-coral-700">{point.impact}</p>
+                    <p className="font-semibold text-burgundy-700 text-xs">{point.problem}</p>
+                    <p className="text-xs text-burgundy-600/80">{point.impact}</p>
                   </div>
                 </li>
               ))}
@@ -143,22 +144,22 @@ const TrainingFacilities = () => {
           </Card>
 
           {/* Solution */}
-          <Card className="bg-gradient-to-br from-success-50 to-success-100/50 border-2 border-success-200">
+          <Card hover={false} className="bg-brand-50 border border-brand-200">
             <div className="flex items-center gap-2 mb-3">
-              <CheckCircle className="h-5 w-5 text-success-600" />
-              <h3 className="text-lg font-bold text-success-900">Our Solution</h3>
+              <CheckCircle className="h-5 w-5 text-brand-600" />
+              <h3 className="text-lg font-bold text-brand-700">Our Solution</h3>
             </div>
-            <p className="text-sm text-slate-700 mb-3">
+            <p className="text-sm text-navy-700 mb-3">
               Enterprise platform designed for large operations. Unified management, multi-owner portals, barn-wide analytics, and enterprise security.
             </p>
-            <div className="bg-white/50 rounded-lg p-2">
-              <p className="text-xl font-bold text-success-900 mb-1">50+ horses</p>
-              <p className="text-xs text-slate-600">Unlimited users</p>
+            <div className="bg-white/60 rounded-lg p-2">
+              <p className="text-xl font-bold text-brand-700 mb-1">50+ horses</p>
+              <p className="text-xs text-navy-500">Unlimited users</p>
             </div>
           </Card>
 
           {/* Key Features */}
-          <Card className="bg-gradient-to-br from-brand-50 to-blue-50/30 border-2 border-brand-200">
+          <Card hover={false} className="bg-navy-50 border border-navy-200">
             <div className="flex items-center gap-2 mb-3">
               <Building2 className="h-5 w-5 text-brand-600" />
               <h3 className="text-lg font-bold text-navy-900">Key Features</h3>
@@ -197,9 +198,9 @@ const TrainingFacilities = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full bg-gradient-to-br from-white via-blue-50/20 to-purple-50/20 border-2 border-slate-200 hover:border-brand-300 transition-all">
+              <Card className="h-full hover:border-brand-300 transition-all">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-blue-600 rounded-lg flex items-center justify-center text-white shadow-modern flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-brand-600 to-brand-800 rounded-xl flex items-center justify-center text-gold-400 shadow-green-glow flex-shrink-0">
                     {solution.icon}
                   </div>
                   <div className="flex-1">
@@ -259,11 +260,11 @@ const TrainingFacilities = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl font-bold mb-6">
-            Scale Your Barn Operations
+          <h2 className="text-4xl font-bold mb-6 text-navy-900">
+            Scale your barn operations
           </h2>
-          <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree Enterprise helps large barn operations manage complexity, improve efficiency, and deliver better results.
+          <p className="text-xl text-navy-600 mb-8">
+            See how TrainingTree<sup className="text-sm">™</sup> Pro Enterprise helps large barn operations manage complexity, improve efficiency, and deliver better results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">

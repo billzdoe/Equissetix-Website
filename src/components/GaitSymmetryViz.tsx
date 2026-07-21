@@ -103,7 +103,7 @@ const GaitSymmetryViz = () => {
                       initial={{ width: 0 }}
                       animate={{ width: `${rightPercent}%` }}
                       transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                      className="bg-gradient-to-r from-purple-500 to-purple-600 h-full flex items-center justify-end pr-2"
+                      className="bg-gradient-to-r from-gold-500 to-gold-600 h-full flex items-center justify-end pr-2"
                     >
                       <span className="text-xs font-bold text-white">{limb.right}</span>
                     </motion.div>
@@ -127,7 +127,7 @@ const GaitSymmetryViz = () => {
           <span className="text-sm text-slate-600">Left Limb</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded" />
+          <div className="w-4 h-4 bg-gradient-to-br from-gold-500 to-gold-600 rounded" />
           <span className="text-sm text-slate-600">Right Limb</span>
         </div>
       </div>

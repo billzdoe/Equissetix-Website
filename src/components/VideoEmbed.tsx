@@ -41,10 +41,10 @@ const VideoEmbed = ({
   if (!videoId) {
     // Placeholder for when video is not yet available
     return (
-      <div className={`relative aspect-video bg-gradient-to-br from-brand-100 via-blue-100 to-purple-100 rounded-xl overflow-hidden border-2 border-brand-200 ${className}`}>
+      <div className={`relative aspect-video bg-gradient-to-br from-brand-100 via-brand-50 to-gold-100 rounded-xl overflow-hidden border-2 border-brand-200 ${className}`}>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-brand-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-modern-lg">
+            <div className="w-20 h-20 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-modern-lg">
               <Play className="h-10 w-10 text-white ml-1" />
             </div>
             <p className="text-lg font-semibold text-navy-900 mb-2">{title}</p>
@@ -72,10 +72,10 @@ const VideoEmbed = ({
                 className="w-full h-full object-cover"
               />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-brand-100 via-blue-100 to-purple-100" />
+              <div className="w-full h-full bg-gradient-to-br from-brand-100 via-brand-50 to-gold-100" />
             )}
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-brand-500 to-blue-600 rounded-full flex items-center justify-center shadow-modern-lg group-hover:scale-110 transition-transform">
+              <div className="w-20 h-20 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center shadow-modern-lg group-hover:scale-110 transition-transform">
                 <Play className="h-10 w-10 text-white ml-1" />
               </div>
             </div>

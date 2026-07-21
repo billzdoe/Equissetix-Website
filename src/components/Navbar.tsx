@@ -9,34 +9,39 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const location = useLocation()
 
+  // Products = the family picker. Each product is a distinct SKU, not a feature.
   const productLinks = [
     {
-      category: 'Core Platform',
+      category: 'Products',
       links: [
-        { path: '/trainingtree/training', label: 'Training & Workouts', desc: 'Track training load and get AI recommendations to prevent injuries' },
-        { path: '/trainingtree/health', label: 'Health & Wellness', desc: 'Maintain complete health records with automated vet and farrier reminders' },
-        { path: '/trainingtree/nutrition', label: 'Nutrition & Feed', desc: 'Monitor feeding programs and supplements with automated inventory alerts' },
-        { path: '/trainingtree/financial', label: 'Financial Management', desc: 'Automate owner billing and expense tracking with complete financial reporting' },
-        { path: '/trainingtree/racing', label: 'Racing & Competition', desc: 'Analyze race performance and track conditions to optimize entry decisions' },
+        { path: '/products/stabletree', label: 'StableTree', desc: 'Run the barn — stable management, compliance, records, staff & money. No sports-science.' },
+        { path: '/products/performance', label: 'TrainingTree Performance', desc: 'Condition the athlete — sports science, gait, readiness, wearables, racing.' },
+        { path: '/products/trainingtree-pro', label: 'TrainingTree Pro', desc: 'The complete tier — barn ops plus the full sports-science engine. Pro & Lite editions.' },
       ]
     },
     {
-      category: 'Features',
+      category: 'Not sure?',
       links: [
-        { path: '/trainingtree/mobile', label: 'Mobile App', desc: 'Log workouts and access horse data from your mobile device instantly' },
-        { path: '/trainingtree/integrations', label: 'Integrations', desc: 'Connect wearable sensors and tracking devices for real-time performance data' },
-        { path: '/trainingtree/analytics', label: 'Analytics & AI', desc: 'Get data-driven insights to optimize training and prevent overtraining' },
-        { path: '/trainingtree/collaboration', label: 'Team Collaboration', desc: 'Coordinate tasks across your team with role-based access and assignments' },
-        { path: '/trainingtree/owner-portal', label: 'Owner Portal', desc: 'Give owners 24/7 access to their horses with customizable privacy controls' },
+        { path: '/products', label: 'Compare all products', desc: 'See what’s in each product and edition, side by side.' },
+        { path: '/products#chooser', label: 'Which one is right for me?', desc: '“Start with StableTree, grow into Performance.”' },
       ]
     }
   ]
 
   const solutionsLinks = [
+    { path: '/solutions/boarding-barns', label: 'Boarding & Training Barns', desc: 'Run a tight operation — compliance, staff, and billing on time (StableTree)' },
+    { path: '/solutions/breeding-farms', label: 'Breeding & Sport-Horse Farms', desc: 'Records, health, and owner transparency for farms that don’t race' },
+    { path: '/solutions/large-operations', label: 'Large Barn Operations', desc: 'Manage multiple trainers and owners with unified enterprise-grade tools' },
     { path: '/solutions/racing-trainers', label: 'Racing Trainers', desc: 'Optimize performance and prevent injuries with data-driven training insights' },
     { path: '/solutions/horse-owners', label: 'Horse Owners', desc: 'Track your investment with complete transparency and real-time updates' },
-    { path: '/solutions/training-facilities', label: 'Large Barn Operations', desc: 'Manage multiple trainers and owners with unified enterprise-grade tools' },
     { path: '/solutions/veterinarians', label: 'Veterinarians', desc: 'Access complete health data and collaborate seamlessly with trainers' },
+  ]
+
+  const whyLinks = [
+    { path: '/why/compliance', label: 'Compliance & Records', desc: 'Nothing lapses — keep every horse eligible, insured, and inspection-ready' },
+    { path: '/why/owner-transparency', label: 'Owner Transparency', desc: 'Owners see the care behind every bill — trust that keeps them' },
+    { path: '/why/the-science', label: 'The Science', desc: 'Auditable, peer-reviewed sports science — and honest about where we use AI' },
+    { path: '/security', label: 'Security & Data', desc: 'Your data, your ownership — enterprise-grade security' },
   ]
 
   const resourcesLinks = [
@@ -64,8 +69,8 @@ const Navbar = () => {
           {/* Logo - Equissetix Company */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-brand-500 rounded flex items-center justify-center group-hover:bg-brand-600 transition-all">
-                <span className="text-white font-bold text-lg">E</span>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-brand-600 to-brand-800 ring-1 ring-brand-700/20 shadow-green-glow group-hover:from-brand-500 group-hover:to-brand-700 transition-all">
+                <span className="text-gold-400 font-bold text-lg">E</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-navy-900 tracking-tight">Equissetix<sup className="text-xs">™</sup></span>
@@ -87,7 +92,7 @@ const Navbar = () => {
                   activeDropdown === 'product' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
                 }`}
               >
-                TrainingTree<sup className="text-[9px] -ml-0.5">™</sup>
+                Products
                 <ChevronDown className="h-4 w-4" />
               </button>
 
@@ -167,6 +172,49 @@ const Navbar = () => {
                           <div className="text-xs text-slate-500 mt-0.5">
                             {link.desc}
                           </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Why Equissetix Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter('why')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  activeDropdown === 'why' ? 'text-brand-500 bg-slate-50' : 'text-slate-700 hover:text-brand-500 hover:bg-slate-50'
+                }`}
+              >
+                Why Equissetix
+                <ChevronDown className="h-4 w-4" />
+              </button>
+
+              <AnimatePresence>
+                {activeDropdown === 'why' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-[26rem] max-w-[calc(100vw-2rem)] bg-white rounded shadow-md border border-slate-200 p-4"
+                  >
+                    <div className="space-y-1">
+                      {whyLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="block px-3 py-2 rounded-md hover:bg-brand-50 transition-colors group"
+                        >
+                          <div className="font-semibold text-sm text-navy-900 group-hover:text-brand-600">
+                            {link.label}
+                          </div>
+                          <div className="text-xs text-slate-500 mt-0.5">{link.desc}</div>
                         </Link>
                       ))}
                     </div>
@@ -264,9 +312,9 @@ const Navbar = () => {
             className="lg:hidden bg-white border-t border-slate-200"
           >
             <div className="px-6 py-6 space-y-6 max-h-[80vh] overflow-y-auto">
-              {/* Mobile TrainingTree */}
+              {/* Mobile Products */}
               <div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">TrainingTree</p>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Products</p>
                 <div className="space-y-2">
                   {productLinks.flatMap(category => category.links).map((link) => (
                     <Link
@@ -286,6 +334,23 @@ const Navbar = () => {
                 <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Solutions</p>
                 <div className="space-y-2">
                   {solutionsLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-3 py-2 rounded-md text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Why Equissetix */}
+              <div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Why Equissetix</p>
+                <div className="space-y-2">
+                  {whyLinks.map((link) => (
                     <Link
                       key={link.path}
                       to={link.path}

@@ -135,13 +135,13 @@ const ROICalculator = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
-          className="bg-white rounded-xl p-4 border-2 border-purple-200"
+          className="bg-white rounded-xl p-4 border-2 border-gold-200"
         >
           <div className="flex items-center gap-2 mb-2">
-            <TrendingUp className="h-5 w-5 text-purple-600" />
+            <TrendingUp className="h-5 w-5 text-gold-600" />
             <p className="text-sm font-semibold text-slate-600">Monthly Savings</p>
           </div>
-          <p className="text-3xl font-bold text-purple-600">${monthlySavings.toLocaleString()}</p>
+          <p className="text-3xl font-bold text-gold-600">${monthlySavings.toLocaleString()}</p>
           <p className="text-xs text-slate-500 mt-1">
             ${weeklySavings.toFixed(0)}/week in labor costs
           </p>

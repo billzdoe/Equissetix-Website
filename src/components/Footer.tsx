@@ -12,15 +12,43 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1 space-y-4">
             <div>
-              <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-forest-500 rounded-lg flex items-center justify-center mb-3">
-                <span className="text-white font-bold text-xl">T</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-800 ring-1 ring-white/10 rounded-lg flex items-center justify-center mb-3">
+                <span className="text-gold-400 font-bold text-xl">E</span>
               </div>
-              <h3 className="text-xl font-bold text-gradient mb-2">TrainingTree<sup className="text-xs">™</sup></h3>
-              <p className="text-xs text-slate-400">by Equissetix<sup className="text-xs">™</sup></p>
+              <h3 className="text-xl font-bold text-gradient mb-2">Equissetix<sup className="text-xs">™</sup></h3>
+              <p className="text-xs text-slate-400">Equine operations software</p>
             </div>
             <p className="text-slate-400 text-sm">
-              The complete horse training management platform for professional trainers and horse owners.
+              Software that keeps every horse cared for, compliant, and on record—from the muck heap to the
+              winner’s circle.
             </p>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Products</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/products/stabletree" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  StableTree
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/performance" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  TrainingTree Performance
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/trainingtree-pro" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  TrainingTree Pro
+                </Link>
+              </li>
+              <li>
+                <Link to="/products" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  Compare products
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Solutions */}
@@ -28,39 +56,22 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/solutions/racing-trainers" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
-                  For Racing Trainers
+                <Link to="/solutions/boarding-barns" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  Boarding &amp; Training Barns
                 </Link>
               </li>
               <li>
-                <Link to="/solutions/horse-owners" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
-                  For Horse Owners
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Platform */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Platform</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/trainingtree/training" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
-                  Training & Workouts
+                <Link to="/solutions/racing-trainers" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  Racing Trainers
                 </Link>
               </li>
               <li>
-                <Link to="/trainingtree/health" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
-                  Health & Wellness
+                <Link to="/solutions/horse-owners" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  Horse Owners
                 </Link>
               </li>
               <li>
-                <Link to="/trainingtree/financial" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
-                  Financial Management
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/pricing" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Pricing
                 </Link>
               </li>
@@ -72,27 +83,27 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/breeds" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/breeds" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Breeds
                 </Link>
               </li>
               <li>
-                <Link to="/disciplines" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/disciplines" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Disciplines
                 </Link>
               </li>
               <li>
-                <Link to="/compare" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/compare" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Compare
                 </Link>
               </li>
               <li>
-                <Link to="/case-studies" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/case-studies" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/blog" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Blog
                 </Link>
               </li>
@@ -104,19 +115,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/about" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+                <Link to="/contact" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Contact
                 </Link>
               </li>
               <li>
                 <a
                   href="mailto:info@equissetix.com"
-                  className="flex items-center space-x-2 text-slate-400 hover:text-teal-400 transition-colors text-sm"
+                  className="flex items-center space-x-2 text-slate-400 hover:text-gold-400 transition-colors text-sm"
                 >
                   <Mail className="h-4 w-4" />
                   <span>Email Us</span>
@@ -128,7 +139,7 @@ const Footer = () => {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    className="text-slate-400 hover:text-gold-400 transition-colors"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="h-4 w-4" />
@@ -137,7 +148,7 @@ const Footer = () => {
                     href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    className="text-slate-400 hover:text-gold-400 transition-colors"
                     aria-label="Twitter"
                   >
                     <Twitter className="h-4 w-4" />
@@ -146,7 +157,7 @@ const Footer = () => {
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    className="text-slate-400 hover:text-gold-400 transition-colors"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-4 w-4" />
@@ -155,7 +166,7 @@ const Footer = () => {
                     href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                    className="text-slate-400 hover:text-gold-400 transition-colors"
                     aria-label="Facebook"
                   >
                     <Facebook className="h-4 w-4" />
@@ -179,13 +190,13 @@ const Footer = () => {
             © {currentYear} Equissetix<sup className="text-xs">™</sup>. All rights reserved. TrainingTree<sup className="text-xs">™</sup> and Equissetix<sup className="text-xs">™</sup> are trademarks of Equissetix.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/privacy" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+            <Link to="/privacy" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+            <Link to="/terms" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
               Terms of Service
             </Link>
-            <Link to="/security" className="text-slate-400 hover:text-teal-400 transition-colors text-sm">
+            <Link to="/security" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
               Security
             </Link>
           </div>

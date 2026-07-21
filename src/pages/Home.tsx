@@ -3,14 +3,11 @@ import {
   ArrowRight,
   AlertCircle,
   Activity,
-  Heart,
   DollarSign,
   TrendingUp,
   Brain,
-  Smartphone,
   Shield,
   Users,
-  BarChart3,
   Check,
   Zap,
   ClipboardList,
@@ -21,150 +18,56 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
 import TrustBadges from '../components/TrustBadges'
-import VideoEmbed from '../components/VideoEmbed'
 import TrackConditionFeature from '../components/TrackConditionFeature'
 import HowItWorksSteps from '../components/HowItWorksSteps'
-import GeometricPattern from '../components/GeometricPattern'
+import FarmPattern from '../components/FarmPattern'
 import GaitSymmetryShowcase from '../components/GaitSymmetryShowcase'
+import PlatformExplorer from '../components/PlatformExplorer'
+import SectionJumpBar from '../components/SectionJumpBar'
+import { products } from '../data/products'
 
 const Home = () => {
   const problems = [
     {
-      icon: <DollarSign className="h-8 w-8" />,
-      title: "Financial Blind Spots",
-      stat: "Lost revenue",
-      description: "from unbilled services, missing expenses, and poor profitability visibility",
-      detail: "You're training horses, but don't know which ones are actually profitable until tax season"
-    },
-    {
-      icon: <AlertCircle className="h-8 w-8" />,
-      title: "Owner Trust Issues",
-      stat: "Constant calls",
-      description: "from owners asking for updates on training, health, and billing",
-      detail: "Owners have zero visibility into how their horse is being trained or medically treated"
-    },
-    {
-      icon: <Activity className="h-8 w-8" />,
-      title: "Preventable Injuries",
-      stat: "30% of horses",
-      description: "sidelined annually due to overtraining without data-driven monitoring",
-      detail: "No scientific training load tracking means you're training blind and risking costly injuries"
+      icon: <ClipboardList className="h-8 w-8" />,
+      title: "The date you forgot",
+      stat: "A lapsed Coggins",
+      description: "an overdue vaccination, a blown medication withdrawal window",
+      detail: "You find out at the gate, the inspection, or the claim—when it's already too late. Paper calendars never warn you in time."
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Operations Chaos",
-      stat: "Daily confusion",
-      description: "over who feeds what, vet schedules, and staff assignments",
-      detail: "Hotwalkers don't know which horses walked, farriers are double-booked, supplements run out unexpectedly"
+      title: "The 5:30am scramble",
+      stat: "Who did what?",
+      description: "which horses walked, who got fed, whether the farrier's still coming",
+      detail: "It lives in three people's heads and a whiteboard. Someone gets missed, double-fed, or turned out with the wrong buddy."
     },
     {
-      icon: <Heart className="h-8 w-8" />,
-      title: "Health Data Gaps",
-      stat: "Scattered records",
-      description: "mean you can't spot patterns in lameness, nutrition, or recovery",
-      detail: "Vet records in one notebook, feed changes in another, workouts on your phone—impossible to connect the dots"
-    }
-  ]
-
-  const features = [
-    {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "30-Second Workout Logging",
-      description: "Scan a horse's QR code and tap the workout type to log training sessions in seconds. Faster than writing in a notebook, with automatic timestamps and location tracking. Access complete workout history instantly from any device."
+      icon: <AlertCircle className="h-8 w-8" />,
+      title: "The owner who keeps calling",
+      stat: "\"How's my horse?\"",
+      description: "texts about training, health, and last month's invoice",
+      detail: "You're the only source of answers, and every call pulls you off the barn floor. Owners see none of the care they're paying for."
     },
     {
-      icon: <Activity className="h-6 w-6" />,
-      title: "Automatic Barn Walk Insights",
-      description: "Log observations during morning and evening barn walks using voice notes or quick taps. The system analyzes patterns across all horses, flagging unusual behaviors or trends that might indicate health issues before they become serious problems."
-    },
-    {
-      icon: <TrendingUp className="h-6 w-6" />,
-      title: "Track Condition Recommendations",
-      description: "Analyze which track surfaces each horse performs best on based on historical race data and workout sessions. Receive automated alerts when upcoming races match your horse's preferred conditions, helping you make smarter entry decisions."
-    },
-    {
-      icon: <Brain className="h-6 w-6" />,
-      title: "AI Training Recommendations",
-      description: "Get intelligent suggestions for workouts, farrier scheduling, vet care, nutrition adjustments, hot walking schedules, massage therapy, and recovery protocols based on each horse's training patterns and performance data. Accept, modify, or dismiss any recommendation—your professional judgment always takes precedence."
-    },
-    {
-      icon: <ClipboardList className="h-6 w-6" />,
-      title: "Complete Staff Management",
-      description: "Assign daily tasks to team members, track completion status, and manage staff schedules with role-based permissions. Everyone sees their assignments clearly, reducing miscommunication and ensuring consistent care across all horses in your operation."
-    },
-    {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Comprehensive Health Records",
-      description: "Maintain complete veterinary records including exams, diagnoses, medications, vaccinations, and treatment plans for every horse. Attach documents, lab results, and radiographs for easy access. Generate health summaries for vets, owners, or insurance with one click."
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Feed & Supplement Tracking",
-      description: "Document feeding schedules, supplement regimens, and body weight changes for each horse. Track inventory levels for all feed and supplements, receiving automated alerts when supplies run low. Monitor nutrition costs per horse for accurate billing and budgeting."
-    },
-    {
-      icon: <DollarSign className="h-6 w-6" />,
-      title: "Owner Invoicing & Portals",
-      description: "Generate professional invoices automatically based on training days, services, and expenses. Owners access secure portals with customizable permissions to view their horse's data anytime. Create beautiful marketing profiles with QR codes for race submissions and partnerships. Reduce billing questions and improve owner satisfaction with complete transparency."
-    },
-    {
-      icon: <BarChart3 className="h-6 w-6" />,
-      title: "Performance Analytics & Reporting",
-      description: "Track gallop out times, race performance metrics, and workout progressions across your entire barn. Identify which training approaches produce the best results. Generate comprehensive performance reports for owners showing measurable progress toward racing goals."
+      icon: <DollarSign className="h-8 w-8" />,
+      title: "The money you can't see",
+      stat: "Which horse pays?",
+      description: "unbilled services, missing receipts, board that goes out late",
+      detail: "You don't know which horses actually turn a profit until tax season—and by then the leak's been running all year."
     }
   ]
 
   // Testimonials will be added once we have real customer feedback
 
-  const pricingTiers = [
-    {
-      name: "Starter",
-      subtitle: "For Small Operations",
-      description: "Perfect for trainers managing 1-10 horses",
-      features: [
-        "Training & workout tracking",
-        "Health monitoring & alerts",
-        "Mobile app access",
-        "Basic analytics",
-        "Email support"
-      ]
-    },
-    {
-      name: "Professional",
-      subtitle: "For Growing Barns",
-      description: "For trainers managing 10-50 horses",
-      features: [
-        "Everything in Starter",
-        "Financial Lite (invoicing & expenses)",
-        "Team collaboration tools",
-        "Advanced analytics",
-        "Priority support",
-        "Owner portals"
-      ],
-      highlighted: true
-    },
-    {
-      name: "Enterprise",
-      subtitle: "For Large Barn Operations",
-      description: "For operations managing 50+ horses",
-      features: [
-        "Everything in Professional",
-        "Full ERP & accounting",
-        "Custom integrations",
-        "Dedicated account manager",
-        "On-site training",
-        "API access"
-      ]
-    }
-  ]
-
   return (
     <div className="pt-20">
       <SEO title={pageSEO.home.title} description={pageSEO.home.description} path="/" />
+      <SectionJumpBar />
       {/* Hero Section - Vibrant & Energetic */}
       <Section background="gradient" className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
         {/* Geometric Pattern Background */}
-        <GeometricPattern variant="mixed" opacity={0.04} color="#0F5132" animated={true} />
+        <FarmPattern variant="mixed" opacity={0.05} color="#0F5132" animated={true} />
 
         {/* Geometric Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -198,28 +101,31 @@ const Home = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white border-2 border-gold-500 text-xs sm:text-sm font-bold text-charcoal-900 mb-4 shadow-md"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-brand-200 text-xs sm:text-sm font-bold text-brand-700 mb-2 shadow-soft"
             >
-              <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-gold-500 animate-pulse" />
-              <span className="whitespace-nowrap">AI-Powered Horse Training Platform</span>
+              <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold-500" />
+              <span className="whitespace-nowrap">From daily care to race-day performance</span>
             </motion.div>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:leading-[1.1] tracking-tight text-charcoal-900">
-              The Complete{' '}
-              <span className="text-gradient block mt-1 sm:mt-2">Horse Training Management Platform</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight text-navy-900">
+              Every horse, cared for{' '}
+              <span className="text-gradient">on time, on record.</span>
             </h1>
 
-            <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-charcoal-800 leading-relaxed max-w-2xl font-medium">
-              AI-Powered Insights. Real Science. Everything you need to optimize performance and manage operations in one powerful system.
+            <p className="text-base sm:text-lg md:text-xl text-navy-600 leading-relaxed max-w-2xl">
+              Equissetix<sup className="text-xs">™</sup> runs the whole barn—every vaccination, Coggins, feed, stall, and
+              invoice in one system so nothing lapses—and layers on the same peer-reviewed sports science that
+              conditions <span className="font-semibold text-navy-800">the fastest horses in the world.</span>{' '}
+              Care for the herd. Sharpen the racehorse. One platform, multiple tiers.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button to="/contact" variant="primary" size="lg" className="group">
-                Start Free Trial
+                Request a Demo
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button to="/trainingtree/training" variant="ghost" size="lg">
-                Watch Demo Video
+              <Button to="/products" variant="ghost" size="lg">
+                Which product is right for me?
               </Button>
             </div>
 
@@ -228,45 +134,26 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-6 bg-white border-2 border-brand-500 shadow-lg p-4 sm:p-6"
+              className="mt-2 bg-white/80 backdrop-blur-sm rounded-xl border border-navy-100 shadow-soft p-4 sm:p-5"
             >
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-teal-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Training & Fitness</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Financial Management</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-600 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Nutrition & Feed</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-red-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Vet Records & Health</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gold-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Operations Alerts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Detailed Scheduling</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-indigo-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Team Collaboration</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-pink-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">Owner Portals</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-cyan-500 flex-shrink-0"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-charcoal-900">AI-Powered Insights</span>
-                </div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-navy-400 mb-3">One platform, everything covered</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2.5">
+                {[
+                  'Compliance & Records',
+                  'Vet & Health',
+                  'Barn Map & Turnout',
+                  'Staff & Time-Clock',
+                  'Invoicing & ERP',
+                  'Owner Portals',
+                  'Inventory Alerts',
+                  'Nutrition & Feed',
+                  'Sports Science (opt.)',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-brand-600 flex-shrink-0" strokeWidth={3} />
+                    <span className="text-xs sm:text-sm font-medium text-navy-700">{item}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>
@@ -279,48 +166,61 @@ const Home = () => {
             className="relative hidden lg:block"
           >
             <div className="relative">
-              {/* Main card with sharp styling and vibrant accents */}
-              <div className="relative bg-white p-6 lg:p-8 shadow-elevation border-t-4 border-t-gold-500">
-                <div className="space-y-6">
+              {/* Dashboard mockup — clean, brand-coloured */}
+              <div className="absolute -inset-3 bg-gradient-to-br from-brand-600/10 to-gold-500/10 rounded-3xl blur-2xl" />
+              <div className="relative bg-white rounded-2xl p-6 lg:p-7 shadow-elevation border border-navy-100">
+                <div className="space-y-5">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-lg text-charcoal-900">Training Load Dashboard</h3>
-                    <span className="text-xs bg-green-600 text-white px-3 py-1.5 font-bold border-2 border-green-700">Optimal Zone</span>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400">This morning</p>
+                      <h3 className="font-bold text-lg text-navy-900">Barn Status</h3>
+                    </div>
+                    <span className="text-xs inline-flex items-center gap-1.5 bg-brand-50 text-brand-700 px-3 py-1.5 rounded-full font-bold border border-brand-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+                      All clear
+                    </span>
                   </div>
 
-                  {/* Vibrant chart visualization */}
-                  <div className="h-40 bg-slate-100 p-4 flex items-end justify-around gap-2 border-2 border-slate-200">
+                  {/* Compliance / status rows — traffic-light */}
+                  <div className="space-y-2">
                     {[
-                      { height: 65, color: 'teal' },
-                      { height: 75, color: 'blue' },
-                      { height: 85, color: 'gold' },
-                      { height: 78, color: 'green' },
-                      { height: 70, color: 'teal' },
-                      { height: 82, color: 'blue' },
-                      { height: 88, color: 'gold' },
-                    ].map((bar, i) => (
+                      { label: 'Coggins & health certs', value: 'Current', tone: 'ok' },
+                      { label: 'Vaccinations due (14 days)', value: '3 horses', tone: 'warn' },
+                      { label: 'Med. withdrawal vs. entries', value: 'Clear', tone: 'ok' },
+                      { label: 'Farrier / dentist overdue', value: 'None', tone: 'ok' },
+                      { label: 'Low inventory (shavings)', value: 'Reorder', tone: 'warn' },
+                    ].map((row, i) => (
                       <motion.div
-                        key={i}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${bar.height}%` }}
-                        transition={{ duration: 0.8, delay: 0.3 + i * 0.1, ease: "easeOut" }}
-                        className={`w-10 bg-${bar.color}-500 shadow-sm`}
-                      />
+                        key={row.label}
+                        initial={{ opacity: 0, x: 12 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
+                        className="flex items-center justify-between bg-navy-50/60 border border-navy-100 rounded-lg px-3 py-2"
+                      >
+                        <span className="flex items-center gap-2 text-sm text-navy-700">
+                          <span className={`w-2 h-2 rounded-full ${row.tone === 'ok' ? 'bg-brand-500' : 'bg-gold-500'}`} />
+                          {row.label}
+                        </span>
+                        <span className={`text-xs font-bold ${row.tone === 'ok' ? 'text-brand-700' : 'text-gold-700'}`}>
+                          {row.value}
+                        </span>
+                      </motion.div>
                     ))}
                   </div>
 
-                  {/* Colorful stats grid */}
-                  <div className="grid grid-cols-3 gap-4 pt-2">
-                    <div className="text-center p-3 bg-teal-50 border-2 border-teal-200">
-                      <p className="text-xs text-teal-800 font-bold mb-1">Health Score</p>
-                      <p className="text-2xl font-bold text-teal-600 font-mono">94%</p>
+                  {/* Occupancy / roster tiles */}
+                  <div className="grid grid-cols-3 gap-3 pt-1">
+                    <div className="text-center p-3 rounded-xl bg-brand-50 border border-brand-100">
+                      <p className="text-[11px] text-brand-700 font-bold mb-1">Stalls</p>
+                      <p className="text-2xl font-bold text-brand-700 font-mono">22/24</p>
                     </div>
-                    <div className="text-center p-3 bg-blue-50 border-2 border-blue-200">
-                      <p className="text-xs text-blue-800 font-bold mb-1">Training Load</p>
-                      <p className="text-2xl font-bold text-blue-600 font-mono">1.2</p>
+                    <div className="text-center p-3 rounded-xl bg-navy-50 border border-navy-100">
+                      <p className="text-[11px] text-navy-500 font-bold mb-1">Shifts today</p>
+                      <p className="text-2xl font-bold text-navy-800 font-mono">6</p>
                     </div>
-                    <div className="text-center p-3 bg-gold-50 border-2 border-gold-200">
-                      <p className="text-xs text-gold-800 font-bold mb-1">Readiness</p>
-                      <p className="text-2xl font-bold text-gold-600 font-mono">High</p>
+                    <div className="text-center p-3 rounded-xl bg-gold-50 border border-gold-200">
+                      <p className="text-[11px] text-gold-700 font-bold mb-1">Invoices out</p>
+                      <p className="text-2xl font-bold text-gold-600 font-mono">$14k</p>
                     </div>
                   </div>
                 </div>
@@ -330,9 +230,90 @@ const Home = () => {
         </div>
       </Section>
 
+      {/* Founding Barns strip — honest pre-launch trust/scarcity band */}
+      <section className="bg-navy-900 border-y border-white/10">
+        <div className="container-custom py-5">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center md:text-left">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-gold-400 flex-shrink-0">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-400" />
+              </span>
+              Now onboarding founding barns
+            </span>
+            <p className="text-sm sm:text-base text-white/80">
+              Built by horsemen, on <span className="text-white font-semibold">peer-reviewed equine sports science</span>.
+              Founding barns get white-glove onboarding and a hand in the roadmap.
+            </p>
+            <Button to="/contact" variant="primary" size="sm" className="flex-shrink-0">
+              Claim your spot
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Family Section */}
+      <Section id="products" background="white" className="relative">
+        <FarmPattern variant="horseshoes" opacity={0.035} color="#0F5132" animated={false} />
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+          transition={{ duration: 0.4 }}
+          className="text-center mb-12 relative z-10"
+        >
+          <span className="eyebrow justify-center mb-4">One family, not one tool</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
+            Three products. <span className="text-gradient">Start where you are.</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
+            <strong>StableTree</strong> keeps every horse cared for and every record straight.
+            <strong> Performance</strong> conditions your runners. <strong>TrainingTree Pro</strong> does
+            both—grow into the rest without re-entering a thing.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6 relative z-10">
+          {products.map((p, index) => (
+            <motion.div
+              key={p.slug}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+            >
+              <Card className="h-full flex flex-col">
+                <div className="flex items-center gap-2 mb-3">
+                  <span
+                    className={`w-2.5 h-2.5 rounded-full ${
+                      p.accent === 'green' ? 'bg-brand-600' : p.accent === 'gold' ? 'bg-gold-500' : 'bg-teal-600'
+                    }`}
+                  />
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-navy-400">{p.tagline}</span>
+                </div>
+                <h3 className="text-xl font-bold text-navy-900 mb-2">{p.name}</h3>
+                <p className="text-sm text-navy-600 leading-relaxed mb-5 flex-grow">{p.oneLiner}</p>
+                <Button to={p.route} variant="ghost" className="w-full mt-auto group">
+                  Learn more
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10 relative z-10">
+          <Button to="/products" variant="accent" size="lg">
+            Compare all products
+            <ArrowRight className="h-5 w-5" />
+          </Button>
+        </div>
+      </Section>
+
       {/* Problem-Agitation Section - Professional */}
       <Section background="gray" className="relative">
-        <GeometricPattern variant="triangles" opacity={0.025} color="#991B1B" animated={false} />
+        <FarmPattern variant="horses" opacity={0.04} color="#963a2f" animated={false} />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -341,204 +322,199 @@ const Home = () => {
           transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Paper Logs Are <span className="text-burgundy-700">Costing You Money</span>
+          <span className="eyebrow text-burgundy-600 justify-center mb-4">If your barn runs on paper</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
+            You already know <span className="text-burgundy-700">these mornings</span>
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            Illegible notes, lost records, and no injury warnings. There's a better way.
+          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
+            The whiteboard, the shoebox of receipts, the note you meant to write down. There's a better way to
+            run the barn.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
             >
               <Card className="text-center h-full border border-slate-200 hover:border-slate-300 transition-all hover:shadow-md">
-                <div className="text-slate-700 mb-4 flex justify-center">
-                  <div className="w-16 h-16 rounded bg-slate-100 flex items-center justify-center border border-slate-200">
+                <div className="text-burgundy-700 mb-4 flex justify-center">
+                  <div className="w-14 h-14 rounded-xl bg-burgundy-50 flex items-center justify-center border border-burgundy-100">
                     {problem.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-navy-900">{problem.title}</h3>
-                <p className="text-3xl font-bold text-navy-900 mb-2">{problem.stat}</p>
-                <p className="text-slate-600 mb-4">{problem.description}</p>
-                <p className="text-sm text-slate-500 italic">{problem.detail}</p>
+                <p className="text-2xl font-bold text-navy-900 mb-1">{problem.stat}</p>
+                <h3 className="text-sm font-bold uppercase tracking-wide text-burgundy-700 mb-3">{problem.title}</h3>
+                <p className="text-slate-600 text-sm mb-3">{problem.description}</p>
+                <p className="text-xs text-slate-500 italic">{problem.detail}</p>
               </Card>
             </motion.div>
           ))}
         </div>
       </Section>
 
-      {/* Solution Section - Professional */}
-      <Section background="white" className="relative">
-        <GeometricPattern variant="diamonds" opacity={0.03} color="#14B8A6" animated={true} />
+      {/* Interactive Platform Explorer — replaces the old Solution pillars + toolkit grid */}
+      <Section id="explore" background="white" className="relative">
+        <FarmPattern variant="horseshoes" opacity={0.04} color="#1f6e43" animated={false} />
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           transition={{ duration: 0.4 }}
-          className="text-center mb-12 sm:mb-16 relative z-10"
+          className="text-center mb-10 relative z-10"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-gradient">One Platform.</span> Complete Control.
+          <span className="eyebrow justify-center mb-4">Explore the platform</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
+            <span className="text-gradient">Every horse.</span> Every detail. One record.
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            Everything you need to train smarter, prevent injuries, and maximize performance—all in one place.
+          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
+            Pick what matters most in your barn—see exactly how it works.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
-            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
-              <Activity className="h-7 w-7 text-white" />
-            </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Fitness & Training Management</h3>
-            <p className="text-sm text-slate-600 mb-4">
-              Monitor training load using ACWR (Acute Chronic Workload Ratio) science to identify injury risk before it becomes a problem. Track every workout with detailed exercise logs, durations, and intensity levels. Receive AI-powered recommendations for rest days and tapering schedules optimized for race preparation.
-            </p>
-            <p className="text-xs font-semibold text-slate-700">
-              Know exactly when your horse is ready to perform at peak level
-            </p>
-          </Card>
-
-          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
-            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
-              <Heart className="h-7 w-7 text-white" />
-            </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Veterinary & Health Records</h3>
-            <p className="text-sm text-slate-600 mb-4">
-              Maintain comprehensive medical records including vet visits, diagnoses, treatment plans, medications, and vaccination schedules for every horse. Store lab results, radiographs, and medical documents securely. Set automated reminders for upcoming vaccinations, dental work, and preventive care appointments.
-            </p>
-            <p className="text-xs font-semibold text-slate-700">
-              Complete health history accessible instantly for vets, owners, and insurance
-            </p>
-          </Card>
-
-          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
-            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
-              <DollarSign className="h-7 w-7 text-white" />
-            </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">Financial Management & ERP</h3>
-            <p className="text-sm text-slate-600 mb-4">
-              Generate professional invoices automatically based on training days, board fees, and services rendered. Track all expenses by horse for accurate cost analysis and profitability reporting. Manage payroll, vendor payments, and accounts receivable with complete financial transparency. Identify which horses are profitable and which require cost optimization.
-            </p>
-            <p className="text-xs font-semibold text-slate-700">
-              Run your operation with enterprise-grade financial management and reporting
-            </p>
-          </Card>
-
-          <Card className="text-center hover:border-brand-500 transition-all hover:shadow-md border border-slate-200">
-            <div className="w-14 h-14 bg-brand-500 rounded flex items-center justify-center mx-auto mb-4">
-              <Brain className="h-7 w-7 text-white" />
-            </div>
-            <h3 className="font-bold text-lg mb-2 text-navy-900">AI-Powered Training Assistance</h3>
-            <p className="text-sm text-slate-600 mb-4">
-              Receive intelligent recommendations for workout scheduling, farrier appointments, veterinary check-ups, nutrition adjustments, hot walking protocols, massage therapy, and recovery periods based on each horse's training patterns, performance data, and historical outcomes. Accept recommendations as-is, modify them to fit your approach, or dismiss them entirely—your professional expertise always takes precedence over algorithmic suggestions.
-            </p>
-            <p className="text-xs font-semibold text-slate-700">
-              AI provides insights and recommendations. You maintain complete control over all training decisions.
-            </p>
-          </Card>
-        </div>
+        <PlatformExplorer />
       </Section>
 
-      {/* Key Features Grid - Vibrant */}
-      <Section background="white" className="bg-section-gradient relative">
-        <GeometricPattern variant="lines" opacity={0.02} color="#2563EB" animated={true} />
-
+      {/* Peace-of-mind / identity section */}
+      <Section background="white" className="relative overflow-hidden">
+        <FarmPattern variant="mixed" opacity={0.04} color="#0F5132" animated={false} />
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12 sm:mb-16 relative z-10"
+          transition={{ duration: 0.5 }}
+          className="relative z-10 max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Everything You Need to <span className="text-gradient">Manage Your Barn</span>
+          <span className="eyebrow justify-center mb-4">Why it matters</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-navy-900 leading-tight">
+            Run a barn where <span className="text-gradient">nothing slips through the cracks.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600">
-            From daily workouts to owner billing—all in one powerful system
+          <p className="text-lg sm:text-xl text-navy-600 leading-relaxed mb-8">
+            The best barns aren't the ones that never have a problem—they're the ones where the problem gets
+            caught early. When every shot, shoeing, and shipment is on the record and on time, you stop
+            reacting and start running the operation the way you always meant to. From the muck heap to the
+            winner's circle, one system has your back.
           </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => {
-            const colors = ['teal', 'blue', 'gold', 'green', 'burgundy', 'teal', 'blue', 'gold', 'green'];
-            const color = colors[index % colors.length];
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card className={`flex items-start gap-4 hover:border-${color}-500 transition-all border-2 border-slate-200 hover:border-l-4`}>
-                  <div className={`w-12 h-12 bg-${color}-500 flex items-center justify-center flex-shrink-0 text-white shadow-md`}>
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2 text-charcoal-900">{feature.title}</h3>
-                    <p className="text-sm text-slate-600">{feature.description}</p>
-                  </div>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
-      </Section>
-
-      {/* Trainer Control Section */}
-      <Section background="white" className="relative">
-        <GeometricPattern variant="diamonds" opacity={0.03} color="#0F5132" animated={true} />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="max-w-4xl mx-auto text-center relative z-10"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border-2 border-green-600 text-sm font-bold text-green-800 mb-6">
-            <Shield className="h-4 w-4" />
-            You're Always in Control
+          <div className="inline-flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-navy-700">
+            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Nothing overdue</span>
+            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Nobody guessing</span>
+            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Every horse accounted for</span>
           </div>
+        </motion.div>
+      </Section>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Your Expertise. <span className="text-gradient">AI-Powered Assistance.</span>
+      {/* Performance Edge Section — the cutting-edge, multi-tier story */}
+      <Section id="performance" background="dark" className="relative overflow-hidden">
+        <FarmPattern variant="horseshoes" opacity={0.06} color="#ffffff" animated={true} />
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+          transition={{ duration: 0.4 }}
+          className="text-center mb-12 relative z-10 max-w-3xl mx-auto"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-xs sm:text-sm font-bold text-gold-300 mb-5">
+            <Zap className="h-4 w-4" />
+            The performance edge
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
+            The science that builds <span className="text-gold-400">the fastest horses in the world.</span>
           </h2>
-
-          <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed">
-            Professional trainers possess deep expertise developed through years of hands-on experience. TrainingTree<sup className="text-sm">™</sup> is designed to augment that expertise, not replace it. Implement your own training methodologies, feeding protocols, and care schedules exactly as you've developed them. The platform provides data-driven recommendations for farrier scheduling, veterinary appointments, nutrition adjustments, hot walking protocols, massage therapy, and recovery periods based on performance analytics—but every decision remains firmly in your control. Use the insights that align with your professional assessment and disregard those that do not.
+          <p className="text-lg sm:text-xl text-white/85">
+            Once the barn runs itself, the same platform sharpens the racehorse—peer-reviewed training load,
+            readiness scoring, and gait analysis trusted by trainers chasing the winner’s circle.
           </p>
+        </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <Card className="border-2 border-slate-200">
-              <h3 className="font-bold text-lg mb-2 text-navy-900">Custom Training Methodologies</h3>
-              <p className="text-sm text-slate-600">
-                Build and implement your own training protocols, exercise progressions, feeding schedules, and care routines. The platform adapts to your established methodologies rather than imposing a predefined system. Maintain full control over your proven approaches while leveraging digital efficiency.
-              </p>
-            </Card>
+        <div className="grid md:grid-cols-3 gap-6 relative z-10 mb-12">
+          {[
+            {
+              icon: <TrendingUp className="h-6 w-6" />,
+              title: 'Peak on race day',
+              body: 'ACWR and training-load science tell you exactly when a horse is fittest—so it peaks the day it matters, not two weeks early.',
+            },
+            {
+              icon: <Activity className="h-6 w-6" />,
+              title: 'Catch trouble early',
+              body: 'Video gait analysis and readiness scoring flag asymmetry and fatigue before they cost you a horse—or a race.',
+            },
+            {
+              icon: <Brain className="h-6 w-6" />,
+              title: 'Auditable, not a black box',
+              body: 'Every recommendation comes from published equine physiology you can trace to the decimal. The horseman still makes the call.',
+            },
+          ].map((card, i) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+            >
+              <div className="h-full bg-white/[0.06] backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                <div className="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-300 flex items-center justify-center mb-4">
+                  {card.icon}
+                </div>
+                <h3 className="font-bold text-lg text-white mb-2">{card.title}</h3>
+                <p className="text-sm text-white/75 leading-relaxed">{card.body}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            <Card className="border-2 border-slate-200">
-              <h3 className="font-bold text-lg mb-2 text-navy-900">Intelligent Recommendations</h3>
-              <p className="text-sm text-slate-600">
-                Receive data-driven suggestions for farrier scheduling, veterinary check-ups, nutrition modifications, and recovery protocols based on training load analytics and performance patterns. Review each recommendation and accept, modify, or dismiss based on your professional assessment of individual horse needs and circumstances.
-              </p>
-            </Card>
+        {/* Control reassurance — the horseman decides */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+          transition={{ duration: 0.4 }}
+          className="relative z-10 max-w-2xl mx-auto text-center mb-12"
+        >
+          <p className="inline-flex items-center gap-2 text-sm sm:text-base text-white/85">
+            <Shield className="h-4 w-4 text-gold-300 flex-shrink-0" />
+            Every recommendation is advisory. You accept it, change it, or ignore it—your judgment always
+            has the final say.
+          </p>
+        </motion.div>
 
-            <Card className="border-2 border-slate-200">
-              <h3 className="font-bold text-lg mb-2 text-navy-900">Professional Autonomy</h3>
-              <p className="text-sm text-slate-600">
-                Maintain complete authority over all training and care decisions. Every AI-generated suggestion functions as an advisory input that requires your explicit approval before implementation. Your professional judgment, informed by direct observation and hands-on experience, always takes precedence over algorithmic recommendations.
-              </p>
-            </Card>
+        {/* Multi-tier ladder */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+          transition={{ duration: 0.4 }}
+          className="relative z-10 max-w-4xl mx-auto"
+        >
+          <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-white/50 mb-5">
+            Proven at every tier — grow into the science when you’re ready
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4 mb-8">
+            {[
+              { name: 'StableTree', note: 'Run the barn' },
+              { name: 'TrainingTree Pro', note: 'Barn + full sports science (Lite → Pro)' },
+              { name: 'Performance', note: 'Condition the elite racehorse' },
+            ].map((t, i) => (
+              <div key={t.name} className="relative">
+                <div className="bg-white/[0.06] border border-white/15 rounded-xl px-4 py-4 text-center h-full">
+                  <p className="font-bold text-white text-sm mb-1">{t.name}</p>
+                  <p className="text-xs text-white/60">{t.note}</p>
+                </div>
+                {i < 2 && (
+                  <ArrowRight className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 h-5 w-5 text-gold-400/70" />
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button to="/products/performance" variant="primary" size="lg">
+              Explore the performance platform
+              <ArrowRight className="h-5 w-5" />
+            </Button>
           </div>
         </motion.div>
       </Section>
@@ -554,7 +530,7 @@ const Home = () => {
 
       {/* Social Proof Section */}
       <Section background="gray" className="relative">
-        <GeometricPattern variant="mixed" opacity={0.025} color="#F59E0B" animated={true} />
+        <FarmPattern variant="mixed" opacity={0.04} color="#F59E0B" animated={true} />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -564,10 +540,10 @@ const Home = () => {
           className="text-center mb-12 sm:mb-16 relative z-10"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Built for <span className="text-gradient">Professional Trainers</span>
+            Built by horsemen. <span className="text-gradient">Backed by science.</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600">
-            Industry-leading features designed to optimize horse performance and streamline operations
+            Serious infrastructure and peer-reviewed sports science—so the barn that trusts it can trust it with everything.
           </p>
         </motion.div>
 
@@ -577,106 +553,67 @@ const Home = () => {
         </div>
       </Section>
 
-      {/* Pricing Teaser */}
-      <Section background="white">
+      {/* Pricing Teaser — product-first */}
+      <Section id="pricing" background="white" className="relative">
+        <FarmPattern variant="horseshoes" opacity={0.035} color="#0F5132" animated={false} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           transition={{ duration: 0.4 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-12 sm:mb-16 relative z-10"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Plans Built for <span className="text-gradient">Every Operation Size</span>
+          <span className="eyebrow justify-center mb-4">Pricing</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
+            Start with the <span className="text-gradient">right product</span>, then pick your size
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600">
-            From single trainers to large barn operations—we've got you covered
+          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
+            Three products, sized to your operation—from a single barn to a full racing stable. Every one
+            upgrades in place, so you never re-enter a thing.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {pricingTiers.map((tier, index) => (
+        <div className="grid md:grid-cols-3 gap-8 mb-8 relative z-10">
+          {products.map((p, index) => (
             <motion.div
-              key={index}
+              key={p.slug}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, delay: index * 0.08 }}
             >
-              <Card className={`h-full ${tier.highlighted ? 'border-2 border-brand-500 shadow-md' : 'hover:border-brand-500 border border-slate-200'} transition-all`}>
-                {tier.highlighted && (
-                  <div className="bg-brand-500 text-white text-xs font-bold px-4 py-1.5 rounded inline-block mb-4">
-                    Most Popular
-                  </div>
-                )}
-                <h3 className="text-2xl font-bold mb-1 text-navy-900">{tier.name}</h3>
-                <p className="text-sm text-brand-500 font-semibold mb-2">{tier.subtitle}</p>
-                <p className="text-slate-600 mb-6">{tier.description}</p>
-                <ul className="space-y-3 mb-6">
-                  {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <div className="w-5 h-5 rounded-full bg-success-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="h-3 w-3 text-white" />
-                      </div>
-                      <span className="text-slate-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  to="/pricing"
-                  variant={tier.highlighted ? 'primary' : 'ghost'}
-                  className="w-full mt-auto"
-                >
-                  Learn More
+              <Card className="h-full flex flex-col hover:border-brand-500 border border-slate-200 transition-all">
+                <div className="flex items-center gap-2 mb-3">
+                  <span
+                    className={`w-2.5 h-2.5 rounded-full ${
+                      p.accent === 'green' ? 'bg-brand-600' : p.accent === 'gold' ? 'bg-gold-500' : 'bg-teal-600'
+                    }`}
+                  />
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-navy-400">{p.tagline}</span>
+                </div>
+                <h3 className="text-2xl font-bold mb-2 text-navy-900">{p.name}</h3>
+                <p className="text-sm text-slate-600 mb-6 flex-grow">{p.oneLiner}</p>
+                <Button to="/pricing" variant="ghost" className="w-full mt-auto group">
+                  See pricing
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Card>
             </motion.div>
           ))}
         </div>
 
-        <div className="text-center">
-          <Button to="/pricing" variant="ghost" size="lg">
+        <div className="text-center relative z-10">
+          <Button to="/pricing" variant="accent" size="lg">
             View Full Pricing Details
             <ArrowRight className="h-5 w-5" />
           </Button>
         </div>
       </Section>
 
-      {/* Video Section */}
-      <Section background="white">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-8 sm:mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            See TrainingTree<sup className="text-sm">™</sup> <span className="text-gradient">In Action</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
-            Watch how TrainingTree<sup className="text-sm">™</sup> helps trainers optimize performance, prevent injuries, and save time
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="max-w-4xl mx-auto"
-        >
-          <VideoEmbed
-            title="TrainingTree™ Platform Demo"
-            className="shadow-modern-lg"
-          />
-        </motion.div>
-      </Section>
-
       {/* Final CTA - Vibrant & Compelling */}
       <section className="relative overflow-hidden bg-section-green py-24">
         {/* Geometric Pattern Background */}
-        <GeometricPattern variant="mixed" opacity={0.08} color="#ffffff" animated={true} />
+        <FarmPattern variant="mixed" opacity={0.09} color="#ffffff" animated={true} />
 
         {/* Geometric Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -700,22 +637,23 @@ const Home = () => {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border-2 border-white/30 text-sm font-bold text-white mb-6"
             >
               <Zap className="h-4 w-4 animate-pulse" />
-              The Complete Training Management Platform
+              Now onboarding founding barns
             </motion.div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Ready to Transform Your Training Operation?
+              Be one of the first barns to run on Equissetix.
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-8 sm:mb-10 leading-relaxed font-medium">
-              Get AI-powered insights, prevent injuries, and optimize performance. Start your free trial today—no credit card required.
+              We're onboarding a small group of founding barns with white-glove setup and a direct line to the
+              team building it. Bring your barn's real workflow—we'll show you exactly how it fits.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button to="/contact" variant="primary" size="lg" className="group bg-gold-500 hover:bg-gold-600 text-white text-xl px-10 py-5">
-                Start Free Trial Now
+                Request Your Demo
                 <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button to="/pricing" variant="secondary" size="lg" className="bg-white text-green-700 hover:bg-white/90 text-xl px-10 py-5 border-2 border-white">
-                View Pricing Plans
+              <Button to="/products" variant="ghost" size="lg" className="!bg-white !text-brand-700 hover:!bg-white/90 !border-2 !border-white text-xl px-10 py-5">
+                Find Your Product
               </Button>
             </div>
 
@@ -725,19 +663,19 @@ const Home = () => {
                 <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
                   <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
                 </div>
-                <span>No credit card required</span>
+                <span>Built by horsemen</span>
               </div>
               <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
                 <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
                   <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
                 </div>
-                <span>Full access for 14 days</span>
+                <span>Peer-reviewed science</span>
               </div>
               <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
                 <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
                   <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
                 </div>
-                <span>Cancel anytime</span>
+                <span>White-glove onboarding</span>
               </div>
             </div>
           </motion.div>

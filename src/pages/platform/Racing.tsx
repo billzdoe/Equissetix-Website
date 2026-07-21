@@ -235,20 +235,20 @@ const Racing = () => {
                 <span className="font-bold text-navy-900">"Horse A"</span> has raced 12 times across 3 track conditions:
               </p>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-success-50 rounded border border-success-200">
-                  <span className="font-semibold text-slate-700">Fast Track (Dry):</span>
-                  <span className="text-success-700 font-bold">Avg finish: 2.1 position</span>
+                <div className="flex items-center justify-between p-3 bg-brand-50 rounded-lg border border-brand-200">
+                  <span className="font-semibold text-navy-700">Fast Track (Dry):</span>
+                  <span className="text-brand-700 font-bold">Avg finish: 2.1 position</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-orange-50 rounded border border-orange-200">
-                  <span className="font-semibold text-slate-700">Good Track (Damp):</span>
-                  <span className="text-orange-700 font-bold">Avg finish: 4.3 position</span>
+                <div className="flex items-center justify-between p-3 bg-gold-50 rounded-lg border border-gold-200">
+                  <span className="font-semibold text-navy-700">Good Track (Damp):</span>
+                  <span className="text-gold-700 font-bold">Avg finish: 4.3 position</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded border border-red-200">
-                  <span className="font-semibold text-slate-700">Muddy Track (Wet):</span>
-                  <span className="text-red-700 font-bold">Avg finish: 6.2 position</span>
+                <div className="flex items-center justify-between p-3 bg-burgundy-50 rounded-lg border border-burgundy-200">
+                  <span className="font-semibold text-navy-700">Muddy Track (Wet):</span>
+                  <span className="text-burgundy-700 font-bold">Avg finish: 6.2 position</span>
                 </div>
               </div>
-              <p className="text-slate-600 mt-4 text-sm">
+              <p className="text-navy-600 mt-4 text-sm">
                 <span className="font-semibold">System Recommendation:</span> Enter Horse A in races with fast track conditions. Scratch if heavy rain expected. Consider different horse for muddy conditions.
               </p>
             </div>
@@ -294,8 +294,8 @@ const Racing = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-br from-brand-50 via-purple-50/30 to-blue-50/30 border-2 border-brand-300 shadow-modern-lg">
-              <div className="text-brand-900 mb-4">
+            <Card hover={false} className="bg-brand-50/60 border border-brand-200 shadow-modern-lg">
+              <div className="text-brand-700 mb-4">
                 <Gauge className="h-12 w-12" />
               </div>
               <h4 className="text-xl font-bold text-navy-900 mb-4">Key Gallop Out Metrics</h4>
@@ -342,12 +342,12 @@ const Racing = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-2 border-blue-300 hover:border-blue-500 transition-all hover:shadow-modern-lg">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mb-4 text-white shadow-modern-lg">
+              <Card className="h-full hover:border-brand-300 transition-all">
+                <div className="w-14 h-14 bg-gradient-to-br from-brand-600 to-brand-800 rounded-xl flex items-center justify-center mb-4 text-gold-400 shadow-green-glow">
                   {feature.icon}
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-navy-900">{feature.title}</h3>
-                <p className="text-slate-700">{feature.description}</p>
+                <p className="text-navy-600">{feature.description}</p>
               </Card>
             </motion.div>
           ))}
@@ -359,7 +359,7 @@ const Racing = () => {
           viewport={{ once: true }}
           className="mt-12"
         >
-          <Card className="bg-gradient-to-br from-brand-50 via-white to-purple-50/30 border-2 border-brand-400 shadow-modern-lg">
+          <Card hover={false} className="bg-brand-50/50 border border-brand-200 shadow-modern-lg">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-navy-900">How It Works</h3>
@@ -374,7 +374,7 @@ const Racing = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
+                    <div className="w-8 h-8 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
                       2
                     </div>
                     <div>
@@ -383,7 +383,7 @@ const Racing = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
+                    <div className="w-8 h-8 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
                       3
                     </div>
                     <div>
