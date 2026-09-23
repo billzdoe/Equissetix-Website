@@ -8,7 +8,7 @@
 @layer base {
   body {
     @apply text-navy-900 antialiased;
-    background-color: #FBFAF6; /* warm paper, not cold blue-white */
+    background-color: #FCFBF8; /* warm paper, not cold blue-white */
     font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
     letter-spacing: 0.01em;
     font-size: 16px;
@@ -87,25 +87,38 @@
     background-clip: text;
   }
 
-  /* Warm, quiet hero canvas — cream with a faint green wash */
+  /* ── SECTION GROUND SCALE ────────────────────────────────────────────
+     Previously three of these were within a few percent of each other
+     (#FBFAF6 -> #F1EFE8, its exact reverse, and #FBFAF6 -> #F4F2EC), so the
+     page read as one long undifferentiated beige scroll instead of distinct
+     zones. The warm-paper idea was right; the range was too narrow to create
+     rhythm, and the hero's 5-6% radial washes were too faint to register as
+     design while still muddying the ground.
+
+     Now: two flat paper tones that actually step, plus the dark bands.
+     Rhythm comes from alternating paper -> raised -> occasional dark band. */
+
+  /* Hero canvas — the cleanest paper, one perceptible green wash */
   .bg-hero-gradient {
     background:
-      radial-gradient(1200px 600px at 80% -10%, rgba(15, 81, 50, 0.06), transparent 60%),
-      radial-gradient(900px 500px at 0% 110%, rgba(245, 158, 11, 0.05), transparent 55%),
-      linear-gradient(180deg, #FBFAF6 0%, #F4F2EC 100%);
+      radial-gradient(1100px 560px at 78% -12%, rgba(15, 81, 50, 0.10), transparent 62%),
+      #FCFBF8;
   }
 
   .bg-hero-gradient-vibrant {
     background: linear-gradient(135deg, #0a3322 0%, #0F5132 55%, #1f6e43 100%);
   }
 
-  /* Neutral section backgrounds — warm paper tones, no rainbow */
+  /* Raised ground — a real step down from paper, not a reversed gradient */
   .bg-section-gradient {
-    background: linear-gradient(180deg, #FBFAF6 0%, #F1EFE8 100%);
+    background: #F4F2EC;
   }
 
+  /* Kept as an alias so the single legacy `background="light"` call site
+     still resolves. It is deliberately the SAME as .bg-section-gradient —
+     an imperceptible reverse-gradient variant was never a distinct surface. */
   .bg-section-gradient-alt {
-    background: linear-gradient(180deg, #F1EFE8 0%, #FBFAF6 100%);
+    background: #F4F2EC;
   }
 
   .bg-section-teal {

@@ -158,7 +158,16 @@ const Pricing = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card hover={false} className={`h-full flex flex-col relative ${tier.highlighted ? 'border-2 border-brand-600 shadow-elevation ring-1 ring-brand-100' : 'hover:border-brand-200 hover:-translate-y-1'} transition-all`}>
+              {/* One raised element per section: the recommended tier. The
+                  others are bordered, so "Most Popular" actually outranks
+                  them instead of being a badge on an identical card. */}
+              <Card
+                hover={false}
+                variant={tier.highlighted ? 'raised' : 'bordered'}
+                className={`h-full flex flex-col relative ${
+                  tier.highlighted ? 'border-2 border-brand-600 ring-1 ring-brand-100' : 'hover:border-brand-200'
+                } transition-all`}
+              >
                 {tier.highlighted && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-500 text-navy-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-gold-glow">
                     Most Popular

@@ -66,29 +66,6 @@ const Home = () => {
       <SectionJumpBar />
       {/* Hero Section - Vibrant & Energetic */}
       <Section background="gradient" className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
-        {/* Geometric Pattern Background */}
-        <FarmPattern variant="mixed" opacity={0.05} color="#0F5132" animated={true} />
-
-        {/* Geometric Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              rotate: [0, 360],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-teal-500/10 to-blue-500/10"
-          ></motion.div>
-          <motion.div
-            animate={{
-              rotate: [360, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-gold-500/10 to-green-700/10"
-          ></motion.div>
-        </div>
-
         <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center px-4 sm:px-0">
           {/* Left Column */}
           <motion.div
@@ -208,19 +185,23 @@ const Home = () => {
                     ))}
                   </div>
 
-                  {/* Occupancy / roster tiles */}
-                  <div className="grid grid-cols-3 gap-3 pt-1">
-                    <div className="text-center p-3 rounded-xl bg-brand-50 border border-brand-100">
-                      <p className="text-[11px] text-brand-700 font-bold mb-1">Stalls</p>
-                      <p className="text-2xl font-bold text-brand-700 font-mono">22/24</p>
+                  {/* Occupancy / roster — ONE surface with internal dividers.
+                      This was three separately-tinted boxes (brand-50 /
+                      navy-50 / gold-50) side by side; three equal rectangles
+                      in three hues is the arrangement that reads cheapest.
+                      The single gold accent marks the figure that matters. */}
+                  <div className="grid grid-cols-3 rounded-xl border border-navy-100 divide-x divide-navy-100 overflow-hidden">
+                    <div className="text-center px-2 py-3">
+                      <p className="text-[11px] text-navy-500 font-bold mb-1">Stalls</p>
+                      <p className="text-2xl font-bold text-navy-800 font-mono tabular-nums">22/24</p>
                     </div>
-                    <div className="text-center p-3 rounded-xl bg-navy-50 border border-navy-100">
+                    <div className="text-center px-2 py-3">
                       <p className="text-[11px] text-navy-500 font-bold mb-1">Shifts today</p>
-                      <p className="text-2xl font-bold text-navy-800 font-mono">6</p>
+                      <p className="text-2xl font-bold text-navy-800 font-mono tabular-nums">6</p>
                     </div>
-                    <div className="text-center p-3 rounded-xl bg-gold-50 border border-gold-200">
+                    <div className="text-center px-2 py-3 bg-gold-50/70">
                       <p className="text-[11px] text-gold-700 font-bold mb-1">Invoices out</p>
-                      <p className="text-2xl font-bold text-gold-600 font-mono">$14k</p>
+                      <p className="text-2xl font-bold text-gold-700 font-mono tabular-nums">$14k</p>
                     </div>
                   </div>
                 </div>
@@ -255,7 +236,6 @@ const Home = () => {
 
       {/* Product Family Section */}
       <Section id="products" background="white" className="relative">
-        <FarmPattern variant="horseshoes" opacity={0.035} color="#0F5132" animated={false} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -280,7 +260,6 @@ const Home = () => {
 
       {/* Problem-Agitation Section - Professional */}
       <Section background="gray" className="relative">
-        <FarmPattern variant="horses" opacity={0.04} color="#963a2f" animated={false} />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -308,7 +287,7 @@ const Home = () => {
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Card className="text-center h-full border border-slate-200 hover:border-slate-300 transition-all hover:shadow-md">
+              <Card variant="bordered" className="text-center h-full hover:border-burgundy-200 transition-colors">
                 <div className="text-burgundy-700 mb-4 flex justify-center">
                   <div className="w-14 h-14 rounded-xl bg-burgundy-50 flex items-center justify-center border border-burgundy-100">
                     {problem.icon}
@@ -326,7 +305,6 @@ const Home = () => {
 
       {/* Interactive Platform Explorer — replaces the old Solution pillars + toolkit grid */}
       <Section id="explore" background="white" className="relative">
-        <FarmPattern variant="horseshoes" opacity={0.04} color="#1f6e43" animated={false} />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -349,7 +327,6 @@ const Home = () => {
 
       {/* Peace-of-mind / identity section */}
       <Section background="white" className="relative overflow-hidden">
-        <FarmPattern variant="mixed" opacity={0.04} color="#0F5132" animated={false} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -483,7 +460,6 @@ const Home = () => {
 
       {/* Social Proof Section */}
       <Section background="gray" className="relative">
-        <FarmPattern variant="mixed" opacity={0.04} color="#F59E0B" animated={true} />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -508,7 +484,6 @@ const Home = () => {
 
       {/* Pricing Teaser — product-first */}
       <Section id="pricing" background="white" className="relative">
-        <FarmPattern variant="horseshoes" opacity={0.035} color="#0F5132" animated={false} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -536,7 +511,6 @@ const Home = () => {
 
       {/* Final CTA - Vibrant & Compelling */}
       <section className="relative overflow-hidden bg-section-green py-24">
-        {/* Geometric Pattern Background */}
         <FarmPattern variant="mixed" opacity={0.09} color="#ffffff" animated={true} />
 
         {/* Geometric Background Elements */}
