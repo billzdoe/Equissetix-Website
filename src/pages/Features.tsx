@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   Brain,
@@ -240,8 +241,8 @@ const Features = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg shadow-primary-500/50'
-                  : 'glass text-gray-300 hover:text-white hover:bg-white/10'
+                  ? 'bg-brand-600 text-white shadow-green-glow'
+                  : 'bg-white text-navy-700 border border-navy-100 hover:border-brand-300 hover:text-brand-700'
               }`}
             >
               {category.label}
@@ -263,7 +264,7 @@ const Features = () => {
               className="glass-strong p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
             >
               <div className="flex items-start space-x-4 mb-4">
-                <div className="text-primary-400 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <div className="text-brand-600 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   {feature.icon}
                 </div>
                 <div className="flex-1">
@@ -272,7 +273,7 @@ const Features = () => {
                   <ul className="space-y-2">
                     {feature.details.map((detail, idx) => (
                       <li key={idx} className="flex items-start space-x-2 text-sm text-gray-400">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary-400 mt-2 flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-2 flex-shrink-0" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -285,23 +286,21 @@ const Features = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-900/20 to-accent-900/20">
+      <section className="py-20 bg-section-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Zap className="h-16 w-16 text-primary-400 mx-auto mb-6" />
+          <Zap className="h-16 w-16 text-gold-400 mx-auto mb-6" />
           <h2 className="text-4xl font-bold mb-4 text-white">
             Experience All Features in Action
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Start your free trial and see how TrainingTree Pro can transform your operations
+            Bring your barn's real workflow and we'll show you exactly how it fits.
           </p>
-          <a
-            href="https://equissetix.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold text-lg hover:shadow-2xl hover:shadow-primary-500/50 transition-all duration-200"
+          <Link
+            to="/contact"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-white rounded-lg font-semibold text-lg shadow-gold-glow transition-all duration-200"
           >
-            <span>Start Free Trial</span>
-          </a>
+            <span>Request a Demo</span>
+          </Link>
         </div>
       </section>
     </div>

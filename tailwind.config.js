@@ -79,6 +79,19 @@ export default {
           600: '#1f6e43',
           700: '#0F5132',
         },
+        // `warning-*` → amber (semantic caution). Used by ACWRChart and
+        // GaitSymmetryViz for the "Detraining" / "Monitor" states. These were
+        // referencing an UNDEFINED family, so those two severity levels
+        // rendered with no colour at all while every other level worked.
+        warning: {
+          50: '#fffaeb',
+          100: '#fef0c7',
+          200: '#fddf8a',
+          400: '#f7b22a',
+          500: '#F59E0B',
+          600: '#d97e06',
+          700: '#b45c09',
+        },
         // `coral-*` → gold (legacy spinner/accent references).
         coral: {
           50: '#fffaeb',

@@ -106,12 +106,12 @@ const Integrations = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-br from-brand-50 to-accent-50 border-brand-200">
+            <Card className="bg-brand-50 border-brand-200">
               <div className="text-brand-900 mb-4">
                 <Link2 className="h-12 w-12" />
               </div>
               <p className="text-4xl font-bold text-brand-900 mb-2">8+</p>
-              <p className="text-slate-700">wearable devices automatically integrated</p>
+              <p className="text-slate-700">wearable device integrations built in <span className="whitespace-nowrap">(vendor credentials required)</span></p>
             </Card>
           </motion.div>
         </div>
@@ -122,11 +122,11 @@ const Integrations = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-br from-accent-50 to-brand-50 border-accent-200">
-              <div className="text-accent-900 mb-4">
+            <Card className="bg-gold-50 border-gold-200">
+              <div className="text-gold-700 mb-4">
                 <Zap className="h-12 w-12" />
               </div>
-              <p className="text-4xl font-bold text-accent-900 mb-2">Real-time</p>
+              <p className="text-4xl font-bold text-gold-700 mb-2">Real-time</p>
               <p className="text-slate-700">automatic data synchronization</p>
             </Card>
           </motion.div>
@@ -137,7 +137,7 @@ const Integrations = () => {
           >
             <h2 className="text-4xl font-bold mb-6">The Solution</h2>
             <p className="text-lg text-slate-700 mb-4">
-              TrainingTree's patent-pending integration technology automatically synchronizes data from all your wearable devices directly into your training and health records—no manual entry required.
+              TrainingTree's patent-pending integration technology synchronizes data from your wearable devices directly into your training and health records—no manual entry required. Each vendor connection is set up once with your account credentials.
             </p>
             <p className="text-lg text-slate-700">
               Get a complete, unified view of every horse's performance, health, and training load in one platform.
@@ -226,7 +226,7 @@ const Integrations = () => {
         >
           <h2 className="text-4xl font-bold mb-6">Connect Your Devices Today</h2>
           <p className="text-xl text-slate-700 mb-8">
-            Stop manually transferring data. Let TrainingTree automatically sync all your wearables and tools.
+            Stop manually transferring data. Connect your wearables and tools once, then let TrainingTree keep them in sync.
           </p>
           <Button to="/contact" variant="primary" size="lg">
             Get a Free Demo
