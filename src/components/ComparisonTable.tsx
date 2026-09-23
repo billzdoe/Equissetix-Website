@@ -33,7 +33,7 @@ const ComparisonTable = () => {
     },
     {
       category: 'Training & Workouts',
-      name: 'AI Recommendations',
+      name: 'Workout Recommendations',
       trainingTree: 'yes',
       spreadsheets: 'no',
       competitor1: 'no',
@@ -320,12 +320,23 @@ const ComparisonTable = () => {
         </div>
       </div>
 
+      {/* Provenance — these columns describe unnamed third-party products.
+          Say where the comparison comes from instead of asserting it flatly. */}
+      <div className="px-6 py-4 border-t border-slate-100 bg-white">
+        <p className="text-xs text-slate-500 leading-relaxed">
+          Competitor columns reflect publicly documented features of two widely used equine
+          management products as of 2026, compared against our own platform. Vendors ship changes
+          frequently — check their current documentation before deciding, and tell us if anything
+          here is out of date and we’ll correct it.
+        </p>
+      </div>
+
       {/* CTA */}
-      <div className="bg-gradient-to-br from-brand-50 to-blue-50 p-6 text-center">
-        <h3 className="text-xl font-bold text-navy-900 mb-2">Ready to See the Difference?</h3>
-        <p className="text-slate-600 mb-4">Experience the most comprehensive equine management platform</p>
+      <div className="bg-brand-50 p-6 text-center border-t border-brand-100">
+        <h3 className="text-xl font-bold text-navy-900 mb-2">See it against your own workflow</h3>
+        <p className="text-slate-600 mb-4">Bring your barn’s real setup and we’ll show you exactly how it fits</p>
         <Button to="/contact" variant="primary" size="lg">
-          Get a Free Demo
+          Request a Demo
           <Trophy className="h-5 w-5" />
         </Button>
       </div>

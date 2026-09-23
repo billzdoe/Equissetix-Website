@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingUp } from 'lucide-react'
 import Section from '../components/Section'
 import Button from '../components/Button'
@@ -19,10 +20,20 @@ const Compare = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Compare</span> TrainingTree Pro
+              <span className="text-gradient">Compare</span> Equissetix
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              See how we stack up against spreadsheets, basic software, and competitors with real features and ROI
+              How the platform stacks up against spreadsheets and other equine software — and how much
+              admin time you’d get back
+            </p>
+            <p className="text-base text-slate-600 max-w-2xl mx-auto">
+              Everything below describes <strong>TrainingTree Pro</strong>, the whole platform. Taking
+              only the barn half (StableTree) or only the training half (Performance) gives you that
+              side of it —{' '}
+              <Link to="/products" className="font-semibold text-brand-600 hover:text-brand-700 underline">
+                see what’s in each
+              </Link>
+              .
             </p>
           </motion.div>
         </div>
@@ -47,7 +58,7 @@ const Compare = () => {
         <ComparisonTable />
       </Section>
 
-      {/* Why TrainingTree Pro */}
+      {/* How it compares */}
       <Section background="white">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <motion.div
@@ -120,7 +131,7 @@ const Compare = () => {
             transition={{ delay: 0.2 }}
             className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-200"
           >
-            <h3 className="text-xl font-bold text-navy-900 mb-3">vs. Competitors</h3>
+            <h3 className="text-xl font-bold text-navy-900 mb-3">vs. Other equine software</h3>
             <ul className="space-y-2 text-sm text-slate-700">
               <li className="flex items-start gap-2">
                 <span className="text-green-600 font-bold">•</span>

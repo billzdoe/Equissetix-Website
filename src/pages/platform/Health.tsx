@@ -9,7 +9,7 @@ import { pageSEO } from '../../utils/seo'
 
 const Health = () => {
   const capabilities = [
-    "Real-time gait analysis with 25-keypoint pose estimation detecting lameness at symmetry below 0.6",
+    "Video gait analysis flagging asymmetry below 0.6 (25-keypoint pose estimation available opt-in)",
     "Biomechanical metrics: stride length/frequency, cadence, stance/swing/flight phases",
     "Symmetry analysis (left-right, front-hind, diagonal) with normalized difference scoring",
     "Gait classification: walk (below 1.0 Hz), trot (1.0-2.0 Hz), canter (2.0-3.0 Hz), gallop (above 3.0 Hz)",
@@ -96,7 +96,7 @@ const Health = () => {
               <h3 className="text-lg font-bold text-success-900">Our Solution</h3>
             </div>
             <p className="text-sm text-slate-700 mb-3">
-              Patent-pending gait analysis: 25-keypoint pose estimation (Conv1D-LSTM), symmetry &lt;0.6 = alert. Auto-syncs 8+ wearables.
+              Patent-pending gait analysis: video symmetry scoring, with 25-keypoint pose estimation available opt-in. Symmetry &lt;0.6 raises an alert. Connects 8+ wearables (vendor credentials required).
             </p>
             <div className="bg-white/50 rounded-lg p-2">
               <p className="text-xl font-bold text-success-900 mb-1">3-4 weeks</p>
@@ -115,7 +115,7 @@ const Health = () => {
               <li>• 8+ wearable integrations</li>
               <li>• Health Score (0-100)</li>
               <li>• Automated vet alerts</li>
-              <li>• 25-keypoint pose estimation</li>
+              <li>• 25-keypoint pose estimation (opt-in)</li>
             </ul>
           </Card>
         </div>

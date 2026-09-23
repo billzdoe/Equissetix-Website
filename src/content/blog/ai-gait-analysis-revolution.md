@@ -60,7 +60,7 @@ Artificial Intelligence is revolutionizing veterinary diagnostics by detecting m
 
 #### 1. **Computer Vision & Pose Estimation**
 
-Modern AI uses **deep learning models** trained on millions of horse videos to identify **25+ anatomical keypoints** in real-time:
+Pose-estimation models identify **25+ anatomical keypoints** frame by frame:
 
 **Upper Body:**
 - Poll (head/neck junction)
@@ -297,15 +297,15 @@ Gait analysis validates farrier work:
 - Controlled laboratory environment
 - Technical expertise
 
-### 2. Cloud-Based AI Processing
+### 2. Automated Processing
 
-**Upload → Process → Results in under 3 minutes**
+**Upload → Process → Results**
 
-The platform uses:
-- **Neural networks** trained on 500,000+ horse videos
-- **Transfer learning** from human biomechanics research
-- **Convolutional architectures** for visual feature extraction
-- **Recurrent networks** for temporal pattern analysis
+What the analysis measures:
+- **Stride symmetry** — left/right comparison across the gait cycle
+- **Temporal consistency** — how stride pattern holds over the clip
+- **Keypoint tracking** — anatomical landmarks followed frame by frame
+- **Side-by-side comparison** against the horse's own earlier clips
 
 ### 3. Automated Report Generation
 

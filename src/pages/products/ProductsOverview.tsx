@@ -180,15 +180,15 @@ const ProductsOverview = () => {
         </div>
       </Section>
 
-      {/* "Which one?" chooser */}
-      <Section background="white" className="relative">
-        <FarmPattern variant="horseshoes" opacity={0.04} color="#0F5132" animated />
+      {/* "Which one?" chooser — id is the /products#chooser nav target */}
+      <Section id="chooser" background="white" className="relative">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <span className="eyebrow justify-center mb-3">Not sure?</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-8">Which one is right for you?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">How much do you need?</h2>
+          <p className="text-navy-600 mb-8">Two halves and the whole. Whichever you start with, the other side can be added in place.</p>
           <div className="grid sm:grid-cols-3 gap-4 text-left">
-            <Card className="h-full">
-              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">You don’t race</p>
+            <Card variant="bordered" className="h-full">
+              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">The barn half</p>
               <p className="text-sm text-navy-700 mb-4">
                 You board, breed, teach, or run a sport-horse yard and just need the barn to run right.
               </p>
@@ -196,8 +196,8 @@ const ProductsOverview = () => {
                 → StableTree
               </Link>
             </Card>
-            <Card className="h-full">
-              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">You only condition</p>
+            <Card variant="bordered" className="h-full">
+              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">The training half</p>
               <p className="text-sm text-navy-700 mb-4">
                 You want training load, gait, readiness, and racing ops — someone else handles the books.
               </p>
@@ -205,8 +205,8 @@ const ProductsOverview = () => {
                 → Performance
               </Link>
             </Card>
-            <Card className="h-full">
-              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">You do both</p>
+            <Card variant="bordered" className="h-full">
+              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">Both — the whole platform</p>
               <p className="text-sm text-navy-700 mb-4">
                 You run the operation and condition racehorses, and want it all in one place.
               </p>

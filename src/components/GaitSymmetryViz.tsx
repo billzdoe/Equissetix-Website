@@ -50,8 +50,8 @@ const GaitSymmetryViz = () => {
             <p className="text-4xl font-bold text-brand-600">{overallSymmetry.toFixed(3)}</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-slate-600">25-keypoint pose</p>
-            <p className="text-sm text-slate-600">Conv1D-LSTM model</p>
+            <p className="text-sm text-slate-600">Video symmetry</p>
+            <p className="text-sm text-slate-600">25-keypoint pose (opt-in)</p>
           </div>
         </div>
       </div>
