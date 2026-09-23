@@ -79,20 +79,52 @@ const ExitIntentPopup = ({
     }
   }, [delay, exitIntent, scrollTrigger, hasBeenShown])
 
+  const [error, setError] = useState('')
+
+  // This previously console.log'd the address, showed "You're All Set!", and
+  // fired a newsletterSubscribed conversion — for a signup that never happened.
+  // The address was discarded and the promised email could never arrive, which
+  // also meant the funnel counted conversions that did not exist. Now it posts
+  // to Web3Forms (same service as the contact form) and only reports success,
+  // and only tracks the conversion, on a real 2xx.
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError('')
 
-    // TODO: Integrate with your email marketing service (Mailchimp, ConvertKit, etc.)
-    console.log('Email submitted:', email)
+    try {
+      const web3formsKey = (import.meta as any).env.VITE_WEB3FORMS_KEY
+      if (!web3formsKey) {
+        throw new Error('Signup key not configured')
+      }
 
-    trackConversion.newsletterSubscribed('exit_intent_popup')
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: 'Keep-me-posted signup - Equissetix',
+          from_name: 'Exit-intent signup',
+          email,
+          botcheck: '',
+        }),
+      })
 
-    setSubmitted(true)
+      const result = await response.json()
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to sign up')
+      }
 
-    // Close after 3 seconds
-    setTimeout(() => {
-      setIsVisible(false)
-    }, 3000)
+      trackConversion.newsletterSubscribed('exit_intent_popup')
+      setSubmitted(true)
+
+      // Close after 3 seconds
+      setTimeout(() => {
+        setIsVisible(false)
+      }, 3000)
+    } catch (err) {
+      console.error('Exit-intent signup error:', err)
+      setError('Something went wrong. Please try again, or email info@equissetix.com.')
+    }
   }
 
   const handleClose = () => {
@@ -145,10 +177,11 @@ const ExitIntentPopup = ({
                     <CheckCircle className="h-16 w-16 text-success-500 mx-auto mb-4" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-navy-900 mb-2">
-                    You're All Set! 🎉
+                    You're on the list
                   </h3>
                   <p className="text-slate-600">
-                    Check your inbox for your free training guide and exclusive tips.
+                    We'll let you know when founding-barn spots open. No spam, and you can
+                    tell us to stop any time.
                   </p>
                 </div>
               ) : (
@@ -209,12 +242,18 @@ const ExitIntentPopup = ({
                         />
                       </div>
 
+                      {error && (
+                        <p role="alert" className="text-sm text-burgundy-700 mb-3">
+                          {error}
+                        </p>
+                      )}
+
                       <Button
                         type="submit"
                         variant="primary"
                         className="w-full group"
                       >
-                        Get My Free Guide
+                        Keep me posted
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </form>

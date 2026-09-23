@@ -2,6 +2,31 @@ import { Link } from 'react-router-dom'
 import { Mail, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
 import NewsletterSignup from './NewsletterSignup'
 
+/**
+ * Social profiles.
+ *
+ * These were previously hardcoded to BARE DOMAINS — href="https://facebook.com"
+ * etc. — so clicking "Facebook" in the footer dumped the visitor on Facebook's
+ * homepage rather than a company page. Verified 2026-09-23:
+ * twitter.com/equissetix returns 404, so the handle asserted in index.html's
+ * structured data does not exist.
+ *
+ * Fill in a real profile URL to make that icon appear. An entry left as an
+ * empty string is simply not rendered — better no icon than a dead link.
+ */
+const SOCIAL_URLS = {
+  LinkedIn: '',
+  Twitter: '',
+  Instagram: '',
+  Facebook: '',
+} as const
+
+const SOCIAL_ICONS = { LinkedIn: Linkedin, Twitter, Instagram, Facebook } as const
+
+const socialLinks = (Object.keys(SOCIAL_URLS) as (keyof typeof SOCIAL_URLS)[])
+  .filter((k) => SOCIAL_URLS[k])
+  .map((k) => ({ label: k, href: SOCIAL_URLS[k], Icon: SOCIAL_ICONS[k] }))
+
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
@@ -131,46 +156,24 @@ const Footer = () => {
                   <span>Email Us</span>
                 </a>
               </li>
-              <li className="pt-2">
-                <div className="flex items-center space-x-3">
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-gold-400 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-gold-400 transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-gold-400 transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-gold-400 transition-colors"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="h-4 w-4" />
-                  </a>
-                </div>
-              </li>
+              {socialLinks.length > 0 && (
+                <li className="pt-2">
+                  <div className="flex items-center space-x-3">
+                    {socialLinks.map(({ label, href, Icon }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-gold-400 transition-colors"
+                        aria-label={label}
+                      >
+                        <Icon className="h-4 w-4" />
+                      </a>
+                    ))}
+                  </div>
+                </li>
+              )}
             </ul>
           </div>
         </div>

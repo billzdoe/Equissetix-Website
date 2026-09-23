@@ -26,21 +26,44 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
     setStatus('loading')
     setErrorMessage('')
 
-    // Simulate API call - replace with actual newsletter signup endpoint
+    // This form previously faked it: a 1s setTimeout, then "Subscribed!" while
+    // the address was discarded. Every signup was silently lost and the visitor
+    // believed they were on the list. It now posts to Web3Forms, the same
+    // service the contact form uses, and only reports success on a real 2xx.
     try {
-      // TODO: Replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      const web3formsKey = (import.meta as any).env.VITE_WEB3FORMS_KEY
+      if (!web3formsKey) {
+        throw new Error('Newsletter key not configured')
+      }
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: 'Newsletter signup - Equissetix',
+          from_name: 'Newsletter signup',
+          email,
+          botcheck: '',
+        }),
+      })
+
+      const result = await response.json()
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to subscribe')
+      }
+
       setStatus('success')
       setEmail('')
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setStatus('idle')
       }, 5000)
     } catch (error) {
+      console.error('Newsletter signup error:', error)
       setStatus('error')
-      setErrorMessage('Something went wrong. Please try again.')
+      setErrorMessage('Something went wrong. Please try again, or email info@equissetix.com.')
     }
   }
 
@@ -48,7 +71,10 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
     return (
       <form onSubmit={handleSubmit} className={`flex gap-2 ${className}`}>
         <input
+          id={`newsletter-email-${variant}`}
           type="email"
+          required
+          aria-label="Email address for newsletter"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
@@ -73,7 +99,10 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="flex-1">
             <input
+              id={`newsletter-email-${variant}`}
               type="email"
+              required
+              aria-label="Email address for newsletter"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
@@ -123,7 +152,10 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col sm:flex-row gap-3">
           <input
+            id={`newsletter-email-${variant}`}
             type="email"
+            required
+            aria-label="Email address for newsletter"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"

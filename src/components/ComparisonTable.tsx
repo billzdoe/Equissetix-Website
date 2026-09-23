@@ -258,8 +258,7 @@ const ComparisonTable = () => {
               </th>
             </tr>
           </thead>
-          <tbody>
-            {Object.entries(groupedFeatures).map(([category, categoryFeatures], categoryIndex) => (
+          {Object.entries(groupedFeatures).map(([category, categoryFeatures], categoryIndex) => (
               <motion.tbody
                 key={category}
                 initial={{ opacity: 0 }}
@@ -290,8 +289,7 @@ const ComparisonTable = () => {
                   </tr>
                 ))}
               </motion.tbody>
-            ))}
-          </tbody>
+          ))}
         </table>
       </div>
 

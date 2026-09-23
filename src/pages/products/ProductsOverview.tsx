@@ -149,9 +149,8 @@ const ProductsOverview = () => {
                   <th className="py-4 px-3 text-center text-sm font-bold text-gold-700 bg-gold-50">TT Pro</th>
                 </tr>
               </thead>
-              <tbody>
-                {Object.entries(grouped).map(([category, rows]) => (
-                  <tbody key={category}>
+              {Object.entries(grouped).map(([category, rows]) => (
+                <tbody key={category}>
                     <tr className="bg-navy-100/60">
                       <td colSpan={5} className="py-2 px-5 text-xs font-bold uppercase tracking-wide text-navy-700">
                         {category}
@@ -166,9 +165,8 @@ const ProductsOverview = () => {
                         <td className="py-3 px-3 text-center bg-gold-50/30"><MatrixValue value={row.pro} /></td>
                       </tr>
                     ))}
-                  </tbody>
-                ))}
-              </tbody>
+                </tbody>
+              ))}
             </table>
           </div>
           <div className="bg-navy-50 px-5 py-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-navy-600">
