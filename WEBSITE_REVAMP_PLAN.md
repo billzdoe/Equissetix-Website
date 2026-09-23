@@ -621,3 +621,94 @@ re-reads. Any future "add social proof" work should start by re-running these gr
 4. **D1–D6 remain unanswered.** Phases 1, 1.5 and 3 are blocked on them, particularly **D5**
    (how the halves are actually packaged and sold), which determines whether the new
    platform-and-halves framing matches reality.
+
+---
+
+## 7. Implementation log — Phases 2, 1.5, 3-partial (2026-09-23, same day)
+
+Three further commits on `revamp/phase-0-and-0.5`. All `tsc` clean, builds clean.
+
+### 7.1 `c6bcd1e` — Phase 2, plus a class of bug the review missed
+
+Deleted 5 genuinely dead components: `SocialProof` and `UrgencyElements` (the
+fabrication engines), `HowItWorks` (superseded by the live `HowItWorksSteps`),
+`BeforeAfterComparison`, `AnimatedStats`. Kept the four screenshot components for
+Phase 1 and `FAQ` for 2.4.
+
+**Correction to F4:** it claimed 13 dead components. `StatusChip` and
+`NewsletterSignup` are actually live (via `ProductPage` and `Footer`) — the original
+grep only matched direct `components/X'` imports and missed indirect use. Real count
+was 11.
+
+**New finding — undefined Tailwind color families render as nothing, silently.**
+Three were in use and defined nowhere:
+
+| Token | Where | Visible damage |
+|---|---|---|
+| `warning-*` | `ACWRChart`, `GaitSymmetryViz` (both **live**) | A horse in "Detraining" (ACWR < 0.8) or "Monitor" (symmetry 0.70–0.84) rendered with **no colour at all**, while every other severity level displayed correctly |
+| `primary-*` | `/features` | The **selected** category filter was invisible — white text on white |
+| `accent-*` | `/features`, `/platform/integrations` | CTA band transparent; two stat cards unstyled |
+
+Added `warning` to the config; remapped the rest onto the real palette. Verified in
+built CSS that `.text-warning-600` now emits a rule where it previously emitted none.
+
+Also on those pages: `/features` "Start Free Trial" linked off-site to
+`equissetix.com` for a trial that doesn't exist → `/contact`. `/platform/integrations`
+described wearables as syncing automatically; `products.ts` correctly marks them
+`status:'setup'`.
+
+### 7.2 `5c69604` — Phase 1.5 first pass (F6)
+
+Ran ahead of Phase 1 because the ground/card work doesn't depend on screenshots.
+
+- **Ground scale.** Replaced three near-identical beiges (one was literally another
+  reversed) with two flat tones that step: paper `#FCFBF8`, raised `#F4F2EC`. Removed
+  the hero's 5–6% radial washes — too faint to read as design, enough to muddy.
+- **Card variants.** `flat` / `bordered` / `raised` / `elevated`, padding decoupled
+  from surface. `elevated` stays the default so all 122 call sites are unchanged;
+  pages opt in as revisited. Rule in the component: **one `raised` per section.**
+  Applied to `/pricing` (recommended tier now genuinely outranks the others) and the
+  home problem cards.
+- **Noise.** Unified the hero's three separately-tinted stat tiles into one surface
+  with dividers and a single gold accent. Removed 7 of 9 `FarmPattern` overlays from
+  the homepage (0.035–0.05 is noise, not texture; kept the two on dark bands at
+  0.06/0.09) and the two infinitely-rotating gradient blobs.
+
+**Phase 1.5 is not finished** — ~27 files still use the default `elevated` Card. That
+is deliberate: converting all 122 call sites blind risks a sweeping visual regression.
+Convert per page, and once real screenshots land (Phase 1), delete rather than restyle.
+
+### 7.3 `eff629d` — Phase 3, the parts not blocked on D1/D2
+
+- **`/products#chooser` was a dead link.** The navbar pointed at an anchor no element
+  carried. Added the `id`; also rewrote the chooser's copy, which still framed three
+  options rather than two halves and the whole.
+- **`/compare` reframed.** It never got the platform treatment — "Compare TrainingTree
+  Pro", "vs. Competitors". Now names the platform and says explicitly that the
+  comparison describes Pro (both halves), linking to `/products` for each half.
+- **`ComparisonTable` provenance.** The table asserts specific capabilities of two
+  unnamed products as flat fact. Columns stay anonymous, but there is now a note
+  saying what the comparison is based on, when, and inviting correction.
+
+**Trained-ML claims took three passes to clear.** Each sweep was scoped too narrowly —
+pass 1 did `.tsx` marketing pages, pass 2 caught Terms/Privacy and blog, pass 3 caught
+a live on-screen label in `GaitSymmetryViz` ("Conv1D-LSTM model"), `platform/Health`,
+and a blog line reading *"The platform uses: Neural networks trained on 500,000+ horse
+videos"* — describing our platform, when cloud gait processing is a placeholder that
+isn't shipped. Lesson: sweep `src` + `index.html` + `public/` across **all**
+extensions at once.
+
+### 7.4 Where it stands
+
+| Phase | State |
+|---|---|
+| 0 — stop the bleeding | ✅ Done |
+| 0.5 — fix the product story | ✅ Done |
+| 1 — show the product | ⛔ **Blocked on D3.** Needs screenshots; no other work unblocks it |
+| 1.5 — surface treatment | ◐ First pass done; per-page Card conversion remains |
+| 2 — clean the room | ✅ Done |
+| 3 — build the ladder | ◐ Chooser + `/compare` done; soft rung blocked on D1/D2 |
+
+**Everything that can be done without a decision from you is now done.** The remaining
+work is Phase 1 (needs D3 — screenshot source) and Phase 3's soft rung (needs D1/D2 —
+pricing visibility and which lighter-weight step to build).
