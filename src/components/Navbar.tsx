@@ -9,21 +9,22 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const location = useLocation()
 
-  // Products = the family picker. Each product is a distinct SKU, not a feature.
+  // The lineup is a PLATFORM (TrainingTree Pro) that divides into two HALVES.
+  // Not three peers — see WEBSITE_REVAMP_PLAN.md F0. Keep Pro listed first and
+  // labelled as the whole; the halves sit under it.
   const productLinks = [
     {
-      category: 'Products',
+      category: 'The platform',
       links: [
-        { path: '/products/stabletree', label: 'StableTree', desc: 'Run the barn — stable management, compliance, records, staff & money. No sports-science.' },
-        { path: '/products/performance', label: 'TrainingTree Performance', desc: 'Condition the athlete — sports science, gait, readiness, wearables, racing.' },
-        { path: '/products/trainingtree-pro', label: 'TrainingTree Pro', desc: 'The complete tier — barn ops plus the full sports-science engine. Pro & Lite editions.' },
+        { path: '/products/trainingtree-pro', label: 'TrainingTree Pro', desc: 'The whole platform — both halves together. Ships in Pro & Lite editions.' },
       ]
     },
     {
-      category: 'Not sure?',
+      category: 'Or take one half',
       links: [
-        { path: '/products', label: 'Compare all products', desc: 'See what’s in each product and edition, side by side.' },
-        { path: '/products#chooser', label: 'Which one is right for me?', desc: '“Start with StableTree, grow into Performance.”' },
+        { path: '/products/stabletree', label: 'StableTree', desc: 'The barn half — compliance, records, staff, money & health. No sports-science.' },
+        { path: '/products/performance', label: 'TrainingTree Performance', desc: 'The training half — sports science, gait, readiness, wearables, racing.' },
+        { path: '/products', label: 'See what’s in each half', desc: 'Side by side, including what needs setup.' },
       ]
     }
   ]
@@ -45,7 +46,7 @@ const Navbar = () => {
   ]
 
   const resourcesLinks = [
-    { path: '/case-studies', label: 'Case Studies' },
+    // Case Studies hidden until it has real content (plan D4); route stays live.
     { path: '/blog', label: 'Blog' },
     { path: '/breeds', label: 'Breeds' },
     { path: '/disciplines', label: 'Disciplines' },

@@ -46,7 +46,7 @@ const disciplines: Record<Discipline, DisciplineInfo> = {
   flat_racing: {
     name: 'Flat Racing',
     tagline: 'Speed, stamina, and split-second performance',
-    description: 'Optimize training for thoroughbred and quarter horse flat racing with ACWR-based load management, AI race predictions, and real-time performance analytics. Track speed work, gallop-outs, and race readiness scoring.',
+    description: 'Optimize training for thoroughbred and quarter horse flat racing with ACWR-based load management, race outlook from real entries and career records, and real-time performance analytics. Track speed work, gallop-outs, and race readiness scoring.',
     breeds: ['Thoroughbred', 'Quarter Horse', 'Arabian', 'Paint', 'Appaloosa'],
     keyMetrics: [
       'Speed ratings and fractional times',

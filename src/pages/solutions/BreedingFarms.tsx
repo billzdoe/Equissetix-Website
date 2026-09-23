@@ -1,4 +1,5 @@
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
 const data: SolutionData = {
@@ -81,8 +82,8 @@ const data: SolutionData = {
 const BreedingFarms = () => (
   <>
     <SEO
-      title="For Breeding & Sport-Horse Farms | Equissetix StableTree"
-      description="A complete file on every horse from foaling to sale: health, identity, pedigree, ownership shares, and care history across the whole herd. Sale- and vetting-ready. Powered by StableTree."
+      title={pageSEO.solutionsBreedingFarms.title}
+      description={pageSEO.solutionsBreedingFarms.description}
       path="/solutions/breeding-farms"
     />
     <SolutionPage data={data} />

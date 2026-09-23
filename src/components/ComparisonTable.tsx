@@ -73,7 +73,7 @@ const ComparisonTable = () => {
     },
     {
       category: 'Racing & Performance',
-      name: 'Race Predictions',
+      name: 'Race Outlook (real entries & records)',
       trainingTree: 'yes',
       spreadsheets: 'no',
       competitor1: 'partial',

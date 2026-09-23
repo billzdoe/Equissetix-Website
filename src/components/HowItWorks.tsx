@@ -14,7 +14,7 @@ const steps = [
     number: 2,
     icon: <Brain className="h-8 w-8" />,
     title: 'AI Analysis',
-    description: 'Conv1D-LSTM temporal neural networks process 25-keypoint pose estimation for gait analysis.',
+    description: 'Video gait analysis measures stride symmetry frame by frame.',
     color: 'from-purple-500 to-purple-600',
     details: ['Gait classification', 'Symmetry scoring', 'Biomechanics', 'Pattern detection']
   },
@@ -38,7 +38,7 @@ const steps = [
     number: 5,
     icon: <CheckCircle className="h-8 w-8" />,
     title: 'Get Recommendations',
-    description: 'AI-powered workout suggestions trained on Random Forest & Gradient Boosting models.',
+    description: 'Workout suggestions from auditable, rules-based sports-science formulas.',
     color: 'from-success-500 to-success-600',
     details: ['Personalized plans', 'Confidence scores', 'Multiple options', 'Optimal timing']
   }

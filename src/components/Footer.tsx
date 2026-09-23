@@ -97,11 +97,9 @@ const Footer = () => {
                   Compare
                 </Link>
               </li>
-              <li>
-                <Link to="/case-studies" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  Case Studies
-                </Link>
-              </li>
+              {/* Case Studies is hidden from nav until it has real content —
+                  the page is an honest "Coming Soon" and linking to it spends a
+                  click and a little trust. Route stays live (see plan D4). */}
               <li>
                 <Link to="/blog" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
                   Blog

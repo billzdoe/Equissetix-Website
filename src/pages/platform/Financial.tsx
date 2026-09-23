@@ -124,7 +124,7 @@ const Financial = () => {
       icon: <BarChart3 className="h-6 w-6" />,
       title: "Financial Analytics & Insights",
       problem: "You have financial data but can't see trends, patterns, or opportunities to improve profitability.",
-      solution: "AI-powered financial analytics identify spending trends, cost-saving opportunities, and profitability patterns across your operation.",
+      solution: "Financial analytics identify spending trends, cost-saving opportunities, and profitability patterns across your operation.",
       benefits: [
         "Identify which expense categories are growing fastest",
         "Compare profitability across different horses or time periods",

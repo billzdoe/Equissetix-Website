@@ -82,7 +82,7 @@ const Privacy = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Horse Training Data</h3>
                   <p className="text-slate-700">
-                    We collect comprehensive training data including workout logs, health metrics, gait analysis data, GPS routes, and performance records. This data is essential for providing our AI-powered insights and injury prevention features.
+                    We collect comprehensive training data including workout logs, health metrics, gait analysis data, GPS routes, and performance records. This data is essential for providing our sports-science analysis and injury prevention features.
                   </p>
                 </div>
 
@@ -121,9 +121,9 @@ const Privacy = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Service Delivery</h3>
                   <ul className="list-disc list-inside space-y-2 text-slate-700">
-                    <li>Provide AI-powered training recommendations using Random Forest and Gradient Boosting models</li>
+                    <li>Provide training recommendations from deterministic, rules-based sports-science formulas</li>
                     <li>Calculate ACWR (Acute:Chronic Workload Ratio) for injury prevention</li>
-                    <li>Perform real-time gait analysis using our 25-keypoint pose estimation technology</li>
+                    <li>Perform video gait analysis (optical-flow by default; 25-keypoint pose estimation is opt-in)</li>
                     <li>Generate injury risk scores based on ACWR, progression, HRV, and fatigue metrics</li>
                     <li>Deliver automated health alerts and veterinary notifications</li>
                   </ul>

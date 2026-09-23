@@ -1,4 +1,5 @@
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import WhyPage, { type WhyData } from '../../components/WhyPage'
 
 const data: WhyData = {
@@ -50,8 +51,8 @@ const data: WhyData = {
 const TheScience = () => (
   <>
     <SEO
-      title="The Science — auditable sports science, honest AI | Equissetix"
-      description="Training load, readiness, and injury-risk from peer-reviewed equine physiology — deterministic, auditable formulas, not a black box. Where we use AI, we say so; where a feature needs setup, we label it."
+      title={pageSEO.whyTheScience.title}
+      description={pageSEO.whyTheScience.description}
       path="/why/the-science"
     />
     <WhyPage data={data} />

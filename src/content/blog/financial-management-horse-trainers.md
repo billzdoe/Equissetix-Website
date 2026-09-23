@@ -656,9 +656,9 @@ Which sounds better?
 ✅ **Payment processing integration**
 ✅ **Accounts receivable management**
 
-**[Start Free 14-Day Trial →](https://trainingtree.com/signup)**
+**[Request a demo →](/contact)**
 
-*No credit card required. Full platform access. Cancel anytime.*
+*Bring your barn's real workflow and we'll show you exactly how it fits.*
 
 ---
 

@@ -12,8 +12,8 @@ export interface SEOData {
 }
 
 export const defaultSEO: SEOData = {
-  title: 'Equissetix - Advanced Equine Training Platform',
-  description: 'The complete horse training management platform for professional trainers. AI-powered insights, real-time health monitoring, and comprehensive analytics.',
+  title: 'Equissetix — Barn Management & Equine Sports Science',
+  description: 'One platform to run the barn: compliance, records, staff, and billing — plus peer-reviewed sports science when you condition athletes.',
   image: 'https://equissetix.com/og-image.png',
   url: 'https://equissetix.com',
   type: 'website'
@@ -46,23 +46,66 @@ type PageSEOEntry = {
 export const pageSEO = {
   // Core pages
   home: {
-    title: 'Equissetix - Advanced Equine Training Platform',
-    description: 'Stop juggling spreadsheets. Start winning races. TrainingTree combines training, health, financials, and racing analytics into one powerful platform.',
+    title: 'Equissetix — Run the Whole Barn, On Time and On Record',
+    description: 'Every vaccination, Coggins, feed, stall, and invoice in one system so nothing lapses — with peer-reviewed sports science when you need it.',
   },
   pricing: {
-    title: 'Pricing - Equissetix TrainingTree',
-    description: 'Flexible pricing plans for every operation size. From single trainers to large barn operations. Contact us for custom pricing.',
+    title: 'Pricing — Equissetix',
+    description: 'Take the half of the platform you need, or both. Plans sized from a single barn to a full racing stable, upgrading in place.',
   },
   contact: {
-    title: 'Contact Us - Equissetix',
-    description: 'Get a free demo of TrainingTree. See how our platform can transform your training operation. Schedule your personalized demo today.',
+    title: 'Request a Demo — Equissetix',
+    description: 'Bring your barn’s real workflow and we’ll show you exactly how it fits. Now onboarding founding barns with white-glove setup.',
   },
   about: {
     title: 'About Us - Equissetix',
     description: 'Built by horse people, for horse people. Learn about Equissetix and our mission to revolutionize equine training management.',
   },
 
+  // Products — the platform and its two halves.
+  // Framing rule (see WEBSITE_REVAMP_PLAN.md F0): TrainingTree Pro IS the
+  // platform; StableTree and Performance are the halves it divides into.
+  // Never describe these as three co-equal products.
+  products: {
+    title: 'Products — One Platform, Two Halves | Equissetix',
+    description: 'TrainingTree Pro runs the barn and conditions the athlete. Need only one half? Take StableTree or Performance on its own — and add the other in place later.',
+  },
+  productStableTree: {
+    title: 'StableTree — Run the Whole Barn | Equissetix',
+    description: 'Stable management, compliance, records, staff, and money in one system. Vaccinations, Coggins, farrier dates, stalls, shifts, invoices, and owner updates, all on time.',
+  },
+  productTrainingTreePro: {
+    title: 'TrainingTree Pro — The Complete Platform | Equissetix',
+    description: 'Run the barn and condition the athlete in one platform — both halves together. Ships in Pro and Lite editions; start on Lite and upgrade in place.',
+  },
+  productPerformance: {
+    title: 'TrainingTree Performance — Condition the Athlete | Equissetix',
+    description: 'Peer-reviewed equine sports science: ACWR/TRIMP training load, daily readiness, injury-risk, video gait analysis, wearables, and racing operations.',
+  },
+
+  // Why Equissetix
+  whyCompliance: {
+    title: 'Compliance & Records — Nothing Lapses | Equissetix',
+    description: 'Coggins, vaccinations, insurance, licensing, and medication withdrawal windows on a traffic-light dashboard that warns you before anything lapses.',
+  },
+  whyOwnerTransparency: {
+    title: 'Owner Transparency — The Care Behind the Bill | Equissetix',
+    description: 'Give every owner a private portal into their horse’s health, care, and invoices. Itemized billing tied to real activity turns status calls into logins.',
+  },
+  whyTheScience: {
+    title: 'The Science — Auditable Sports Science, Honest AI | Equissetix',
+    description: 'Training load, readiness, and injury-risk from peer-reviewed equine physiology — deterministic, auditable formulas, not a black box. Where we use AI, we say so.',
+  },
+
   // Solutions
+  solutionsBoardingBarns: {
+    title: 'For Boarding & Training Barns | Equissetix StableTree',
+    description: 'Run a boarding or training barn without the paper calendar: compliance and health records that never lapse, automatic board billing, staff scheduling, and owner portals.',
+  },
+  solutionsBreedingFarms: {
+    title: 'For Breeding & Sport-Horse Farms | Equissetix StableTree',
+    description: 'A complete file on every horse from foaling to sale: health, identity, pedigree, ownership shares, and care history across the whole herd. Sale- and vetting-ready.',
+  },
   solutionsRacingTrainers: {
     title: 'For Racing Trainers - Equissetix',
     description: 'Replace the spreadsheets. Track workouts, monitor training load, and make data-driven racing decisions so you can win more races with less paperwork.',

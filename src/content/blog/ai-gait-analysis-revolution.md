@@ -591,7 +591,7 @@ Consider these statistics:
 
 ## Conclusion: The New Standard of Care
 
-AI-powered gait analysis isn't experimental technology anymore—it's becoming the **standard of care** in elite operations worldwide.
+Video gait analysis isn't experimental technology anymore—it's becoming part of the **standard of care** in elite operations.
 
 The trainers winning the most races, keeping horses sound the longest, and commanding the highest training fees all have one thing in common: **they use data to make decisions**.
 
@@ -624,17 +624,16 @@ The technology is accessible, affordable, and proven. The only question is: will
 
 ---
 
-## Start Your Free Trial Today
+## See It On Your Own Horses
 
-Experience the power of AI-powered gait analysis risk-free:
+We're onboarding a small group of founding barns with white-glove setup:
 
-✅ **14-day free trial** - Full platform access
-✅ **Unlimited gait analyses** during trial
-✅ **No credit card required** to start
-✅ **Full support** from equine AI specialists
+✅ **White-glove onboarding** — we set it up with your real workflow
+✅ **A hand in the roadmap** — founding barns shape what we build next
+✅ **Direct line to the team** building it
 ✅ **Veterinary resources** and training materials
 
-**[Begin Your Free Trial →](https://trainingtree.com/signup)**
+**[Request a demo →](/contact)**
 
 ---
 

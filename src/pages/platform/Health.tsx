@@ -45,7 +45,7 @@ const Health = () => {
               <span className="text-gradient">Real-Time Gait Analysis</span> & Health Monitoring
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              Patent-pending biomechanical analysis using temporal neural networks to detect lameness and injuries weeks before traditional methods. Integrate 8+ wearable devices automatically.
+              Patent-pending biomechanical analysis that surfaces gait asymmetry early, so you can get a vet's eyes on it sooner. Integrate 8+ wearable devices automatically.
             </p>
             <Button to="/contact" variant="primary" size="lg">
               See Health Features

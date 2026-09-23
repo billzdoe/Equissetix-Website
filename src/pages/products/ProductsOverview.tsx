@@ -5,8 +5,10 @@ import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
 import FarmPattern from '../../components/FarmPattern'
+import PlatformLineup from '../../components/PlatformLineup'
 import SEO from '../../components/SEO'
-import { products, comparisonMatrix, type MatrixCell } from '../../data/products'
+import { pageSEO } from '../../utils/seo'
+import { halfProducts, comparisonMatrix, type MatrixCell } from '../../data/products'
 
 const accentDot: Record<string, string> = {
   green: 'bg-brand-600',
@@ -37,10 +39,10 @@ const ProductsOverview = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Products — the Equissetix family | StableTree, TrainingTree Pro & Performance"
-        description="One family of equine operations software. StableTree runs the barn. TrainingTree Performance conditions the athlete. TrainingTree Pro is both. Start where you are, grow into the rest."
-        path="/products"
-      />
+      title={pageSEO.products.title}
+      description={pageSEO.products.description}
+      path="/products"
+    />
 
       {/* Hero */}
       <Section background="gradient" className="relative overflow-hidden text-center">
@@ -51,73 +53,70 @@ const ProductsOverview = () => {
           transition={{ duration: 0.6 }}
           className="relative z-10 max-w-4xl mx-auto"
         >
-          <span className="eyebrow justify-center mb-4">The product family</span>
+          <span className="eyebrow justify-center mb-4">One platform, two halves</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6 leading-[1.05]">
-            One family. <span className="text-gradient">Start where you are.</span>
+            Take the half you need. <span className="text-gradient">Or both.</span>
           </h1>
           <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            <strong>StableTree</strong> runs your barn. <strong>TrainingTree Performance</strong> conditions
-            your runners. <strong>TrainingTree Pro</strong> is both in one platform. Grow into the rest without
-            re-entering a thing.
+            <strong>TrainingTree Pro</strong> is the whole platform: it runs the barn <em>and</em> conditions
+            the athlete. Only need one side? <strong>StableTree</strong> is the barn half and{' '}
+            <strong>Performance</strong> is the training half—each sold on its own, each able to add the other
+            later without re-entering a thing.
           </p>
         </motion.div>
       </Section>
 
-      {/* Capture → interpret ladder / product cards */}
+      {/* The platform and its two halves */}
       <Section background="white" className="relative">
         <FarmPattern variant="fields" opacity={0.03} color="#0F5132" animated={false} />
-        <div className="relative z-10 grid md:grid-cols-3 gap-6">
-          {products.map((p, i) => (
+        <div className="relative z-10">
+          <PlatformLineup showCompare={false} />
+        </div>
+
+        {/* Who each half is for */}
+        <div className="relative z-10 mt-12 max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+          {halfProducts.map((p, i) => (
             <motion.div
               key={p.slug}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="border-t-2 border-navy-100 pt-5"
             >
-              <Card className="h-full flex flex-col">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className={`w-2.5 h-2.5 rounded-full ${accentDot[p.accent]}`} />
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-navy-400">
-                    {p.tagline}
-                  </span>
-                </div>
-                <h2 className="text-2xl font-bold text-navy-900 mb-2">{p.name}</h2>
-                <p className="text-sm text-navy-600 leading-relaxed mb-4 flex-grow">{p.oneLiner}</p>
-                <p className="text-xs text-navy-500 mb-5">
-                  <span className="font-semibold text-navy-700">For:</span> {p.who}
-                </p>
-                <Button to={p.route} variant="ghost" className="w-full mt-auto group">
-                  Explore {p.name}
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Card>
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`w-2 h-2 rounded-full ${accentDot[p.accent]}`} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-navy-400">
+                  {p.half === 'barn' ? 'The barn half' : 'The training half'}
+                </span>
+              </div>
+              <h2 className="text-xl font-bold text-navy-900 mb-2">{p.name}</h2>
+              <p className="text-sm text-navy-600 leading-relaxed mb-3">{p.oneLiner}</p>
+              <p className="text-sm text-navy-600 mb-4">
+                <span className="font-semibold text-navy-800">Built for:</span> {p.who}
+              </p>
+              <Link
+                to={p.route}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 group"
+              >
+                Explore {p.name}
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* Ladder */}
-        <div className="mt-12 max-w-4xl mx-auto bg-navy-50/60 border border-navy-100 rounded-2xl p-6 sm:p-8">
-          <p className="text-center text-sm font-bold uppercase tracking-[0.16em] text-navy-400 mb-6">
-            The capture → interpret ladder
+        {/* Lite vs Pro — the edition flip within the platform */}
+        <div className="relative z-10 mt-12 max-w-4xl mx-auto bg-navy-50/60 border border-navy-100 rounded-2xl p-6 sm:p-8">
+          <p className="text-center text-sm font-bold uppercase tracking-[0.16em] text-navy-400 mb-3">
+            Within the platform: Lite captures, Pro interprets
           </p>
-          <div className="grid sm:grid-cols-3 gap-4 text-center">
-            {[
-              { t: 'StableTree', d: 'Run the barn: records, compliance, staff, money, health.' },
-              { t: 'TrainingTree Pro (Lite)', d: 'The barn + a taste of the intelligence layer (teasers).' },
-              { t: 'Pro / Performance', d: 'Full sports-science engine: ACWR, readiness, gait, racing.' },
-            ].map((step, i) => (
-              <div key={step.t} className="relative">
-                <div className="bg-white rounded-xl border border-navy-100 p-4 h-full shadow-soft">
-                  <p className="font-bold text-navy-900 text-sm mb-1">{step.t}</p>
-                  <p className="text-xs text-navy-600 leading-snug">{step.d}</p>
-                </div>
-                {i < 2 && (
-                  <ArrowRight className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 h-5 w-5 text-navy-300" />
-                )}
-              </div>
-            ))}
-          </div>
+          <p className="text-center text-sm text-navy-600 max-w-2xl mx-auto">
+            TrainingTree Pro also ships a <strong>Lite</strong> edition (up to 15 horses) that keeps the full
+            daily record-keeping loop and shows the sports-science readouts as locked teasers. Moving to full
+            Pro is a per-tenant flip—same codebase, same database—so every workout logged on Lite lights up
+            the moment you upgrade.
+          </p>
         </div>
       </Section>
 
@@ -130,9 +129,9 @@ const ProductsOverview = () => {
           className="text-center mb-10"
         >
           <span className="eyebrow justify-center mb-3">Side by side</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">Compare the family</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What&rsquo;s in each half</h2>
           <p className="text-lg text-navy-600 max-w-2xl mx-auto">
-            What’s included in each product and edition. We show our work — including what needs setup.
+            Pro is both halves together — its column is the union of the other two. We show our work, including what needs setup.
           </p>
         </motion.div>
 

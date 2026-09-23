@@ -36,7 +36,7 @@ const Training = () => {
   const gaitAnalysisDetails = [
     {
       title: "Video-Based Motion Capture",
-      description: "Record your horse from your phone. Our AI tracks 25 body keypoints at 60fps—shoulders, hips, knees, fetlocks, hooves. No special equipment needed, just your smartphone."
+      description: "Record your horse from your phone. Motion tracking follows 25 body keypoints at 60fps—shoulders, hips, knees, fetlocks, hooves. No special equipment needed, just your smartphone."
     },
     {
       title: "Symmetry Analysis",
@@ -226,7 +226,7 @@ const Training = () => {
             Video <span className="text-gradient">Gait Analysis</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            AI-powered motion tracking detects lameness and asymmetries 2-3 weeks before you can see them with the naked eye
+            Video motion tracking surfaces asymmetries 2-3 weeks before you can see them with the naked eye
           </p>
         </motion.div>
 

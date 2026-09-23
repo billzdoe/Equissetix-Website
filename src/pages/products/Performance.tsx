@@ -3,6 +3,7 @@ import ProductPage from '../../components/ProductPage'
 import Section from '../../components/Section'
 import ACWRChart from '../../components/ACWRChart'
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import { productBySlug } from '../../data/products'
 
 // Performance keeps the original "train smarter" science visuals that used to
@@ -32,8 +33,8 @@ const PerformanceScienceSlot = () => (
 const Performance = () => (
   <>
     <SEO
-      title="TrainingTree Performance — Condition the athlete | Equissetix"
-      description="Peer-reviewed equine sports science: ACWR/TRIMP training load, daily readiness, injury-risk, video gait analysis, wearables, and racing operations. For racing trainers and sport-horse conditioning programs."
+      title={pageSEO.productPerformance.title}
+      description={pageSEO.productPerformance.description}
       path="/products/performance"
     />
     <ProductPage product={productBySlug('performance')} featureSlot={<PerformanceScienceSlot />} />

@@ -1,209 +1,247 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Calculator, Clock, DollarSign, TrendingUp, Check } from 'lucide-react'
-import Card from './Card'
+import { Clock, ChevronDown, ChevronUp } from 'lucide-react'
+
+/**
+ * Time-savings estimator.
+ *
+ * HONESTY CONTRACT — read before changing any number in this file.
+ *
+ * This component previously rendered (a) subscription prices of $99/$299/$599
+ * that appear NOWHERE else on the site (the pricing page says "Contact for
+ * Pricing"), (b) a net-dollar-savings and ROI-% figure derived from those
+ * invented prices, and (c) a hardcoded 85% time reduction footnoted as
+ * "based on industry averages" — which was not sourced from anything.
+ *
+ * Rules now enforced here:
+ *   1. NO price is rendered. We do not publish prices, so we cannot net
+ *      against them, and we cannot compute an ROI % or a payback period.
+ *   2. Every assumption is a visible, user-editable input — not a constant
+ *      buried in the math. If a barn disagrees with "2 hrs/horse/week," they
+ *      can change it and see their own number.
+ *   3. The output is TIME, framed as an estimate from the user's own inputs.
+ *      No dollar total is presented as a projected saving.
+ *   4. No claim of an industry average, benchmark, or study we cannot cite.
+ *
+ * If real pricing is published later (decision D1), a cost comparison may be
+ * added back — but only against prices that actually appear on /pricing.
+ */
+
+type Task = {
+  id: string
+  label: string
+  /** hours per unit per week */
+  rate: number
+  unit: 'horse' | 'staff'
+  /** how much of this task the platform takes over, 0–1 */
+  reduction: number
+  note: string
+}
+
+const DEFAULT_TASKS: Task[] = [
+  {
+    id: 'records',
+    label: 'Writing up health, feed & care records',
+    rate: 0.75,
+    unit: 'horse',
+    reduction: 0.7,
+    note: 'Logged once on the phone at the stall instead of re-keyed later.',
+  },
+  {
+    id: 'chasing',
+    label: 'Chasing dates — Coggins, shots, farrier, worming',
+    rate: 0.3,
+    unit: 'horse',
+    reduction: 0.85,
+    note: 'The dashboard tracks expiries, so nobody audits a paper calendar.',
+  },
+  {
+    id: 'billing',
+    label: 'Assembling invoices & board billing',
+    rate: 0.4,
+    unit: 'horse',
+    reduction: 0.75,
+    note: 'Charges accrue as work is logged rather than being reconstructed.',
+  },
+  {
+    id: 'owners',
+    label: 'Answering owner questions & status calls',
+    rate: 1.5,
+    unit: 'staff',
+    reduction: 0.5,
+    note: 'Owners self-serve the portal; some calls still happen, and should.',
+  },
+  {
+    id: 'handover',
+    label: 'Shift hand-over & "who did what" reconstruction',
+    rate: 1.25,
+    unit: 'staff',
+    reduction: 0.6,
+    note: 'The day’s record is already written when the shift changes.',
+  },
+]
 
 const ROICalculator = () => {
-  const [horses, setHorses] = useState(10)
-  const [staff, setStaff] = useState(3)
-  const [hourlyRate, setHourlyRate] = useState(25)
+  const [horses, setHorses] = useState(24)
+  const [staff, setStaff] = useState(4)
+  const [tasks, setTasks] = useState(DEFAULT_TASKS)
+  const [showAssumptions, setShowAssumptions] = useState(false)
 
-  // Time savings calculations (hours per week)
-  const dataEntryTime = horses * 2 // 2 hours per horse per week for manual entry
-  const reportingTime = horses * 0.5 // 30 min per horse for reports
-  const financialTime = horses * 1 // 1 hour per horse for financial tracking
-  const communicationTime = staff * 2 // 2 hours per staff for owner communication
+  const units = (t: Task) => (t.unit === 'horse' ? horses : staff)
+  const currentHours = (t: Task) => t.rate * units(t)
+  const savedHours = (t: Task) => currentHours(t) * t.reduction
 
-  const totalManualHours = dataEntryTime + reportingTime + financialTime + communicationTime
-  const automatedHours = totalManualHours * 0.15 // TrainingTree reduces to 15% of manual time
-  const hoursSaved = totalManualHours - automatedHours
+  const totalCurrent = tasks.reduce((sum, t) => sum + currentHours(t), 0)
+  const totalSaved = tasks.reduce((sum, t) => sum + savedHours(t), 0)
+  const totalAfter = totalCurrent - totalSaved
 
-  // Financial calculations
-  const weeklySavings = hoursSaved * hourlyRate
-  const monthlySavings = weeklySavings * 4.33
-  const annualSavings = monthlySavings * 12
-
-  // Subscription cost estimate
-  const subscriptionCost = horses <= 10 ? 99 : horses <= 50 ? 299 : 599
-  const annualSubscriptionCost = subscriptionCost * 12
-  const netAnnualSavings = annualSavings - annualSubscriptionCost
-
-  const roi = ((netAnnualSavings / annualSubscriptionCost) * 100).toFixed(0)
+  const setRate = (id: string, rate: number) =>
+    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, rate } : t)))
 
   return (
-    <Card className="bg-gradient-to-br from-brand-50 to-blue-50">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center">
-          <Calculator className="h-6 w-6 text-white" />
-        </div>
-        <div>
-          <h3 className="text-2xl font-bold text-navy-900">ROI Calculator</h3>
-          <p className="text-sm text-slate-600">See how much time and money you'll save</p>
+    <div className="bg-white rounded-xl border border-navy-100 overflow-hidden">
+      {/* Header */}
+      <div className="px-6 sm:px-8 pt-7 pb-6 border-b border-navy-100">
+        <div className="flex items-start gap-3 mb-2">
+          <Clock className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-navy-900">
+              Where the week actually goes
+            </h3>
+            <p className="text-sm text-navy-600 mt-1">
+              Set the size of your barn. Every assumption below is yours to change — if a
+              number looks wrong for your operation, correct it and the estimate follows.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Input Sliders */}
-      <div className="space-y-6 mb-8">
-        {/* Number of Horses */}
+      {/* Size inputs */}
+      <div className="px-6 sm:px-8 py-6 grid sm:grid-cols-2 gap-6 border-b border-navy-100">
         <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-semibold text-slate-700">Number of Horses</label>
-            <span className="text-lg font-bold text-brand-600">{horses}</span>
+          <div className="flex items-baseline justify-between mb-2">
+            <label htmlFor="roi-horses" className="text-sm font-semibold text-navy-700">
+              Horses
+            </label>
+            <span className="text-lg font-bold text-navy-900 font-mono tabular-nums">{horses}</span>
           </div>
           <input
+            id="roi-horses"
             type="range"
             min="1"
-            max="100"
+            max="120"
             value={horses}
             onChange={(e) => setHorses(Number(e.target.value))}
-            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-500"
+            className="w-full h-1.5 bg-navy-100 rounded-full appearance-none cursor-pointer accent-brand-600"
           />
         </div>
-
-        {/* Staff Members */}
         <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-semibold text-slate-700">Staff Members</label>
-            <span className="text-lg font-bold text-brand-600">{staff}</span>
+          <div className="flex items-baseline justify-between mb-2">
+            <label htmlFor="roi-staff" className="text-sm font-semibold text-navy-700">
+              Staff on the roster
+            </label>
+            <span className="text-lg font-bold text-navy-900 font-mono tabular-nums">{staff}</span>
           </div>
           <input
+            id="roi-staff"
             type="range"
             min="1"
-            max="20"
+            max="30"
             value={staff}
             onChange={(e) => setStaff(Number(e.target.value))}
-            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-500"
-          />
-        </div>
-
-        {/* Hourly Rate */}
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-semibold text-slate-700">Average Hourly Rate</label>
-            <span className="text-lg font-bold text-brand-600">${hourlyRate}</span>
-          </div>
-          <input
-            type="range"
-            min="15"
-            max="100"
-            step="5"
-            value={hourlyRate}
-            onChange={(e) => setHourlyRate(Number(e.target.value))}
-            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-500"
+            className="w-full h-1.5 bg-navy-100 rounded-full appearance-none cursor-pointer accent-brand-600"
           />
         </div>
       </div>
 
-      {/* Results Grid */}
-      <div className="grid md:grid-cols-2 gap-4 mb-6">
-        {/* Time Savings */}
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="bg-white rounded-xl p-4 border-2 border-success-200"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <Clock className="h-5 w-5 text-success-600" />
-            <p className="text-sm font-semibold text-slate-600">Time Saved Per Week</p>
+      {/* Result — one emphasized figure, not four competing tiles */}
+      <div className="px-6 sm:px-8 py-7 bg-brand-50/60 border-b border-navy-100">
+        <div className="flex flex-wrap items-end gap-x-10 gap-y-5">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-700 mb-1">
+              Admin hours returned per week
+            </p>
+            <p className="text-4xl sm:text-5xl font-bold text-brand-700 font-mono tabular-nums leading-none">
+              {totalSaved.toFixed(0)}
+              <span className="text-2xl font-sans font-semibold ml-1.5">hrs</span>
+            </p>
           </div>
-          <p className="text-3xl font-bold text-success-600">{hoursSaved.toFixed(1)} hrs</p>
-          <p className="text-xs text-slate-500 mt-1">
-            {totalManualHours.toFixed(0)} hrs manual → {automatedHours.toFixed(0)} hrs automated
-          </p>
-        </motion.div>
-
-        {/* Annual Savings */}
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          className="bg-white rounded-xl p-4 border-2 border-brand-200"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <DollarSign className="h-5 w-5 text-brand-600" />
-            <p className="text-sm font-semibold text-slate-600">Net Annual Savings</p>
-          </div>
-          <p className="text-3xl font-bold text-brand-600">${netAnnualSavings.toLocaleString()}</p>
-          <p className="text-xs text-slate-500 mt-1">
-            ${annualSavings.toLocaleString()} saved - ${annualSubscriptionCost.toLocaleString()} subscription
-          </p>
-        </motion.div>
-
-        {/* Monthly Savings */}
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-          className="bg-white rounded-xl p-4 border-2 border-gold-200"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <TrendingUp className="h-5 w-5 text-gold-600" />
-            <p className="text-sm font-semibold text-slate-600">Monthly Savings</p>
-          </div>
-          <p className="text-3xl font-bold text-gold-600">${monthlySavings.toLocaleString()}</p>
-          <p className="text-xs text-slate-500 mt-1">
-            ${weeklySavings.toFixed(0)}/week in labor costs
-          </p>
-        </motion.div>
-
-        {/* ROI Percentage */}
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-          className="bg-gradient-to-br from-success-500 to-success-600 rounded-xl p-4 text-white"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <TrendingUp className="h-5 w-5" />
-            <p className="text-sm font-semibold">Return on Investment</p>
-          </div>
-          <p className="text-3xl font-bold">{roi}%</p>
-          <p className="text-xs opacity-90 mt-1">
-            {parseFloat(roi) > 0 ? `${(12 / (annualSubscriptionCost / monthlySavings)).toFixed(1)} month payback` : 'Adjust inputs'}
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Breakdown */}
-      <div className="bg-white rounded-xl p-4 border border-slate-200">
-        <h4 className="text-sm font-bold text-slate-700 mb-3">Time Savings Breakdown</h4>
-        <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <Check className="h-3 w-3 text-success-600" />
-              <span className="text-slate-600">Data entry automation</span>
-            </div>
-            <span className="font-semibold text-slate-700">{(dataEntryTime * 0.85).toFixed(1)} hrs/wk</span>
-          </div>
-          <div className="flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <Check className="h-3 w-3 text-success-600" />
-              <span className="text-slate-600">Automated reporting</span>
-            </div>
-            <span className="font-semibold text-slate-700">{(reportingTime * 0.85).toFixed(1)} hrs/wk</span>
-          </div>
-          <div className="flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <Check className="h-3 w-3 text-success-600" />
-              <span className="text-slate-600">Financial tracking</span>
-            </div>
-            <span className="font-semibold text-slate-700">{(financialTime * 0.85).toFixed(1)} hrs/wk</span>
-          </div>
-          <div className="flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <Check className="h-3 w-3 text-success-600" />
-              <span className="text-slate-600">Owner communication</span>
-            </div>
-            <span className="font-semibold text-slate-700">{(communicationTime * 0.85).toFixed(1)} hrs/wk</span>
+          <div className="text-sm text-navy-600 pb-1">
+            <p className="font-mono tabular-nums">
+              {totalCurrent.toFixed(0)} hrs today → {totalAfter.toFixed(0)} hrs after
+            </p>
+            <p className="text-xs text-navy-500 mt-1">
+              Roughly {(totalSaved / 5).toFixed(1)} hours back in each working day.
+            </p>
           </div>
         </div>
       </div>
 
-      <p className="text-xs text-slate-500 text-center mt-4">
-        * Calculations based on industry averages. Actual savings may vary.
-      </p>
-    </Card>
+      {/* Per-task breakdown */}
+      <div className="px-6 sm:px-8 py-6">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="text-sm font-bold text-navy-800">What that's made of</h4>
+          <button
+            type="button"
+            onClick={() => setShowAssumptions((v) => !v)}
+            className="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 hover:text-brand-700"
+          >
+            {showAssumptions ? 'Hide' : 'Edit'} assumptions
+            {showAssumptions ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+          </button>
+        </div>
+
+        <div className="divide-y divide-navy-100">
+          {tasks.map((task) => (
+            <div key={task.id} className="py-3">
+              <div className="flex items-baseline justify-between gap-4">
+                <span className="text-sm text-navy-700">{task.label}</span>
+                <span className="text-sm font-semibold text-navy-900 font-mono tabular-nums whitespace-nowrap">
+                  −{savedHours(task).toFixed(1)} hrs
+                </span>
+              </div>
+
+              {showAssumptions && (
+                <div className="mt-3 pl-0 sm:pl-4 border-l-2 border-brand-100 space-y-2">
+                  <p className="text-xs text-navy-500 italic">{task.note}</p>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-navy-600">
+                    <label htmlFor={`rate-${task.id}`} className="font-medium">
+                      Hours per {task.unit} per week:
+                    </label>
+                    <input
+                      id={`rate-${task.id}`}
+                      type="number"
+                      min="0"
+                      max="20"
+                      step="0.05"
+                      value={task.rate}
+                      onChange={(e) => setRate(task.id, Math.max(0, Number(e.target.value)))}
+                      className="w-20 px-2 py-1 rounded border border-navy-200 font-mono tabular-nums text-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    />
+                    <span className="text-navy-400">
+                      × {units(task)} {task.unit === 'horse' ? 'horses' : 'staff'} ={' '}
+                      <span className="font-mono tabular-nums">{currentHours(task).toFixed(1)} hrs</span> today,
+                      of which we estimate{' '}
+                      <span className="font-mono tabular-nums">{Math.round(task.reduction * 100)}%</span> goes away
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Honest footer — no fabricated authority, no invented prices */}
+      <div className="px-6 sm:px-8 py-5 bg-navy-50/60 border-t border-navy-100">
+        <p className="text-xs text-navy-600 leading-relaxed">
+          <strong className="text-navy-800">How to read this.</strong> These are starting
+          estimates from our own work in barns, not a published benchmark or a customer study —
+          we're pre-launch and won't pretend otherwise. They're deliberately editable because
+          your barn is the authority on your barn. We've left out any dollar figure: we don't
+          publish a price yet, so any "savings" total would be a number we made up.
+        </p>
+      </div>
+    </div>
   )
 }
 

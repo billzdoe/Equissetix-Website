@@ -9,7 +9,7 @@ import { pageSEO } from '../../utils/seo'
 const Analytics = () => {
   const capabilities = [
     "Real-time dashboards with customizable metrics and KPIs",
-    "AI-powered insights and trend analysis across your stable",
+    "Trend analysis across your stable",
     "Performance benchmarking against industry standards",
     "Predictive analytics for injury risk and race readiness",
     "Financial reporting and ROI analysis by horse and owner",
@@ -32,7 +32,7 @@ const Analytics = () => {
               <span className="text-gradient">Data-Driven Decisions</span> For Every Horse
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              Transform raw data into actionable insights with AI-powered analytics and beautiful visualizations.
+              Transform raw data into actionable insights with clear analytics and beautiful visualizations.
             </p>
             <Button to="/contact" variant="primary" size="lg">
               Explore Analytics
@@ -83,7 +83,7 @@ const Analytics = () => {
               <h3 className="text-lg font-bold text-success-900">Our Solution</h3>
             </div>
             <p className="text-sm text-slate-700 mb-3">
-              AI-powered analytics automatically identify trends, predict risks, and surface insights in real-time dashboards.
+              Automated analytics identify trends, predict risks, and surface insights in real-time dashboards.
             </p>
             <div className="bg-white/50 rounded-lg p-2">
               <p className="text-xl font-bold text-success-900 mb-1">10x faster</p>
@@ -99,7 +99,7 @@ const Analytics = () => {
             </div>
             <ul className="space-y-1.5 text-xs text-slate-700">
               <li>• Real-time dashboards</li>
-              <li>• AI-powered insights</li>
+              <li>• Sports-science insights</li>
               <li>• Predictive analytics</li>
               <li>• Financial ROI analysis</li>
               <li>• Exportable reports</li>

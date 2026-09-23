@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion'
 import { Check, ArrowRight, X } from 'lucide-react'
-import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Section from '../components/Section'
+import PlatformLineup from '../components/PlatformLineup'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
-import { products } from '../data/products'
 
 const Pricing = () => {
   const tiers = [
@@ -61,12 +60,12 @@ const Pricing = () => {
 
   const faqs = [
     {
-      question: "What's the difference between StableTree and TrainingTree?",
-      answer: "StableTree runs the barn—compliance, records, staff, and money—with no sports-science tools. TrainingTree Pro adds the full sports-science engine (training load, readiness, gait analysis, racing) on top of everything StableTree does. TrainingTree Performance is the sports-science half on its own, for programs that only condition racehorses."
+      question: "What's the difference between StableTree, Performance, and TrainingTree Pro?",
+      answer: "TrainingTree Pro is the whole platform, and it's made of two halves. StableTree is the barn half—compliance, records, staff, money, and health, with no sports-science tools. TrainingTree Performance is the training half—training load, readiness, gait analysis, and racing. Take whichever half you need on its own, or take both, which is Pro."
     },
     {
-      question: "Can I upgrade from StableTree to TrainingTree later?",
-      answer: "Yes. Your data carries over—horses, records, health, staff, and financials all stay intact. On TrainingTree Pro, moving from the Lite edition (up to 15 horses) to full Pro is an in-place flip, so every workout you've already logged lights up the moment you upgrade."
+      question: "Can I add the other half later?",
+      answer: "Yes—that's the point of the design. Your data carries over: horses, records, health, staff, and financials all stay intact, because both halves are the same platform. Separately, on TrainingTree Pro, moving from the Lite edition (up to 15 horses) to full Pro is an in-place flip, so every workout you've already logged lights up the moment you upgrade."
     },
     {
       question: "Can I switch plans?",
@@ -121,41 +120,16 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <span className="eyebrow justify-center mb-3">Step 1 · Pick a product</span>
+          <span className="eyebrow justify-center mb-3">Step 1 · Pick how much you need</span>
           <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-3">
-            First, choose the product that fits
+            First, choose one half or both
           </h2>
           <p className="text-lg text-navy-600 max-w-2xl mx-auto">
-            Then pick a size below. Every product starts small and upgrades in place — you never re-enter data.
+            Then pick a size below. Whichever you start with upgrades in place — you never re-enter data.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-4">
-          {products.map((p) => (
-            <Card key={p.slug} className="h-full flex flex-col">
-              <div className="flex items-center gap-2 mb-2">
-                <span
-                  className={`w-2.5 h-2.5 rounded-full ${
-                    p.accent === 'green' ? 'bg-brand-600' : p.accent === 'gold' ? 'bg-gold-500' : 'bg-teal-600'
-                  }`}
-                />
-                <span className="text-xs font-bold uppercase tracking-[0.14em] text-navy-400">{p.tagline}</span>
-              </div>
-              <h3 className="text-xl font-bold text-navy-900 mb-2">{p.name}</h3>
-              <p className="text-sm text-navy-600 mb-4 flex-grow">{p.oneLiner}</p>
-              <Link to={p.route} className="text-sm font-semibold text-brand-600 hover:text-brand-700">
-                What’s included →
-              </Link>
-            </Card>
-          ))}
-        </div>
-        <p className="text-center text-sm text-navy-500">
-          Want the full breakdown?{' '}
-          <Link to="/products" className="font-semibold text-brand-600 hover:text-brand-700 underline">
-            Compare all products side by side
-          </Link>
-          .
-        </p>
+        <PlatformLineup />
       </Section>
 
       {/* Step 2 — pick a size */}
@@ -171,7 +145,7 @@ const Pricing = () => {
             Plans that scale with your operation
           </h2>
           <p className="text-lg text-navy-600 max-w-2xl mx-auto">
-            Sizes below apply to any product. TrainingTree Pro also offers a <strong>Lite</strong> edition
+            Sizes below apply whichever way you start. TrainingTree Pro also offers a <strong>Lite</strong> edition
             (up to 15 horses) that upgrades to full Pro in place.
           </p>
         </motion.div>
@@ -350,7 +324,7 @@ const Pricing = () => {
                   <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>
                 </tr>
                 <tr className="border-b border-slate-200">
-                  <td className="p-4 text-slate-700">AI race predictions</td>
+                  <td className="p-4 text-slate-700">Race outlook (real entries &amp; records)</td>
                   <td className="p-4 text-center"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
                   <td className="p-4 text-center bg-brand-50/40"><X className="h-5 w-5 text-slate-400 mx-auto" /></td>
                   <td className="p-4 text-center"><Check className="h-5 w-5 text-success-600 mx-auto" /></td>

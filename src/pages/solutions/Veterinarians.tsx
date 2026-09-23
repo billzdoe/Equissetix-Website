@@ -37,7 +37,7 @@ const Veterinarians = () => {
       title: "Real-Time Gait Analysis & Early Detection",
       description: "Patent-pending biomechanical analysis detects lameness and injuries weeks before traditional methods. Symmetry analysis (left-right, front-hind, diagonal) with normalized difference scoring. Alerts trigger when symmetry drops below 0.6.",
       details: [
-        "25-keypoint pose estimation with temporal neural networks",
+        "25-keypoint pose estimation (opt-in; optical-flow analysis by default)",
         "Detects lameness at symmetry below 0.6",
         "Biomechanical metrics: stride length/frequency, cadence, stance/swing/flight phases",
         "Gait classification: walk, trot, canter, gallop with frequency analysis",

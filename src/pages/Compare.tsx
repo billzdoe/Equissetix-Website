@@ -31,9 +31,10 @@ const Compare = () => {
       {/* ROI Calculator Section */}
       <Section background="white">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-3">Calculate Your Savings</h2>
+          <h2 className="text-3xl font-bold mb-3">Estimate the time you'd get back</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            See exactly how much time and money TrainingTree Pro will save your operation
+            Set your barn's size, then adjust any assumption you disagree with — the estimate
+            is built from your numbers, not ours.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
@@ -75,7 +76,7 @@ const Compare = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">•</span>
-                <span>AI-powered predictions and recommendations</span>
+                <span>Auditable sports-science recommendations, not manual guesswork</span>
               </li>
             </ul>
           </motion.div>
@@ -135,7 +136,7 @@ const Compare = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-600 font-bold">•</span>
-                <span>Evidence-based AI trained on equine science</span>
+                <span>Recommendations traceable to published equine physiology</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-600 font-bold">•</span>
@@ -156,7 +157,7 @@ const Compare = () => {
         >
           <h2 className="text-4xl font-bold mb-6">Ready to Make the Switch?</h2>
           <p className="text-xl text-slate-700 mb-8">
-            Join leading trainers and operations who've already modernized their management
+            We're onboarding a small group of founding barns with white-glove setup—bring your real workflow and we'll show you how it fits
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">

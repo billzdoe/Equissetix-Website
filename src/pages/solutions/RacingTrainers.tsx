@@ -11,7 +11,7 @@ const RacingTrainers = () => {
   const painPoints = [
     {
       problem: "30% of horses sidelined due to overtraining",
-      solution: "ACWR monitoring with AI-powered alerts",
+      solution: "ACWR monitoring with automated alerts",
       benefit: "Reduce injury rate by 40%"
     },
     {
@@ -45,7 +45,7 @@ const RacingTrainers = () => {
     {
       icon: <BarChart3 className="h-6 w-6" />,
       title: "Race Performance Predictions",
-      description: "AI-powered race predictions based on training data and competitor analysis"
+      description: "Race outlook from real entries, career records, and your own training data"
     },
     {
       icon: <Users className="h-6 w-6" />,

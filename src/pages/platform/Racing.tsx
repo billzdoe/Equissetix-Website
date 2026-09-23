@@ -17,7 +17,7 @@ const Racing = () => {
     {
       icon: <TrendingUp className="h-8 w-8" />,
       title: "Performance Pattern Recognition",
-      description: "AI identifies patterns like 'runs 2 lengths faster on wet tracks' or 'struggles in deep ground.' Based on actual race times and finishes across hundreds of past races."
+      description: "Surfaces patterns like 'runs 2 lengths faster on wet tracks' or 'struggles in deep ground' from the horse's actual race times and finishes."
     },
     {
       icon: <Sun className="h-8 w-8" />,
@@ -32,7 +32,7 @@ const Racing = () => {
   ]
 
   const capabilities = [
-    "AI-powered race predictions based on historical performance data",
+    "Race outlook built from real entries and actual career records",
     "Competitor analysis and benchmarking against the field",
     "Track condition recommendations based on past performance patterns",
     "Race readiness scoring based on training load and health metrics",
@@ -82,7 +82,7 @@ const Racing = () => {
               <span className="text-gradient">Win More Races</span> With Data-Driven Insights
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              AI-powered predictions and competitor analysis give you the edge to make smarter racing decisions.
+              Real entries, career records, and competitor context give you the edge to make smarter racing decisions.
             </p>
             <Button to="/contact" variant="primary" size="lg">
               See How It Works
@@ -133,7 +133,7 @@ const Racing = () => {
               <h3 className="text-lg font-bold text-success-900">Our Solution</h3>
             </div>
             <p className="text-sm text-slate-700 mb-3">
-              AI analyzes training load, health metrics, track conditions, and competitor stats to predict outcomes and optimize strategy.
+              Training load, health metrics, track conditions, and real career records in one view, so you can plan the campaign with the whole picture.
             </p>
             <div className="bg-white/50 rounded-lg p-2">
               <p className="text-xl font-bold text-success-900 mb-1">35%</p>
@@ -148,7 +148,7 @@ const Racing = () => {
               <h3 className="text-lg font-bold text-navy-900">Key Features</h3>
             </div>
             <ul className="space-y-1.5 text-xs text-slate-700">
-              <li>• AI race predictions</li>
+              <li>• Race outlook from real entries</li>
               <li>• Competitor analysis</li>
               <li>• Track condition recommendations</li>
               <li>• Race readiness scoring</li>
@@ -432,7 +432,7 @@ const Racing = () => {
         >
           <h2 className="text-4xl font-bold mb-6">Start Winning More Races</h2>
           <p className="text-xl text-slate-700 mb-8">
-            Transform your racing strategy with AI-powered insights and competitor intelligence.
+            Transform your racing strategy with real race data and competitor context.
           </p>
           <Button to="/contact" variant="primary" size="lg">
             Get a Free Demo

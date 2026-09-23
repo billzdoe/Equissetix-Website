@@ -76,12 +76,12 @@ const Terms = () => {
                   <li>Training and workout tracking with 23+ thoroughbred-specific workout types</li>
                   <li>ACWR (Acute:Chronic Workload Ratio) calculation and monitoring for injury prevention</li>
                   <li>Patent-pending multi-sensor fusion technology combining IMU (up to 60 Hz), GPS, and video data</li>
-                  <li>AI-powered workout recommendations using Random Forest and Gradient Boosting machine learning models</li>
-                  <li>Real-time gait analysis with 25-keypoint pose estimation (Conv1D-LSTM neural networks)</li>
+                  <li>Workout recommendations from deterministic, rules-based sports-science formulas you can audit</li>
+                  <li>Video gait analysis (optical-flow by default; 25-keypoint pose estimation is opt-in)</li>
                   <li>Injury risk scoring based on ACWR (0.25 weight), progression (0.15), HRV (0.15), and fatigue (0.20)</li>
                   <li>Health monitoring with automated veterinary alerts and notifications</li>
                   <li>Financial management tools including invoicing, expense tracking, and profitability analysis</li>
-                  <li>Racing and competition management with AI race predictions and gallop out metrics</li>
+                  <li>Racing and competition management with race outlook from real entries, career records, and gallop-out metrics</li>
                   <li>Integration with 8+ wearable devices (Equimetre, Polar Equine, StrideSAFE, etc.)</li>
                   <li>Mobile applications with offline functionality and QR code horse identification</li>
                 </ul>
@@ -122,7 +122,7 @@ const Terms = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Data Accuracy</h3>
                   <p className="text-slate-700">
-                    You are responsible for the accuracy of data you enter into the Platform. While our AI algorithms provide recommendations, you retain full responsibility for training decisions and horse care.
+                    You are responsible for the accuracy of data you enter into the Platform. While the Platform provides sports-science recommendations, you retain full responsibility for training decisions and horse care.
                   </p>
                 </div>
               </div>

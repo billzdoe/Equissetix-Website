@@ -1,9 +1,9 @@
 {
-  "name": "Equissetix - Advanced Equine Training Platform",
+  "name": "Equissetix - Barn Management & Equine Sports Science",
   "short_name": "Equissetix",
-  "description": "AI-powered horse training, health monitoring, and performance analytics. Powering TrainingTree Pro.",
+  "description": "Barn management, compliance, and peer-reviewed equine sports science. Powering TrainingTree Pro.",
   "start_url": "/",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#052e16",
   "theme_color": "#0F5132",
   "icons": [

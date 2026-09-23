@@ -23,8 +23,8 @@ import HowItWorksSteps from '../components/HowItWorksSteps'
 import FarmPattern from '../components/FarmPattern'
 import GaitSymmetryShowcase from '../components/GaitSymmetryShowcase'
 import PlatformExplorer from '../components/PlatformExplorer'
+import PlatformLineup from '../components/PlatformLineup'
 import SectionJumpBar from '../components/SectionJumpBar'
-import { products } from '../data/products'
 
 const Home = () => {
   const problems = [
@@ -116,7 +116,7 @@ const Home = () => {
               Equissetix<sup className="text-xs">™</sup> runs the whole barn—every vaccination, Coggins, feed, stall, and
               invoice in one system so nothing lapses—and layers on the same peer-reviewed sports science that
               conditions <span className="font-semibold text-navy-800">the fastest horses in the world.</span>{' '}
-              Care for the herd. Sharpen the racehorse. One platform, multiple tiers.
+              Care for the herd. Sharpen the racehorse. One platform—take the half you need, or both.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -125,7 +125,7 @@ const Home = () => {
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button to="/products" variant="ghost" size="lg">
-                Which product is right for me?
+                Which half do I need?
               </Button>
             </div>
 
@@ -263,51 +263,18 @@ const Home = () => {
           transition={{ duration: 0.4 }}
           className="text-center mb-12 relative z-10"
         >
-          <span className="eyebrow justify-center mb-4">One family, not one tool</span>
+          <span className="eyebrow justify-center mb-4">One platform, two halves</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
-            Three products. <span className="text-gradient">Start where you are.</span>
+            Take the half you need. <span className="text-gradient">Or both.</span>
           </h2>
           <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            <strong>StableTree</strong> keeps every horse cared for and every record straight.
-            <strong> Performance</strong> conditions your runners. <strong>TrainingTree Pro</strong> does
-            both—grow into the rest without re-entering a thing.
+            <strong>TrainingTree Pro</strong> runs the barn <em>and</em> conditions the athlete. If you only
+            need one side of that, take it on its own—and add the other later without re-entering a thing.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 relative z-10">
-          {products.map((p, index) => (
-            <motion.div
-              key={p.slug}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-            >
-              <Card className="h-full flex flex-col">
-                <div className="flex items-center gap-2 mb-3">
-                  <span
-                    className={`w-2.5 h-2.5 rounded-full ${
-                      p.accent === 'green' ? 'bg-brand-600' : p.accent === 'gold' ? 'bg-gold-500' : 'bg-teal-600'
-                    }`}
-                  />
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-navy-400">{p.tagline}</span>
-                </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-2">{p.name}</h3>
-                <p className="text-sm text-navy-600 leading-relaxed mb-5 flex-grow">{p.oneLiner}</p>
-                <Button to={p.route} variant="ghost" className="w-full mt-auto group">
-                  Learn more
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="text-center mt-10 relative z-10">
-          <Button to="/products" variant="accent" size="lg">
-            Compare all products
-            <ArrowRight className="h-5 w-5" />
-          </Button>
+        <div className="relative z-10">
+          <PlatformLineup />
         </div>
       </Section>
 
@@ -427,7 +394,7 @@ const Home = () => {
           </h2>
           <p className="text-lg sm:text-xl text-white/85">
             Once the barn runs itself, the same platform sharpens the racehorse—peer-reviewed training load,
-            readiness scoring, and gait analysis trusted by trainers chasing the winner’s circle.
+            readiness scoring, and gait analysis for trainers chasing the winner’s circle.
           </p>
         </motion.div>
 
@@ -491,28 +458,14 @@ const Home = () => {
           className="relative z-10 max-w-4xl mx-auto"
         >
           <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-white/50 mb-5">
-            Proven at every tier — grow into the science when you’re ready
+            The training half — on its own, or as part of the whole
           </p>
-          <div className="grid sm:grid-cols-3 gap-4 mb-8">
-            {[
-              { name: 'StableTree', note: 'Run the barn' },
-              { name: 'TrainingTree Pro', note: 'Barn + full sports science (Lite → Pro)' },
-              { name: 'Performance', note: 'Condition the elite racehorse' },
-            ].map((t, i) => (
-              <div key={t.name} className="relative">
-                <div className="bg-white/[0.06] border border-white/15 rounded-xl px-4 py-4 text-center h-full">
-                  <p className="font-bold text-white text-sm mb-1">{t.name}</p>
-                  <p className="text-xs text-white/60">{t.note}</p>
-                </div>
-                {i < 2 && (
-                  <ArrowRight className="hidden sm:block absolute top-1/2 -right-3 -translate-y-1/2 h-5 w-5 text-gold-400/70" />
-                )}
-              </div>
-            ))}
+          <div className="mb-8">
+            <PlatformLineup tone="dark" showCompare={false} />
           </div>
           <div className="text-center">
             <Button to="/products/performance" variant="primary" size="lg">
-              Explore the performance platform
+              Explore the performance half
               <ArrowRight className="h-5 w-5" />
             </Button>
           </div>
@@ -522,7 +475,7 @@ const Home = () => {
       {/* Track Condition Analysis - NEW PROMINENT FEATURE */}
       <TrackConditionFeature />
 
-      {/* Gait Symmetry Analysis - AI-POWERED LAMENESS DETECTION */}
+      {/* Gait Symmetry Analysis - video-based asymmetry detection */}
       <GaitSymmetryShowcase />
 
       {/* How It Works Section */}
@@ -565,42 +518,13 @@ const Home = () => {
         >
           <span className="eyebrow justify-center mb-4">Pricing</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
-            Start with the <span className="text-gradient">right product</span>, then pick your size
+            Pick <span className="text-gradient">how much of the platform</span> you need
           </h2>
           <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            Three products, sized to your operation—from a single barn to a full racing stable. Every one
-            upgrades in place, so you never re-enter a thing.
+            One half or both, then sized to your operation—from a single barn to a full racing stable.
+            Every plan upgrades in place, so you never re-enter a thing.
           </p>
         </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-8 relative z-10">
-          {products.map((p, index) => (
-            <motion.div
-              key={p.slug}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-              transition={{ duration: 0.3, delay: index * 0.08 }}
-            >
-              <Card className="h-full flex flex-col hover:border-brand-500 border border-slate-200 transition-all">
-                <div className="flex items-center gap-2 mb-3">
-                  <span
-                    className={`w-2.5 h-2.5 rounded-full ${
-                      p.accent === 'green' ? 'bg-brand-600' : p.accent === 'gold' ? 'bg-gold-500' : 'bg-teal-600'
-                    }`}
-                  />
-                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-navy-400">{p.tagline}</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-2 text-navy-900">{p.name}</h3>
-                <p className="text-sm text-slate-600 mb-6 flex-grow">{p.oneLiner}</p>
-                <Button to="/pricing" variant="ghost" className="w-full mt-auto group">
-                  See pricing
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
 
         <div className="text-center relative z-10">
           <Button to="/pricing" variant="accent" size="lg">

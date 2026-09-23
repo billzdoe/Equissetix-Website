@@ -27,7 +27,7 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: <Brain className="h-8 w-8" />,
-    title: 'AI-Powered Training Trees',
+    title: 'Guided Training Trees',
     description: 'Intelligent training program generation based on individual horse performance, goals, and historical data.',
     details: [
       'Automated training phase recommendations',
@@ -153,7 +153,7 @@ const features: Feature[] = [
   {
     icon: <AlertTriangle className="h-8 w-8" />,
     title: 'Injury Prediction & Prevention',
-    description: 'AI-powered algorithms identify injury risk patterns before they become problems.',
+    description: 'Rules-based scoring surfaces injury-risk patterns before they become problems.',
     details: [
       'Biomechanical analysis',
       'Gait abnormality detection',

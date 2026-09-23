@@ -1,4 +1,5 @@
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import WhyPage, { type WhyData } from '../../components/WhyPage'
 
 const data: WhyData = {
@@ -51,8 +52,8 @@ const data: WhyData = {
 const Compliance = () => (
   <>
     <SEO
-      title="Compliance & Records — nothing lapses | Equissetix"
-      description="Coggins, vaccinations, insurance, licensing, and medication withdrawal windows on a traffic-light dashboard that warns you before anything lapses. Keep every horse eligible, insured, and inspection-ready."
+      title={pageSEO.whyCompliance.title}
+      description={pageSEO.whyCompliance.description}
       path="/why/compliance"
     />
     <WhyPage data={data} />

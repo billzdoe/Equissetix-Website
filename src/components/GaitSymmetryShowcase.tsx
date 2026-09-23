@@ -58,7 +58,7 @@ const GaitSymmetryShowcase = () => {
     {
       icon: Activity,
       title: 'Real-Time Analysis',
-      description: 'Instant symmetry detection during workouts using AI-powered sensors'
+      description: 'Instant symmetry detection during workouts using motion-tracking sensors'
     },
     {
       icon: Smartphone,
@@ -101,11 +101,11 @@ const GaitSymmetryShowcase = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-              AI-Powered <span className="text-gradient">Gait Symmetry Analysis</span>
+              Motion-Tracked <span className="text-gradient">Gait Symmetry Analysis</span>
             </h2>
             <p className="text-lg sm:text-xl text-charcoal-700 max-w-3xl mx-auto">
               Detect lameness early with real-time left-right balance monitoring.
-              TrainingTree Pro's AI analyzes every stride to catch problems before they become serious injuries.
+              TrainingTree Pro analyzes every stride to catch problems before they become serious injuries.
             </p>
           </motion.div>
         </div>
@@ -363,7 +363,7 @@ const GaitSymmetryShowcase = () => {
             Start Free Trial - See It In Action
           </button>
           <p className="text-sm text-charcoal-600 mt-4">
-            Use AI-powered gait analysis to keep your horses sound and performing at their peak
+            Use video gait analysis to keep your horses sound and performing at their peak
           </p>
         </motion.div>
       </div>

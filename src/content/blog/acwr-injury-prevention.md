@@ -159,7 +159,7 @@ While ACWR is powerful, elite trainers combine it with:
 
 ### 2. Gait Analysis
 - Detects subtle asymmetries before they become injuries
-- AI-powered analysis from video
+- Automated symmetry analysis from video
 - Tracks stride length, frequency, regularity
 
 ### 3. Biometric Data
@@ -286,7 +286,7 @@ You don't need expensive equipment or complex systems to begin using ACWR:
 
 ACWR is just the beginning. The future of equine training includes:
 
-- **AI-powered injury prediction** (70-80% accuracy)
+- **Automated injury-risk scoring** from training-load data
 - **Personalized training plans** generated automatically
 - **Real-time biometric monitoring** during workouts
 - **Genetic insights** for optimal training response
@@ -344,11 +344,11 @@ The question isn't whether to implement ACWR monitoring—it's whether you can a
 
 ## About TrainingTree Pro
 
-TrainingTree Pro is the industry's most advanced horse training management platform, featuring automated ACWR monitoring, AI-powered injury prediction, and comprehensive biometric integration. Used by elite trainers managing over 10,000 horses worldwide.
+TrainingTree Pro is an equine operations platform featuring automated ACWR monitoring, injury-risk scoring built on peer-reviewed sports science, and biometric integration. We're currently onboarding a small group of founding barns.
 
-**[Start Your Free 14-Day Trial →](https://trainingtree.com/signup)**
+**[Request a demo →](/contact)**
 
-*No credit card required. Full access to all features.*
+*Bring your barn's real workflow and we'll show you exactly how it fits.*
 
 ---
 

@@ -1,4 +1,5 @@
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
 const data: SolutionData = {
@@ -81,8 +82,8 @@ const data: SolutionData = {
 const BoardingBarns = () => (
   <>
     <SEO
-      title="For Boarding & Training Barns | Equissetix StableTree"
-      description="Run a boarding or training barn without the paper calendar: compliance and health records that never lapse, automatic board billing, staff scheduling, and owner portals. Powered by StableTree."
+      title={pageSEO.solutionsBoardingBarns.title}
+      description={pageSEO.solutionsBoardingBarns.description}
       path="/solutions/boarding-barns"
     />
     <SolutionPage data={data} />

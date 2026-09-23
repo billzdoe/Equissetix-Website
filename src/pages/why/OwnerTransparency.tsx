@@ -1,4 +1,5 @@
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import WhyPage, { type WhyData } from '../../components/WhyPage'
 
 const data: WhyData = {
@@ -46,8 +47,8 @@ const data: WhyData = {
 const OwnerTransparency = () => (
   <>
     <SEO
-      title="Owner Transparency — the care behind the bill | Equissetix"
-      description="Give every owner a private portal into their horse's health, care, and invoices. Scoped privacy controls, itemized billing tied to real activity, and QR-accessible history that turns status calls into logins."
+      title={pageSEO.whyOwnerTransparency.title}
+      description={pageSEO.whyOwnerTransparency.description}
       path="/why/owner-transparency"
     />
     <WhyPage data={data} />

@@ -206,7 +206,7 @@ const About = () => {
                 <div>
                   <h3 className="font-bold text-xl mb-2">Science-Backed Approach</h3>
                   <p className="text-slate-600">
-                    We combine traditional training wisdom with cutting-edge sports science like ACWR monitoring, gait analysis, and AI-powered injury prediction—not buzzwords, real tools.
+                    We combine traditional training wisdom with cutting-edge sports science like ACWR monitoring, gait analysis, and auditable injury-risk scoring—not buzzwords, real tools.
                   </p>
                 </div>
               </div>
@@ -237,7 +237,7 @@ const About = () => {
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Join Us?</h2>
           <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree<sup className="text-sm">™</sup> can transform your training operation with AI-powered insights and real-time data.
+            See how TrainingTree<sup className="text-sm">™</sup> can transform your training operation with sports-science insights and real-time data.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">

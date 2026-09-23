@@ -19,6 +19,25 @@ export interface Capability {
   status: CapStatus
 }
 
+/**
+ * How the lineup actually fits together — see WEBSITE_REVAMP_PLAN.md, F0.
+ *
+ * TrainingTree Pro IS the platform. StableTree and Performance are the two
+ * halves it divides into: a barn takes one half, or both (which is Pro).
+ *
+ *   'platform' → the whole; contains both halves
+ *   'half'     → one side of the platform, sold standalone
+ *
+ * This is a `role`, not a display order, precisely so that layouts cannot
+ * quietly re-flatten the family into three co-equal sibling cards — which is
+ * exactly what the site did before. Anything rendering the lineup must branch
+ * on this field rather than mapping over `products` in array order.
+ */
+export type ProductRole = 'platform' | 'half'
+
+/** Which side of the platform a half covers. */
+export type ProductHalf = 'barn' | 'athlete'
+
 export interface Product {
   slug: ProductSlug
   name: string
@@ -27,6 +46,12 @@ export interface Product {
   tagline: string
   oneLiner: string
   who: string
+  /** platform (the whole) vs half (one side of it) */
+  role: ProductRole
+  /** for halves only: which side of the platform this is */
+  half?: ProductHalf
+  /** one line on how this product relates to the others */
+  relationship: string
   /** tailwind accent family used for per-product theming */
   accent: 'green' | 'gold' | 'teal'
   route: string
@@ -48,6 +73,10 @@ export const products: Product[] = [
     oneLiner:
       'Keep every horse healthy, compliant, and cared for on schedule — with the records, staff, and billing that run the barn behind it.',
     who: 'Boarding & training barns, breeding farms, sport-horse yards, lesson & show barns.',
+    role: 'half',
+    half: 'barn',
+    relationship:
+      'The barn half of TrainingTree Pro, sold on its own. Add the training half later without re-entering a thing.',
     accent: 'green',
     route: '/products/stabletree',
     pillars: [
@@ -126,6 +155,10 @@ export const products: Product[] = [
     oneLiner:
       'Sports science, gait analysis, readiness, wearables, and racing ops — the athletic performance product.',
     who: 'Racing trainers, syndicates, and sport-horse conditioning programs.',
+    role: 'half',
+    half: 'athlete',
+    relationship:
+      'The training half of TrainingTree Pro, sold on its own. Add the barn half later without re-entering a thing.',
     accent: 'teal',
     route: '/products/performance',
     pillars: [
@@ -185,6 +218,9 @@ export const products: Product[] = [
     oneLiner:
       'Run the barn and condition the racehorse in one platform. Ships in Pro & Lite editions.',
     who: 'Racing stables & training centers that want operations and sports science together.',
+    role: 'platform',
+    relationship:
+      'The whole platform — both halves together. Divides into StableTree or Performance if you only need one side.',
     accent: 'gold',
     route: '/products/trainingtree-pro',
     pillars: [
@@ -216,6 +252,25 @@ export const products: Product[] = [
 
 export const productBySlug = (slug: ProductSlug) =>
   products.find((p) => p.slug === slug)!
+
+// ── Structural accessors ─────────────────────────────────────────────────
+// Use these instead of mapping over `products` in array order. The lineup is
+// a platform containing two halves, not three peers, and rendering it as a
+// flat list is the exact defect F0 documents.
+
+/** TrainingTree Pro — the platform that contains both halves. */
+export const platformProduct = products.find((p) => p.role === 'platform')!
+
+/** StableTree (barn) and Performance (athlete), in barn-first order. */
+export const halfProducts = products
+  .filter((p) => p.role === 'half')
+  .sort((a) => (a.half === 'barn' ? -1 : 1))
+
+/** The barn half — StableTree. */
+export const barnHalf = halfProducts.find((p) => p.half === 'barn')!
+
+/** The training half — TrainingTree Performance. */
+export const athleteHalf = halfProducts.find((p) => p.half === 'athlete')!
 
 // ── Family comparison matrix (for /products) ─────────────────────────────
 // Columns: StableTree · TT Pro (Lite) · TT Pro · Performance

@@ -3,6 +3,7 @@ import { Check, Lock } from 'lucide-react'
 import ProductPage from '../../components/ProductPage'
 import Section from '../../components/Section'
 import SEO from '../../components/SEO'
+import { pageSEO } from '../../utils/seo'
 import { productBySlug } from '../../data/products'
 
 // Pro vs Lite — same codebase & database, edition is a per-tenant flip.
@@ -83,8 +84,8 @@ const ProLiteSlot = () => (
 const TrainingTreePro = () => (
   <>
     <SEO
-      title="TrainingTree Pro — Barn + athlete in one platform | Equissetix"
-      description="Run the barn and condition the athlete in one platform. Full stable management plus the peer-reviewed sports-science engine. Ships in Pro and Lite editions — start on Lite, upgrade in place."
+      title={pageSEO.productTrainingTreePro.title}
+      description={pageSEO.productTrainingTreePro.description}
       path="/products/trainingtree-pro"
     />
     <ProductPage product={productBySlug('trainingtree-pro')} featureSlot={<ProLiteSlot />} />
