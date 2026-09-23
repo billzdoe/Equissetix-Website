@@ -125,8 +125,19 @@
     background: linear-gradient(135deg, #0F5132 0%, #1f6e43 100%);
   }
 
+  /* Deep racing green band. A quiet vertical gradient rather than the old
+     three-stop diagonal, which muddied into olive across a wide section. */
   .bg-section-green {
-    background: linear-gradient(135deg, #0a3322 0%, #0F5132 60%, #1f6e43 100%);
+    background: linear-gradient(175deg, #0d4a2d 0%, #0a3322 100%);
+  }
+
+  /* Ink band — the heaviest ground. Warm near-black with a green cast so it
+     reads as part of the identity, not a generic dark mode panel. Reserve it
+     for one or two moments per page. */
+  .bg-section-ink {
+    background:
+      radial-gradient(1000px 520px at 15% 0%, rgba(15, 81, 50, 0.30), transparent 65%),
+      #0e1411;
   }
 
   .bg-section-gold {

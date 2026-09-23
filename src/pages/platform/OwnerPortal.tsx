@@ -257,7 +257,7 @@ const OwnerPortal = () => {
               <QrCode className="h-10 w-10" />
             </div>
             <h2 className="text-4xl font-bold mb-6 text-white">
-              Marketing Made <span className="text-gradient">Simple</span>
+              Marketing Made <span className="text-gold-400">Simple</span>
             </h2>
             <p className="text-lg text-slate-300 mb-6">
               Generate professional horse profiles with embedded QR codes in seconds. Perfect for:

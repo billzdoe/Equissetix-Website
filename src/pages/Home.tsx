@@ -235,7 +235,8 @@ const Home = () => {
       </section>
 
       {/* Product Family Section */}
-      <Section id="products" background="white" className="relative">
+      <Section id="products" background="dark" className="relative overflow-hidden">
+        <FarmPattern variant="horses" opacity={0.07} color="#ffffff" animated={false} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -243,18 +244,18 @@ const Home = () => {
           transition={{ duration: 0.4 }}
           className="text-center mb-12 relative z-10"
         >
-          <span className="eyebrow justify-center mb-4">One platform, two halves</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
-            Take the half you need. <span className="text-gradient">Or both.</span>
+          <span className="eyebrow justify-center mb-4 !text-gold-400">One platform, two halves</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
+            Take the half you need. <span className="text-gold-400">Or both.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
             <strong>TrainingTree Pro</strong> runs the barn <em>and</em> conditions the athlete. If you only
             need one side of that, take it on its own—and add the other later without re-entering a thing.
           </p>
         </motion.div>
 
         <div className="relative z-10">
-          <PlatformLineup />
+          <PlatformLineup tone="dark" />
         </div>
       </Section>
 
@@ -326,7 +327,8 @@ const Home = () => {
       </Section>
 
       {/* Peace-of-mind / identity section */}
-      <Section background="white" className="relative overflow-hidden">
+      <Section background="ink" className="relative overflow-hidden">
+        <FarmPattern variant="fields" opacity={0.08} color="#ffffff" animated={false} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -334,20 +336,20 @@ const Home = () => {
           transition={{ duration: 0.5 }}
           className="relative z-10 max-w-3xl mx-auto text-center"
         >
-          <span className="eyebrow justify-center mb-4">Why it matters</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-navy-900 leading-tight">
-            Run a barn where <span className="text-gradient">nothing slips through the cracks.</span>
+          <span className="eyebrow justify-center mb-4 !text-gold-400">Why it matters</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
+            Run a barn where <span className="text-gold-400">nothing slips through the cracks.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-navy-600 leading-relaxed mb-8">
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8">
             The best barns aren't the ones that never have a problem—they're the ones where the problem gets
             caught early. When every shot, shoeing, and shipment is on the record and on time, you stop
             reacting and start running the operation the way you always meant to. From the muck heap to the
             winner's circle, one system has your back.
           </p>
-          <div className="inline-flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-navy-700">
-            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Nothing overdue</span>
-            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Nobody guessing</span>
-            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Every horse accounted for</span>
+          <div className="inline-flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-white/85">
+            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-gold-400" strokeWidth={3} /> Nothing overdue</span>
+            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-gold-400" strokeWidth={3} /> Nobody guessing</span>
+            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-gold-400" strokeWidth={3} /> Every horse accounted for</span>
           </div>
         </motion.div>
       </Section>
