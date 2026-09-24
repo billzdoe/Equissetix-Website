@@ -67,9 +67,26 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
     }
   }
 
+  // Status line shared by every variant. The compact variant used to render
+  // neither success nor error, so a failed submit was invisible and the button
+  // looked dead. Not currently mounted anywhere, but it is a trap if it is.
+  const statusLine =
+    status === 'success' ? (
+      <div className="mt-3 flex items-center gap-2 text-success-600 text-sm">
+        <Check className="h-4 w-4" />
+        <span>You are on the list. We will be in touch.</span>
+      </div>
+    ) : status === 'error' && errorMessage ? (
+      <div className="mt-3 flex items-center gap-2 text-coral-600 text-sm">
+        <AlertCircle className="h-4 w-4" />
+        <span>{errorMessage}</span>
+      </div>
+    ) : null
+
   if (variant === 'compact') {
     return (
-      <form onSubmit={handleSubmit} className={`flex gap-2 ${className}`}>
+      <form onSubmit={handleSubmit} className={className}>
+        <div className="flex gap-2">
         <input
           id={`newsletter-email-${variant}`}
           type="email"
@@ -89,6 +106,8 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
         >
           {status === 'loading' ? '...' : 'Subscribe'}
         </Button>
+        </div>
+        {statusLine}
       </form>
     )
   }
@@ -120,18 +139,7 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
             {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
           </Button>
         </div>
-        {status === 'success' && (
-          <div className="mt-3 flex items-center gap-2 text-success-600 text-sm">
-            <Check className="h-4 w-4" />
-            <span>Successfully subscribed! Check your email.</span>
-          </div>
-        )}
-        {status === 'error' && errorMessage && (
-          <div className="mt-3 flex items-center gap-2 text-coral-600 text-sm">
-            <AlertCircle className="h-4 w-4" />
-            <span>{errorMessage}</span>
-          </div>
-        )}
+        {statusLine}
       </form>
     )
   }
@@ -173,18 +181,7 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
           </Button>
         </div>
         
-        {status === 'success' && (
-          <div className="mt-3 flex items-center gap-2 text-success-600 text-sm">
-            <Check className="h-4 w-4" />
-            <span>Successfully subscribed! Check your email.</span>
-          </div>
-        )}
-        {status === 'error' && errorMessage && (
-          <div className="mt-3 flex items-center gap-2 text-coral-600 text-sm">
-            <AlertCircle className="h-4 w-4" />
-            <span>{errorMessage}</span>
-          </div>
-        )}
+        {statusLine}
       </form>
     </div>
   )

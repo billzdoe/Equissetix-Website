@@ -178,10 +178,16 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
+        {/* Newsletter Signup. The inline variant renders only an input and a
+            button, so without this heading the field sat unlabelled in the
+            footer with nothing saying what it signs you up for. */}
         <div className="mt-12 pt-8 border-t border-slate-800">
-          <div className="max-w-md mx-auto">
-            <NewsletterSignup variant="inline" />
+          <div className="max-w-md mx-auto text-center">
+            <h3 className="font-bold text-lg text-white">Follow what we're building</h3>
+            <p className="mt-1 mb-4 text-sm text-slate-400">
+              Occasional product updates. No spam, unsubscribe anytime.
+            </p>
+            <NewsletterSignup variant="inline" className="text-left" />
           </div>
         </div>
 

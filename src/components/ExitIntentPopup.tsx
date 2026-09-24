@@ -206,22 +206,25 @@ const ExitIntentPopup = ({
                       Wait! Don't Miss This
                     </h2>
                     <p className="text-brand-100 text-lg">
-                      Get exclusive insights before you go
+                      Leave us your email and we'll keep you posted
                     </p>
                   </div>
 
                   {/* Content */}
                   <div className="p-8">
+                    {/* This offered a "FREE Training Guide" with four content
+                        bullets. No such guide exists, and nothing was ever sent.
+                        The offer is now what we can actually deliver: occasional
+                        product email from a real address. */}
                     <h3 className="text-xl font-bold text-navy-900 mb-4">
-                      Get Your FREE Training Guide
+                      Follow what we're building
                     </h3>
 
                     <ul className="space-y-3 mb-6">
                       {[
-                        'Science-backed ACWR training protocols',
-                        'Injury prevention strategies from top trainers',
-                        'ROI optimization for your training operation',
-                        'Exclusive early access to new features'
+                        'Product updates as features ship',
+                        'How we apply sports-science load management',
+                        'First word when early access opens'
                       ].map((benefit, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <CheckCircle className="h-5 w-5 text-success-500 flex-shrink-0 mt-0.5" />
