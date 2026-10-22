@@ -49,7 +49,7 @@ So the Wellbeing Check follows three rules:
 2. **Every domain counts equally.** A domain with five records can't drown out a domain with one. Weighting one area of a horse's life over another is a welfare judgement we leave to you and your vet.
 3. **The overall result needs enough evidence.** With fewer than three scored parts, or fewer than two scored domains, the check tells you what it needs instead of producing a number.
 
-Every part shows the record behind it ("Turned out on 5 of the last 7 days", "Henneke 5 on 14 October, ideal 4–6"), so a result is never a mystery.
+Every part shows the record behind it ("Turned out on 5 of the last 7 days", "Henneke 5 on 14 October, ideal 4–6"), so you can see what each result is based on.
 
 ## What it's for
 

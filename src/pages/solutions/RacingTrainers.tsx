@@ -68,7 +68,7 @@ const data: SolutionData = {
     {
       title: 'Gait you can compare week to week',
       description:
-        'Film a jog-up on a phone. Stride length and frequency and left-right and front-hind symmetry are measured, and two dates play side by side.',
+        'Film the horse trotting past on a phone. Stride frequency, left-right symmetry and stride consistency are measured, and two dates play side by side.',
       benefits: [
         'Each result names the method behind it',
         'Race entries, results and jockey bookings',

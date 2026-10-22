@@ -14,7 +14,7 @@ import { breakthroughs } from '../data/science'
 const rules = [
   {
     title: 'Not measured beats made up',
-    body: 'If a horse hasn’t done enough work to estimate VO2 max, a fitness score or a readiness input, the app shows “not measured” and says what it needs. It never fills the gap with a breed average or a default.',
+    body: 'If a horse hasn’t done enough work to estimate VO2 max, a fitness score or a readiness input, the app shows “not measured” and says what it needs. It doesn’t fill the gap with a breed average or a default.',
   },
   {
     title: 'Estimates are labelled as estimates',

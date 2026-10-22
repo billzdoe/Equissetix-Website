@@ -44,7 +44,7 @@ export const breakthroughs: Breakthrough[] = [
     summary:
       'Every workout suggestion, from every part of the app, is checked against the same three things: an acute-to-chronic workload ratio above 1.3, a red readiness score, or an active rehab plan.',
     matters:
-      'A horse coming back from injury is never handed the same work as a sound one. The 28-day workload ratio is computed one way everywhere, so the chart and the advice always agree.',
+      'While a horse has an active rehab plan, its suggestions stay within the plan’s stage. The 28-day workload ratio is calculated the same way throughout the app, so the chart and the advice use the same figure.',
     basis: 'Hulin et al., British Journal of Sports Medicine (2016); Gabbett (2016)',
     status: 'live',
     source: 'backend/app/services/workout_recommendation_service.py',
@@ -65,9 +65,9 @@ export const breakthroughs: Breakthrough[] = [
     id: 'video-gait',
     title: 'Video gait analysis that tells you how it measured',
     summary:
-      'Film a jog-up on a phone. Optical flow measures stride length, stride frequency, and left-right and front-hind symmetry, and two dates play side by side with the differences listed.',
+      'Film the horse trotting past on a phone. Optical flow measures stride frequency, stride count, left-right symmetry and stride-to-stride consistency, and two dates play side by side with the differences listed.',
     matters:
-      'Each result names the method behind it. A measurement the video couldn’t support is left blank rather than filled with a guess.',
+      'Each result names the method behind it, and every clip is checked for frame rate and light, so a result from poor footage is marked as such.',
     basis: 'Optical-flow motion analysis; symmetry bands set per horse',
     status: 'live',
     source: 'backend/app/services/video_gait_pipeline.py',
@@ -132,7 +132,7 @@ export const performanceFeatures: FeatureLine[] = [
   },
   {
     title: 'Gait analysis',
-    detail: 'Video jog-ups compared side by side, a symmetry analyzer, and phone-sensor stride analysis.',
+    detail: 'Gait videos compared side by side, a symmetry analyzer, and phone-sensor stride analysis.',
   },
   {
     title: 'Race day',

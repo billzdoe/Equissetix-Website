@@ -11,7 +11,7 @@ Every temperature, pulse and respiration reading goes into the horse's record, w
 - **Temperature:** flagged at **1.5 °F or more** above that horse's baseline.
 - **Resting pulse:** flagged at **20 beats a minute or more** above that horse's resting baseline.
 
-A second high reading within 30 minutes confirms the first. A horse with no baseline yet is never flagged on a guess. The app builds the baseline first.
+A second high reading within 30 minutes confirms the first. A horse without a baseline yet isn't flagged; the app builds the baseline first.
 
 ## Morning rounds, rebuilt
 
@@ -23,8 +23,8 @@ Every flag says where its reading came from (a hand reading, a sensor or a barn 
 
 ## Why it matters
 
-- **Earlier warnings.** A rise against the horse's own normal shows up before it would cross a textbook threshold.
-- **Fewer false alarms.** A horse who always runs a little warm isn't flagged every morning.
+- **Changes that matter for this horse.** A rise against the horse's own normal is flagged even when the reading is still inside a textbook range.
+- **A sensible baseline for every horse.** A horse who always runs a little warm is compared with his own normal, not with an average.
 - **A history the vet can use.** Thirty days of readings, already organised, instead of a phone call that starts with "he's been a bit off."
 
 ## The rest of the health file

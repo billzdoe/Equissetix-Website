@@ -60,7 +60,7 @@ const data: SolutionData = {
       benefits: [
         'Progress history the barn records, visible to you',
         'Training load and readiness shown next to the plan',
-        'Side-by-side video of two jog-ups on different dates',
+        'Side-by-side gait video from two different dates',
       ],
     },
     {

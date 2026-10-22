@@ -34,10 +34,8 @@ export interface BlogPost {
 
 // Only posts with an article body are listed (2026-10-22): the four
 // placeholder entries with no body led to "coming soon" dead ends.
-// Unlisted the same day, files kept in src/content/blog: acwr-injury-prevention,
-// ai-gait-analysis-revolution, financial-management-horse-trainers. Each told
-// invented customer case studies and statistics as fact for a product with no
-// customers yet. Rewrite from the product's real behaviour before relisting.
+// The three older posts were rewritten 2026-10-22 from the product's real
+// behaviour (they had told invented case studies and statistics as fact).
 export const blogPosts: BlogPost[] = [
   {
     id: 8,
@@ -86,6 +84,42 @@ export const blogPosts: BlogPost[] = [
     readTime: '4 min read',
     featured: false,
     slug: 'feed-that-follows-the-work',
+  },
+  {
+    id: 1,
+    title: 'Understanding Training Load: How TrainingTree Pro Measures the Work Your Horse Does',
+    excerpt:
+      'TRIMP, acute and chronic load, and the 28-day workload ratio: the published methods behind the numbers, and how they appear in the app.',
+    author: 'Equissetix Team',
+    date: '2026-10-22',
+    category: 'Performance',
+    readTime: '6 min read',
+    featured: false,
+    slug: 'acwr-injury-prevention',
+  },
+  {
+    id: 5,
+    title: 'Gait Analysis in TrainingTree Pro: Video, Sensors and Symmetry',
+    excerpt:
+      'What phone video and calibrated phone sensors measure, how footage quality is checked, and how to film for results you can compare.',
+    author: 'Equissetix Team',
+    date: '2026-10-22',
+    category: 'Performance',
+    readTime: '5 min read',
+    featured: false,
+    slug: 'ai-gait-analysis-revolution',
+  },
+  {
+    id: 4,
+    title: 'Running the Numbers: Financial Management in TrainingTree Pro and StableTree',
+    excerpt:
+      'Double-entry books, owner invoicing, shared ownership, labour and supplier costs, and exports for your accountant.',
+    author: 'Equissetix Team',
+    date: '2026-10-22',
+    category: 'Business',
+    readTime: '5 min read',
+    featured: false,
+    slug: 'financial-management-horse-trainers',
   },
 ]
 

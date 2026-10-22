@@ -22,7 +22,7 @@ Every suggestion, from every part of TrainingTree Pro, passes through the same c
 2. **Is the horse's readiness red?** Then today is not the day to push.
 3. **Is there an active rehab plan?** Then the work stays inside that plan's stage.
 
-That's one gate, shared by every surface that suggests work: quick suggestions, the conditioning programs, the decision matrix and the training plans. A horse coming back from injury is never offered the same work as a sound one, wherever in the app the suggestion comes from.
+That's one gate, shared by every surface that suggests work: quick suggestions, the conditioning programs, the decision matrix and the training plans. While a horse has an active rehab plan, its suggestions stay within the plan's stage, wherever in the app they come from.
 
 ## Readiness, honestly built
 
@@ -32,7 +32,7 @@ The **daily readiness score** (0–100) brings together four inputs: health, tra
 - **Yellow (50–79):** moderate work.
 - **Red (0–49):** rest.
 
-When some inputs haven't been measured, the score says which ones it used and which it left out, so you always know how much evidence is behind it.
+When some inputs haven't been measured, the score says which ones it used and which it left out, so you can see how much evidence is behind it.
 
 ## Programs that adapt, session by session
 
@@ -40,9 +40,9 @@ TrainingTree Pro's conditioning programs for base fitness, eventing, endurance, 
 
 The difference is that each session is fitted to the horse it's for. When a horse's ratio is high, readiness is red or a rehab plan is active, the session changes, and **every change is listed with its reason**.
 
-## Why trainers like it
+## Why it helps
 
-- **It protects the horses you've worked hardest to build.**
+- **It flags fast rises in work** so you can decide what to do about them.
 - **It explains itself.** You can show an owner exactly why a horse had an easy day.
 - **It's consistent.** The same rule applies every morning, whoever is reading the board.
 
