@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import StatusNote from '../components/StatusNote'
+import GallopPlate from '../components/GallopPlate'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs } from '../data/science'
 
@@ -67,6 +68,24 @@ const Science = () => (
         .
       </p>
     </TopicHero>
+
+    <section className="section-padding bg-ink text-white">
+      <div className="container-custom grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+        <div>
+          <h2 className="text-white">Measuring the horse, since 1878</h2>
+          <p className="mt-5 text-lg text-white/75">
+            In June 1878, Eadweard Muybridge lined up twelve cameras along a track in Palo Alto, California, to settle a
+            question horsemen had argued about for generations: does a galloping horse ever have all four feet off the
+            ground?
+          </p>
+          <p className="mt-4 text-lg text-white/75">
+            Frames 2 and 3 answered it. Instead of arguing from what people thought they saw, Muybridge measured.
+            TrainingTree Pro carries that idea into the barn: measure each horse, then decide.
+          </p>
+        </div>
+        <GallopPlate />
+      </div>
+    </section>
 
     <section className="section-padding">
       <div className="container-custom">

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import Button from '../components/Button'
-import GallopPlate from '../components/GallopPlate'
+import HorseStory from '../components/HorseStory'
 import WorkloadSketch from '../components/WorkloadSketch'
 import RoundsBoard from '../components/RoundsBoard'
 import PlatformLineup from '../components/PlatformLineup'
@@ -53,9 +53,9 @@ const Home = () => (
             The new science of horse care.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
-            TrainingTree Pro reads every workout, vital sign and vet record against each horse’s own normal, and turns
-            them into readiness, workload, gait and wellbeing you can act on this morning. Built on published equine
-            physiology. Patent pending.
+            TrainingTree Pro reads every workout, vital sign and vet record against each horse’s own normal, and tells
+            you each morning who’s ready to work, who needs a lighter day, and why. Press play on Juniper’s three weeks
+            to watch it work.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button to="/contact" variant="primary" size="lg">
@@ -71,7 +71,7 @@ const Home = () => (
             </Button>
           </div>
         </div>
-        <GallopPlate />
+        <HorseStory />
       </div>
 
       <nav aria-label="On this page" className="border-t border-white/10">
