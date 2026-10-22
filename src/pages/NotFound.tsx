@@ -11,8 +11,8 @@ const NotFound = () => {
     { path: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
     { path: '/science', label: 'The science', icon: <Search className="h-5 w-5" /> },
     { path: '/contact', label: 'Contact', icon: <Search className="h-5 w-5" /> },
-    { path: '/trainingtree/training', label: 'Training Features', icon: <Search className="h-5 w-5" /> },
-    { path: '/trainingtree/health', label: 'Health Features', icon: <Search className="h-5 w-5" /> },
+    { path: '/performance', label: 'Performance', icon: <Search className="h-5 w-5" /> },
+    { path: '/vet-care', label: 'Vet care', icon: <Search className="h-5 w-5" /> },
     { path: '/solutions/racing-trainers', label: 'For Trainers', icon: <Search className="h-5 w-5" /> },
   ]
 

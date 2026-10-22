@@ -57,11 +57,15 @@ const appPath = resolve(__dirname, '..', 'src', 'App.tsx')
 const source = readFileSync(appPath, 'utf8')
 
 // Match: <Route path="/some/path" ... />
-const routePattern = /<Route\s+path="([^"]+)"/g
+// The element is captured too: a route whose element is a <Navigate> redirect
+// has no page of its own and must not be listed.
+const routePattern = /<Route\s+path="([^"]+)"\s+element=\{(<[A-Za-z]+)/g
 const found = []
+const redirects = []
 let match
 while ((match = routePattern.exec(source)) !== null) {
-  found.push(match[1])
+  if (match[2] === '<Navigate') redirects.push(match[1])
+  else found.push(match[1])
 }
 
 if (found.length === 0) {
@@ -124,3 +128,4 @@ note('param routes', skipped.param)
 note('catch-all', skipped.catchAll)
 note('aliases', skipped.alias)
 note('excluded', skipped.excluded)
+note('redirects', redirects)

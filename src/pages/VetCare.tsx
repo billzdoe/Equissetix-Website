@@ -71,8 +71,8 @@ const VetCare = () => (
           <p className="mt-4 text-navy-600">
             Owner portals show the care behind every horse, with permissions you set per horse.
           </p>
-          <Link to="/trainingtree/owner-portal" className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
-            The owner portal
+          <Link to="/solutions/horse-owners" className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+            What owners see
           </Link>
         </div>
       </div>

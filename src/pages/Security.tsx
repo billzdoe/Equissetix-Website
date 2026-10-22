@@ -336,7 +336,7 @@ const Security = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Integration Security</h3>
                   <p className="text-slate-700">
-                    Wearable device integrations (Equimetre, Polar Equine, StrideSAFE, etc.) use secure, encrypted connections. Our patent-pending multi-sensor fusion technology processes data securely without exposing raw sensor data.
+                    Connections to wearable devices use encrypted connections, and each one is switched on only when the barn connects its own account.
                   </p>
                 </div>
               </div>

@@ -39,18 +39,6 @@ const BreedingFarms = lazy(() => import('./pages/solutions/BreedingFarms'))
 const WhyCompliance = lazy(() => import('./pages/why/Compliance'))
 const WhyOwnerTransparency = lazy(() => import('./pages/why/OwnerTransparency'))
 
-// TrainingTree pages
-const Training = lazy(() => import('./pages/platform/Training'))
-const Health = lazy(() => import('./pages/platform/Health'))
-const Nutrition = lazy(() => import('./pages/platform/Nutrition'))
-const Financial = lazy(() => import('./pages/platform/Financial'))
-const Racing = lazy(() => import('./pages/platform/Racing'))
-const Mobile = lazy(() => import('./pages/platform/Mobile'))
-const Integrations = lazy(() => import('./pages/platform/Integrations'))
-const Analytics = lazy(() => import('./pages/platform/Analytics'))
-const Collaboration = lazy(() => import('./pages/platform/Collaboration'))
-const OwnerPortal = lazy(() => import('./pages/platform/OwnerPortal'))
-
 // Other pages
 const NotFound = lazy(() => import('./pages/NotFound'))
 const CaseStudies = lazy(() => import('./pages/CaseStudies'))
@@ -82,7 +70,6 @@ function AppContent() {
           <Route path="/performance" element={<PerformanceScience />} />
           <Route path="/vet-care" element={<VetCare />} />
           <Route path="/science" element={<Science />} />
-          <Route path="/pricing" element={<Navigate to="/contact" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/company" element={<About />} />
@@ -112,17 +99,20 @@ function AppContent() {
           <Route path="/solutions/veterinarians" element={<Veterinarians />} />
           <Route path="/solutions/training-facilities" element={<TrainingFacilities />} />
 
-          {/* TrainingTree routes */}
-          <Route path="/trainingtree/training" element={<Training />} />
-          <Route path="/trainingtree/health" element={<Health />} />
-          <Route path="/trainingtree/nutrition" element={<Nutrition />} />
-          <Route path="/trainingtree/financial" element={<Financial />} />
-          <Route path="/trainingtree/racing" element={<Racing />} />
-          <Route path="/trainingtree/mobile" element={<Mobile />} />
-          <Route path="/trainingtree/integrations" element={<Integrations />} />
-          <Route path="/trainingtree/analytics" element={<Analytics />} />
-          <Route path="/trainingtree/collaboration" element={<Collaboration />} />
-          <Route path="/trainingtree/owner-portal" element={<OwnerPortal />} />
+          {/* Old feature pages, redirected 2026-10-22 (Billy): they named third-party
+              brands and made gait and lameness claims the product doesn't support.
+              Files are kept in src/pages/platform/ for reference. */}
+          <Route path="/trainingtree/training" element={<Navigate to="/performance" replace />} />
+          <Route path="/trainingtree/health" element={<Navigate to="/vet-care" replace />} />
+          <Route path="/trainingtree/nutrition" element={<Navigate to="/blog/11" replace />} />
+          <Route path="/trainingtree/financial" element={<Navigate to="/solutions/barn-owners" replace />} />
+          <Route path="/trainingtree/racing" element={<Navigate to="/solutions/trainers" replace />} />
+          <Route path="/trainingtree/mobile" element={<Navigate to="/performance" replace />} />
+          <Route path="/trainingtree/integrations" element={<Navigate to="/performance" replace />} />
+          <Route path="/trainingtree/analytics" element={<Navigate to="/science" replace />} />
+          <Route path="/trainingtree/collaboration" element={<Navigate to="/solutions/horse-owners" replace />} />
+          <Route path="/trainingtree/owner-portal" element={<Navigate to="/solutions/horse-owners" replace />} />
+          <Route path="/pricing" element={<Navigate to="/contact" replace />} />
 
           {/* Resources routes */}
           <Route path="/case-studies" element={<CaseStudies />} />

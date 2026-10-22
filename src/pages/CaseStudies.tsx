@@ -69,7 +69,7 @@ const CaseStudies = () => {
                 Schedule a Demo
                 <ArrowRight className="h-5 w-5" />
               </Button>
-              <Button to="/trainingtree/training" variant="ghost" size="lg">
+              <Button to="/performance" variant="ghost" size="lg">
                 Explore Features
               </Button>
             </div>

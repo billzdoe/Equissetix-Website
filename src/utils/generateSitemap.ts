@@ -25,16 +25,6 @@ const urls: SitemapUrl[] = [
   { loc: '/solutions/training-facilities', changefreq: 'weekly', priority: 0.9 },
 
   // Platform features
-  { loc: '/trainingtree/training', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/health', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/nutrition', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/financial', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/racing', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/mobile', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/integrations', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/analytics', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/collaboration', changefreq: 'weekly', priority: 0.8 },
-  { loc: '/trainingtree/owner-portal', changefreq: 'weekly', priority: 0.8 },
 
   // Resources
   { loc: '/case-studies', changefreq: 'weekly', priority: 0.7 },
