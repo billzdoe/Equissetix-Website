@@ -31,22 +31,37 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-navy-900 text-white">
+    <footer className="bg-ink text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1 space-y-4">
             <div>
-              <div className="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-800 ring-1 ring-white/10 rounded-lg flex items-center justify-center mb-3">
-                <span className="text-gold-400 font-bold text-xl">E</span>
-              </div>
-              <h3 className="text-xl font-bold text-gradient mb-2">Equissetix<sup className="text-xs">™</sup></h3>
-              <p className="text-xs text-slate-400">Equine operations software</p>
+              <h3 className="font-condensed text-2xl font-extrabold text-white mb-1">Equissetix<sup className="text-xs">™</sup></h3>
+              <p className="text-sm text-slate-400">Equine performance science</p>
             </div>
             <p className="text-slate-400 text-sm">
-              Software that keeps every horse cared for, compliant, and on record—from the muck heap to the
-              winner’s circle.
+              Workload, readiness, gait and vet care for each horse, from its own records.
             </p>
+          </div>
+
+          {/* Explore: what the site leads with */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Explore</h4>
+            <ul className="space-y-2">
+              {[
+                ['/performance', 'Performance'],
+                ['/vet-care', 'Vet care'],
+                ['/science', 'The science'],
+                ['/contact', 'Request a demo'],
+              ].map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Products */}
@@ -76,30 +91,23 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Solutions */}
+          {/* Who it's for: the five buyers */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Solutions</h4>
+            <h4 className="text-white font-semibold mb-4">Who it’s for</h4>
             <ul className="space-y-2">
-              <li>
-                <Link to="/solutions/boarding-barns" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  Boarding &amp; Training Barns
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions/racing-trainers" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  Racing Trainers
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions/horse-owners" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  Horse Owners
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  Pricing
-                </Link>
-              </li>
+              {[
+                ['/solutions/veterinarians', 'Veterinarians'],
+                ['/solutions/stable-managers', 'Stable managers'],
+                ['/solutions/trainers', 'Trainers'],
+                ['/solutions/barn-owners', 'Barn owners'],
+                ['/solutions/horse-owners', 'Horse owners'],
+              ].map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

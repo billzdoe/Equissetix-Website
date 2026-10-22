@@ -271,8 +271,8 @@ const TrainingFacilities = () => {
               Request Enterprise Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button to="/pricing" variant="ghost" size="lg">
-              View Enterprise Pricing
+            <Button to="/science" variant="ghost" size="lg">
+              See the science
             </Button>
           </div>
         </motion.div>

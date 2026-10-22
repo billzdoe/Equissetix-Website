@@ -1,467 +1,99 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Bell, Heart, Activity, FileText, AlertTriangle, CheckCircle, Clock, Stethoscope, TrendingDown, Shield } from 'lucide-react'
-import Button from '../../components/Button'
-import Card from '../../components/Card'
-import Section from '../../components/Section'
-import Breadcrumbs from '../../components/Breadcrumbs'
 import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
+import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
-const Veterinarians = () => {
-  const painPoints = [
+/**
+ * For veterinarians. Rewritten 2026-10-22: the previous page promised
+ * "real-time" gait analysis and automated vet notifications the product does
+ * not have. Every line below maps to a live TrainingTree Pro feature.
+ */
+
+const data: SolutionData = {
+  breadcrumb: 'Veterinarians',
+  eyebrow: 'For veterinarians',
+  headline: ['See what happened between visits,', 'not just what the barn remembers.'],
+  subhead:
+    'Vitals read against each horse’s own normal, exam and medication history, rehab progress and side-by-side gait video, kept by the barn and open to you.',
+  painPoints: [
     {
-      problem: "Late-stage injuries requiring expensive treatment",
-      solution: "Early detection through real-time gait analysis and health monitoring",
-      benefit: "Catch issues 3-4 weeks earlier, reducing treatment costs by 60%"
+      problem: 'The history arrives as a phone call and a pile of paper',
+      impact: 'You make the call on what someone recalls about the last three weeks.',
     },
     {
-      problem: "Incomplete health history from trainers",
-      solution: "Comprehensive health records with automated data collection",
-      benefit: "Make informed decisions with complete medical history"
+      problem: '“He’s been off his feed and a bit warm”',
+      impact: 'Without a baseline, “a bit warm” can’t be told apart from normal for that horse.',
     },
     {
-      problem: "Missed vaccinations and medication schedules",
-      solution: "Automated reminders and notifications for all health protocols",
-      benefit: "Prevent preventable diseases and ensure compliance"
+      problem: 'Rehab instructions get lost once you drive away',
+      impact: 'The horse is back in full work a stage early and you see him again.',
     },
     {
-      problem: "No visibility into daily health trends",
-      solution: "Real-time health scores and trend analysis from wearable devices",
-      benefit: "Identify patterns before they become problems"
-    }
-  ]
-
-  const healthFeatures = [
+      problem: 'Withdrawal times live on a whiteboard',
+      impact: 'A horse is entered inside a withdrawal window and the barn finds out too late.',
+    },
+  ],
+  solutions: [
     {
-      icon: <Activity className="h-6 w-6" />,
-      title: "Real-Time Gait Analysis & Early Detection",
-      description: "Patent-pending biomechanical analysis detects lameness and injuries weeks before traditional methods. Symmetry analysis (left-right, front-hind, diagonal) with normalized difference scoring. Alerts trigger when symmetry drops below 0.6.",
-      details: [
-        "25-keypoint pose estimation (opt-in; optical-flow analysis by default)",
-        "Detects lameness at symmetry below 0.6",
-        "Biomechanical metrics: stride length/frequency, cadence, stance/swing/flight phases",
-        "Gait classification: walk, trot, canter, gallop with frequency analysis",
-        "3-4 weeks earlier detection than traditional methods"
-      ]
+      title: 'Each horse against its own normal',
+      description:
+        'Temperature, resting pulse and respiration are compared with that horse’s own 30-day baseline. A rise of 1.5 °F, or 20 beats a minute at rest, is flagged the morning it happens.',
+      benefits: [
+        'Morning rounds board, horses in stall order, exceptions first',
+        'Hand readings taken without signal are kept and sent later',
+        'Every flag says which reading it came from',
+      ],
     },
     {
-      icon: <Bell className="h-6 w-6" />,
-      title: "Automated Vet Notifications & Health Alerts",
-      description: "Get instant notifications when horses need veterinary attention. System automatically alerts vets when health scores drop, irregularities are detected, or scheduled care is due.",
-      details: [
-        "Real-time alerts when health score drops below threshold",
-        "Gait symmetry alerts when below 0.6 (high risk) or 0.7 (recommendation)",
-        "Automated vaccination reminders sent to both trainer and vet",
-        "Medication compliance alerts when doses are missed",
-        "Emergency alerts for critical health events",
-        "Customizable notification preferences (email, SMS, in-app)"
-      ]
+      title: 'The whole file in one place',
+      description:
+        'Pre-purchase, annual, pre-race, post-race, injury, routine and emergency exams, with flexion, cardiac, respiratory and dental findings and bloodwork on file.',
+      benefits: [
+        'Vaccinations and deworming on separate schedules, fecal counts included',
+        'Henneke body-condition scores over time, with photos',
+        'Farrier, dentist and chiropractor visits alongside',
+      ],
     },
     {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Comprehensive Health Score Monitoring",
-      description: "Real-time Health Score (0-100) combining VO2 Max, lactate threshold, recovery rate, and fatigue index from 8+ wearable device integrations.",
-      details: [
-        "Health Score calculated from multiple biometric sources",
-        "Trend analysis showing health improvements or declines",
-        "Baseline comparisons to identify anomalies",
-        "Integration with Equimetre, Polar Equine, StrideSAFE, Horseteq, and more",
-        "Historical health data for pattern recognition"
-      ]
+      title: 'Rehab the barn can’t skip ahead of',
+      description:
+        'Write the plan once. Pain, mobility and strength are logged against it, and while it is active every training suggestion stays inside its stage.',
+      benefits: [
+        'Progress history the barn records, visible to you',
+        'Training load and readiness shown next to the plan',
+        'Side-by-side video of two jog-ups on different dates',
+      ],
     },
     {
-      icon: <FileText className="h-6 w-6" />,
-      title: "Complete Veterinary Record Management",
-      description: "Automated veterinary record management with complete exam history, treatment protocols, and medical documentation all in one place.",
-      details: [
-        "Complete exam history with notes and findings",
-        "Treatment protocols and medication records",
-        "Joint flexion tests and results tracking",
-        "Cardiac assessment with murmur grading",
-        "Respiratory analysis (IAD, EIPH) documentation",
-        "Blood work results tracking (CBC, chemistry panels) with trend analysis",
-        "Injury tracking with recovery monitoring and rehabilitation protocols",
-        "Exportable medical records for insurance or transfers"
-      ]
+      title: 'Medications with their withdrawal times',
+      description:
+        'Every dose is logged with who gave it and its withdrawal period. A race entry inside that window is blocked.',
+      benefits: [
+        'Who gave what, when and how much',
+        'Withdrawal checked at entry time, not remembered',
+        'A wellbeing check built on the Five Domains model',
+      ],
     },
-    {
-      icon: <Clock className="h-6 w-6" />,
-      title: "Vaccination & Medication Tracking",
-      description: "Never miss a vaccination or medication dose. Automated reminders ensure compliance and prevent preventable health issues.",
-      details: [
-        "Vaccination schedule tracking with automated due date alerts",
-        "Medication scheduling with dosages, frequencies, and timing",
-        "Compliance monitoring with missed dose alerts",
-        "Vaccination history and certificate generation",
-        "Medication interaction warnings",
-        "Reminder notifications to trainers and vets"
-      ]
+  ],
+  recommend: {
+    slug: 'trainingtree-pro',
+    reason:
+      'Baselines, rehab gates and gait video depend on the training records, so they live in TrainingTree Pro. Most vets get access through the barns they already work with; a practice that boards or rehabs horses can run it directly.',
+    alsoSee: {
+      slug: 'stabletree',
+      reason: 'For a barn that needs the health file and vitals alerts without the training tools,',
     },
-    {
-      icon: <TrendingDown className="h-6 w-6" />,
-      title: "Injury Prevention & Recovery Monitoring",
-      description: "Track injuries from detection through full recovery with rehabilitation protocols and progress monitoring.",
-      details: [
-        "Injury documentation with photos and notes",
-        "Recovery timeline tracking",
-        "Rehabilitation protocol management",
-        "Progress monitoring with before/after comparisons",
-        "Return-to-training recommendations based on recovery data",
-        "Prevention insights from historical injury patterns"
-      ]
-    }
-  ]
-
-  const notificationWorkflow = [
-    {
-      step: "1",
-      title: "Continuous Monitoring",
-      description: "System continuously monitors health data from wearable devices, gait analysis, and manual entries 24/7"
-    },
-    {
-      step: "2",
-      title: "Anomaly Detection",
-      description: "AI algorithms detect irregularities: health score drops, gait symmetry issues, missed medications, or vaccination due dates"
-    },
-    {
-      step: "3",
-      title: "Automated Alert",
-      description: "Vet receives instant notification via email, SMS, or in-app with detailed health data and recommended actions"
-    },
-    {
-      step: "4",
-      title: "Vet Review & Action",
-      description: "Vet reviews complete health history, current metrics, and trends to make informed treatment decisions"
-    },
-    {
-      step: "5",
-      title: "Treatment Documentation",
-      description: "Vet documents exam findings, treatments, and protocols directly in the system for complete record keeping"
-    }
-  ]
-
-  const benefits = [
-    {
-      icon: <AlertTriangle className="h-6 w-6" />,
-      title: "Early Intervention",
-      description: "Catch health issues 3-4 weeks earlier than traditional methods, reducing treatment complexity and costs"
-    },
-    {
-      icon: <CheckCircle className="h-6 w-6" />,
-      title: "Complete Medical History",
-      description: "Access comprehensive health records including exams, treatments, medications, and biometric trends in one place"
-    },
-    {
-      icon: <Stethoscope className="h-6 w-6" />,
-      title: "Better Collaboration",
-      description: "Seamless communication with trainers through shared health records and automated notifications"
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Preventive Care",
-      description: "Automated reminders ensure vaccinations and medications are never missed, preventing preventable diseases"
-    }
-  ]
-
-  return (
-    <div className="pt-20">
-      <SEO title={pageSEO.solutionsVeterinarians.title} description={pageSEO.solutionsVeterinarians.description} path="/solutions/veterinarians" />
-      <Section background="white" className="py-6">
-        <div className="container-custom">
-          <Breadcrumbs items={[
-            { label: 'Solutions', path: '/' },
-            { label: 'For Veterinarians' }
-          ]} />
-        </div>
-      </Section>
-      {/* Hero */}
-      <Section background="gradient" className="min-h-[60vh] flex items-center">
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="eyebrow justify-center mb-4">For veterinarians</span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
-              Better horse health through <span className="text-gradient">data-driven care</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-navy-600 mb-8">
-              TrainingTree<sup className="text-sm">™</sup> Pro provides veterinarians with real-time health monitoring, automated notifications, and comprehensive medical records—helping you catch issues earlier and provide better care.
-            </p>
-            <Button to="/contact" variant="primary" size="lg">
-              See How It Works for Vets
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* What This Means For You */}
-      <Section background="white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="eyebrow justify-center mb-4">Problem → Solution → Result</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy-900">
-            What this means <span className="text-gradient">for veterinarians</span>
-          </h2>
-          <p className="text-xl text-navy-600">
-            Real solutions to improve horse health outcomes and streamline your practice
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {painPoints.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card hover={false} className="hover:shadow-modern-lg transition-all">
-                <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
-                  <div className="md:pr-6 md:border-r md:border-navy-100">
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy-600 mb-2">The problem</p>
-                    <p className="text-navy-700">{item.problem}</p>
-                  </div>
-                  <div className="md:pr-6 md:border-r md:border-navy-100">
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-600 mb-2">TrainingTree<sup>™</sup> Pro solution</p>
-                    <p className="text-navy-700">{item.solution}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-600 mb-2">The result</p>
-                    <p className="font-bold text-navy-900">{item.benefit}</p>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Health Features */}
-      <Section background="gray">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Comprehensive <span className="text-gradient">Health & Notification Features</span>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Everything you need to monitor horse health, receive timely alerts, and maintain complete medical records
-          </p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {healthFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card className="bg-gradient-to-br from-white via-blue-50/40 to-purple-50/30 border-2 border-blue-300 hover:border-blue-500 transition-all hover:shadow-modern-lg">
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-modern-lg">
-                    {feature.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-2xl mb-3 text-navy-900">{feature.title}</h3>
-                    <p className="text-lg text-slate-700 mb-4">{feature.description}</p>
-                    <ul className="space-y-2">
-                      {feature.details.map((detail, i) => (
-                        <li key={i} className="flex items-start gap-2 text-slate-600">
-                          <CheckCircle className="h-5 w-5 text-success-500 flex-shrink-0 mt-0.5" />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Notification Workflow */}
-      <Section background="white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            How <span className="text-gradient">Vet Notifications</span> Work
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Automated alerts ensure you're notified immediately when horses need veterinary attention
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto">
-          {notificationWorkflow.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative"
-            >
-              <Card className="text-center h-full bg-gradient-to-br from-white via-brand-50/40 to-blue-50/30 border-2 border-brand-300 hover:border-brand-500 transition-all hover:shadow-modern-lg">
-                <div className="w-14 h-14 bg-gradient-to-br from-brand-500 via-brand-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-modern-lg">
-                  {step.step}
-                </div>
-                <h3 className="font-bold text-lg mb-2 text-navy-900">{step.title}</h3>
-                <p className="text-sm text-slate-600">{step.description}</p>
-              </Card>
-              {index < notificationWorkflow.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-brand-400 via-brand-500 to-blue-500 z-10"></div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Key Benefits */}
-      <Section background="gray">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Key Benefits for <span className="text-gradient">Veterinarians</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card className="text-center h-full bg-gradient-to-br from-white via-purple-50/40 to-cyan-50/30 border-2 border-purple-300 hover:border-purple-500 transition-all hover:shadow-modern-lg">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mx-auto mb-4 text-white shadow-modern-lg">
-                  {benefit.icon}
-                </div>
-                <h3 className="font-bold text-xl mb-2 text-navy-900">{benefit.title}</h3>
-                <p className="text-slate-600">{benefit.description}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Real-World Example */}
-      <Section background="white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <Card hover={false} className="bg-brand-50/60 border border-brand-200 shadow-modern-lg">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4 text-navy-900">Real-world example</h2>
-              <p className="text-lg text-navy-600">How TrainingTree<sup className="text-sm">™</sup> Pro helps vets catch issues early</p>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">
-                  1
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-2 text-navy-900">Continuous Monitoring</h4>
-                  <p className="text-slate-700">
-                    A racehorse's gait symmetry drops from 0.85 to 0.58 over 3 days. The system detects this change through continuous monitoring of wearable device data and gait analysis.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">
-                  2
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-2 text-navy-900">Automated Alert</h4>
-                  <p className="text-slate-700">
-                    Vet receives immediate notification: "High-risk gait asymmetry detected in [Horse Name]. Symmetry: 0.58 (threshold: 0.60). Health Score: 72 (down from 88)."
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-success-500 to-success-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">
-                  3
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-2 text-navy-900">Early Intervention</h4>
-                  <p className="text-slate-700">
-                    Vet reviews complete health history, recent training data, and biometric trends. Exam reveals early-stage tendon inflammation—caught 3 weeks before it would have become a full injury requiring months of recovery.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">
-                  4
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-2 text-navy-900">Treatment & Recovery</h4>
-                  <p className="text-slate-700">
-                    Vet documents treatment protocol in TrainingTree. System tracks recovery progress through health scores and gait symmetry improvements. Horse returns to training in 2 weeks instead of 3-4 months.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-      </Section>
-
-      {/* CTA */}
-      <Section background="gradient">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Help Your Clients Catch Issues Earlier
-          </h2>
-          <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree helps veterinarians provide better care through early detection, automated notifications, and comprehensive health records.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/contact" variant="primary" size="lg">
-              Get a Free Demo
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button to="/trainingtree/health" variant="ghost" size="lg">
-              Learn More About Health Features
-            </Button>
-          </div>
-        </motion.div>
-      </Section>
-    </div>
-  )
+  },
 }
+
+const Veterinarians = () => (
+  <>
+    <SEO
+      title={pageSEO.solutionsVeterinarians.title}
+      description={pageSEO.solutionsVeterinarians.description}
+      path="/solutions/veterinarians"
+    />
+    <SolutionPage data={data} />
+  </>
+)
 
 export default Veterinarians

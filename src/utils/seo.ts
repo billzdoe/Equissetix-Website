@@ -46,8 +46,20 @@ type PageSEOEntry = {
 export const pageSEO = {
   // Core pages
   home: {
-    title: 'Equissetix — Run the Whole Barn, On Time and On Record',
-    description: 'Every vaccination, Coggins, feed, stall, and invoice in one system so nothing lapses — with peer-reviewed sports science when you need it.',
+    title: 'Equissetix — Equine Performance Science & Vet Care',
+    description: 'TrainingTree Pro: workload, readiness, gait and vet care for each horse, worked out from its own records using published equine physiology. Barn management included.',
+  },
+  performance: {
+    title: 'Equine Performance — Workload, Readiness & Gait | Equissetix',
+    description: 'Condition each horse on its own numbers: TRIMP, 28-day workload ratio, daily readiness, video and sensor gait analysis, and conditioning programs that adapt per horse.',
+  },
+  vetCare: {
+    title: 'Vet Care — Vitals Against Each Horse’s Normal | Equissetix',
+    description: 'Fever and resting-pulse alerts against each horse’s own 30-day baseline, vet exams, medication withdrawal, rehab plans, body condition and a Five Domains wellbeing check.',
+  },
+  science: {
+    title: 'The Science — Breakthroughs, Methods & Sources | Equissetix',
+    description: 'What we’ve built on published equine physiology, how we treat missing data, what we don’t claim, and the reading list behind it.',
   },
   pricing: {
     title: 'Pricing — Equissetix',
@@ -107,16 +119,24 @@ export const pageSEO = {
     description: 'A complete file on every horse from foaling to sale: health, identity, pedigree, ownership shares, and care history across the whole herd. Sale- and vetting-ready.',
   },
   solutionsRacingTrainers: {
-    title: 'For Racing Trainers - Equissetix',
-    description: 'Replace the spreadsheets. Track workouts, monitor training load, and make data-driven racing decisions so you can win more races with less paperwork.',
+    title: 'For Trainers — Workload, Readiness & Gait | TrainingTree Pro',
+    description: 'Know which horse is ready to work and which needs the day: workload ratio, daily readiness, adaptive conditioning programs and gait video, for racing and sport horses.',
   },
   solutionsHorseOwners: {
-    title: 'For Horse Owners - Equissetix',
-    description: 'Know your horse is in good hands. Get 24/7 owner-portal access to training, health, and financial updates from your trainer in real time.',
+    title: 'For Horse Owners — Your Horse’s Health & Work | TrainingTree Pro',
+    description: 'Follow your horse’s health, care and work through your barn’s owner portal, and ask the barn for turnout, grooming, the farrier or the vet in writing.',
   },
   solutionsVeterinarians: {
-    title: 'For Veterinarians - Equissetix',
-    description: 'Data-driven equine care. Access complete health histories, gait analysis, and training-load data to make faster, better-informed clinical decisions.',
+    title: 'For Veterinarians — Vitals, Rehab & Gait Between Visits | TrainingTree Pro',
+    description: 'Vitals against each horse’s own baseline, exam and medication history with withdrawal times, rehab plans that cap training, and side-by-side gait video.',
+  },
+  solutionsStableManagers: {
+    title: 'For Stable Managers — Run the Day From One Screen | StableTree',
+    description: 'Morning rounds against each horse’s normal, turnout without clashes, staff shifts, feed and stock alerts, and the vet and farrier calendar in one place.',
+  },
+  solutionsBarnOwners: {
+    title: 'For Barn Owners — Care, Staff and Books in View | StableTree',
+    description: 'Health and compliance on schedule, labour and cost per horse, billing and books that balance, owner portals, and a full export of your own data.',
   },
   solutionsTrainingFacilities: {
     title: 'For Training Facilities & Large Barns - Equissetix',

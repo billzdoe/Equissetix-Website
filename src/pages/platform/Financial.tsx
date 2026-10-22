@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, DollarSign, Receipt, TrendingUp, PieChart, FileText, CreditCard, Calculator, BarChart3, Target, AlertCircle, CheckCircle } from 'lucide-react'
+import { ArrowRight, DollarSign, Receipt, TrendingUp, PieChart, FileText, Calculator, BarChart3, Target, AlertCircle, CheckCircle } from 'lucide-react'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import Section from '../../components/Section'
@@ -91,20 +91,6 @@ const Financial = () => {
         "Plan for seasonal cost variations"
       ],
       tier: "Professional & Enterprise"
-    },
-    {
-      icon: <CreditCard className="h-6 w-6" />,
-      title: "Payment Gateway Integration",
-      problem: "Collecting payments from owners is slow—checks take days to clear, and you spend time tracking who's paid.",
-      solution: "Accept online payments directly through invoices. Owners can pay instantly via credit card or ACH, and payments are automatically recorded.",
-      benefits: [
-        "Get paid faster—no waiting for checks",
-        "Reduce time spent on payment collection",
-        "Automatic payment recording and reconciliation",
-        "Professional payment experience for owners",
-        "Reduce late payments with easy online options"
-      ],
-      tier: "Enterprise"
     },
     {
       icon: <Calculator className="h-6 w-6" />,
@@ -298,10 +284,8 @@ const Financial = () => {
                     {feature.icon}
                   </div>
                   <div className="flex-1 min-w-0">
+                    {/* Plan-tier badges removed with pricing (2026-10-22); `tier` stays in the data for when pricing returns. */}
                     <h3 className="text-lg font-bold mb-1 text-navy-900">{feature.title}</h3>
-                    <span className="inline-block px-2 py-0.5 bg-brand-100 text-brand-700 text-xs font-bold rounded">
-                      {feature.tier}
-                    </span>
                   </div>
                 </div>
                 
@@ -452,8 +436,8 @@ const Financial = () => {
               Get a Free Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button to="/pricing" variant="ghost" size="lg">
-              View Pricing
+            <Button to="/science" variant="ghost" size="lg">
+              See the science
             </Button>
           </div>
         </motion.div>

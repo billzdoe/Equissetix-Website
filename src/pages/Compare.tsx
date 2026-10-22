@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, TrendingUp } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Section from '../components/Section'
 import Button from '../components/Button'
 import ComparisonTable from '../components/ComparisonTable'
@@ -175,9 +175,8 @@ const Compare = () => {
               Get a Free Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button to="/pricing" variant="secondary" size="lg">
-              View Pricing
-              <TrendingUp className="h-5 w-5" />
+            <Button to="/science" variant="secondary" size="lg">
+              See the science
             </Button>
           </div>
         </motion.div>

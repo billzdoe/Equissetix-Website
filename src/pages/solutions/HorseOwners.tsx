@@ -1,197 +1,99 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Eye, DollarSign, Heart, BarChart3, QrCode, Smartphone, Shield, Bell } from 'lucide-react'
-import Button from '../../components/Button'
-import Card from '../../components/Card'
-import Section from '../../components/Section'
 import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
+import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
-const HorseOwners = () => {
-  const benefits = [
+/**
+ * For horse owners. Rewritten 2026-10-22 on the new template. The owner portal
+ * shows what the barn chooses to share per horse (exercise needs the owner's
+ * grant), the horse's upcoming calendar, and "Ask the barn" requests.
+ */
+
+const data: SolutionData = {
+  breadcrumb: 'Horse owners',
+  eyebrow: 'For horse owners',
+  headline: ['See how your horse is doing,', 'without the phone tag.'],
+  subhead:
+    'Health, work and care for your horse, recorded by the people looking after it, and a direct way to ask the barn for what you need.',
+  painPoints: [
     {
-      icon: <Eye className="h-6 w-6" />,
-      title: "Complete Transparency",
-      description: "See exactly how your horse is training, performing, and recovering—updated in real-time"
+      problem: '“How’s my horse?” takes three texts and a day',
+      impact: 'You only hear the news someone remembers to pass on.',
     },
     {
-      icon: <DollarSign className="h-6 w-6" />,
-      title: "Clear Financial Tracking",
-      description: "Know exactly where your investment goes with detailed expense tracking and invoicing"
+      problem: 'You pay for care you never see',
+      impact: 'The invoice arrives; the farrier visit, the vet check and the turnout don’t.',
     },
     {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Health & Wellness Updates",
-      description: "Get instant alerts about your horse's health, vet visits, and vaccination schedules"
+      problem: 'Your horse’s history is scattered across barns and vets',
+      impact: 'When he moves or sells, the records don’t go with him.',
     },
     {
-      icon: <BarChart3 className="h-6 w-6" />,
-      title: "Performance Insights",
-      description: "Data-driven updates on training progress, race readiness, and performance trends"
-    }
-  ]
-
-  const portalFeatures = [
+      problem: 'You can’t tell if he’s fit, sore or just quiet',
+      impact: 'You find out about a problem when it has already cost him time off.',
+    },
+  ],
+  solutions: [
     {
-      icon: <Smartphone className="h-8 w-8" />,
-      title: "Your Personal Owner Dashboard",
-      description: "Access all your horses in one place with a clean, easy-to-use dashboard. View race records, earnings, and status updates 24/7 from any device."
+      title: 'Your horse, in your portal',
+      description:
+        'The barn decides, horse by horse, what you can see: health, care, work and billing. What isn’t shared says “not shared”, never “none”.',
+      benefits: [
+        'The last 30 days of exercise, when shared with you',
+        'What’s coming up on your horse’s calendar',
+        'Messages with photos from the barn',
+      ],
     },
     {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Privacy-Controlled Access",
-      description: "Your trainer controls exactly what you see. Get the transparency you need while respecting training strategies and competitive advantages."
+      title: 'Ask the barn',
+      description:
+        'Request extra turnout, grooming, blanketing, a lesson, the farrier or the vet from the portal. Staff see it on their daily list and answer there.',
+      benefits: [
+        'Requests in writing, not lost in texts',
+        'An answer you can see',
+        'Invoices with the services behind them',
+      ],
     },
     {
-      icon: <QrCode className="h-8 w-8" />,
-      title: "Shareable Horse Profiles",
-      description: "Generate beautiful, print-ready marketing profiles with QR codes. Perfect for race submissions, partnerships, or sharing your horse's achievements."
+      title: 'Wellness you can follow',
+      description:
+        'Body condition over time, vaccinations, deworming and farrier visits, and a wellbeing check arranged by the Five Domains model of animal welfare.',
+      benefits: [
+        'Vitals checked against your horse’s own normal',
+        'Vet exams and rehab progress on file',
+        'Feed matched to the work your horse is doing',
+      ],
     },
     {
-      icon: <Bell className="h-8 w-8" />,
-      title: "Real-Time Updates",
-      description: "Stay informed with instant notifications about workouts, health changes, race entries, and financial statements—no more calling for updates."
-    }
-  ]
-
-  return (
-    <div className="pt-20">
-      <SEO title={pageSEO.solutionsHorseOwners.title} description={pageSEO.solutionsHorseOwners.description} path="/solutions/horse-owners" />
-      <Section background="gradient" className="min-h-[60vh] flex items-center">
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="eyebrow justify-center mb-4">For horse owners</span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-navy-900">
-              Know your horse is in <span className="text-gradient">good hands</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-navy-600 mb-8">
-              Stay informed about your horse's training, health, and performance—with complete transparency from your trainer.
-            </p>
-            <Button to="/contact" variant="primary" size="lg">
-              See Your Owner Portal
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </motion.div>
-        </div>
-      </Section>
-
-      <Section background="white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="eyebrow justify-center mb-4">Peace of mind</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy-900">
-            What you get as an <span className="text-gradient">owner</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card className="h-full border-l-2 border-l-transparent hover:border-l-gold-500">
-                <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-4 text-brand-700 ring-1 ring-brand-100">
-                  {benefit.icon}
-                </div>
-                <h3 className="font-bold text-xl mb-2 text-navy-900">{benefit.title}</h3>
-                <p className="text-navy-600">{benefit.description}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      <Section background="dark">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="eyebrow justify-center mb-4 text-gold-400">The owner portal</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Introducing the <span className="text-gold-400">Owner Portal</span>
-          </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            A dedicated dashboard designed specifically for horse owners. Stay connected to your investment with transparency and peace of mind.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {portalFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Card hover={false} className="h-full bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-16 h-16 bg-gold-500 rounded-xl flex items-center justify-center mb-4 text-navy-900 shadow-gold-glow">
-                  {feature.icon}
-                </div>
-                <h3 className="font-bold text-xl mb-3 text-white">{feature.title}</h3>
-                <p className="text-white/75">{feature.description}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 p-8 sm:p-10 bg-accent-gradient rounded-2xl text-center shadow-gold-glow"
-        >
-          <h3 className="text-3xl font-bold mb-4 text-navy-900">
-            See your horse's full story
-          </h3>
-          <p className="text-xl text-navy-900/80 mb-6 max-w-2xl mx-auto">
-            From training sessions to race day performance, get the complete picture of your horse's journey—with your trainer's expert guidance.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/trainingtree/collaboration" variant="secondary" size="lg">
-              View Owner Portal Features
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button to="/contact" variant="ghost" size="lg" className="bg-white">
-              Request a Demo
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </div>
-        </motion.div>
-      </Section>
-
-      <Section background="gradient">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2 className="text-4xl font-bold mb-6 text-navy-900">Ask your trainer about TrainingTree<sup className="text-base">™</sup> Pro</h2>
-          <p className="text-xl text-navy-600 mb-8">
-            Encourage your trainer to use TrainingTree<sup className="text-sm">™</sup> Pro for better communication and transparency.
-          </p>
-          <Button to="/contact" variant="primary" size="lg">
-            Learn More
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-        </motion.div>
-      </Section>
-    </div>
-  )
+      title: 'If your horse competes',
+      description:
+        'Workload, readiness and gait from your horse’s own sessions, so you can see the reasoning behind the training plan.',
+      benefits: [
+        'Readiness score with the inputs it used',
+        'Side-by-side gait video from different dates',
+        'Every program change listed with its reason',
+      ],
+    },
+  ],
+  recommend: {
+    slug: 'trainingtree-pro',
+    reason:
+      'Owners usually get access through their barn’s TrainingTree Pro or StableTree, at no extra effort. If your horse lives at home, you can keep his whole file yourself.',
+    alsoSee: {
+      slug: 'stabletree',
+      reason: 'For the health file, care calendar and records without the training tools,',
+    },
+  },
 }
+
+const HorseOwners = () => (
+  <>
+    <SEO
+      title={pageSEO.solutionsHorseOwners.title}
+      description={pageSEO.solutionsHorseOwners.description}
+      path="/solutions/horse-owners"
+    />
+    <SolutionPage data={data} />
+  </>
+)
 
 export default HorseOwners

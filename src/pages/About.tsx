@@ -243,8 +243,8 @@ const About = () => {
             <Button to="/contact" variant="primary" size="lg">
               Get a Free Demo
             </Button>
-            <Button to="/pricing" variant="secondary" size="lg">
-              View Pricing
+            <Button to="/science" variant="secondary" size="lg">
+              See the science
             </Button>
           </div>
         </motion.div>

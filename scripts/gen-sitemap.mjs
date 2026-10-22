@@ -25,11 +25,14 @@ const ALIASES = new Set([
   '/company',    // → /about
   '/resources',  // → /blog
   '/solutions/training-facilities', // → /solutions/large-operations (legacy path)
+  '/why/the-science', // → /science
+  '/solutions/racing-trainers', // → /solutions/trainers
 ])
 
 // Real, reachable pages we deliberately keep out of the index.
 const EXCLUDED = new Set([
   '/case-studies', // "Coming Soon" placeholder — no content to rank (see D4)
+  '/pricing',      // unpublished; redirects to /contact (2026-10-22)
 ])
 
 // changefreq / priority by path shape. First matching prefix wins.
@@ -37,7 +40,7 @@ const RULES = [
   { test: (p) => p === '/',                      changefreq: 'daily',   priority: 1.0 },
   { test: (p) => p === '/products',              changefreq: 'weekly',  priority: 1.0 },
   { test: (p) => p.startsWith('/products/'),     changefreq: 'weekly',  priority: 0.9 },
-  { test: (p) => p === '/pricing',               changefreq: 'weekly',  priority: 0.9 },
+  { test: (p) => ['/performance', '/vet-care', '/science'].includes(p), changefreq: 'weekly', priority: 0.95 },
   { test: (p) => p.startsWith('/solutions/'),    changefreq: 'weekly',  priority: 0.9 },
   { test: (p) => p.startsWith('/why/'),          changefreq: 'monthly', priority: 0.8 },
   { test: (p) => p.startsWith('/trainingtree/'), changefreq: 'weekly',  priority: 0.8 },

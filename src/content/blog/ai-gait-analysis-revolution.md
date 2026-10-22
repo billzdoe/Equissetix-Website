@@ -370,45 +370,6 @@ What the analysis measures:
 
 ---
 
-## Cost-Benefit Analysis: Is AI Gait Analysis Worth It?
-
-### Investment (20-horse operation):
-
-**TrainingTree Pro Platform:**
-- $199/month Professional tier = $2,388/year
-- Includes unlimited gait analyses
-
-**Time Investment:**
-- 5 minutes per horse per week (video recording)
-- Total: 1.7 hours/week = 87 hours/year
-- Labor cost: $2,610 (@ $30/hour)
-
-**Total Investment: $4,998/year**
-
-### Return on Investment:
-
-**Injury Prevention (Conservative):**
-- Prevent 4 lameness incidents (down from 6)
-- Vet bills saved: $20,000 (avg $5,000/incident)
-- Lost training revenue: $36,000 (avg 8 weeks @ $900/week)
-- **Subtotal: $56,000**
-
-**Performance Improvement:**
-- 10% improvement in race consistency
-- Additional purse earnings: $25,000
-- **Subtotal: $25,000**
-
-**Time Savings:**
-- 30% reduction in vet appointments
-- 50% reduction in lameness management time
-- Value: $8,000
-- **Subtotal: $8,000**
-
-**Total Annual Benefit: $89,000**
-**Net ROI: $84,002 (1,681% return)**
-
----
-
 ## Common Questions & Concerns
 
 ### Q: "Can AI really match experienced trainers?"
@@ -618,7 +579,6 @@ The technology is accessible, affordable, and proven. The only question is: will
 
 🔑 **Works with simple smartphone videos (no special equipment)**
 
-🔑 **ROI typically exceeds 1,600% in first year**
 
 🔑 **Becoming the new standard of care in elite training**
 
@@ -648,15 +608,6 @@ We're onboarding a small group of founding barns with white-glove setup:
 - Federation Equestre Internationale (FEI) technology guidelines
 - American Association of Equine Practitioners (AAEP) position statements
 - Grayson-Jockey Club Research Foundation reports
-
----
-
-**Questions? Our AI specialists are here to help.**
-
-📧 **Email:** ai-support@equissetix.com
-💬 **Live Chat:** Available 24/7
-📱 **Schedule Demo:** [See AI gait analysis in action](https://trainingtree.com/demo)
-🎥 **Watch Tutorial:** [5-minute introduction to AI gait analysis](https://trainingtree.com/tutorials/gait-analysis)
 
 ---
 

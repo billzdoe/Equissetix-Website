@@ -27,6 +27,19 @@ export default {
           900: '#0a3322',
           950: '#052015',
         },
+        // ── 2026-10 REVAMP GROUNDS ───────────────────────────────────────
+        // ink   = paddock green-black, the hero and the heaviest bands
+        // chalk = the page ground (cool, a lab plate rather than cream)
+        // plate = the raised ground; also the paper tone of the Muybridge frames
+        ink: {
+          DEFAULT: '#0F2A20',
+          600: '#173A2D',
+          700: '#12322A',
+          800: '#0F2A20',
+          900: '#0A1F17',
+        },
+        chalk: '#F3F5F0',
+        plate: '#E8EBE4',
         // Gold / Amber - the ONLY loud accent. Reserved for CTAs & highlights.
         gold: {
           50: '#fffaeb',
@@ -66,8 +79,8 @@ export default {
           500: '#586273',
           600: '#414a59',
           700: '#2f3744',
-          800: '#1c222c',
-          900: '#11161e',  // primary heading ink
+          800: '#25302A',
+          900: '#17211C',  // primary heading ink, green-cast graphite
           950: '#080b10',
         },
         // `success-*` → green (semantic).
@@ -177,9 +190,12 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Outfit', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+        // One family, two widths: condensed Archivo for display (race-card
+        // headings), normal width for reading. `mono` maps to Archivo too;
+        // the legacy font-mono figures get tabular numerals in index.css.
+        sans: ['Archivo', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Archivo', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['Archivo', 'system-ui', 'sans-serif'],
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',

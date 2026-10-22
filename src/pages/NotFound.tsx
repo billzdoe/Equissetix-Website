@@ -9,7 +9,7 @@ import { pageSEO } from '../utils/seo'
 const NotFound = () => {
   const popularLinks = [
     { path: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
-    { path: '/pricing', label: 'Pricing', icon: <Search className="h-5 w-5" /> },
+    { path: '/science', label: 'The science', icon: <Search className="h-5 w-5" /> },
     { path: '/contact', label: 'Contact', icon: <Search className="h-5 w-5" /> },
     { path: '/trainingtree/training', label: 'Training Features', icon: <Search className="h-5 w-5" /> },
     { path: '/trainingtree/health', label: 'Health Features', icon: <Search className="h-5 w-5" /> },

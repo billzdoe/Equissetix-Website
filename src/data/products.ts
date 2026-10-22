@@ -102,6 +102,8 @@ export const products: Product[] = [
           { label: 'Facility repair tickets + surface maintenance log', status: 'included' },
           { label: 'Biosecurity / isolation tracking', status: 'included' },
           { label: 'Consumable inventory + reorder alerts', status: 'included' },
+          { label: 'Blanketing chart, facility bookings + boarding waitlist', status: 'included' },
+          { label: 'Incident reports + per-horse emergency sheets', status: 'included' },
         ],
       },
       {
@@ -121,11 +123,11 @@ export const products: Product[] = [
           { label: 'Double-entry accounting + budgets', status: 'included' },
           { label: 'Invoicing + recurring invoices', status: 'included' },
           { label: 'Owner portals with per-horse permissions', status: 'included' },
+          { label: 'Owner requests (“ask the barn”) + 30-day owner view', status: 'included' },
           { label: 'Partnerships & owner split-billing', status: 'included' },
           { label: 'QuickBooks / Xero accounting export', status: 'included' },
           { label: 'Vendor price-creep detection', status: 'included' },
           { label: 'Overdue-invoice dunning', status: 'setup' },
-          { label: 'Stripe payments', status: 'setup' },
         ],
       },
       {
@@ -134,6 +136,8 @@ export const products: Product[] = [
         capabilities: [
           { label: 'Vet exams, vaccinations, medication logs', status: 'included' },
           { label: 'Rehab plans + biometric vitals', status: 'included' },
+          { label: 'Vitals vs each horse’s own baseline + morning rounds', status: 'included' },
+          { label: 'Health-history PDF for vets and buyers', status: 'included' },
           { label: 'Farrier visits + hoof measurements + shoe inventory', status: 'included' },
           { label: 'Voice barn-walk structuring (Claude)', status: 'setup' },
         ],
@@ -179,6 +183,8 @@ export const products: Product[] = [
           { label: 'Training tree + 30+ workout types', status: 'included' },
           { label: 'Auto furlong splits from stopwatch input', status: 'included' },
           { label: 'Safety-gated recommendations + decision matrix', status: 'included' },
+          { label: 'Adaptive conditioning programs for six disciplines', status: 'included' },
+          { label: 'Wellbeing Check on the Five Domains model', status: 'included' },
         ],
       },
       {
@@ -240,6 +246,8 @@ export const products: Product[] = [
           { label: 'TRIMP / ATL / CTL / TSB / ACWR training load', status: 'included' },
           { label: 'Daily readiness (0–100) + injury-risk scoring', status: 'included' },
           { label: 'Safety-gated workout recommendations', status: 'included' },
+          { label: 'Adaptive conditioning programs for six disciplines', status: 'included' },
+          { label: 'Wellbeing Check on the Five Domains model', status: 'included' },
           { label: 'Video gait analysis + side-by-side compare', status: 'included' },
           { label: 'Racing ops + medication withdrawal calculator', status: 'included' },
           { label: 'Wearable device integrations (8 vendors)', status: 'setup' },

@@ -93,10 +93,9 @@ const OwnerPortal = () => {
                 Request a Demo
                 <ArrowRight className="h-5 w-5" />
               </Button>
-              <Button to="/pricing" variant="secondary" size="lg">
-                View Pricing
-                <ArrowRight className="h-5 w-5" />
-              </Button>
+              <Button to="/science" variant="secondary" size="lg">
+              See the science
+            </Button>
             </div>
           </motion.div>
         </div>
@@ -394,21 +393,17 @@ const OwnerPortal = () => {
             Ready to <span className="text-gradient">Modernize</span> Owner Communication?
           </h2>
           <p className="text-xl text-slate-600 mb-8">
-            Give your owners the transparency they crave while protecting your competitive edge. Start your free trial today.
+            Give your owners the transparency they crave while protecting your competitive edge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">
               Request a Demo
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button to="/pricing" variant="secondary" size="lg">
-              View Pricing
-              <ArrowRight className="h-5 w-5" />
+            <Button to="/science" variant="secondary" size="lg">
+              See the science
             </Button>
           </div>
-          <p className="text-slate-500 mt-6">
-            No credit card required • 14-day free trial • Cancel anytime
-          </p>
         </motion.div>
       </Section>
     </div>

@@ -239,32 +239,6 @@ Manual ACWR calculation is possible but time-consuming and error-prone. Modern t
 
 ---
 
-## The Business Case for ACWR
-
-### ROI Calculation (25-horse operation):
-
-**Costs:**
-- Training management platform: $199/month = **$2,388/year**
-- Staff training time: 4 hours = **$200**
-- **Total Investment: $2,588**
-
-**Benefits (Conservative Estimate):**
-- Injury reduction (8 → 2 horses): **6 fewer injuries**
-- Vet bills saved: **$30,000** (avg $5,000 per injury)
-- Lost training revenue: **$45,000** (avg 8 weeks @ $900/week)
-- Owner retention: **$15,000** (2 owners who might have left)
-- **Total Benefit: $90,000**
-
-**Net ROI: $87,412 (3,379% return)**
-
-And this doesn't account for:
-- Improved performance and race results
-- Enhanced reputation
-- Reduced stress and workload
-- Better horse welfare
-
----
-
 ## Getting Started Today
 
 You don't need expensive equipment or complex systems to begin using ACWR:
@@ -324,7 +298,6 @@ The question isn't whether to implement ACWR monitoring—it's whether you can a
 
 🔑 **Automation makes ACWR practical for everyday use**
 
-🔑 **ROI typically exceeds 3,000% in first year**
 
 ---
 
@@ -349,14 +322,6 @@ TrainingTree Pro is an equine operations platform featuring automated ACWR monit
 **[Request a demo →](/contact)**
 
 *Bring your barn's real workflow and we'll show you exactly how it fits.*
-
----
-
-**Have questions about implementing ACWR in your operation?** Our team of equine training specialists is here to help.
-
-📧 **Email:** support@equissetix.com
-💬 **Live Chat:** Available 6am-10pm EST
-📱 **Schedule a Demo:** [Book a free consultation](https://trainingtree.com/contact)
 
 ---
 

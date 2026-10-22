@@ -32,86 +32,60 @@ export interface BlogPost {
   slug?: string
 }
 
+// Only posts with an article body are listed (2026-10-22): the four
+// placeholder entries with no body led to "coming soon" dead ends.
+// Unlisted the same day, files kept in src/content/blog: acwr-injury-prevention,
+// ai-gait-analysis-revolution, financial-management-horse-trainers. Each told
+// invented customer case studies and statistics as fact for a product with no
+// customers yet. Rewrite from the product's real behaviour before relisting.
 export const blogPosts: BlogPost[] = [
   {
-    id: 7,
-    title: 'Introducing Owner Portal: Modern Transparency for Horse Owners',
+    id: 8,
+    title: 'Our Approach to Horse Wellbeing: The Five Domains, Built Into the Barn',
     excerpt:
-      "Give your owners 24/7 access to their horses' information with customizable privacy controls, QR code profiles, and instant updates—without spending hours on the phone.",
+      'How TrainingTree Pro turns the records a barn already keeps into a Wellbeing Check on the Five Domains model, and why a missing record is never scored as zero.',
     author: 'Equissetix Team',
-    date: '2024-01-28',
-    category: 'Product Updates',
-    readTime: '5 min read',
-    featured: true,
-  },
-  {
-    id: 1,
-    title: 'Understanding ACWR: The Science Behind Training Load Monitoring',
-    excerpt:
-      'Learn how Acute:Chronic Workload Ratio helps prevent injuries and optimize performance in racehorses.',
-    author: 'Equissetix Team',
-    date: '2024-01-15',
-    category: 'Training Science',
-    readTime: '8 min read',
-    featured: false,
-    slug: 'acwr-injury-prevention',
-  },
-  {
-    id: 2,
-    title: '5 Signs Your Horse May Be Overtrained',
-    excerpt:
-      'Early warning signs that indicate your horse needs more recovery time before the next workout.',
-    author: 'Equissetix Team',
-    date: '2024-01-10',
-    category: 'Health & Wellness',
+    date: '2026-10-22',
+    category: 'Wellbeing',
     readTime: '6 min read',
-    featured: false,
+    featured: true,
+    slug: 'horse-wellbeing-approach',
   },
   {
-    id: 3,
-    title: 'How to Choose the Right Wearable Device for Your Horse',
+    id: 9,
+    title: 'Every Horse Has Its Own Normal',
     excerpt:
-      'A comprehensive guide to selecting wearable devices that integrate with TrainingTree.',
+      'Why TrainingTree Pro checks temperature and resting pulse against each horse’s own 30-day baseline, and how morning rounds put the horses that need a look first.',
     author: 'Equissetix Team',
-    date: '2024-01-05',
-    category: 'Technology',
-    readTime: '10 min read',
+    date: '2026-10-22',
+    category: 'Vet care',
+    readTime: '4 min read',
     featured: false,
+    slug: 'every-horse-has-its-own-normal',
   },
   {
-    id: 4,
-    title: 'Financial Management for Horse Trainers: A Complete Guide',
+    id: 10,
+    title: 'One Safety Gate in Front of Every Workout',
     excerpt:
-      'Best practices for tracking expenses, invoicing owners, and understanding profitability per horse.',
+      'The workload ratio, daily readiness and rehab status, checked before any suggestion reaches you, and conditioning programs that adapt session by session.',
     author: 'Equissetix Team',
-    date: '2023-12-28',
-    category: 'Business',
-    readTime: '12 min read',
+    date: '2026-10-22',
+    category: 'Performance',
+    readTime: '5 min read',
     featured: false,
-    slug: 'financial-management-horse-trainers',
+    slug: 'one-safety-gate',
   },
   {
-    id: 5,
-    title: 'The Future of Equine Training: AI and Data Science',
+    id: 11,
+    title: 'Feed That Follows the Work',
     excerpt:
-      'How artificial intelligence is revolutionizing horse training and injury prevention.',
+      'NRC 2007 requirements set from the work a horse actually logged, refuelling around hard sessions, and feeds a horse keeps refusing flagged.',
     author: 'Equissetix Team',
-    date: '2023-12-20',
-    category: 'Technology',
-    readTime: '9 min read',
+    date: '2026-10-22',
+    category: 'Nutrition',
+    readTime: '4 min read',
     featured: false,
-    slug: 'ai-gait-analysis-revolution',
-  },
-  {
-    id: 6,
-    title: 'Building Trust with Horse Owners Through Transparency',
-    excerpt:
-      'How owner portals and real-time updates improve relationships and retention.',
-    author: 'Equissetix Team',
-    date: '2023-12-15',
-    category: 'Business',
-    readTime: '7 min read',
-    featured: false,
+    slug: 'feed-that-follows-the-work',
   },
 ]
 

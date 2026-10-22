@@ -459,7 +459,7 @@ const Contact = () => {
                     <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-brand-500 to-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-modern">
                       4
                     </span>
-                    <p className="text-sm text-slate-700">Start your free 14-day trial</p>
+                    <p className="text-sm text-slate-700">We set your barn up with your own records</p>
                   </li>
                 </ol>
               </Card>

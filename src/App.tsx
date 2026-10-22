@@ -1,5 +1,5 @@
 import { useEffect, lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
@@ -11,7 +11,11 @@ import { usePageTracking } from './hooks/useAnalytics'
 
 // Core pages (lazy-loaded for code splitting)
 const Home = lazy(() => import('./pages/Home'))
-const Pricing = lazy(() => import('./pages/Pricing'))
+// Pricing is unpublished until Billy says otherwise (2026-10-22); /pricing
+// redirects to the demo form. The page file is kept for when it returns.
+const PerformanceScience = lazy(() => import('./pages/PerformanceScience'))
+const VetCare = lazy(() => import('./pages/VetCare'))
+const Science = lazy(() => import('./pages/Science'))
 const Contact = lazy(() => import('./pages/Contact'))
 const About = lazy(() => import('./pages/About'))
 
@@ -23,6 +27,8 @@ const Performance = lazy(() => import('./pages/products/Performance'))
 
 // Solutions pages
 const RacingTrainers = lazy(() => import('./pages/solutions/RacingTrainers'))
+const StableManagers = lazy(() => import('./pages/solutions/StableManagers'))
+const BarnOwners = lazy(() => import('./pages/solutions/BarnOwners'))
 const HorseOwners = lazy(() => import('./pages/solutions/HorseOwners'))
 const Veterinarians = lazy(() => import('./pages/solutions/Veterinarians'))
 const TrainingFacilities = lazy(() => import('./pages/solutions/TrainingFacilities'))
@@ -32,7 +38,6 @@ const BreedingFarms = lazy(() => import('./pages/solutions/BreedingFarms'))
 // Why Equissetix pages
 const WhyCompliance = lazy(() => import('./pages/why/Compliance'))
 const WhyOwnerTransparency = lazy(() => import('./pages/why/OwnerTransparency'))
-const WhyTheScience = lazy(() => import('./pages/why/TheScience'))
 
 // TrainingTree pages
 const Training = lazy(() => import('./pages/platform/Training'))
@@ -59,7 +64,7 @@ const Disciplines = lazy(() => import('./pages/Disciplines'))
 const Compare = lazy(() => import('./pages/Compare'))
 
 const PageLoader = () => (
-  <div className="min-h-[60vh] flex items-center justify-center" role="status" aria-label="Loading">
+  <div className="min-h-screen flex items-center justify-center" role="status" aria-label="Loading">
     <div className="h-10 w-10 rounded-full border-4 border-slate-200 border-t-coral-500 animate-spin" />
   </div>
 )
@@ -69,12 +74,15 @@ function AppContent() {
   usePageTracking()
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-chalk">
       <Navbar />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/performance" element={<PerformanceScience />} />
+          <Route path="/vet-care" element={<VetCare />} />
+          <Route path="/science" element={<Science />} />
+          <Route path="/pricing" element={<Navigate to="/contact" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/company" element={<About />} />
@@ -86,7 +94,11 @@ function AppContent() {
           <Route path="/products/performance" element={<Performance />} />
 
           {/* Solutions routes */}
+          {/* The five buyers: vets, stable managers, trainers, barn owners, horse owners */}
+          <Route path="/solutions/trainers" element={<RacingTrainers />} />
           <Route path="/solutions/racing-trainers" element={<RacingTrainers />} />
+          <Route path="/solutions/stable-managers" element={<StableManagers />} />
+          <Route path="/solutions/barn-owners" element={<BarnOwners />} />
           {/* New stable-first audience pages */}
           <Route path="/solutions/boarding-barns" element={<BoardingBarns />} />
           <Route path="/solutions/breeding-farms" element={<BreedingFarms />} />
@@ -95,7 +107,7 @@ function AppContent() {
           {/* Why Equissetix routes */}
           <Route path="/why/compliance" element={<WhyCompliance />} />
           <Route path="/why/owner-transparency" element={<WhyOwnerTransparency />} />
-          <Route path="/why/the-science" element={<WhyTheScience />} />
+          <Route path="/why/the-science" element={<Science />} />
           <Route path="/solutions/horse-owners" element={<HorseOwners />} />
           <Route path="/solutions/veterinarians" element={<Veterinarians />} />
           <Route path="/solutions/training-facilities" element={<TrainingFacilities />} />
@@ -134,7 +146,8 @@ function AppContent() {
       <Footer />
       <BackToTop />
       <StickyCTA />
-      <ExitIntentPopup delay={8000} exitIntent={true} scrollTrigger={40} />
+      {/* Exit intent only: the 40% scroll trigger interrupted people mid-read (2026-10-22). */}
+      <ExitIntentPopup delay={8000} exitIntent={true} scrollTrigger={0} />
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import Button from '../components/Button'
 import Section from '../components/Section'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -18,7 +17,9 @@ const BlogPost = () => {
     return <Navigate to="/404" replace />
   }
 
-  const body = getPostBody(post)
+  // The markdown files open with their own `# Title`; the header above
+  // already shows it, so drop that first line rather than print it twice.
+  const body = getPostBody(post)?.replace(/^\s*# .*\r?\n+/, '')
 
   return (
     <div className="pt-20">
@@ -38,39 +39,23 @@ const BlogPost = () => {
       </Section>
 
       {/* Article header */}
-      <Section background="gradient" className="py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <span className="inline-block px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold mb-4">
-            {post.category}
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-navy-900">{post.title}</h1>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <User className="h-4 w-4" />
-              <span>{post.author}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Tag className="h-4 w-4" />
-              <span>{post.readTime}</span>
-            </div>
+      <section className="bg-ink text-white">
+        <div className="container-custom py-12 sm:py-16">
+          <div className="max-w-3xl">
+            <p className="text-lg font-semibold text-gold-300">{post.category}</p>
+            <h1 className="mt-3 text-4xl leading-[1.02] text-white sm:text-5xl">{post.title}</h1>
+            <p className="mt-5 text-white/65">
+              {post.author}, {new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}, {post.readTime}
+            </p>
           </div>
-        </motion.div>
-      </Section>
+        </div>
+      </section>
 
       {/* Article body */}
-      <Section background="white">
+      <Section background="white" className="!bg-chalk">
         <article className="max-w-3xl mx-auto">
           {body ? (
-            <div className="prose prose-lg prose-slate max-w-none prose-headings:text-navy-900 prose-headings:font-bold prose-a:text-brand-600 prose-strong:text-navy-900 prose-img:rounded-xl">
+            <div className="prose prose-lg prose-slate max-w-none prose-headings:text-navy-900 prose-headings:font-bold prose-h2:font-extrabold prose-a:text-brand-600 prose-strong:text-navy-900 prose-img:rounded-xl">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
             </div>
           ) : (

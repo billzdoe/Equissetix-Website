@@ -1,5 +1,5 @@
 /* Import Google Fonts - must be first */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Archivo is loaded once, in index.html, with its width axis (62-125). */
 
 @tailwind base;
 @tailwind components;
@@ -8,9 +8,9 @@
 @layer base {
   body {
     @apply text-navy-900 antialiased;
-    background-color: #FCFBF8; /* warm paper, not cold blue-white */
-    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
-    letter-spacing: 0.01em;
+    background-color: #F3F5F0; /* chalk: cool, like a lab plate, not cream */
+    font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+    font-stretch: 100%;
     font-size: 16px;
     line-height: 1.6;
   }
@@ -31,8 +31,19 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold text-navy-900;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.01em;
     line-height: 1.1;
+  }
+
+  /* Display headings run condensed and heavy, like a race card. */
+  h1, h2 {
+    font-stretch: 78%;
+    font-weight: 800;
+    line-height: 1.02;
+  }
+
+  .font-mono, .tabular {
+    font-variant-numeric: tabular-nums;
   }
 
   h1 {
@@ -79,6 +90,9 @@
 }
 
 @layer utilities {
+  .font-condensed { font-stretch: 78%; }
+  .font-compressed { font-stretch: 66%; }
+
   /* Disciplined gradient text — green into gold, the two brand colors only */
   .text-gradient {
     background: linear-gradient(120deg, #0F5132 0%, #1f6e43 45%, #b45c09 100%);

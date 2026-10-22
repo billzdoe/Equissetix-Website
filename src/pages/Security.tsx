@@ -111,7 +111,7 @@ const Security = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Multi-Factor Authentication (MFA)</h3>
                   <p className="text-slate-700">
-                    Enterprise plans include mandatory MFA to prevent unauthorized access. We support TOTP authenticator apps, SMS, and hardware security keys.
+                    Two-factor sign-in with any authenticator app, plus single-use backup codes in case a phone is lost.
                   </p>
                 </div>
 

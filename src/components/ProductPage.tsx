@@ -160,15 +160,15 @@ const ProductPage = ({ product, featureSlot }: ProductPageProps) => {
             See {product.name} on your own horses.
           </h2>
           <p className="text-lg text-white/90 mb-8">
-            A guided demo with your barn’s real workflow. No credit card, no pressure.
+            A guided demo with your barn’s real workflow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg" className="group">
               Request a Demo
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button to="/pricing" variant="ghost" size="lg" className="!bg-white !text-brand-700 hover:!bg-white/90 !border-2 !border-white">
-              View Pricing
+            <Button to="/science" variant="ghost" size="lg" className="!bg-white !text-brand-700 hover:!bg-white/90 !border-2 !border-white">
+              See the science
             </Button>
           </div>
         </div>

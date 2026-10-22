@@ -1,588 +1,225 @@
-import { motion } from 'framer-motion'
-import {
-  ArrowRight,
-  AlertCircle,
-  Activity,
-  DollarSign,
-  TrendingUp,
-  Brain,
-  Shield,
-  Users,
-  Check,
-  Zap,
-  ClipboardList,
-} from 'lucide-react'
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import Button from '../components/Button'
-import Card from '../components/Card'
-import Section from '../components/Section'
-import TrustBadges from '../components/TrustBadges'
-import TrackConditionFeature from '../components/TrackConditionFeature'
-import HowItWorksSteps from '../components/HowItWorksSteps'
-import FarmPattern from '../components/FarmPattern'
-import GaitSymmetryShowcase from '../components/GaitSymmetryShowcase'
-import PlatformExplorer from '../components/PlatformExplorer'
+import GallopPlate from '../components/GallopPlate'
+import WorkloadSketch from '../components/WorkloadSketch'
+import RoundsBoard from '../components/RoundsBoard'
 import PlatformLineup from '../components/PlatformLineup'
-import SectionJumpBar from '../components/SectionJumpBar'
+import StatusNote from '../components/StatusNote'
+import { CloseCTA } from '../components/TopicPage'
+import { breakthroughs, performanceFeatures, vetCareFeatures } from '../data/science'
 
-const Home = () => {
-  const problems = [
-    {
-      icon: <ClipboardList className="h-8 w-8" />,
-      title: "The date you forgot",
-      stat: "A lapsed Coggins",
-      description: "an overdue vaccination, a blown medication withdrawal window",
-      detail: "You find out at the gate, the inspection, or the claim—when it's already too late. Paper calendars never warn you in time."
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "The 5:30am scramble",
-      stat: "Who did what?",
-      description: "which horses walked, who got fed, whether the farrier's still coming",
-      detail: "It lives in three people's heads and a whiteboard. Someone gets missed, double-fed, or turned out with the wrong buddy."
-    },
-    {
-      icon: <AlertCircle className="h-8 w-8" />,
-      title: "The owner who keeps calling",
-      stat: "\"How's my horse?\"",
-      description: "texts about training, health, and last month's invoice",
-      detail: "You're the only source of answers, and every call pulls you off the barn floor. Owners see none of the care they're paying for."
-    },
-    {
-      icon: <DollarSign className="h-8 w-8" />,
-      title: "The money you can't see",
-      stat: "Which horse pays?",
-      description: "unbilled services, missing receipts, board that goes out late",
-      detail: "You don't know which horses actually turn a profit until tax season—and by then the leak's been running all year."
-    }
-  ]
+/**
+ * Home, 2026-10 revamp. Leads with performance, vet care and the science,
+ * for five buyers: vets, stable managers, trainers, barn owners and horse
+ * owners (Billy, 2026-10-22). Confident, positive tone on this page. Claims
+ * stay true: "only/first in the market" is not used until counsel clears
+ * comparative claims; everything else is the product as it runs today.
+ * No pricing anywhere on the site until Billy says so.
+ *
+ * Layout rule: every section pairs its heading with its visual side by side,
+ * then sets its features full width in an even grid, so no column runs on
+ * alone. Motion is spent once: the Muybridge plate in the hero.
+ */
 
-  // Testimonials will be added once we have real customer feedback
+const leads = [
+  { href: '#performance', title: 'Performance', line: 'Workload, readiness and gait for every horse.' },
+  { href: '#vet-care', title: 'Vet care', line: 'Every vital read against that horse’s own normal.' },
+  { href: '#breakthroughs', title: 'Breakthroughs', line: 'The science we’ve built into the barn.' },
+]
 
-  return (
-    <div className="pt-20">
-      <SEO title={pageSEO.home.title} description={pageSEO.home.description} path="/" />
-      <SectionJumpBar />
-      {/* Hero Section - Vibrant & Energetic */}
-      <Section background="gradient" className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient">
-        <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center px-4 sm:px-0">
-          {/* Left Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="space-y-6 sm:space-y-8"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-brand-200 text-xs sm:text-sm font-bold text-brand-700 mb-2 shadow-soft"
+const audiences = [
+  { to: '/solutions/veterinarians', title: 'Veterinarians', line: 'See what happened between visits.' },
+  { to: '/solutions/stable-managers', title: 'Stable managers', line: 'Run the whole day from one screen.' },
+  { to: '/solutions/trainers', title: 'Trainers', line: 'Know who’s ready to work today.' },
+  { to: '/solutions/barn-owners', title: 'Barn owners', line: 'Care, staff and books, all in view.' },
+  { to: '/solutions/horse-owners', title: 'Horse owners', line: 'Follow your horse’s health and work.' },
+]
+
+const featureGrid = 'grid grid-cols-1 gap-x-10 border-t sm:grid-cols-2 lg:grid-cols-3'
+const textLink = 'inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700'
+
+const Home = () => (
+  <div className="pt-20">
+    <SEO title={pageSEO.home.title} description={pageSEO.home.description} path="/" />
+
+    {/* Hero */}
+    <section className="bg-ink text-white">
+      <div className="container-custom grid grid-cols-1 items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:py-24">
+        <div>
+          <h1 className="text-[2.9rem] leading-[0.95] text-white sm:text-6xl lg:text-[5.4rem]">
+            The new science of horse care.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
+            TrainingTree Pro reads every workout, vital sign and vet record against each horse’s own normal, and turns
+            them into readiness, workload, gait and wellbeing you can act on this morning. Built on published equine
+            physiology. Patent pending.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button to="/contact" variant="primary" size="lg">
+              Request a demo
+            </Button>
+            <Button
+              to="/science"
+              size="lg"
+              variant="ghost"
+              className="!border-white/30 !bg-transparent !text-white hover:!border-white hover:!bg-white/10"
             >
-              <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold-500" />
-              <span className="whitespace-nowrap">From daily care to race-day performance</span>
-            </motion.div>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight text-navy-900">
-              Every horse, cared for{' '}
-              <span className="text-gradient">on time, on record.</span>
-            </h1>
-
-            <p className="text-base sm:text-lg md:text-xl text-navy-600 leading-relaxed max-w-2xl">
-              Equissetix<sup className="text-xs">™</sup> runs the whole barn—every vaccination, Coggins, feed, stall, and
-              invoice in one system so nothing lapses—and layers on the same peer-reviewed sports science that
-              conditions <span className="font-semibold text-navy-800">the fastest horses in the world.</span>{' '}
-              Care for the herd. Sharpen the racehorse. One platform—take the half you need, or both.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button to="/contact" variant="primary" size="lg" className="group">
-                Request a Demo
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button to="/products" variant="ghost" size="lg">
-                Which half do I need?
-              </Button>
-            </div>
-
-            {/* Core Features List */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-2 bg-white/80 backdrop-blur-sm rounded-xl border border-navy-100 shadow-soft p-4 sm:p-5"
-            >
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-navy-400 mb-3">One platform, everything covered</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2.5">
-                {[
-                  'Compliance & Records',
-                  'Vet & Health',
-                  'Barn Map & Turnout',
-                  'Staff & Time-Clock',
-                  'Invoicing & ERP',
-                  'Owner Portals',
-                  'Inventory Alerts',
-                  'Nutrition & Feed',
-                  'Sports Science (opt.)',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <Check className="h-3.5 w-3.5 text-brand-600 flex-shrink-0" strokeWidth={3} />
-                    <span className="text-xs sm:text-sm font-medium text-navy-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column - Vibrant Dashboard Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="relative hidden lg:block"
-          >
-            <div className="relative">
-              {/* Dashboard mockup — clean, brand-coloured */}
-              <div className="absolute -inset-3 bg-gradient-to-br from-brand-600/10 to-gold-500/10 rounded-3xl blur-2xl" />
-              <div className="relative bg-white rounded-2xl p-6 lg:p-7 shadow-elevation border border-navy-100">
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400">This morning</p>
-                      <h3 className="font-bold text-lg text-navy-900">Barn Status</h3>
-                    </div>
-                    <span className="text-xs inline-flex items-center gap-1.5 bg-brand-50 text-brand-700 px-3 py-1.5 rounded-full font-bold border border-brand-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
-                      All clear
-                    </span>
-                  </div>
-
-                  {/* Compliance / status rows — traffic-light */}
-                  <div className="space-y-2">
-                    {[
-                      { label: 'Coggins & health certs', value: 'Current', tone: 'ok' },
-                      { label: 'Vaccinations due (14 days)', value: '3 horses', tone: 'warn' },
-                      { label: 'Med. withdrawal vs. entries', value: 'Clear', tone: 'ok' },
-                      { label: 'Farrier / dentist overdue', value: 'None', tone: 'ok' },
-                      { label: 'Low inventory (shavings)', value: 'Reorder', tone: 'warn' },
-                    ].map((row, i) => (
-                      <motion.div
-                        key={row.label}
-                        initial={{ opacity: 0, x: 12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
-                        className="flex items-center justify-between bg-navy-50/60 border border-navy-100 rounded-lg px-3 py-2"
-                      >
-                        <span className="flex items-center gap-2 text-sm text-navy-700">
-                          <span className={`w-2 h-2 rounded-full ${row.tone === 'ok' ? 'bg-brand-500' : 'bg-gold-500'}`} />
-                          {row.label}
-                        </span>
-                        <span className={`text-xs font-bold ${row.tone === 'ok' ? 'text-brand-700' : 'text-gold-700'}`}>
-                          {row.value}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Occupancy / roster — ONE surface with internal dividers.
-                      This was three separately-tinted boxes (brand-50 /
-                      navy-50 / gold-50) side by side; three equal rectangles
-                      in three hues is the arrangement that reads cheapest.
-                      The single gold accent marks the figure that matters. */}
-                  <div className="grid grid-cols-3 rounded-xl border border-navy-100 divide-x divide-navy-100 overflow-hidden">
-                    <div className="text-center px-2 py-3">
-                      <p className="text-[11px] text-navy-500 font-bold mb-1">Stalls</p>
-                      <p className="text-2xl font-bold text-navy-800 font-mono tabular-nums">22/24</p>
-                    </div>
-                    <div className="text-center px-2 py-3">
-                      <p className="text-[11px] text-navy-500 font-bold mb-1">Shifts today</p>
-                      <p className="text-2xl font-bold text-navy-800 font-mono tabular-nums">6</p>
-                    </div>
-                    <div className="text-center px-2 py-3 bg-gold-50/70">
-                      <p className="text-[11px] text-gold-700 font-bold mb-1">Invoices out</p>
-                      <p className="text-2xl font-bold text-gold-700 font-mono tabular-nums">$14k</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* Founding Barns strip — honest pre-launch trust/scarcity band */}
-      <section className="bg-navy-900 border-y border-white/10">
-        <div className="container-custom py-5">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center md:text-left">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-gold-400 flex-shrink-0">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-400" />
-              </span>
-              Now onboarding founding barns
-            </span>
-            <p className="text-sm sm:text-base text-white/80">
-              Built by horsemen, on <span className="text-white font-semibold">peer-reviewed equine sports science</span>.
-              Founding barns get white-glove onboarding and a hand in the roadmap.
-            </p>
-            <Button to="/contact" variant="primary" size="sm" className="flex-shrink-0">
-              Claim your spot
-              <ArrowRight className="h-4 w-4" />
+              See the science
             </Button>
           </div>
         </div>
-      </section>
+        <GallopPlate />
+      </div>
 
-      {/* Product Family Section */}
-      <Section id="products" background="dark" className="relative overflow-hidden">
-        <FarmPattern variant="horses" opacity={0.07} color="#ffffff" animated={false} />
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '0px 0px -100px 0px' }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12 relative z-10"
-        >
-          <span className="eyebrow justify-center mb-4 !text-gold-400">One platform, two halves</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            Take the half you need. <span className="text-gold-400">Or both.</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            <strong>TrainingTree Pro</strong> runs the barn <em>and</em> conditions the athlete. If you only
-            need one side of that, take it on its own—and add the other later without re-entering a thing.
-          </p>
-        </motion.div>
-
-        <div className="relative z-10">
-          <PlatformLineup tone="dark" />
-        </div>
-      </Section>
-
-      {/* Problem-Agitation Section - Professional */}
-      <Section background="gray" className="relative">
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12 sm:mb-16 relative z-10"
-        >
-          <span className="eyebrow text-burgundy-600 justify-center mb-4">If your barn runs on paper</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
-            You already know <span className="text-burgundy-700">these mornings</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            The whiteboard, the shoebox of receipts, the note you meant to write down. There's a better way to
-            run the barn.
-          </p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {problems.map((problem, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-            >
-              <Card variant="bordered" className="text-center h-full hover:border-burgundy-200 transition-colors">
-                <div className="text-burgundy-700 mb-4 flex justify-center">
-                  <div className="w-14 h-14 rounded-xl bg-burgundy-50 flex items-center justify-center border border-burgundy-100">
-                    {problem.icon}
-                  </div>
-                </div>
-                <p className="text-2xl font-bold text-navy-900 mb-1">{problem.stat}</p>
-                <h3 className="text-sm font-bold uppercase tracking-wide text-burgundy-700 mb-3">{problem.title}</h3>
-                <p className="text-slate-600 text-sm mb-3">{problem.description}</p>
-                <p className="text-xs text-slate-500 italic">{problem.detail}</p>
-              </Card>
-            </motion.div>
+      <nav aria-label="On this page" className="border-t border-white/10">
+        <ul className="container-custom grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {leads.map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                className="group block py-5 sm:px-6 sm:first:pl-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+              >
+                <span className="block font-condensed text-2xl font-extrabold text-white group-hover:text-gold-300">{l.title}</span>
+                <span className="mt-1 block text-sm text-white/60">{l.line}</span>
+              </a>
+            </li>
           ))}
-        </div>
-      </Section>
+        </ul>
+      </nav>
+    </section>
 
-      {/* Interactive Platform Explorer — replaces the old Solution pillars + toolkit grid */}
-      <Section id="explore" background="white" className="relative">
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-10 relative z-10"
-        >
-          <span className="eyebrow justify-center mb-4">Explore the platform</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
-            <span className="text-gradient">Every horse.</span> Every detail. One record.
-          </h2>
-          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            Pick what matters most in your barn—see exactly how it works.
-          </p>
-        </motion.div>
-
-        <PlatformExplorer />
-      </Section>
-
-      {/* Peace-of-mind / identity section */}
-      <Section background="ink" className="relative overflow-hidden">
-        <FarmPattern variant="fields" opacity={0.08} color="#ffffff" animated={false} />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 max-w-3xl mx-auto text-center"
-        >
-          <span className="eyebrow justify-center mb-4 !text-gold-400">Why it matters</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
-            Run a barn where <span className="text-gold-400">nothing slips through the cracks.</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8">
-            The best barns aren't the ones that never have a problem—they're the ones where the problem gets
-            caught early. When every shot, shoeing, and shipment is on the record and on time, you stop
-            reacting and start running the operation the way you always meant to. From the muck heap to the
-            winner's circle, one system has your back.
-          </p>
-          <div className="inline-flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-white/85">
-            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-gold-400" strokeWidth={3} /> Nothing overdue</span>
-            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-gold-400" strokeWidth={3} /> Nobody guessing</span>
-            <span className="flex items-center gap-2"><Check className="h-4 w-4 text-gold-400" strokeWidth={3} /> Every horse accounted for</span>
-          </div>
-        </motion.div>
-      </Section>
-
-      {/* Performance Edge Section — the cutting-edge, multi-tier story */}
-      <Section id="performance" background="dark" className="relative overflow-hidden">
-        <FarmPattern variant="horseshoes" opacity={0.06} color="#ffffff" animated={true} />
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '0px 0px -100px 0px' }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12 relative z-10 max-w-3xl mx-auto"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-xs sm:text-sm font-bold text-gold-300 mb-5">
-            <Zap className="h-4 w-4" />
-            The performance edge
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
-            The science that builds <span className="text-gold-400">the fastest horses in the world.</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-white/85">
-            Once the barn runs itself, the same platform sharpens the racehorse—peer-reviewed training load,
-            readiness scoring, and gait analysis for trainers chasing the winner’s circle.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-6 relative z-10 mb-12">
-          {[
-            {
-              icon: <TrendingUp className="h-6 w-6" />,
-              title: 'Peak on race day',
-              body: 'ACWR and training-load science tell you exactly when a horse is fittest—so it peaks the day it matters, not two weeks early.',
-            },
-            {
-              icon: <Activity className="h-6 w-6" />,
-              title: 'Catch trouble early',
-              body: 'Video gait analysis and readiness scoring flag asymmetry and fatigue before they cost you a horse—or a race.',
-            },
-            {
-              icon: <Brain className="h-6 w-6" />,
-              title: 'Auditable, not a black box',
-              body: 'Every recommendation comes from published equine physiology you can trace to the decimal. The horseman still makes the call.',
-            },
-          ].map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-            >
-              <div className="h-full bg-white/[0.06] backdrop-blur-sm border border-white/15 rounded-2xl p-6">
-                <div className="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-300 flex items-center justify-center mb-4">
-                  {card.icon}
-                </div>
-                <h3 className="font-bold text-lg text-white mb-2">{card.title}</h3>
-                <p className="text-sm text-white/75 leading-relaxed">{card.body}</p>
-              </div>
-            </motion.div>
+    {/* Who it's for */}
+    <section aria-labelledby="who" className="border-b border-navy-200">
+      <div className="container-custom py-10 sm:py-12">
+        <h2 id="who" className="text-3xl sm:text-4xl">Built for everyone around the horse</h2>
+        <ul className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-navy-200 bg-navy-200 sm:grid-cols-2 lg:grid-cols-5">
+          {audiences.map((a) => (
+            <li key={a.to} className="bg-chalk">
+              <Link to={a.to} className="group block h-full p-5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-500">
+                <span className="block text-lg font-semibold text-navy-900 group-hover:text-brand-600">{a.title}</span>
+                <span className="mt-1 block text-navy-600">{a.line}</span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
+      </div>
+    </section>
 
-        {/* Control reassurance — the horseman decides */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
-          transition={{ duration: 0.4 }}
-          className="relative z-10 max-w-2xl mx-auto text-center mb-12"
-        >
-          <p className="inline-flex items-center gap-2 text-sm sm:text-base text-white/85">
-            <Shield className="h-4 w-4 text-gold-300 flex-shrink-0" />
-            Every recommendation is advisory. You accept it, change it, or ignore it—your judgment always
-            has the final say.
-          </p>
-        </motion.div>
-
-        {/* Multi-tier ladder */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
-          transition={{ duration: 0.4 }}
-          className="relative z-10 max-w-4xl mx-auto"
-        >
-          <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-white/50 mb-5">
-            The training half — on its own, or as part of the whole
-          </p>
-          <div className="mb-8">
-            <PlatformLineup tone="dark" showCompare={false} />
-          </div>
-          <div className="text-center">
-            <Button to="/products/performance" variant="primary" size="lg">
-              Explore the performance half
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </div>
-        </motion.div>
-      </Section>
-
-      {/* Track Condition Analysis - NEW PROMINENT FEATURE */}
-      <TrackConditionFeature />
-
-      {/* Gait Symmetry Analysis - video-based asymmetry detection */}
-      <GaitSymmetryShowcase />
-
-      {/* How It Works Section */}
-      <HowItWorksSteps />
-
-      {/* Social Proof Section */}
-      <Section background="gray" className="relative">
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12 sm:mb-16 relative z-10"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Built by horsemen. <span className="text-gradient">Backed by science.</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-slate-600">
-            Serious infrastructure and peer-reviewed sports science—so the barn that trusts it can trust it with everything.
-          </p>
-        </motion.div>
-
-        {/* Trust Badges */}
-        <div className="max-w-4xl mx-auto">
-          <TrustBadges />
-        </div>
-      </Section>
-
-      {/* Pricing Teaser — product-first */}
-      <Section id="pricing" background="white" className="relative">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12 sm:mb-16 relative z-10"
-        >
-          <span className="eyebrow justify-center mb-4">Pricing</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-navy-900">
-            Pick <span className="text-gradient">how much of the platform</span> you need
-          </h2>
-          <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            One half or both, then sized to your operation—from a single barn to a full racing stable.
-            Every plan upgrades in place, so you never re-enter a thing.
-          </p>
-        </motion.div>
-
-        <div className="text-center relative z-10">
-          <Button to="/pricing" variant="accent" size="lg">
-            View Full Pricing Details
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-        </div>
-      </Section>
-
-      {/* Final CTA - Vibrant & Compelling */}
-      <section className="relative overflow-hidden bg-section-green py-24">
-        <FarmPattern variant="mixed" opacity={0.09} color="#ffffff" animated={true} />
-
-        {/* Geometric Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 transform rotate-45"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/5 transform -rotate-45"></div>
-        </div>
-
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-            transition={{ duration: 0.4 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border-2 border-white/30 text-sm font-bold text-white mb-6"
-            >
-              <Zap className="h-4 w-4 animate-pulse" />
-              Now onboarding founding barns
-            </motion.div>
-
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Be one of the first barns to run on Equissetix.
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-8 sm:mb-10 leading-relaxed font-medium">
-              We're onboarding a small group of founding barns with white-glove setup and a direct line to the
-              team building it. Bring your barn's real workflow—we'll show you exactly how it fits.
+    {/* Performance */}
+    <section id="performance" className="scroll-mt-24 section-padding">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 className="max-w-lg">Train the horse in front of you.</h2>
+            <p className="mt-5 max-w-xl text-lg text-navy-600">
+              Every session updates that horse’s workload and readiness the moment it’s logged. Programs adapt to the
+              horse, session by session, and show exactly what they changed and why.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button to="/contact" variant="primary" size="lg" className="group bg-gold-500 hover:bg-gold-600 text-white text-xl px-10 py-5">
-                Request Your Demo
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button to="/products" variant="ghost" size="lg" className="!bg-white !text-brand-700 hover:!bg-white/90 !border-2 !border-white text-xl px-10 py-5">
-                Find Your Product
-              </Button>
-            </div>
-
-            {/* Trust Signals */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-8 pt-6 border-t-2 border-white/20">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
-                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-                </div>
-                <span>Built by horsemen</span>
-              </div>
-              <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
-                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-                </div>
-                <span>Peer-reviewed science</span>
-              </div>
-              <div className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white flex items-center justify-center flex-shrink-0">
-                  <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
-                </div>
-                <span>White-glove onboarding</span>
-              </div>
-            </div>
-          </motion.div>
+            <Link to="/performance" className={`mt-6 ${textLink}`}>
+              Explore performance
+            </Link>
+          </div>
+          <WorkloadSketch />
         </div>
-      </section>
-    </div>
-  )
-}
+        <dl className={`mt-14 border-navy-200 ${featureGrid}`}>
+          {performanceFeatures.slice(0, 6).map((f) => (
+            <div key={f.title} className="border-b border-navy-200 py-6">
+              <dt className="font-semibold text-navy-900">{f.title}</dt>
+              <dd className="mt-1 text-navy-600">{f.detail}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    {/* Vet care */}
+    <section id="vet-care" className="scroll-mt-24 section-padding bg-plate">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <div className="order-2 lg:order-1">
+            <RoundsBoard />
+          </div>
+          <div className="order-1 lg:order-2">
+            <h2 className="max-w-lg">Vet care that knows each horse’s normal.</h2>
+            <p className="mt-5 max-w-xl text-lg text-navy-600">
+              A temperature that’s fine for one horse is a fever for another. TrainingTree Pro learns every horse’s
+              baseline and flags a change the morning it happens, with the full health file open to the vet, the
+              trainer and the owner.
+            </p>
+            <Link to="/vet-care" className={`mt-6 ${textLink}`}>
+              Explore vet care
+            </Link>
+          </div>
+        </div>
+        <dl className={`mt-14 border-navy-300/60 ${featureGrid}`}>
+          {vetCareFeatures.slice(0, 6).map((f) => (
+            <div key={f.title} className="border-b border-navy-300/60 py-6">
+              <dt className="font-semibold text-navy-900">{f.title}</dt>
+              <dd className="mt-1 text-navy-600">{f.detail}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    {/* Breakthroughs */}
+    <section id="breakthroughs" className="scroll-mt-24 section-padding bg-ink text-white">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <h2 className="text-white">Breakthroughs</h2>
+          <p className="text-lg text-white/75">
+            Advances in equine science that TrainingTree Pro brings out of the lab and into the barn. Each one builds on
+            published research, and each one runs on your own horses’ data.
+          </p>
+        </div>
+        <ul className="mt-12 border-t border-white/15">
+          {breakthroughs.map((b) => (
+            <li key={b.id} className="grid grid-cols-1 gap-3 border-b border-white/15 py-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+              <h3 className="font-condensed text-2xl font-extrabold leading-tight text-white sm:text-3xl">{b.title}</h3>
+              <div>
+                <p className="text-white/85">{b.summary}</p>
+                <p className="mt-3 text-white/60">{b.matters}</p>
+                <p className="mt-4 text-sm text-gold-300">{b.basis}</p>
+                <StatusNote status={b.status} note={b.statusNote} tone="dark" />
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <p className="font-condensed text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+            Every number traces back to your horse.
+          </p>
+          <div>
+            <p className="text-white/70">
+              Each score shows the sessions and readings it came from, so you can trust it at a glance and explain it
+              to an owner or a vet in a sentence.
+            </p>
+            <Link to="/science" className="mt-5 inline-block font-semibold text-gold-300 underline decoration-2 underline-offset-4 hover:text-gold-200">
+              Read the science, with sources
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* The barn around them */}
+    <section className="section-padding">
+      <div className="container-custom">
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <h2>And the whole barn around them</h2>
+          <p className="mt-5 text-lg text-navy-600">
+            The same platform runs the stable: records, stalls, turnout, staff, feed and owners. Take the training half,
+            the barn half, or both together.
+          </p>
+        </div>
+        <PlatformLineup />
+      </div>
+    </section>
+
+    <CloseCTA />
+  </div>
+)
 
 export default Home

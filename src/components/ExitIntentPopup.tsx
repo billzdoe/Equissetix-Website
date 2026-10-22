@@ -202,8 +202,8 @@ const ExitIntentPopup = ({
                       <Gift className="h-12 w-12 mx-auto mb-3" />
                     </motion.div>
 
-                    <h2 className="text-3xl font-bold mb-2">
-                      Wait! Don't Miss This
+                    <h2 className="text-3xl font-bold mb-2 text-white">
+                      Before you go
                     </h2>
                     <p className="text-brand-100 text-lg">
                       Leave us your email and we'll keep you posted
