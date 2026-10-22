@@ -25,13 +25,11 @@ const PerformanceScience = () => (
     </TopicHero>
 
     <Photo
-      id="middleham-string"
-      alt="A string of racehorses and their riders walking through a stone market town on the way to the gallops"
-      caption="First lot heads out to the gallops, Middleham, North Yorkshire."
+      id="breeze-dust"
+      alt="A racehorse and rider gallop through a cloud of dust on a training track"
       fill="h-[40vh] min-h-[260px] max-h-[520px]"
-      focus="50% 55%"
+      focus="50% 20%"
       sizes="100vw"
-      captionClass="container-custom"
     />
 
     <section className="section-padding">

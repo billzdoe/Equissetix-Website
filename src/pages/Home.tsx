@@ -109,16 +109,13 @@ const Home = () => (
       </div>
     </section>
 
-    {/* A real morning, full width */}
+    {/* Race day, full width */}
     <Photo
-      id="middleham-string"
-      alt="A string of racehorses and their riders walking through a stone market town on the way to the gallops"
-      caption="First lot heads out to the gallops, Middleham, North Yorkshire."
-      fill="h-[46vh] min-h-[300px] max-h-[620px]"
-      focus="50% 55%"
+      id="race-pack"
+      alt="A field of racehorses charges toward the camera on a dirt track, kicking up sand"
+      fill="h-[52vh] min-h-[320px] max-h-[680px]"
+      focus="50% 22%"
       sizes="100vw"
-      className="pb-6"
-      captionClass="container-custom"
     />
 
     {/* The primer: explain the ideas before the sections that use them */}
@@ -129,9 +126,8 @@ const Home = () => (
       <div className="container-custom">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <Photo
-            id="gallops-hedge"
-            alt="A racehorse and rider galloping past a gap in a hedge, beside a sign reading Caution, horses galloping"
-            caption="Morning work on the gallops."
+            id="lunge-arena"
+            alt="A bay horse works on a lunge line in an indoor arena"
             sizes="(min-width: 1024px) 40vw, 100vw"
           />
           <div>
@@ -159,9 +155,8 @@ const Home = () => (
       <div className="container-custom">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <Photo
-            id="vet-barn-door"
-            alt="A veterinarian checks a bay horse held by its owner outside a weathered wooden barn"
-            caption="A routine check at the barn door."
+            id="legs-wraps"
+            alt="Close view of a racehorse's legs and leg wraps as it walks on a training track"
             sizes="(min-width: 1024px) 55vw, 100vw"
           />
           <div>
@@ -179,9 +174,8 @@ const Home = () => (
         <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <RoundsBoard />
           <Photo
-            id="microchip-check"
-            alt="A gloved hand holds a microchip scanner to a horse's muzzle beside a clipboard"
-            caption="Every horse identified, every record in one file."
+            id="hooves-dirt"
+            alt="Black and white close-up of hooves striking a sand track"
             sizes="(min-width: 1024px) 40vw, 100vw"
           />
         </div>
@@ -213,8 +207,7 @@ const Home = () => (
               className="h-auto w-full"
             />
             <figcaption className="mt-2 text-sm text-white/55">
-              George Stubbs spent eighteen months dissecting horses to engrave The Anatomy of the Horse (1766). Public
-              domain.
+              George Stubbs spent eighteen months dissecting horses to engrave The Anatomy of the Horse (1766).
             </figcaption>
           </figure>
         </div>
@@ -259,9 +252,8 @@ const Home = () => (
           </p>
         </div>
         <Photo
-          id="lambourn-gallops"
-          alt="Three riders walk their horses across a wide grass gallop below rolling farmland"
-          caption="Walking back from the gallops, Lambourn, Berkshire."
+          id="pack-away"
+          alt="Jockeys and racehorses seen from behind as they race away around a dirt bend"
           sizes="(min-width: 1280px) 1200px, 100vw"
           className="mb-12"
         />

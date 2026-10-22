@@ -17,7 +17,6 @@ const PerformanceScience = lazy(() => import('./pages/PerformanceScience'))
 const VetCare = lazy(() => import('./pages/VetCare'))
 const Science = lazy(() => import('./pages/Science'))
 const Guide = lazy(() => import('./pages/Guide'))
-const Credits = lazy(() => import('./pages/Credits'))
 const Contact = lazy(() => import('./pages/Contact'))
 const About = lazy(() => import('./pages/About'))
 
@@ -73,7 +72,6 @@ function AppContent() {
           <Route path="/vet-care" element={<VetCare />} />
           <Route path="/science" element={<Science />} />
           <Route path="/guide" element={<Guide />} />
-          <Route path="/credits" element={<Credits />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/company" element={<About />} />

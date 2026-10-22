@@ -54,9 +54,8 @@ const VetCare = () => (
     <section className="section-padding">
       <div className="container-custom grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <Photo
-          id="vet-kit"
-          alt="A veterinarian reaches into the organised drawers of a mobile vet truck"
-          caption="Everything the vet carries, and now everything the barn knows."
+          id="legs-wraps-tall"
+          alt="Close view of a racehorse's legs and leg wraps as it walks on a training track"
           sizes="(min-width: 1024px) 40vw, 100vw"
         />
         <div className="grid grid-cols-1 gap-10">

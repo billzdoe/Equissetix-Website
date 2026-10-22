@@ -1,13 +1,13 @@
-import { credits } from '../data/credits'
+import { photos } from '../data/photos'
 
 /**
- * A captioned photograph from data/credits.ts. The box holds the image's own
+ * A photograph from data/photos.ts, with an optional caption. The box holds the image's own
  * aspect ratio before it loads, so nothing shifts; `fill` lets a parent set the
  * shape instead (e.g. a full-bleed band) with object-cover cropping.
  */
 
 type Props = {
-  id: keyof typeof credits
+  id: keyof typeof photos
   alt: string
   caption?: string
   /** CSS object-position for cropped display, e.g. "50% 40%" */
@@ -23,7 +23,7 @@ type Props = {
 }
 
 const Photo = ({ id, alt, caption, focus = '50% 50%', fill, tone = 'light', sizes = '(min-width: 1024px) 50vw, 100vw', className = '', captionClass = '', eager }: Props) => {
-  const c = credits[id]
+  const c = photos[id]
   const base = `/images/photos/${c.name}`
   return (
     <figure className={className}>
@@ -39,10 +39,11 @@ const Photo = ({ id, alt, caption, focus = '50% 50%', fill, tone = 'light', size
           style={{ objectPosition: focus }}
         />
       </div>
-      <figcaption className={`mt-2 text-sm leading-snug ${tone === 'dark' ? 'text-white/60' : 'text-navy-500'} ${captionClass}`}>
-        {caption && <span className={tone === 'dark' ? 'text-white/85' : 'text-navy-700'}>{caption} </span>}
-        <span className="whitespace-nowrap">{c.short}</span>
-      </figcaption>
+      {caption && (
+        <figcaption className={`mt-2 text-sm leading-snug ${tone === 'dark' ? 'text-white/85' : 'text-navy-700'} ${captionClass}`}>
+          {caption}
+        </figcaption>
+      )}
     </figure>
   )
 }
