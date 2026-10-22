@@ -8,6 +8,8 @@ import RoundsBoard from '../components/RoundsBoard'
 import PlatformLineup from '../components/PlatformLineup'
 import StatusNote from '../components/StatusNote'
 import { CloseCTA } from '../components/TopicPage'
+import FeatureGrid from '../components/FeatureGrid'
+import ThreeIdeas from '../components/ThreeIdeas'
 import { breakthroughs, performanceFeatures, vetCareFeatures } from '../data/science'
 
 /**
@@ -37,7 +39,6 @@ const audiences = [
   { to: '/solutions/horse-owners', title: 'Horse owners', line: 'Follow your horse’s health and work.' },
 ]
 
-const featureGrid = 'grid grid-cols-1 gap-x-10 border-t sm:grid-cols-2 lg:grid-cols-3'
 const textLink = 'inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700'
 
 const Home = () => (
@@ -107,6 +108,9 @@ const Home = () => (
       </div>
     </section>
 
+    {/* The primer: explain the ideas before the sections that use them */}
+    <ThreeIdeas />
+
     {/* Performance */}
     <section id="performance" className="scroll-mt-24 section-padding">
       <div className="container-custom">
@@ -123,14 +127,9 @@ const Home = () => (
           </div>
           <WorkloadSketch />
         </div>
-        <dl className={`mt-14 border-navy-200 ${featureGrid}`}>
-          {performanceFeatures.slice(0, 6).map((f) => (
-            <div key={f.title} className="border-b border-navy-200 py-6">
-              <dt className="font-semibold text-navy-900">{f.title}</dt>
-              <dd className="mt-1 text-navy-600">{f.detail}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-14">
+          <FeatureGrid features={performanceFeatures.slice(0, 6)} />
+        </div>
       </div>
     </section>
 
@@ -153,14 +152,9 @@ const Home = () => (
             </Link>
           </div>
         </div>
-        <dl className={`mt-14 border-navy-300/60 ${featureGrid}`}>
-          {vetCareFeatures.slice(0, 6).map((f) => (
-            <div key={f.title} className="border-b border-navy-300/60 py-6">
-              <dt className="font-semibold text-navy-900">{f.title}</dt>
-              <dd className="mt-1 text-navy-600">{f.detail}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-14">
+          <FeatureGrid features={vetCareFeatures.slice(0, 6)} rule="border-navy-300/60" />
+        </div>
       </div>
     </section>
 

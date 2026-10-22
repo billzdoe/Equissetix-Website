@@ -111,28 +111,35 @@ export interface FeatureLine {
   title: string
   detail: string
   status?: ClaimStatus
+  /** id of the matching entry in data/guide.ts, for a "What this means" link */
+  guide?: string
 }
 
 export const performanceFeatures: FeatureLine[] = [
   {
-    title: 'Training load',
-    detail: 'TRIMP from heart rate, acute and chronic load, training stress balance and the 28-day workload ratio, worked out after every logged session.',
+    title: 'Workload',
+    detail: 'A score for every session from how long and how hard the horse worked, then compared with what it’s used to, so you can see when work is rising faster than the horse has been prepared for.',
+    guide: 'workload-ratio',
   },
   {
     title: 'Daily readiness',
-    detail: 'A 0–100 score from health, workload, recovery and injury risk, with the inputs that were measured shown apart from the ones that weren’t.',
+    detail: 'A 0–100 morning score, green, yellow or red, that sums up whether each horse is ready to work hard today, built from health, workload, recovery and injury risk.',
+    guide: 'readiness',
   },
   {
     title: 'Injury risk',
-    detail: 'Rules-based risk from workload spikes and gait asymmetry, graded low to critical, with the reason for each grade.',
+    detail: 'A low-to-critical grade that flags sharp jumps in work or uneven movement, with the reason for each grade.',
+    guide: 'injury-risk',
   },
   {
     title: 'Conditioning programs',
-    detail: 'Base fitness, eventing, endurance, flat racing, show jumping and dressage. Each session adjusts to the horse’s load, readiness and rehab status, and lists what it changed.',
+    detail: 'Base fitness, eventing, endurance, flat racing, show jumping and dressage. Each session adjusts to the horse’s workload, readiness and rehab status, and lists what it changed.',
+    guide: 'safety-gate',
   },
   {
     title: 'Gait analysis',
-    detail: 'Gait videos compared side by side, a symmetry analyzer, and phone-sensor stride analysis.',
+    detail: 'Phone video and phone sensors measure rhythm and how evenly the horse moves, and two dates play side by side.',
+    guide: 'symmetry',
   },
   {
     title: 'Race day',
@@ -149,10 +156,12 @@ export const vetCareFeatures: FeatureLine[] = [
   {
     title: 'Vitals against the horse’s own baseline',
     detail: 'Temperature, resting pulse and respiration are compared with the horse’s own 30-day normal, so a fever or a raised resting heart rate is flagged for that horse.',
+    guide: 'baseline',
   },
   {
     title: 'Morning rounds',
     detail: 'Every horse in stall order, with what was checked today and who needs a look first. Readings taken without signal wait on the phone and send when it returns.',
+    guide: 'rounds',
   },
   {
     title: 'Vet examinations',
@@ -161,10 +170,12 @@ export const vetCareFeatures: FeatureLine[] = [
   {
     title: 'Medication and withdrawal',
     detail: 'Every dose logged with who gave it and its withdrawal period. A race entry inside that window is blocked.',
+    guide: 'withdrawal',
   },
   {
     title: 'Rehab that holds the line',
     detail: 'Rehab plans track pain, mobility and strength. While a plan is active, training suggestions stay inside its stage.',
+    guide: 'rehab-plan',
   },
   {
     title: 'Vaccinations and deworming',
@@ -173,6 +184,7 @@ export const vetCareFeatures: FeatureLine[] = [
   {
     title: 'Body condition over time',
     detail: 'Henneke 1–9 scores with photos and weight, charted against the healthy 4–6 range.',
+    guide: 'bcs',
   },
   {
     title: 'Farrier, dentist and chiropractor',

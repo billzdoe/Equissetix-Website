@@ -57,6 +57,10 @@ export const pageSEO = {
     title: 'Vet Care — Vitals Against Each Horse’s Normal | Equissetix',
     description: 'Fever and resting-pulse alerts against each horse’s own 30-day baseline, vet exams, medication withdrawal, rehab plans, body condition and a Five Domains wellbeing check.',
   },
+  guide: {
+    title: 'The Numbers, Explained — Workload, Readiness & More | TrainingTree Pro',
+    description: 'Plain-language explanations of workload, the workload ratio, readiness, baselines, gait symmetry, body condition and the Wellbeing Check: what each is, how it’s worked out and what to do with it.',
+  },
   science: {
     title: 'The Science — Breakthroughs, Methods & Sources | Equissetix',
     description: 'What we’ve built on published equine physiology, how we treat missing data, what we don’t claim, and the reading list behind it.',

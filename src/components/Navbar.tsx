@@ -48,6 +48,7 @@ const productGroups: { heading: string; links: MenuLink[] }[] = [
 ]
 
 const resourceLinks: MenuLink[] = [
+  { path: '/guide', label: 'The numbers, explained' },
   { path: '/blog', label: 'Blog' },
   { path: '/disciplines', label: 'Disciplines' },
   { path: '/breeds', label: 'Breeds' },

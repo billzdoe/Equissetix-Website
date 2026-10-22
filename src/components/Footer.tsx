@@ -53,6 +53,7 @@ const Footer = () => {
                 ['/performance', 'Performance'],
                 ['/vet-care', 'Vet care'],
                 ['/science', 'The science'],
+                ['/guide', 'The numbers, explained'],
                 ['/contact', 'Request a demo'],
               ].map(([to, label]) => (
                 <li key={to}>

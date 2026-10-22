@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import WorkloadSketch from '../components/WorkloadSketch'
 import StatusNote from '../components/StatusNote'
+import FeatureGrid from '../components/FeatureGrid'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs, performanceFeatures } from '../data/science'
 
@@ -34,14 +35,9 @@ const PerformanceScience = () => (
           </div>
           <WorkloadSketch />
         </div>
-        <dl className="mt-14 grid grid-cols-1 gap-x-10 border-t border-navy-200 sm:grid-cols-2 lg:grid-cols-3">
-          {performanceFeatures.filter((f) => !f.status).map((f) => (
-            <div key={f.title} className="border-b border-navy-200 py-6">
-              <dt className="font-semibold text-navy-900">{f.title}</dt>
-              <dd className="mt-1 text-navy-600">{f.detail}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-14">
+          <FeatureGrid features={performanceFeatures.filter((f) => !f.status)} />
+        </div>
         {performanceFeatures.filter((f) => f.status).map((f) => (
           <div key={f.title} className="mt-6 max-w-3xl">
             <p className="text-navy-600">

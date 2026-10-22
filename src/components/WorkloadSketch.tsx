@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 /**
  * Example 28-day workload ratio for one horse over eight weeks, with the
  * 0.8-1.3 range shaded and the 1.3 safety gate drawn. Example data, and the
@@ -46,7 +48,11 @@ const WorkloadSketch = () => {
         ))}
       </svg>
       <figcaption className="mt-2 text-sm leading-relaxed text-navy-600">
-        Week 6 crossed 1.3, so every suggestion for this horse was eased off until the ratio came back into range.
+        1.0 means the horse did about as much as usual. In week 6 it jumped past 1.3, faster than the horse was used to,
+        so its suggested work eased off until the ratio settled.{' '}
+        <Link to="/guide#workload-ratio" className="font-semibold text-brand-600 underline underline-offset-2 hover:text-brand-700">
+          What is the workload ratio?
+        </Link>
       </figcaption>
     </figure>
   )

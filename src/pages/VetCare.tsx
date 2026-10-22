@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import RoundsBoard from '../components/RoundsBoard'
+import FeatureGrid from '../components/FeatureGrid'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs, vetCareFeatures } from '../data/science'
 
@@ -32,14 +33,9 @@ const VetCare = () => (
             </p>
           </div>
         </div>
-        <dl className="mt-14 grid grid-cols-1 gap-x-10 border-t border-navy-200 sm:grid-cols-2 lg:grid-cols-3">
-          {vetCareFeatures.map((f) => (
-            <div key={f.title} className="border-b border-navy-200 py-6">
-              <dt className="font-semibold text-navy-900">{f.title}</dt>
-              <dd className="mt-1 text-navy-600">{f.detail}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-14">
+          <FeatureGrid features={vetCareFeatures} />
+        </div>
       </div>
     </section>
 

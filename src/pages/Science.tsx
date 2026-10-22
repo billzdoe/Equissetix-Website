@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import StatusNote from '../components/StatusNote'
@@ -57,6 +58,13 @@ const Science = () => (
       <p>
         Everything TrainingTree Pro calculates comes from research you can look up, applied to each horse’s own records.
         Here is what we’ve built on it, how we treat missing data, and what we don’t claim.
+      </p>
+      <p className="mt-4">
+        New to the terms?{' '}
+        <Link to="/guide" className="font-semibold text-gold-300 underline underline-offset-4 hover:text-gold-200">
+          Start with the numbers, explained
+        </Link>
+        .
       </p>
     </TopicHero>
 
