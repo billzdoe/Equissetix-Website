@@ -4,6 +4,7 @@ import { pageSEO } from '../utils/seo'
 import WorkloadSketch from '../components/WorkloadSketch'
 import StatusNote from '../components/StatusNote'
 import FeatureGrid from '../components/FeatureGrid'
+import Photo from '../components/Photo'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs, performanceFeatures } from '../data/science'
 
@@ -22,6 +23,16 @@ const PerformanceScience = () => (
         eventing, endurance, jumping and dressage.
       </p>
     </TopicHero>
+
+    <Photo
+      id="middleham-string"
+      alt="A string of racehorses and their riders walking through a stone market town on the way to the gallops"
+      caption="First lot heads out to the gallops, Middleham, North Yorkshire."
+      fill="h-[40vh] min-h-[260px] max-h-[520px]"
+      focus="50% 55%"
+      sizes="100vw"
+      captionClass="container-custom"
+    />
 
     <section className="section-padding">
       <div className="container-custom">

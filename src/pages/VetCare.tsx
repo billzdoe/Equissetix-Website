@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import RoundsBoard from '../components/RoundsBoard'
 import FeatureGrid from '../components/FeatureGrid'
+import Photo from '../components/Photo'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs, vetCareFeatures } from '../data/science'
 
@@ -51,7 +52,14 @@ const VetCare = () => (
     </section>
 
     <section className="section-padding">
-      <div className="container-custom grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="container-custom grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+        <Photo
+          id="vet-kit"
+          alt="A veterinarian reaches into the organised drawers of a mobile vet truck"
+          caption="Everything the vet carries, and now everything the barn knows."
+          sizes="(min-width: 1024px) 40vw, 100vw"
+        />
+        <div className="grid grid-cols-1 gap-10">
         <div>
           <h2 className="text-3xl sm:text-4xl">For veterinarians</h2>
           <p className="mt-4 text-navy-600">
@@ -70,6 +78,7 @@ const VetCare = () => (
           <Link to="/solutions/horse-owners" className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
             What owners see
           </Link>
+        </div>
         </div>
       </div>
     </section>

@@ -215,6 +215,9 @@ const Footer = () => {
             <Link to="/security" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
               Security
             </Link>
+            <Link to="/credits" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+              Image credits
+            </Link>
           </div>
         </div>
       </div>

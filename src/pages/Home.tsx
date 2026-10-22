@@ -8,6 +8,7 @@ import RoundsBoard from '../components/RoundsBoard'
 import PlatformLineup from '../components/PlatformLineup'
 import StatusNote from '../components/StatusNote'
 import { CloseCTA } from '../components/TopicPage'
+import Photo from '../components/Photo'
 import FeatureGrid from '../components/FeatureGrid'
 import ThreeIdeas from '../components/ThreeIdeas'
 import { breakthroughs, performanceFeatures, vetCareFeatures } from '../data/science'
@@ -108,13 +109,31 @@ const Home = () => (
       </div>
     </section>
 
+    {/* A real morning, full width */}
+    <Photo
+      id="middleham-string"
+      alt="A string of racehorses and their riders walking through a stone market town on the way to the gallops"
+      caption="First lot heads out to the gallops, Middleham, North Yorkshire."
+      fill="h-[46vh] min-h-[300px] max-h-[620px]"
+      focus="50% 55%"
+      sizes="100vw"
+      className="pb-6"
+      captionClass="container-custom"
+    />
+
     {/* The primer: explain the ideas before the sections that use them */}
     <ThreeIdeas />
 
     {/* Performance */}
     <section id="performance" className="scroll-mt-24 section-padding">
       <div className="container-custom">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+          <Photo
+            id="gallops-hedge"
+            alt="A racehorse and rider galloping past a gap in a hedge, beside a sign reading Caution, horses galloping"
+            caption="Morning work on the gallops."
+            sizes="(min-width: 1024px) 40vw, 100vw"
+          />
           <div>
             <h2 className="max-w-lg">Train the horse in front of you.</h2>
             <p className="mt-5 max-w-xl text-lg text-navy-600">
@@ -124,8 +143,10 @@ const Home = () => (
             <Link to="/performance" className={`mt-6 ${textLink}`}>
               Explore performance
             </Link>
+            <div className="mt-8">
+              <WorkloadSketch />
+            </div>
           </div>
-          <WorkloadSketch />
         </div>
         <div className="mt-14">
           <FeatureGrid features={performanceFeatures.slice(0, 6)} />
@@ -136,11 +157,14 @@ const Home = () => (
     {/* Vet care */}
     <section id="vet-care" className="scroll-mt-24 section-padding bg-plate">
       <div className="container-custom">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          <div className="order-2 lg:order-1">
-            <RoundsBoard />
-          </div>
-          <div className="order-1 lg:order-2">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+          <Photo
+            id="vet-barn-door"
+            alt="A veterinarian checks a bay horse held by its owner outside a weathered wooden barn"
+            caption="A routine check at the barn door."
+            sizes="(min-width: 1024px) 55vw, 100vw"
+          />
+          <div>
             <h2 className="max-w-lg">Vet care that knows each horse’s normal.</h2>
             <p className="mt-5 max-w-xl text-lg text-navy-600">
               A temperature that’s fine for one horse is a fever for another. TrainingTree Pro learns every horse’s
@@ -152,6 +176,15 @@ const Home = () => (
             </Link>
           </div>
         </div>
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+          <RoundsBoard />
+          <Photo
+            id="microchip-check"
+            alt="A gloved hand holds a microchip scanner to a horse's muzzle beside a clipboard"
+            caption="Every horse identified, every record in one file."
+            sizes="(min-width: 1024px) 40vw, 100vw"
+          />
+        </div>
         <div className="mt-14">
           <FeatureGrid features={vetCareFeatures.slice(0, 6)} rule="border-navy-300/60" />
         </div>
@@ -161,12 +194,29 @@ const Home = () => (
     {/* Breakthroughs */}
     <section id="breakthroughs" className="scroll-mt-24 section-padding bg-ink text-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-          <h2 className="text-white">Breakthroughs</h2>
-          <p className="text-lg text-white/75">
-            Advances in equine science that TrainingTree Pro brings out of the lab and into the barn. Each one builds on
-            published research, and each one runs on your own horses’ data.
-          </p>
+        <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <div>
+            <h2 className="text-white">Breakthroughs</h2>
+            <p className="mt-5 text-lg text-white/75">
+              Advances in equine science that TrainingTree Pro brings out of the lab and into the barn. Each one builds
+              on published research, and each one runs on your own horses’ data.
+            </p>
+          </div>
+          <figure>
+            <img
+              src="/images/photos/stubbs-muscles-ink.webp"
+              alt="George Stubbs' 1766 engraving of the muscles of a standing horse, drawn in pale lines"
+              width={1400}
+              height={1062}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
+            <figcaption className="mt-2 text-sm text-white/55">
+              George Stubbs spent eighteen months dissecting horses to engrave The Anatomy of the Horse (1766). Public
+              domain.
+            </figcaption>
+          </figure>
         </div>
         <ul className="mt-12 border-t border-white/15">
           {breakthroughs.map((b) => (
@@ -208,6 +258,13 @@ const Home = () => (
             the barn half, or both together.
           </p>
         </div>
+        <Photo
+          id="lambourn-gallops"
+          alt="Three riders walk their horses across a wide grass gallop below rolling farmland"
+          caption="Walking back from the gallops, Lambourn, Berkshire."
+          sizes="(min-width: 1280px) 1200px, 100vw"
+          className="mb-12"
+        />
         <PlatformLineup />
       </div>
     </section>
