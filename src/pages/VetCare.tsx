@@ -44,7 +44,7 @@ const VetCare = () => (
             </p>
             <div className="mt-8">
               <Button to="/contact" variant="primary" size="lg">
-                Request a demo
+                Join the pilot
               </Button>
             </div>
             <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example vital signs for one horse">

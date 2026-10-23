@@ -4,7 +4,9 @@ import { pageSEO } from '../utils/seo'
 import StatusNote from '../components/StatusNote'
 import GallopPlate from '../components/GallopPlate'
 import { ArchivePrint, InkDrawing } from '../components/Archive'
-import { TopicHero, CloseCTA } from '../components/TopicPage'
+import { CloseCTA } from '../components/TopicPage'
+import { Scene, Beat } from '../components/Scene'
+import MeasuredHorse from '../components/MeasuredHorse'
 import { breakthroughs } from '../data/science'
 
 /**
@@ -56,19 +58,32 @@ const Science = () => (
   <div className="pt-20">
     <SEO title={pageSEO.science.title} description={pageSEO.science.description} path="/science" />
 
-    <TopicHero title="Built on published equine physiology. Honest about its limits.">
-      <p>
-        Everything TrainingTree Pro calculates comes from research you can look up, applied to each horse’s own records.
-        Here is what we’ve built on it, how we treat missing data, and what we don’t claim.
-      </p>
-      <p className="mt-4">
-        New to the terms?{' '}
-        <Link to="/guide" className="font-semibold text-gold-300 underline underline-offset-4 hover:text-gold-200">
-          Start with the numbers, explained
-        </Link>
-        .
-      </p>
-    </TopicHero>
+    {/* The horse, measured */}
+    <Scene
+      picture={{ photo: 'thermal-tablet' }}
+      alt="A veterinarian's tablet shows a thermal image of a horse's legs, with the horse standing behind it"
+      focus="60% 45%"
+      eager
+    >
+      <Beat className="!min-h-[calc(100svh-5rem)] !pb-12">
+        <h1 className="max-w-5xl text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7.5rem]">Measured, not guessed.</h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+          Everything TrainingTree Pro calculates comes from published equine physiology, applied to each horse’s own
+          records. Here is what we’ve built on it, how we treat missing data, and what we don’t claim.
+        </p>
+        <p className="mt-4 text-white/80">
+          New to the terms?{' '}
+          <Link to="/guide" className="font-semibold text-gold-300 underline underline-offset-4 hover:text-gold-200">
+            Start with the numbers, explained
+          </Link>
+          .
+        </p>
+      </Beat>
+      <Beat align="center">
+        <h2 className="max-w-3xl text-[2.4rem] leading-[0.95] text-white sm:text-6xl">How a phone video becomes a gait reading.</h2>
+        <MeasuredHorse className="mt-10" />
+      </Beat>
+    </Scene>
 
     <section className="section-padding bg-ink text-white">
       <div className="container-custom grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
@@ -126,24 +141,29 @@ const Science = () => (
       </div>
     </section>
 
-    <section className="section-padding">
-      <div className="container-custom">
-        <h2>Breakthroughs</h2>
-        <ul className="mt-10 border-t border-navy-200">
+    {/* Breakthroughs, over the finish */}
+    <Scene
+      id="breakthroughs"
+      picture={{ photo: 'xray-hoof' }}
+      alt="At dusk, a portable X-ray plate glows beside a horse's hoof on the grass while a vet works the generator"
+      focus="30% 50%"
+      shade="full"
+    >
+      <Beat align="start">
+        <h2 className="text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">Breakthroughs</h2>
+        <ul className="mt-12 grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-2">
           {breakthroughs.map((b) => (
-            <li key={b.id} id={b.id} className="grid grid-cols-1 scroll-mt-28 gap-3 border-b border-navy-200 py-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-              <h3 className="font-condensed text-2xl font-extrabold leading-tight sm:text-3xl">{b.title}</h3>
-              <div className="max-w-2xl">
-                <p className="text-navy-800">{b.summary}</p>
-                <p className="mt-3 text-navy-600">{b.matters}</p>
-                <p className="mt-4 text-sm font-medium text-brand-600">{b.basis}</p>
-                <StatusNote status={b.status} note={b.statusNote} />
-              </div>
+            <li key={b.id} id={b.id} className="scroll-mt-28">
+              <h3 className="font-condensed text-3xl font-extrabold leading-tight text-white">{b.title}</h3>
+              <p className="mt-3 text-white/90">{b.summary}</p>
+              <p className="mt-3 text-white/70">{b.matters}</p>
+              <p className="mt-4 text-sm text-gold-300">{b.basis}</p>
+              <StatusNote status={b.status} note={b.statusNote} tone="dark" />
             </li>
           ))}
         </ul>
-      </div>
-    </section>
+      </Beat>
+    </Scene>
 
     <section className="section-padding bg-plate">
       <div className="container-custom">

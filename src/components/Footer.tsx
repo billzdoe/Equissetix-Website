@@ -54,7 +54,7 @@ const Footer = () => {
                 ['/vet-care', 'Vet care'],
                 ['/science', 'The science'],
                 ['/guide', 'The numbers, explained'],
-                ['/contact', 'Request a demo'],
+                ['/contact', 'Join the pilot program'],
               ].map(([to, label]) => (
                 <li key={to}>
                   <Link to={to} className="text-slate-400 hover:text-gold-400 transition-colors text-sm">

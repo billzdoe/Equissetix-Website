@@ -65,7 +65,7 @@ const Home = () => (
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/contact" variant="primary" size="lg">
-                Request a demo
+                Join the pilot
               </Button>
               <Button
                 to="/science"
@@ -110,9 +110,9 @@ const Home = () => (
 
     {/* Juniper's three weeks, played over the gallops */}
     <Scene
-      picture={{ photo: 'breeze-dust' }}
-      alt="A racehorse and rider gallop through a cloud of dust on a training track"
-      focus="70% 30%"
+      picture={{ photo: 'ky-sunset' }}
+      alt="Horses graze in a Kentucky paddock at sunset, backlit by low sun through the trees"
+      focus="50% 60%"
       shade="full"
     >
       <Beat align="center">
@@ -293,9 +293,9 @@ const Home = () => (
 
     {/* The barn around them */}
     <Scene
-      picture={{ photo: 'keeneland-grandstand' }}
-      alt="A racecourse grandstand seen across green lawns through tall trees"
-      focus="50% 50%"
+      picture={{ photo: 'ky-lane' }}
+      alt="A grass lane runs between black board fences across a Kentucky horse farm under an evening sky"
+      focus="50% 55%"
     >
       <Beat>
         <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">And the whole barn around them.</h2>

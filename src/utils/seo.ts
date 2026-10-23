@@ -70,8 +70,8 @@ export const pageSEO = {
     description: 'Take the half of the platform you need, or both. Plans sized from a single barn to a full racing stable, upgrading in place.',
   },
   contact: {
-    title: 'Request a Demo — Equissetix',
-    description: 'Bring your barn’s real workflow and we’ll show you exactly how it fits. Now onboarding founding barns with white-glove setup.',
+    title: 'Pilot Program — Equissetix',
+    description: 'Apply to join the TrainingTree Pro pilot program: use it with your own horses, work directly with the team that builds it, and help shape what comes next.',
   },
   about: {
     title: 'About Us - Equissetix',

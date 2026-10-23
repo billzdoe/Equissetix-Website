@@ -334,7 +334,7 @@ const ComparisonTable = () => {
         <h3 className="text-xl font-bold text-navy-900 mb-2">See it against your own workflow</h3>
         <p className="text-slate-600 mb-4">Bring your barn’s real setup and we’ll show you exactly how it fits</p>
         <Button to="/contact" variant="primary" size="lg">
-          Request a Demo
+          Join the pilot
           <Trophy className="h-5 w-5" />
         </Button>
       </div>

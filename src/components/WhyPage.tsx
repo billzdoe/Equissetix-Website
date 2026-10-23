@@ -91,7 +91,7 @@ const WhyPage = ({ data }: { data: WhyData }) => (
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">See it for yourself.</h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button to="/contact" variant="primary" size="lg" className="group">
-            Request a Demo
+            Join the pilot
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Link to={data.cta.to}>

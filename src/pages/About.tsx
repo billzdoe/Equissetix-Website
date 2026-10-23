@@ -241,7 +241,7 @@ const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">
-              Get a Free Demo
+              Join the pilot
             </Button>
             <Button to="/science" variant="secondary" size="lg">
               See the science

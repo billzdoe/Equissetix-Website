@@ -53,13 +53,13 @@ const StickyCTA = () => {
               <X className="h-5 w-5" />
             </button>
             <div className="flex-1 pr-6">
-              <p className="text-sm font-semibold text-navy-900 mb-1">See it with your own horses</p>
-              <p className="text-xs text-slate-600 mb-3">A guided demo, built around your barn</p>
+              <p className="text-sm font-semibold text-navy-900 mb-1">Join the pilot program</p>
+              <p className="text-xs text-slate-600 mb-3">Use it with your own horses, first</p>
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-1 px-4 py-2 bg-gold-500 text-navy-900 rounded-sm text-sm font-semibold hover:bg-gold-400 transition-colors"
               >
-                Request a demo
+                Join the pilot
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

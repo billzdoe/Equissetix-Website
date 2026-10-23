@@ -114,7 +114,7 @@ const TrainingFacilities = () => {
               Scale your operation with unified management for multiple trainers, hundreds of horses, and dozens of owners—all in one platform.
             </p>
             <Button to="/contact" variant="primary" size="lg">
-              Request Enterprise Demo
+              Join the pilot
               <ArrowRight className="h-5 w-5" />
             </Button>
           </motion.div>
@@ -268,7 +268,7 @@ const TrainingFacilities = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">
-              Request Enterprise Demo
+              Join the pilot
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button to="/science" variant="ghost" size="lg">

@@ -44,7 +44,7 @@ const SolutionPage = ({ data }: { data: SolutionData }) => {
         <p>{data.subhead}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button to="/contact" variant="primary" size="lg">
-            Request a demo
+            Join the pilot
           </Button>
           <Button
             to={product.route}

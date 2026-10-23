@@ -190,7 +190,7 @@ const Navbar = () => {
           </div>
 
           <Button to="/contact" variant="primary" size="sm" className="ml-3">
-            Request a demo
+            Join the pilot
           </Button>
         </div>
 
@@ -235,7 +235,7 @@ const Navbar = () => {
               </div>
             ))}
             <Button to="/contact" variant="primary" size="md" className="w-full">
-              Request a demo
+              Join the pilot
             </Button>
           </div>
         </div>

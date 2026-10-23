@@ -497,7 +497,7 @@ const Breeds = () => {
               <Trophy className="h-5 w-5" />
             </Button>
             <Button to="/contact" variant="primary" size="lg">
-              Get a Free Demo
+              Join the pilot
               <TrendingUp className="h-5 w-5" />
             </Button>
           </div>

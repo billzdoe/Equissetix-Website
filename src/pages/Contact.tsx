@@ -1,12 +1,24 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { AlertCircle, CheckCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import Button from '../components/Button'
-import Card from '../components/Card'
-import Section from '../components/Section'
 import SEO from '../components/SEO'
+import { Scene, Beat } from '../components/Scene'
 import { pageSEO } from '../utils/seo'
+
+/**
+ * /contact: the pilot program application (Billy, 2026-10-22: "Instead of
+ * pushing the demo, push the pilot program"). Posts to Web3Forms with the
+ * subject "Pilot Program Application - Equissetix", which is how Billy
+ * filters these in his inbox. The copy promises nothing the pilot has not
+ * set: no price, no length, no free period.
+ */
+
+const ROLES = ['Veterinarian', 'Stable manager', 'Trainer', 'Barn owner', 'Horse owner', 'Other']
+const FOCUS = ['Training and conditioning', 'Vet care and health records', 'Gait analysis', 'Running the barn', 'Keeping owners up to date', 'Other']
+
+const field =
+  'w-full rounded-sm border-2 bg-white px-4 py-3 text-navy-900 outline-none transition-colors focus:border-brand-500'
 
 const Contact = () => {
   const { executeRecaptcha } = useGoogleReCaptcha()
@@ -17,7 +29,7 @@ const Contact = () => {
     operationType: '',
     numHorses: '',
     painPoint: '',
-    message: ''
+    message: '',
   })
 
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -33,30 +45,30 @@ const Contact = () => {
     const newErrors: Record<string, string> = {}
 
     if (name === 'name' && !value.trim()) {
-      newErrors.name = 'Name is required'
+      newErrors.name = 'Enter your name'
     }
 
     if (name === 'email') {
       if (!value.trim()) {
-        newErrors.email = 'Email is required'
+        newErrors.email = 'Enter your email address'
       } else if (!validateEmail(value)) {
-        newErrors.email = 'Please enter a valid email address'
+        newErrors.email = 'Enter an email address like name@yourbarn.com'
       }
     }
 
-    setErrors(prev => ({ ...prev, ...newErrors }))
+    setErrors((prev) => ({ ...prev, ...newErrors }))
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     })
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => {
+      setErrors((prev) => {
         const newErrors = { ...prev }
         delete newErrors[name]
         return newErrors
@@ -73,11 +85,11 @@ const Contact = () => {
 
     // Validate all fields
     const newErrors: Record<string, string> = {}
-    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.name.trim()) newErrors.name = 'Enter your name'
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
+      newErrors.email = 'Enter your email address'
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
+      newErrors.email = 'Enter an email address like name@yourbarn.com'
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -86,7 +98,7 @@ const Contact = () => {
     }
 
     if (!executeRecaptcha) {
-      setErrors({ submit: 'reCAPTCHA not loaded. Please refresh the page and try again.' })
+      setErrors({ submit: 'The spam check didn’t load. Refresh the page and try again.' })
       return
     }
 
@@ -108,12 +120,12 @@ const Contact = () => {
       // Note: reCAPTCHA validated on frontend; Web3Forms uses its own spam filter
       const submissionData = {
         access_key: web3formsKey,
-        subject: 'New Demo Request - Equissetix',
+        subject: 'Pilot Program Application - Equissetix',
         from_name: formData.name,
         email: formData.email,
-        operation_type: formData.operationType || 'Not specified',
+        role: formData.operationType || 'Not specified',
         num_horses: formData.numHorses || 'Not specified',
-        pain_point: formData.painPoint || 'Not specified',
+        focus: formData.painPoint || 'Not specified',
         message: formData.message || 'No additional message',
         botcheck: '', // Honeypot field - should be empty for legitimate submissions
       }
@@ -123,9 +135,9 @@ const Contact = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          Accept: 'application/json',
         },
-        body: JSON.stringify(submissionData)
+        body: JSON.stringify(submissionData),
       })
 
       const result = await response.json()
@@ -141,16 +153,11 @@ const Contact = () => {
         operationType: '',
         numHorses: '',
         painPoint: '',
-        message: ''
+        message: '',
       })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false)
-      }, 5000)
     } catch (error) {
       console.error('Form submission error:', error)
-      setErrors({ submit: 'Something went wrong. Please try again or contact us directly at info@equissetix.com.' })
+      setErrors({ submit: 'Your application didn’t send. Try again, or email it to info@equissetix.com.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -159,314 +166,216 @@ const Contact = () => {
   return (
     <div className="pt-20">
       <SEO title={pageSEO.contact.title} description={pageSEO.contact.description} path="/contact" />
-      <Section background="gradient" className="min-h-[40vh] flex items-center">
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Get Your <span className="text-gradient">Free Demo</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700">
-              See how TrainingTree can transform your training operation
-            </p>
-          </motion.div>
-        </div>
-      </Section>
 
-      <Section background="white">
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-gradient-to-br from-white via-blue-50/20 to-purple-50/20 border-2 border-slate-200">
-                <h2 className="text-3xl font-bold mb-6 text-navy-900">Request a Demo</h2>
-                
-                <AnimatePresence>
-                  {isSuccess && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="mb-6 p-4 bg-gradient-to-r from-success-50 to-success-100 border-2 border-success-200 rounded-lg flex items-center gap-3"
-                    >
-                      <CheckCircle className="h-5 w-5 text-success-600 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-success-900">Thank you for your request!</p>
-                        <p className="text-sm text-success-700">We'll contact you within 24 hours to schedule your personalized demo.</p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+      <Scene
+        picture={{ photo: 'ky-fence-horse' }}
+        alt="A chestnut horse looks over a black board fence in a green Kentucky pasture"
+        focus="30% 55%"
+        shade="left"
+        eager
+      >
+        <Beat className="!min-h-[70svh] !pb-14">
+          <h1 className="max-w-4xl text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7rem]">Join the pilot program.</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+            We’re opening TrainingTree Pro to a small group of barns, trainers, vets and owners first. Pilot members use it
+            with their own horses, work directly with the team that builds it, and help decide what comes next.
+          </p>
+        </Beat>
+      </Scene>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+      <section className="section-padding">
+        <div className="container-custom grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-20">
+          <div>
+            <h2 className="text-4xl sm:text-5xl">Apply for the pilot</h2>
+            <p className="mt-4 max-w-xl text-lg text-navy-600">Tell us a little about your horses. It takes about two minutes.</p>
+
+            <div aria-live="polite">
+              {isSuccess && (
+                <div className="mt-8 flex items-start gap-3 bg-brand-50 p-5">
+                  <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-600" aria-hidden="true" />
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-navy-900 mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={`w-full px-4 py-3 rounded-lg border-2 outline-none transition-all ${
-                        errors.name
-                          ? 'border-coral-300 focus:border-coral-500 focus:ring-2 focus:ring-coral-100'
-                          : 'border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100'
-                      }`}
-                    />
-                    {errors.name && (
-                      <p className="mt-1 text-sm text-coral-600 flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-navy-900 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={`w-full px-4 py-3 rounded-lg border-2 outline-none transition-all ${
-                        errors.email
-                          ? 'border-coral-300 focus:border-coral-500 focus:ring-2 focus:ring-coral-100'
-                          : 'border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100'
-                      }`}
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-sm text-coral-600 flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="operationType" className="block text-sm font-semibold text-navy-900 mb-2">
-                        Operation Type
-                      </label>
-                      <select
-                        id="operationType"
-                        name="operationType"
-                        value={formData.operationType}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
-                      >
-                        <option value="">Select one…</option>
-                        <option value="Racing Trainer">Racing Trainer</option>
-                        <option value="Horse Owner">Horse Owner</option>
-                        <option value="Training Facility">Training Facility</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="numHorses" className="block text-sm font-semibold text-navy-900 mb-2">
-                        Number of Horses
-                      </label>
-                      <select
-                        id="numHorses"
-                        name="numHorses"
-                        value={formData.numHorses}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
-                      >
-                        <option value="">Select range…</option>
-                        <option value="1-10">1-10</option>
-                        <option value="10-25">10-25</option>
-                        <option value="25-50">25-50</option>
-                        <option value="50+">50+</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="painPoint" className="block text-sm font-semibold text-navy-900 mb-2">
-                      Current Pain Point
-                    </label>
-                    <select
-                      id="painPoint"
-                      name="painPoint"
-                      value={formData.painPoint}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
-                    >
-                      <option value="">Select one…</option>
-                      <option value="Injury Prevention">Injury Prevention</option>
-                      <option value="Time Management">Time Management</option>
-                      <option value="Owner Communication">Owner Communication</option>
-                      <option value="Financial Tracking">Financial Tracking</option>
-                      <option value="Performance Analysis">Performance Analysis</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-navy-900 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your operation and what you'd like to see in the demo…"
-                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all resize-none"
-                    />
-                  </div>
-
-                  {/* Honeypot field for bot protection - hidden from users */}
-                  <input
-                    type="checkbox"
-                    name="botcheck"
-                    className="hidden"
-                    style={{ display: 'none' }}
-                  />
-
-                  {errors.submit && (
-                    <div className="p-4 bg-coral-50 border-2 border-coral-200 rounded-lg flex items-center gap-3">
-                      <AlertCircle className="h-5 w-5 text-coral-600 flex-shrink-0" />
-                      <p className="text-sm text-coral-700">{errors.submit}</p>
-                    </div>
-                  )}
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting || isSuccess}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : isSuccess ? (
-                      <>
-                        <CheckCircle className="h-5 w-5" />
-                        Request Sent!
-                      </>
-                    ) : (
-                      'Request Your Free Demo'
-                    )}
-                  </Button>
-
-                  {!isSuccess && (
-                    <>
-                      <p className="text-sm text-slate-600 text-center">
-                        We'll respond within 24 hours to schedule your personalized demo
-                      </p>
-                      <p className="text-xs text-slate-500 text-center mt-2">
-                        This site is protected by reCAPTCHA and the Google{' '}
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">
-                          Privacy Policy
-                        </a>{' '}
-                        and{' '}
-                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">
-                          Terms of Service
-                        </a>{' '}
-                        apply.
-                      </p>
-                    </>
-                  )}
-                </form>
-              </Card>
-            </motion.div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card>
-                <h3 className="text-xl font-bold mb-4">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-brand-500 to-blue-600 rounded-lg flex items-center justify-center text-white shadow-modern">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm text-navy-900">Email</p>
-                      <a href="mailto:info@equissetix.com" className="text-brand-600 hover:text-brand-700 transition-colors">
-                        info@equissetix.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white shadow-modern">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm text-navy-900">Location</p>
-                      <p className="text-slate-600">United States</p>
-                    </div>
+                    <p className="font-semibold text-navy-900">Application received.</p>
+                    <p className="mt-1 text-navy-700">We’ll be in touch within 24 hours to talk about your barn.</p>
                   </div>
                 </div>
-              </Card>
-            </motion.div>
+              )}
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <Card className="bg-gradient-to-br from-brand-50 via-blue-50/30 to-purple-50/20 border-2 border-brand-200">
-                <h3 className="text-xl font-bold mb-4">What Happens Next?</h3>
-                <ol className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-brand-500 to-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-modern">
-                      1
-                    </span>
-                    <p className="text-sm text-slate-700">We'll contact you within 24 hours</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-brand-500 to-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-modern">
-                      2
-                    </span>
-                    <p className="text-sm text-slate-700">Schedule a personalized demo at your convenience</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-brand-500 to-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-modern">
-                      3
-                    </span>
-                    <p className="text-sm text-slate-700">See how TrainingTree fits your operation</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-brand-500 to-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-modern">
-                      4
-                    </span>
-                    <p className="text-sm text-slate-700">We set your barn up with your own records</p>
-                  </li>
-                </ol>
-              </Card>
-            </motion.div>
+            <form onSubmit={handleSubmit} className="mt-8 space-y-6" noValidate>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-2 block font-semibold text-navy-900">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autoComplete="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
+                    className={`${field} ${errors.name ? 'border-coral-400' : 'border-navy-200'}`}
+                  />
+                  {errors.name && (
+                    <p id="name-error" className="mt-1 flex items-center gap-1 text-sm text-coral-700">
+                      <AlertCircle className="h-4 w-4" aria-hidden="true" />
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="mb-2 block font-semibold text-navy-900">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autoComplete="email"
+                    spellCheck={false}
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
+                    className={`${field} ${errors.email ? 'border-coral-400' : 'border-navy-200'}`}
+                  />
+                  {errors.email && (
+                    <p id="email-error" className="mt-1 flex items-center gap-1 text-sm text-coral-700">
+                      <AlertCircle className="h-4 w-4" aria-hidden="true" />
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label htmlFor="operationType" className="mb-2 block font-semibold text-navy-900">
+                    You are a
+                  </label>
+                  <select id="operationType" name="operationType" value={formData.operationType} onChange={handleChange} className={`${field} border-navy-200`}>
+                    <option value="">Choose one…</option>
+                    {ROLES.map((r) => (
+                      <option key={r} value={r}>
+                        {r}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="numHorses" className="mb-2 block font-semibold text-navy-900">
+                    Horses in your care
+                  </label>
+                  <select id="numHorses" name="numHorses" value={formData.numHorses} onChange={handleChange} className={`${field} border-navy-200`}>
+                    <option value="">Choose a range…</option>
+                    <option value="1-10">1 to 10</option>
+                    <option value="10-25">10 to 25</option>
+                    <option value="25-50">25 to 50</option>
+                    <option value="50+">More than 50</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="painPoint" className="mb-2 block font-semibold text-navy-900">
+                  What would you most like help with?
+                </label>
+                <select id="painPoint" name="painPoint" value={formData.painPoint} onChange={handleChange} className={`${field} border-navy-200`}>
+                  <option value="">Choose one…</option>
+                  {FOCUS.map((f) => (
+                    <option key={f} value={f}>
+                      {f}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="mb-2 block font-semibold text-navy-900">
+                  Anything else we should know
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your discipline, how you keep records today, what you’d want from the pilot…"
+                  className={`${field} resize-none border-navy-200`}
+                />
+              </div>
+
+              {/* Honeypot field for bot protection - hidden from users */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" />
+
+              {errors.submit && (
+                <div role="alert" className="flex items-center gap-3 bg-coral-50 p-4">
+                  <AlertCircle className="h-5 w-5 flex-shrink-0 text-coral-700" aria-hidden="true" />
+                  <p className="text-coral-800">{errors.submit}</p>
+                </div>
+              )}
+
+              <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto" disabled={isSubmitting || isSuccess}>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
+                    Sending…
+                  </>
+                ) : isSuccess ? (
+                  'Application sent'
+                ) : (
+                  'Apply for the pilot'
+                )}
+              </Button>
+
+              <p className="text-sm text-navy-500">
+                This site is protected by reCAPTCHA and the Google{' '}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-brand-600">
+                  Privacy Policy
+                </a>{' '}
+                and{' '}
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-brand-600">
+                  Terms of Service
+                </a>{' '}
+                apply.
+              </p>
+            </form>
           </div>
+
+          <aside className="lg:pt-4">
+            <h2 className="text-3xl">What happens next</h2>
+            <ol className="mt-8 space-y-8">
+              {[
+                ['We read your application', 'and reply within 24 hours.'],
+                ['A short call', 'to learn how your barn runs and what you want from the pilot.'],
+                ['We set your barn up', 'with your own horses and records.'],
+                ['You use it every day', 'and tell us what to change. Pilot members shape what we build next.'],
+              ].map(([lead, rest], i) => (
+                <li key={lead} className="grid grid-cols-[2.5rem_1fr] items-baseline gap-3">
+                  <span className="font-condensed text-4xl font-extrabold leading-none text-gold-600">{i + 1}</span>
+                  <p className="text-lg text-navy-700">
+                    <span className="font-semibold text-navy-900">{lead}</span> {rest}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-12 bg-plate p-6">
+              <p className="font-semibold text-navy-900">Rather email?</p>
+              <a href="mailto:info@equissetix.com" className="mt-1 inline-block text-lg font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+                info@equissetix.com
+              </a>
+            </div>
+          </aside>
         </div>
-      </Section>
+      </section>
     </div>
   )
 }

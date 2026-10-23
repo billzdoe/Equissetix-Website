@@ -13,8 +13,8 @@ export const TopicHero = ({ title, children }: { title: string; children: ReactN
 
 /** The one closing call to action every page ends on. */
 export const CloseCTA = ({
-  title = 'See it with your own horses.',
-  body = 'Bring a few weeks of workouts and vet records. We’ll show you what your horses’ numbers look like.',
+  title = 'Join the pilot program.',
+  body = 'We’re opening TrainingTree Pro to a small group of barns first. Use it with your own horses and help shape what comes next.',
 }: {
   title?: string
   body?: string
@@ -26,7 +26,7 @@ export const CloseCTA = ({
         <p className="mt-3 text-lg text-white/80">{body}</p>
       </div>
       <Button to="/contact" variant="primary" size="lg" className="shrink-0">
-        Request a demo
+        Join the pilot
       </Button>
     </div>
   </section>

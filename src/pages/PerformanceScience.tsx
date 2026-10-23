@@ -4,9 +4,10 @@ import { pageSEO } from '../utils/seo'
 import WorkloadSketch from '../components/WorkloadSketch'
 import StatusNote from '../components/StatusNote'
 import FeatureGrid from '../components/FeatureGrid'
-import Photo from '../components/Photo'
 import { InkDrawing } from '../components/Archive'
-import { TopicHero, CloseCTA } from '../components/TopicPage'
+import { CloseCTA } from '../components/TopicPage'
+import { Scene, Beat, Reading } from '../components/Scene'
+import Button from '../components/Button'
 import { breakthroughs, performanceFeatures } from '../data/science'
 
 /** /performance — the topic page. The product page is /products/performance. */
@@ -18,34 +19,60 @@ const PerformanceScience = () => (
   <div className="pt-20">
     <SEO title={pageSEO.performance.title} description={pageSEO.performance.description} path="/performance" />
 
-    <TopicHero title="Condition each horse on its own numbers.">
-      <p>
-        Workload, readiness, fitness and gait, worked out from each horse’s own sessions and heart rate. For racing,
-        eventing, endurance, jumping and dressage.
-      </p>
-    </TopicHero>
-
-    <Photo
-      id="breeze-dust"
+    {/* Training, over the gallops */}
+    <Scene
+      picture={{ photo: 'breeze-dust' }}
       alt="A racehorse and rider gallop through a cloud of dust on a training track"
-      fill="h-[40vh] min-h-[260px] max-h-[520px]"
-      focus="50% 20%"
-      sizes="100vw"
-    />
-
-    <section className="section-padding">
-      <div className="container-custom">
+      focus="70% 30%"
+      shade="left"
+      eager
+    >
+      <Beat className="!min-h-[calc(100svh-5rem)] !pb-12">
+        <h1 className="text-[2.6rem] leading-[0.92] text-white sm:text-7xl lg:text-[6.5rem]">Condition each horse on its own numbers.</h1>
+        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
+          <div>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+              Workload, readiness, fitness and gait, worked out from each horse’s own sessions and heart rate. For
+              racing, eventing, endurance, jumping and dressage.
+            </p>
+            <div className="mt-8">
+              <Button to="/contact" variant="primary" size="lg">
+                Join the pilot
+              </Button>
+            </div>
+            <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example readings for one horse">
+              <Reading compact label="Readiness" value="86" note="Ready for full work" />
+              <Reading compact label="Workload ratio" value="1.12" note="Building steadily" />
+              <Reading compact label="Safety gate" value="Clear" note="Nothing holding it back" />
+            </div>
+          </div>
+          <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings for one horse">
+            <p className="text-sm text-white/70">An example horse, this morning</p>
+            <Reading label="Readiness" value="86" note="Ready for full work" />
+            <Reading label="Workload ratio" value="1.12" note="Building steadily" />
+            <Reading label="Safety gate" value="Clear" note="Nothing holding it back" />
+          </div>
+        </div>
+      </Beat>
+      <Beat align="center">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="max-w-lg">Every session, read the moment it’s logged.</h2>
-            <p className="mt-5 max-w-xl text-lg text-navy-600">
+            <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">Every session, read the moment it’s logged.</h2>
+            <p className="mt-6 max-w-xl text-lg text-white/85">
               Workload and readiness update after each session, and one safety gate checks every suggestion before you
               see it: a fast rise in workload, a red readiness score or an active rehab plan changes the work.
             </p>
           </div>
-          <WorkloadSketch />
+          <div className="bg-chalk p-5 text-navy-900 sm:p-6">
+            <WorkloadSketch />
+          </div>
         </div>
-        <div className="mt-14">
+      </Beat>
+    </Scene>
+
+    <section className="section-padding">
+      <div className="container-custom">
+        <div>
           <FeatureGrid features={performanceFeatures.filter((f) => !f.status)} />
         </div>
         {performanceFeatures.filter((f) => f.status).map((f) => (
@@ -92,13 +119,17 @@ const PerformanceScience = () => (
       </div>
     </section>
 
-    <Photo
-      id="pack-away"
+    <Scene
+      picture={{ photo: 'pack-away' }}
       alt="Jockeys and racehorses seen from behind as they race away around a dirt bend"
-      fill="h-[40vh] min-h-[260px] max-h-[520px]"
       focus="50% 40%"
-      sizes="100vw"
-    />
+    >
+      <Beat>
+        <p className="max-w-3xl font-condensed text-[2.4rem] font-extrabold leading-[0.95] text-white sm:text-6xl">
+          Race day starts months before the gate.
+        </p>
+      </Beat>
+    </Scene>
 
     <section className="section-padding">
       <div className="container-custom max-w-3xl">

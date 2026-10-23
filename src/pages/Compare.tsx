@@ -172,7 +172,7 @@ const Compare = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">
-              Get a Free Demo
+              Join the pilot
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button to="/science" variant="secondary" size="lg">

@@ -66,7 +66,7 @@ const CaseStudies = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button to="/contact" variant="primary" size="lg">
-                Schedule a Demo
+                Join the pilot
                 <ArrowRight className="h-5 w-5" />
               </Button>
               <Button to="/performance" variant="ghost" size="lg">
@@ -89,10 +89,10 @@ const CaseStudies = () => {
             Ready to Transform Your Training Operation?
           </h2>
           <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree can streamline your barn management. Get started with a personalized demo.
+            See how TrainingTree can streamline your barn management. Apply for the pilot program.
           </p>
           <Button to="/contact" variant="primary" size="lg">
-            Get a Free Demo
+            Join the pilot
             <ArrowRight className="h-5 w-5" />
           </Button>
         </motion.div>

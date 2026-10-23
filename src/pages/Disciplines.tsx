@@ -481,7 +481,7 @@ const Disciplines = () => {
             TrainingTree Pro adapts to your discipline with specialized tools, metrics, and insights
           </p>
           <Button to="/contact" variant="primary" size="lg">
-            Get a Free Demo
+            Join the pilot
             <Trophy className="h-5 w-5" />
           </Button>
         </motion.div>
