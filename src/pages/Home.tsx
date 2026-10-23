@@ -9,15 +9,17 @@ import GaitReadout from '../components/GaitReadout'
 import PlatformLineup from '../components/PlatformLineup'
 import StatusNote from '../components/StatusNote'
 import { CloseCTA } from '../components/TopicPage'
-import FeatureGrid from '../components/FeatureGrid'
 import ThreeIdeas from '../components/ThreeIdeas'
 import { Scene, Beat, Reading } from '../components/Scene'
 import { ArchivePrint, InkDrawing } from '../components/Archive'
-import { breakthroughs, performanceFeatures, vetCareFeatures } from '../data/science'
+import { breakthroughs } from '../data/science'
+import { companyProblems, companyPrinciples } from '../data/company'
 
 /**
- * Home, 2026-10 revamp. Leads with performance, vet care and the science,
- * for five buyers: vets, stable managers, trainers, barn owners and horse
+ * Home, 2026-10 revamp. Opens on Equissetix the company -- what it does and
+ * the problems it works on (Billy, 2026-10-23: the page was "primarily
+ * focused on TT pro and the vet") -- then performance, vet care and the
+ * science, for five buyers: vets, stable managers, trainers, barn owners and horse
  * owners (Billy, 2026-10-22). Confident, positive tone on this page. Claims
  * stay true: "only/first in the market" is not used until counsel clears
  * comparative claims; everything else is the product as it runs today.
@@ -60,20 +62,22 @@ const Home = () => (
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
           <div>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              TrainingTree Pro reads every workout, vital sign and vet record against each horse’s own normal, and
-              tells you each morning who’s ready to work, who needs a lighter day, and why.
+              Horse care still runs on notebooks, group texts and memory, so small changes slip by and the vet sees
+              only visit day. Equissetix gives every horse one file, shared with its vet and owner: vital signs read
+              against its own normal, workload and readiness from every session, gait measured from a phone video,
+              and the barn’s feed, staff and records alongside.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/contact" variant="primary" size="lg">
                 Join the pilot
               </Button>
               <Button
-                to="/science"
+                to="/about"
                 size="lg"
                 variant="ghost"
                 className="!border-white/40 !bg-transparent !text-white hover:!border-white hover:!bg-white/10"
               >
-                See the science
+                What we do
               </Button>
             </div>
             <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example readings for one horse">
@@ -107,6 +111,60 @@ const Home = () => (
         </ul>
       </Beat>
     </Scene>
+
+    {/* What Equissetix is here to solve: the problems, pinned over the fence line */}
+    <Scene
+      id="what-we-solve"
+      picture={{ photo: 'ky-fence-dusk' }}
+      alt="Black board fencing runs across a Kentucky horse farm at dusk"
+      focus="50% 50%"
+      shade="full"
+    >
+      <Beat align="center">
+        <h2 className="max-w-4xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">What we’re here to solve.</h2>
+        <p className="mt-6 max-w-xl text-lg text-white/85">
+          Horse care runs on close attention and good records. The attention has always been there. The records are
+          where we come in.
+        </p>
+      </Beat>
+      <div className="container-custom pb-24">
+        <ul className="divide-y divide-white/20 border-y border-white/20">
+          {companyProblems.map((p) => (
+            <li key={p.id} className="grid grid-cols-1 gap-4 py-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-12 lg:py-14">
+              <p className="font-condensed text-[2rem] font-extrabold leading-[1.02] text-white sm:text-5xl">{p.problem}</p>
+              <div>
+                <p className="text-white/70">{p.today}</p>
+                <p className="mt-4 text-lg text-white">{p.answer}</p>
+                <Link to={p.link.to} className={`mt-4 ${lightLink}`}>
+                  {p.link.label}
+                </Link>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Scene>
+
+    {/* What we make: the family, right after the problems it answers */}
+    <section id="what-we-make" className="section-padding scroll-mt-20 bg-white">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <h2>One platform for the horse and the barn.</h2>
+          <div className="text-lg text-navy-600">
+            <p>
+              TrainingTree Pro is the whole platform. Take the barn half, StableTree, the training half, TrainingTree
+              Performance, or both together.
+            </p>
+            <p className="mt-4">
+              Small farms where the owner is also the barn manager and the trainer start on TrainingTree Pro Lite.
+            </p>
+          </div>
+        </div>
+        <div className="mt-12">
+          <PlatformLineup />
+        </div>
+      </div>
+    </section>
 
     {/* Juniper's three weeks, played over the gallops */}
     <Scene
@@ -159,11 +217,6 @@ const Home = () => (
         </div>
       </Beat>
     </Scene>
-    <section className="section-padding">
-      <div className="container-custom">
-        <FeatureGrid features={performanceFeatures.slice(0, 6)} />
-      </div>
-    </section>
 
     {/* Vet care */}
     <Scene
@@ -201,11 +254,6 @@ const Home = () => (
         </div>
       </Beat>
     </Scene>
-    <section className="section-padding bg-plate">
-      <div className="container-custom">
-        <FeatureGrid features={vetCareFeatures.slice(0, 6)} rule="border-navy-300/60" />
-      </div>
-    </section>
 
     {/* Then and now: the archive */}
     <Scene
@@ -218,7 +266,7 @@ const Home = () => (
         <h2 className="max-w-4xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">Horse people have always measured.</h2>
         <p className="mt-6 max-w-xl text-lg text-white/85">
           The stopwatch on the gallops, the thermometer in the stall, the vet’s hand on a tendon. For a century those
-          readings lived in notebooks and memory. TrainingTree Pro keeps every one, for every horse, and reads them
+          readings lived in notebooks and memory. Equissetix keeps every one, for every horse, and reads them
           together.
         </p>
       </Beat>
@@ -291,23 +339,18 @@ const Home = () => (
       </div>
     </section>
 
-    {/* The barn around them */}
-    <Scene
-      picture={{ photo: 'ky-lane' }}
-      alt="A grass lane runs between black board fences across a Kentucky horse farm under an evening sky"
-      focus="50% 55%"
-    >
-      <Beat>
-        <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">And the whole barn around them.</h2>
-        <p className="mt-6 max-w-xl text-lg text-white/85">
-          The same platform runs the stable: records, stalls, turnout, staff, feed and owners. Take the training half,
-          the barn half, or both together.
-        </p>
-      </Beat>
-    </Scene>
-    <section className="section-padding">
+    {/* How we work */}
+    <section aria-labelledby="how-we-work" className="section-padding bg-plate">
       <div className="container-custom">
-        <PlatformLineup />
+        <h2 id="how-we-work" className="max-w-2xl">How we work</h2>
+        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+          {companyPrinciples.map((c) => (
+            <div key={c.title} className="border-t-2 border-ink pt-5">
+              <h3 className="font-condensed text-3xl font-extrabold leading-tight">{c.title}</h3>
+              <p className="mt-3 text-lg text-navy-700">{c.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 

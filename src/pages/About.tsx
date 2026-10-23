@@ -1,256 +1,135 @@
-import { motion } from 'framer-motion'
-import { Heart, Target, Users, MapPin, Zap, Shield } from 'lucide-react'
-import Button from '../components/Button'
-import Card from '../components/Card'
-import Section from '../components/Section'
-import GeometricPattern from '../components/GeometricPattern'
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
+import Button from '../components/Button'
+import PlatformLineup from '../components/PlatformLineup'
+import { CloseCTA } from '../components/TopicPage'
+import { Scene, Beat } from '../components/Scene'
+import { companyProblems, companyPrinciples, companySummary } from '../data/company'
 
-const About = () => {
-  return (
-    <div className="pt-20">
-      <SEO title={pageSEO.about.title} description={pageSEO.about.description} path="/about" />
-      <Section background="gradient" className="relative min-h-[60vh] flex items-center overflow-hidden">
-        {/* Animated Background Pattern */}
-        <GeometricPattern variant="diamonds" opacity={0.04} color="#0F5132" animated={true} />
+/**
+ * About Equissetix, the company (rebuilt 2026-10-23). Same sources as Home
+ * (data/company.ts), told at more length. The old page's founder story
+ * ("walked barns at 5 AM"), "AI insights" and "preventable injuries" lines
+ * are gone: none could be checked, and the last is an outcome promise.
+ * Equissetix LLC is registered in Kentucky (KY SOS, checked 2026-10-23).
+ */
 
-        {/* Floating accent elements */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-teal-500/10 to-blue-500/10 blur-2xl"
-        />
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            rotate: [0, -5, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 left-10 w-40 h-40 bg-gradient-to-br from-gold-500/10 to-green-700/10 blur-2xl"
-        />
+const audiences = [
+  { to: '/solutions/veterinarians', title: 'Veterinarians' },
+  { to: '/solutions/stable-managers', title: 'Stable managers' },
+  { to: '/solutions/trainers', title: 'Trainers' },
+  { to: '/solutions/barn-owners', title: 'Barn owners' },
+  { to: '/solutions/horse-owners', title: 'Horse owners' },
+]
 
-        <div className="text-center max-w-4xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-teal-500 text-sm font-bold text-charcoal-900 mb-6 shadow-md"
-            >
-              <MapPin className="h-4 w-4 text-teal-500" />
-              Born in Kentucky, Built for Trainers Everywhere
-            </motion.div>
+const darkLink = 'inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700'
 
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Built by Horse People, <span className="text-gradient">For Horse People</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700">
-              TrainingTree Pro was created to solve the real problems facing professional horse trainers—because we understand your world.
-            </p>
-          </motion.div>
+const About = () => (
+  <div className="pt-20">
+    <SEO title={pageSEO.about.title} description={pageSEO.about.description} path="/about" />
+
+    <Scene
+      picture={{ photo: 'ky-farm-road' }}
+      alt="A farm road runs between board fences and paddocks on a Kentucky horse farm"
+      focus="50% 55%"
+      eager
+    >
+      <Beat className="!min-h-[calc(100svh-5rem)] !pb-14">
+        <h1 className="max-w-5xl text-[2.7rem] leading-[0.94] text-white sm:text-7xl lg:text-[6.5rem]">
+          We build the science of horse care into the everyday.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">{companySummary}</p>
+      </Beat>
+    </Scene>
+
+    {/* The problems, told plainly, each with what we do about it */}
+    <section aria-labelledby="what-we-do" className="section-padding bg-white">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <h2 id="what-we-do">What we do</h2>
+          <p className="text-lg text-navy-600">
+            Good horsemanship has always meant noticing. We make the noticing easier: everything about a horse in one
+            file, read against that horse’s own normal, and shared with the people around it.
+          </p>
         </div>
-      </Section>
+        <ul className="mt-12 divide-y divide-navy-100 border-y border-navy-100">
+          {companyProblems.map((p) => (
+            <li key={p.id} className="grid grid-cols-1 gap-3 py-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+              <h3 className="font-condensed text-3xl font-extrabold leading-tight">{p.problem}</h3>
+              <div>
+                <p className="text-navy-500">{p.today}</p>
+                <p className="mt-3 text-lg text-navy-900">{p.answer}</p>
+                <Link to={p.link.to} className={`mt-3 ${darkLink}`}>
+                  {p.link.label}
+                </Link>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
 
-      <Section background="white">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-            <p className="text-lg text-slate-700 mb-4">
-              Born and bred in Kentucky—the heart of horse country—TrainingTree Pro by Equissetix<sup className="text-sm">™</sup> emerged from watching trainers struggle with scattered notebooks, illegible handwriting, and preventable injuries that could've been caught with better data.
+    <section aria-labelledby="what-we-make" className="section-padding bg-plate">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <h2 id="what-we-make">What we make</h2>
+          <div className="text-lg text-navy-600">
+            <p>
+              One platform, TrainingTree Pro, built in two halves: StableTree runs the barn, and TrainingTree
+              Performance conditions the athlete. Take either half, or both together.
             </p>
-            <p className="text-lg text-slate-700 mb-4">
-              We saw the gap between old-school training wisdom and modern technology. Trainers had the expertise but lacked the tools to track what really mattered: training load patterns, injury risk indicators, and performance trends that paper logs simply can't reveal.
+            <p className="mt-4">
+              TrainingTree Pro Lite is made for small farms where one person is the owner, the barn manager and the
+              trainer.
             </p>
-            <p className="text-lg text-slate-700">
-              So we built TrainingTree Pro—a mobile-first platform that respects the craft of training while bringing sports science, AI insights, and financial management into one powerful system. Designed for the barn, not the boardroom. Built in Kentucky, for trainers everywhere.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <Card className="text-center border-2 border-teal-200 hover:border-teal-500 transition-all relative overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-teal-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                  transition={{ duration: 0.3 }}
-                />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center mx-auto mb-4 shadow-md">
-                    <Heart className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="font-bold mb-3 text-lg">Our Mission</h3>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    Help trainers bring out the best in every horse, catch problems early, and build stronger relationships with owners.
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Card className="text-center border-2 border-green-200 hover:border-green-700 transition-all relative overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                  transition={{ duration: 0.3 }}
-                />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center mx-auto mb-4 shadow-md">
-                    <Target className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="font-bold mb-3 text-lg">Our Vision</h3>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    Become the trusted platform for every professional horse trainer in North America—and beyond.
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Card className="text-center border-2 border-gold-200 hover:border-gold-500 transition-all relative overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-gold-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                  transition={{ duration: 0.3 }}
-                />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-gold-500 to-gold-600 flex items-center justify-center mx-auto mb-4 shadow-md">
-                    <Users className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="font-bold mb-3 text-lg">Our Values</h3>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    Horse welfare first. Data-driven decisions. Transparency. Continuous improvement.
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
           </div>
         </div>
-      </Section>
-
-      {/* Why We're Different Section */}
-      <Section background="white" className="relative">
-        <GeometricPattern variant="lines" opacity={0.04} color="#0F5132" animated={true} />
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 relative z-10"
-        >
-          <h2 className="text-4xl font-bold mb-4">
-            Why <span className="text-gradient">TrainingTree Pro</span> is Different
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            We're not just another software company. We're horse people who happen to build great technology.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Card className="h-full border-l-4 border-l-teal-500">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-teal-500 flex items-center justify-center flex-shrink-0">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">Built on Real Experience</h3>
-                  <p className="text-slate-600">
-                    Every feature in TrainingTree Pro came from real conversations with trainers, not boardroom assumptions. We've walked barns at 5 AM and understand the actual workflow.
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Card className="h-full border-l-4 border-l-gold-500">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gold-500 flex items-center justify-center flex-shrink-0">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">Science-Backed Approach</h3>
-                  <p className="text-slate-600">
-                    We combine traditional training wisdom with published sports science: workload, readiness, gait and injury-risk grading, each one showing where its numbers came from.
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
+        <div className="mt-12">
+          <PlatformLineup />
         </div>
-      </Section>
+      </div>
+    </section>
 
-      <Section background="gradient" className="relative overflow-hidden">
-        <GeometricPattern variant="mixed" opacity={0.06} color="#ffffff" animated={true} />
+    <section aria-labelledby="how-we-work" className="section-padding bg-white">
+      <div className="container-custom">
+        <h2 id="how-we-work">How we work</h2>
+        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+          {companyPrinciples.map((c) => (
+            <div key={c.title} className="border-t-2 border-ink pt-5">
+              <h3 className="font-condensed text-3xl font-extrabold leading-tight">{c.title}</h3>
+              <p className="mt-3 text-lg text-navy-700">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto relative z-10"
-        >
-          <motion.div
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-white text-sm font-bold text-charcoal-900 mb-6 shadow-md"
-          >
-            <Zap className="h-4 w-4 text-teal-500" />
-            Start Your Journey Today
-          </motion.div>
+    <section aria-labelledby="who-we-build-for" className="bg-ink text-white">
+      <div className="container-custom section-padding">
+        <h2 id="who-we-build-for" className="max-w-3xl text-white">Built for everyone around the horse.</h2>
+        <ul className="mt-10 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-5">
+          {audiences.map((a) => (
+            <li key={a.to}>
+              <Link
+                to={a.to}
+                className="block h-full bg-white/[0.06] p-4 font-condensed text-xl font-extrabold text-white transition-colors hover:bg-gold-500 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:p-5 sm:text-2xl"
+              >
+                {a.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10">
+          <Button to="/science" variant="primary" size="lg">
+            Read the science
+          </Button>
+        </div>
+      </div>
+    </section>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Join Us?</h2>
-          <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree Pro can transform your training operation with sports-science insights and real-time data.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/contact" variant="primary" size="lg">
-              Join the pilot
-            </Button>
-            <Button to="/science" variant="secondary" size="lg">
-              See the science
-            </Button>
-          </div>
-        </motion.div>
-      </Section>
-    </div>
-  )
-}
+    <CloseCTA />
+  </div>
+)
 
 export default About

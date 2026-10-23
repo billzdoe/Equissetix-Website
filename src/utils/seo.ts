@@ -46,8 +46,8 @@ type PageSEOEntry = {
 export const pageSEO = {
   // Core pages
   home: {
-    title: 'Equissetix — Equine Performance Science & Vet Care',
-    description: 'TrainingTree Pro: workload, readiness, gait and vet care for each horse, worked out from its own records using published equine physiology. Barn management included.',
+    title: 'Equissetix — Software for Horse Care, Training and the Barn',
+    description: 'Equissetix builds software for trainers, vets, stable managers, barn owners and owners: every workout, vital sign and care record in one place, read against each horse’s own normal.',
   },
   performance: {
     title: 'Equine Performance — Workload, Readiness & Gait | Equissetix',
@@ -74,8 +74,8 @@ export const pageSEO = {
     description: 'Apply to join the TrainingTree Pro pilot program: use it with your own horses, work directly with the team that builds it, and help shape what comes next.',
   },
   about: {
-    title: 'About Us - Equissetix',
-    description: 'Built by horse people, for horse people. Learn about Equissetix and our mission to revolutionize equine training management.',
+    title: 'About Equissetix',
+    description: 'Equissetix is a Kentucky company building the science of horse care into everyday software: the problems we work on, what we make and how we work.',
   },
 
   // Products — the platform and its two halves.
