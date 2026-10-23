@@ -6,12 +6,9 @@ A horse that usually runs at 99.0 °F and reads 100.6 °F this morning is inside
 
 ## How it works
 
-Every temperature, pulse and respiration reading goes into the horse's record, whether it comes from a sensor, a barn walk or a thermometer read on the shed row. From those readings TrainingTree Pro builds each horse's **own 30-day baseline**, then checks every new reading against it:
+Every temperature, pulse and respiration reading goes into the horse's record, whether it comes from a sensor, a barn walk or a thermometer read on the shed row. From those readings TrainingTree Pro learns each horse's **own normal**, then checks every new reading against it. A rise in temperature or resting pulse that's meaningful for that horse is flagged, and a quick second reading confirms it before anyone is called out.
 
-- **Temperature:** flagged at **1.5 °F or more** above that horse's baseline.
-- **Resting pulse:** flagged at **20 beats a minute or more** above that horse's resting baseline.
-
-A second high reading within 30 minutes confirms the first. A horse without a baseline yet isn't flagged; the app builds the baseline first.
+A horse without enough readings yet isn't flagged against a guess; the app learns its normal first.
 
 ## Morning rounds, rebuilt
 
@@ -25,7 +22,7 @@ Every flag says where its reading came from (a hand reading, a sensor or a barn 
 
 - **Changes that matter for this horse.** A rise against the horse's own normal is flagged even when the reading is still inside a textbook range.
 - **A sensible baseline for every horse.** A horse who always runs a little warm is compared with his own normal, not with an average.
-- **A history the vet can use.** Thirty days of readings, already organised, instead of a phone call that starts with "he's been a bit off."
+- **A history the vet can use.** Weeks of readings, already organised, instead of a phone call that starts with "he's been a bit off."
 
 ## The rest of the health file
 
@@ -41,4 +38,4 @@ Every horse is different. Now their records treat them that way.
 
 ---
 
-*See morning rounds on your own barn. [Request a demo](/contact).*
+*See morning rounds on your own barn. [Join the pilot program](/contact).*

@@ -38,9 +38,9 @@ const data: SolutionData = {
     {
       title: 'Workload you can trust',
       description:
-        'TRIMP from heart rate, acute and chronic load, and the 28-day workload ratio, updated after every logged session.',
+        'Every logged session counts toward each horse’s workload, compared with what that horse is used to, so a sudden jump shows up while there’s time to ease off.',
       benefits: [
-        'Every suggestion stops at a ratio above 1.3, a red readiness score or active rehab',
+        'Every suggestion eases off when work is rising too fast, readiness is red or the horse is in rehab',
         'Daily readiness 0–100, with the measured inputs shown',
         'Injury risk graded low to critical, with the reason',
       ],

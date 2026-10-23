@@ -101,9 +101,9 @@ function computeStory(): DayView[] {
     if (ratio > 1.3 || band === 'red') {
       gated = true
       plan = 'Rest. Hand-walk only.'
-      if (ratio > 1.3) why.push(`Workload ratio ${ratio.toFixed(2)} is above 1.3`)
+      if (ratio > 1.3) why.push(`Work is rising faster than she’s used to (ratio ${ratio.toFixed(2)})`)
       if (band === 'red') why.push(`Readiness is red (${readiness})`)
-      if (fever) why.push(`Fever: ${d.temp.toFixed(1)} °F, ${tempDelta.toFixed(1)}° over her normal`)
+      if (fever) why.push(`Fever: ${d.temp.toFixed(1)} °F, well above her normal`)
     } else if (band === 'yellow') {
       gated = true
       plan = 'Moderate: walk and trot, 30 min'
@@ -232,7 +232,7 @@ const HorseStory = () => {
             {v.parts.map((p) => (
               <li key={p.label} className="grid grid-cols-[5.5rem_1fr] items-center gap-2 text-xs text-navy-600">
                 <span>
-                  {p.label} <span className="text-navy-400">{p.weight}%</span>
+                  {p.label}
                 </span>
                 <span className="h-1.5 rounded-full bg-navy-100">
                   <span className={`block h-1.5 rounded-full ${p.score >= 80 ? 'bg-green-500' : p.score >= 50 ? 'bg-gold-500' : 'bg-burgundy-500'}`} style={{ width: `${p.score}%` }} />
@@ -255,7 +255,7 @@ const HorseStory = () => {
             <path d={path} fill="none" stroke="#0F2A20" strokeWidth="2" strokeLinejoin="round" />
             <circle cx={px(day - 1)} cy={py(v.ratio)} r="4.5" fill="#F59E0B" stroke="#fff" strokeWidth="1.5" />
           </svg>
-          <p className="mt-1 text-xs text-navy-500">Dashed line: the 1.3 safety gate</p>
+          <p className="mt-1 text-xs text-navy-500">Dashed line: where work is rising too fast</p>
         </div>
 
         {/* Temperature */}
@@ -271,7 +271,7 @@ const HorseStory = () => {
             </span>
           </p>
           <p className={`mt-3 inline-block rounded-sm px-2 py-1 text-xs font-semibold ${v.fever ? 'bg-burgundy-600 text-white' : 'bg-green-100 text-green-700'}`}>
-            {v.fever ? 'Fever flagged: 1.5° or more over her normal' : 'Within her normal'}
+            {v.fever ? 'Fever flagged: well above her normal' : 'Within her normal'}
           </p>
         </div>
 

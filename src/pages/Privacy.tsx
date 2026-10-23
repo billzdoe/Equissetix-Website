@@ -89,7 +89,7 @@ const Privacy = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Wearable Device Data</h3>
                   <p className="text-slate-700">
-                    When you integrate wearable devices (Equimetre, Polar Equine, StrideSAFE, etc.), we automatically sync biometric data including heart rate, gait metrics, and activity data. This data is processed using our patent-pending multi-sensor fusion technology.
+                    When you connect a wearable device, we sync the data it records, such as heart rate, gait and activity, for the horses you choose.
                   </p>
                 </div>
 
@@ -121,10 +121,9 @@ const Privacy = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Service Delivery</h3>
                   <ul className="list-disc list-inside space-y-2 text-slate-700">
-                    <li>Provide training recommendations from deterministic, rules-based sports-science formulas</li>
-                    <li>Calculate ACWR (Acute:Chronic Workload Ratio) for injury prevention</li>
-                    <li>Perform video gait analysis (optical-flow by default; 25-keypoint pose estimation is opt-in)</li>
-                    <li>Generate injury risk scores based on ACWR, progression, HRV, and fatigue metrics</li>
+                    <li>Work out each horse’s workload, readiness and injury-risk grade</li>
+                    <li>Suggest workouts based on published sports science</li>
+                    <li>Analyse gait from the videos and sensor data you record</li>
                     <li>Deliver automated health alerts and veterinary notifications</li>
                   </ul>
                 </div>
@@ -162,13 +161,13 @@ const Privacy = () => {
               
               <div className="space-y-4">
                 <p className="text-slate-700">
-                  We implement industry-leading security measures to protect your data:
+                  We protect your data with these measures:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-700">
-                  <li><strong>Encryption:</strong> All data is encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+                  <li><strong>Encryption:</strong> Every connection is encrypted, and logins for connected calendars and wearables are encrypted again when stored</li>
                   <li><strong>Access Controls:</strong> Role-based access control ensures only authorized users can view data</li>
-                  <li><strong>Audit Logs:</strong> Comprehensive logging of all data access and modifications</li>
-                  <li><strong>Backup & Recovery:</strong> Automated daily backups with point-in-time recovery</li>
+                  <li><strong>Access history:</strong> Changes to who can see each horse, and every share, are logged and can’t be edited</li>
+                  <li><strong>Recovery:</strong> A managed database with point-in-time recovery</li>
                 </ul>
               </div>
             </Card>

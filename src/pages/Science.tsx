@@ -36,7 +36,7 @@ const limits = [
   'We don’t predict race results. No model for it has been trained, so we don’t offer one.',
   'The conditioning programs follow the published structure of base, strength and speed work. Their exact minutes and paces are cautious defaults that a qualified trainer or vet still needs to sign off, and the app shows that status on each program.',
   'The wellbeing check is built from your records. It isn’t a veterinary or behavioural assessment, and it says so on screen.',
-  'Pose estimation from video is optional and is still being checked against real footage. Optical flow is the method that runs by default.',
+  'Detailed body-position analysis from video is optional and is still being checked against real footage.',
 ]
 
 const references = [

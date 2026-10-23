@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
     id: 9,
     title: 'Every Horse Has Its Own Normal',
     excerpt:
-      'Why TrainingTree Pro checks temperature and resting pulse against each horse’s own 30-day baseline, and how morning rounds put the horses that need a look first.',
+      'Why TrainingTree Pro checks temperature and resting pulse against each horse’s own normal, and how morning rounds put the horses that need a look first.',
     author: 'Equissetix Team',
     date: '2026-10-22',
     category: 'Vet care',
@@ -87,9 +87,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 1,
-    title: 'Understanding Training Load: How TrainingTree Pro Measures the Work Your Horse Does',
+    title: 'Understanding Training Load: Why the Work Your Horse Does Needs Counting',
     excerpt:
-      'TRIMP, acute and chronic load, and the 28-day workload ratio: the published methods behind the numbers, and how they appear in the app.',
+      'Workload, fitness, fatigue and the workload ratio: what each one tells you, why it matters to the horse, and where it shows up in the app.',
     author: 'Equissetix Team',
     date: '2026-10-22',
     category: 'Performance',
@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
     id: 5,
     title: 'Gait Analysis in TrainingTree Pro: Video, Sensors and Symmetry',
     excerpt:
-      'What phone video and calibrated phone sensors measure, how footage quality is checked, and how to film for results you can compare.',
+      'What phone video and phone sensors tell you about how a horse moves, why it matters, and how to film for results you can compare.',
     author: 'Equissetix Team',
     date: '2026-10-22',
     category: 'Performance',

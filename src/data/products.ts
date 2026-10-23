@@ -144,7 +144,7 @@ export const products: Product[] = [
       },
     ],
     notIncluded: [
-      'Sports-science engine (TRIMP / ACWR / readiness / fitness)',
+      'Sports-science engine (workload, readiness, fitness)',
       'Video & sensor gait analysis',
       'Wearable device integrations',
       'Racing operations & race-day compliance',
@@ -169,11 +169,11 @@ export const products: Product[] = [
       {
         title: 'Sports-Science Engine',
         blurb:
-          'Deterministic formulas from published equine physiology — auditable, not a black box.',
+          'Built on published equine physiology, and every number shows the sessions behind it.',
         capabilities: [
-          { label: 'TRIMP, ATL/CTL/TSB/TSS, ACWR (hand-verified)', status: 'included' },
-          { label: 'Daily readiness score with health / load / recovery sub-scores', status: 'included' },
-          { label: 'Injury-risk assessment + fitness / VO2 estimation', status: 'included' },
+          { label: 'Workload and workload ratio from every session', status: 'included' },
+          { label: 'Daily readiness score, with what went into it', status: 'included' },
+          { label: 'Injury-risk grading + fitness from the horse’s own work', status: 'included' },
         ],
       },
       {
@@ -182,19 +182,19 @@ export const products: Product[] = [
         capabilities: [
           { label: 'Training tree + 30+ workout types', status: 'included' },
           { label: 'Auto furlong splits from stopwatch input', status: 'included' },
-          { label: 'Safety-gated recommendations + decision matrix', status: 'included' },
+          { label: 'Workout suggestions with a built-in safety check', status: 'included' },
           { label: 'Adaptive conditioning programs for six disciplines', status: 'included' },
           { label: 'Wellbeing Check on the Five Domains model', status: 'included' },
         ],
       },
       {
         title: 'Gait & Biomechanics',
-        blurb: 'See lameness before the naked eye can.',
+        blurb: 'See how evenly each horse moves, and how that changes over time.',
         capabilities: [
-          { label: 'Video gait analysis (optical flow)', status: 'included' },
+          { label: 'Gait analysis from a phone video', status: 'included' },
           { label: 'Side-by-side gait / video compare', status: 'included' },
-          { label: 'Symmetry analyzer + muscle mapping', status: 'included' },
-          { label: 'Pretrained pose estimation (opt-in)', status: 'setup' },
+          { label: 'Symmetry tracking + corrective workout ideas', status: 'included' },
+          { label: 'Detailed body-position analysis (opt-in)', status: 'setup' },
         ],
       },
       {
@@ -241,11 +241,11 @@ export const products: Product[] = [
       },
       {
         title: 'Plus the sports-science engine',
-        blurb: 'Peer-reviewed, hand-verified, auditable — the intelligence layer.',
+        blurb: 'Built on published equine physiology. Every number shows where it came from.',
         capabilities: [
-          { label: 'TRIMP / ATL / CTL / TSB / ACWR training load', status: 'included' },
+          { label: 'Training load and workload ratio from every session', status: 'included' },
           { label: 'Daily readiness (0–100) + injury-risk scoring', status: 'included' },
-          { label: 'Safety-gated workout recommendations', status: 'included' },
+          { label: 'Workout suggestions with a built-in safety check', status: 'included' },
           { label: 'Adaptive conditioning programs for six disciplines', status: 'included' },
           { label: 'Wellbeing Check on the Five Domains model', status: 'included' },
           { label: 'Video gait analysis + side-by-side compare', status: 'included' },
@@ -315,7 +315,7 @@ export const comparisonMatrix: MatrixRow[] = [
   { category: 'Health Baseline', name: 'Vet exams, vaccinations, meds', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'yes' },
   { category: 'Health Baseline', name: 'Rehab plans + farrier', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'yes' },
 
-  { category: 'Sports Science', name: 'TRIMP / ACWR / readiness', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
+  { category: 'Sports Science', name: 'Workload + readiness', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
   { category: 'Sports Science', name: 'Injury-risk + fitness scores', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
   { category: 'Sports Science', name: 'Workout recommendations', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
 

@@ -95,8 +95,8 @@ const VetCare = () => (
             <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">A fever for this horse.</h2>
             <p className="mt-6 max-w-md text-lg text-white/85">
               A temperature that’s normal for one horse is a fever for another. Each reading is checked against that
-              horse’s own 30-day normal: 1.5 °F above it, or 20 beats a minute above its resting pulse, and the horse
-              goes to the top of morning rounds.
+              horse’s own normal, and a meaningful rise in temperature or resting pulse sends the horse
+              to the top of morning rounds.
             </p>
             <Link to="/guide#baseline" className={`mt-6 ${lightLink}`}>
               How a baseline is set

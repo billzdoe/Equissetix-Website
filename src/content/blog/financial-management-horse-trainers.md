@@ -42,7 +42,7 @@ The time-clock moves with the job. When a staff member finishes one task and sta
 The **vendor price view** tracks each supplier's monthly spend and flags whether it's rising, falling or steady, which is useful when a hay or bedding price creeps up.
 
 ### Receipts
-Staff can photograph a receipt on the mobile app and attach it to the expense.
+Staff can photograph a receipt on a phone and attach it to the expense.
 
 ## Budgets and reports
 
@@ -71,4 +71,4 @@ Through the **owner portal**, each owner sees what the barn chooses to share for
 
 *This article describes software features. It isn't accounting or tax advice; speak to a qualified accountant about your own business.*
 
-*See the financial tools with your own barn's data. [Request a demo](/contact).*
+*See the financial tools with your own barn's data. [Join the pilot program](/contact).*

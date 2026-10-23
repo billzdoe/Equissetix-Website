@@ -53,7 +53,6 @@ const ProductsOverview = () => {
           transition={{ duration: 0.6 }}
           className="relative z-10 max-w-4xl mx-auto"
         >
-          <span className="eyebrow justify-center mb-4">One platform, two halves</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6 leading-[1.05]">
             Take the half you need. <span className="text-gradient">Or both.</span>
           </h1>
@@ -128,7 +127,6 @@ const ProductsOverview = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <span className="eyebrow justify-center mb-3">Side by side</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What&rsquo;s in each half</h2>
           <p className="text-lg text-navy-600 max-w-2xl mx-auto">
             Pro is both halves together — its column is the union of the other two. We show our work, including what needs setup.
@@ -181,7 +179,6 @@ const ProductsOverview = () => {
       {/* "Which one?" chooser — id is the /products#chooser nav target */}
       <Section id="chooser" background="white" className="relative">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <span className="eyebrow justify-center mb-3">Not sure?</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">How much do you need?</h2>
           <p className="text-navy-600 mb-8">Two halves and the whole. Whichever you start with, the other side can be added in place.</p>
           <div className="grid sm:grid-cols-3 gap-4 text-left">

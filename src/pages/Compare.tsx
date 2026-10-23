@@ -1,188 +1,100 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
-import Section from '../components/Section'
-import Button from '../components/Button'
-import ComparisonTable from '../components/ComparisonTable'
 import ROICalculator from '../components/ROICalculator'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
+import { TopicHero, CloseCTA } from '../components/TopicPage'
 
-const Compare = () => {
-  return (
-    <div className="pt-20">
-      <SEO title={pageSEO.compare.title} description={pageSEO.compare.description} path="/compare" />
-      <Section background="gradient" className="min-h-[40vh] flex items-center py-12">
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Compare</span> Equissetix
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8">
-              How the platform stacks up against spreadsheets and other equine software — and how much
-              admin time you’d get back
-            </p>
-            <p className="text-base text-slate-600 max-w-2xl mx-auto">
-              Everything below describes <strong>TrainingTree Pro</strong>, the whole platform. Taking
-              only the barn half (StableTree) or only the training half (Performance) gives you that
-              side of it —{' '}
-              <Link to="/products" className="font-semibold text-brand-600 hover:text-brand-700 underline">
-                see what’s in each
-              </Link>
-              .
-            </p>
-          </motion.div>
-        </div>
-      </Section>
+/**
+ * /compare. Rewritten 2026-10-22 (claims audit): the competitor table and
+ * the "vs other software" lists are gone. They named unverifiable rival
+ * features, claimed "only platform with validated ACWR methodology" and
+ * "patent-pending ACWR science" (the provisional covers other methods), and
+ * promised "10x faster", "100% offline" and released iOS and Android apps.
+ * The page now compares a barn's own paper-and-spreadsheet week with the same
+ * week on TrainingTree Pro, and keeps the editable time estimate.
+ */
 
-      {/* ROI Calculator Section */}
-      <Section background="white">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-3">Estimate the time you'd get back</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Set your barn's size, then adjust any assumption you disagree with — the estimate
-            is built from your numbers, not ours.
-          </p>
-        </div>
-        <div className="max-w-4xl mx-auto">
+const changes = [
+  {
+    today: 'Workouts live in a notebook, and nobody adds them up.',
+    after: 'Every session counts toward that horse’s workload the moment it’s logged.',
+    why: 'Research in horses and human athletes links sharp jumps in work to more injuries. You can only see a jump if the work is added up.',
+  },
+  {
+    today: 'A temperature is “normal” if it’s inside the textbook range.',
+    after: 'Each horse is checked against its own normal, every morning.',
+    why: 'A reading that’s fine for one horse can be a fever for another. Catching it early can mean less time off.',
+  },
+  {
+    today: 'Whether a horse is ready to work is a gut call at the barn door.',
+    after: 'A daily readiness score shows who’s ready, who needs an easy day, and why.',
+    why: 'The same plan suits a fresh horse and overloads a tired one. Readiness lets the plan meet the horse.',
+  },
+  {
+    today: 'Gait changes get noticed once they’re obvious from the rail.',
+    after: 'A phone video measures how evenly the horse moves, and compares it with last month.',
+    why: 'Small changes in movement can come before lameness you can see. Measured early, they give the vet something specific to look at.',
+  },
+  {
+    today: 'Coggins, vaccinations and withdrawal times live on a whiteboard.',
+    after: 'Every date carries its own reminder, and an entry inside a withdrawal window is blocked.',
+    why: 'A lapsed certificate can stop a horse shipping. A withdrawal mistake can cost a race and a reputation.',
+  },
+  {
+    today: 'Owners text for news, and invoices arrive as a mystery.',
+    after: 'Each owner sees their own horse’s care, work and bills, in the detail you choose to share.',
+    why: 'Owners who can see the care behind the bill have fewer reasons to question it.',
+  },
+]
+
+const Compare = () => (
+  <div className="pt-20">
+    <SEO title={pageSEO.compare.title} description={pageSEO.compare.description} path="/compare" />
+
+    <TopicHero title="Your barn today, and on TrainingTree Pro.">
+      <p>
+        What changes when the records, the vitals and the training all live in one place, and why each change matters to
+        the horse.
+      </p>
+    </TopicHero>
+
+    <section className="section-padding">
+      <div className="container-custom">
+        <ul className="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+          {changes.map((c) => (
+            <li key={c.after}>
+              <p className="text-lg text-navy-500">Today: {c.today}</p>
+              <p className="mt-3 font-condensed text-3xl font-extrabold leading-tight text-navy-900">{c.after}</p>
+              <p className="mt-3 text-lg text-navy-700">{c.why}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-14 max-w-3xl text-lg text-navy-600">
+          This is TrainingTree Pro, the whole platform. StableTree is the barn half on its own, and TrainingTree
+          Performance is the training half.{' '}
+          <Link to="/products" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+            See what’s in each
+          </Link>
+          .
+        </p>
+      </div>
+    </section>
+
+    <section className="section-padding bg-plate">
+      <div className="container-custom">
+        <h2 className="max-w-2xl">Estimate the time you’d get back</h2>
+        <p className="mt-4 max-w-2xl text-lg text-navy-600">
+          Set your barn’s size, then change any assumption you disagree with. The estimate is built from your numbers,
+          not ours.
+        </p>
+        <div className="mt-10 max-w-4xl">
           <ROICalculator />
         </div>
-      </Section>
+      </div>
+    </section>
 
-      {/* Feature Comparison Table */}
-      <Section background="gray">
-        <ComparisonTable />
-      </Section>
-
-      {/* How it compares */}
-      <Section background="white">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-200"
-          >
-            <h3 className="text-xl font-bold text-navy-900 mb-3">vs. Spreadsheets</h3>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
-                <span>10x faster data entry with automation and integrations</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
-                <span>Real-time insights instead of manual calculations</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
-                <span>Mobile access with offline functionality</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
-                <span>Team collaboration with permissions</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600 font-bold">•</span>
-                <span>Auditable sports-science recommendations, not manual guesswork</span>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-200"
-          >
-            <h3 className="text-xl font-bold text-navy-900 mb-3">vs. Basic Software</h3>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2">
-                <span className="text-purple-600 font-bold">•</span>
-                <span>Patent-pending ACWR training load science</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-purple-600 font-bold">•</span>
-                <span>Advanced gait analysis with multi-sensor fusion</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-purple-600 font-bold">•</span>
-                <span>8+ wearable device integrations (vs 0-2)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-purple-600 font-bold">•</span>
-                <span>Complete ERP with double-entry accounting</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-purple-600 font-bold">•</span>
-                <span>100% offline mobile functionality</span>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-200"
-          >
-            <h3 className="text-xl font-bold text-navy-900 mb-3">vs. Other equine software</h3>
-            <ul className="space-y-2 text-sm text-slate-700">
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">•</span>
-                <span>Only platform with validated ACWR methodology</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">•</span>
-                <span>Multi-breed, multi-discipline support</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">•</span>
-                <span>Training + Health + Finance + Racing in ONE system</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">•</span>
-                <span>Recommendations traceable to published equine physiology</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">•</span>
-                <span>Horse-centric architecture for seamless workflows</span>
-              </li>
-            </ul>
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section background="gradient">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2 className="text-4xl font-bold mb-6">Ready to Make the Switch?</h2>
-          <p className="text-xl text-slate-700 mb-8">
-            We're onboarding a small group of founding barns with white-glove setup—bring your real workflow and we'll show you how it fits
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/contact" variant="primary" size="lg">
-              Join the pilot
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button to="/science" variant="secondary" size="lg">
-              See the science
-            </Button>
-          </div>
-        </motion.div>
-      </Section>
-    </div>
-  )
-}
+    <CloseCTA />
+  </div>
+)
 
 export default Compare

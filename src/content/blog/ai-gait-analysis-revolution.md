@@ -1,27 +1,26 @@
 # Gait Analysis in TrainingTree Pro: Video, Sensors and Symmetry
 
-How a horse moves is one of the most useful things a trainer, rider or vet can track. Small changes in rhythm, stride or symmetry are worth noticing, and they're easier to notice when you can compare one week with another side by side.
+How a horse moves is one of the most useful things a trainer, rider or vet can track. Small changes in rhythm or evenness are worth noticing, and they're far easier to notice when you can compare one week with another side by side.
 
-TrainingTree Pro gives you two ways to record movement, a phone video and phone sensors, and keeps every result on the horse's record. This article explains what each one measures and how to use it.
+TrainingTree Pro gives you two ways to record movement, a phone video and phone sensors, and keeps every result on the horse's record. This article explains what each one tells you and why it matters.
 
 ## Video gait analysis
 
-### How it works
-Film the horse on a phone as it trots past, moving across the frame from side to side, and upload the clip to the horse's record (MP4, MOV or AVI, up to 500 MB). TrainingTree Pro analyses the movement using **optical flow**, a well-established computer-vision technique that tracks how the image moves from one frame to the next.
+### What you do
+Film the horse on a phone as it trots past, moving across the frame from side to side, and upload the clip to the horse's record. There's no special equipment: an ordinary phone is enough.
 
-### What it reports
-- **Stride frequency:** strides per second.
-- **Stride count** over the clip.
+### What it tells you
+- **Rhythm:** how many strides the horse takes each second.
 - **Left-right symmetry,** on a scale where 1.0 is perfectly even.
-- **Stride consistency:** how much stride amplitude varies from one stride to the next.
+- **Consistency:** how steady the horse stays from one stride to the next.
 
-Each result states the method used to produce it.
+**Why it matters:** slight unevenness is hard to see by eye and easy to argue about. A measured record turns "he looks a bit off" into something you can compare over time and show the vet.
 
-### Footage quality is checked
-Every clip is checked before its numbers are shown. Footage below 30 frames per second, too dark or too bright, or too short to hold several strides is marked as not adequate, with the reason. If the frame rate can't be read from the file, stride frequency is withheld rather than estimated.
+### Footage is checked first
+Every clip is checked before its numbers are shown. Footage that's too dark, too shaky or too short to measure fairly is marked as not adequate, with the reason, instead of producing numbers you shouldn't trust.
 
 ### Comparing two dates
-The **gait compare** view plays two videos side by side and lists the differences between the two analyses. It's useful for:
+The **gait compare** view plays two videos side by side and lists the differences between them. It's useful for:
 
 - tracking a horse through a rehab plan,
 - checking the effect of a shoeing or saddle change,
@@ -29,33 +28,22 @@ The **gait compare** view plays two videos side by side and lists the difference
 
 ## Sensor gait analysis
 
-### Calibrated to each horse
-Phones and sensors sit differently on every horse and every saddle. Before sensor data is analysed, TrainingTree Pro runs a short **calibration** that aligns the sensor's axes to the horse and normalises for its stride amplitude. Readings from different rides can then be compared fairly.
+### Set up for each horse
+Phones sit differently on every horse and every saddle. A short **calibration** ride sets the phone up for each horse, so readings from different days can be compared fairly. This calibration method is patent pending.
 
-This calibration method is the subject of a US provisional patent application filed in November 2025.
-
-### Gait from stride frequency
-Walk, trot, canter and gallop are identified from stride frequency, using these default bands:
-
-| Gait | Stride frequency |
-|---|---|
-| Walk | 0.8 – 1.2 Hz |
-| Trot | 1.3 – 1.9 Hz |
-| Canter | 1.9 – 2.4 Hz |
-| Gallop | 2.3 – 2.8 Hz |
-
-A small buffer at each boundary stops a horse flickering between two gaits, and every band can be adjusted for an individual horse.
+### Gaits recognised automatically
+Walk, trot, canter and gallop are recognised from the horse's rhythm, and the settings can be tuned for an individual horse.
 
 Sensor analysis is live on the server. Capture from the phone app is currently in device testing.
 
 ## Symmetry over time
 
-The **symmetry analyzer** grades asymmetry as minimal, mild, moderate or severe. Every analysis is stored on the horse's record, so you can look back across dates rather than relying on memory. Asymmetry is also one of the inputs to the horse's injury-risk assessment and daily readiness.
+Every analysis is stored on the horse's record and graded from minimal to severe, so you can look back across dates instead of relying on memory. Changes in symmetry also feed into the horse's injury-risk grade and daily readiness.
 
 ## How to get consistent results
 
-1. **Film the same way each time:** side-on, same surface, same distance, and the camera mounted or held still. Camera shake adds noise.
-2. **Use good light, film at 30 frames per second or more,** and keep the whole horse in frame.
+1. **Film the same way each time:** side-on, same surface, same distance, and the camera mounted or held still.
+2. **Use good light** and keep the whole horse in frame.
 3. **Record a baseline** when the horse is sound and in normal work, so later clips have something to compare against.
 4. **Compare like with like:** the same gait, on the same surface, at a similar speed.
 5. **Share results with your vet.** They're there to support a veterinary assessment, not to replace one.
@@ -68,4 +56,4 @@ Gait results sit alongside the rest of the horse's record in TrainingTree Pro: t
 
 *Gait analysis in TrainingTree Pro is a record-keeping and comparison tool. It does not diagnose lameness and is not a substitute for examination by a veterinarian.*
 
-*See gait analysis on your own horses. [Request a demo](/contact).*
+*See gait analysis on your own horses. [Join the pilot program](/contact).*

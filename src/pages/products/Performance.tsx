@@ -1,33 +1,26 @@
-import { motion } from 'framer-motion'
 import ProductPage from '../../components/ProductPage'
-import Section from '../../components/Section'
-import ACWRChart from '../../components/ACWRChart'
+import WorkloadSketch from '../../components/WorkloadSketch'
 import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
 import { productBySlug } from '../../data/products'
 
-// Performance keeps the original "train smarter" science visuals that used to
-// live on the company home page.
+// Why workload matters, told as the capability and the reason, not the method
+// (claims audit 2026-10-22: the old block called the numbers "hand-verified"
+// and "peer-reviewed" and showed a "2-5x injury risk" band).
 const PerformanceScienceSlot = () => (
-  <Section background="gray">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center mb-10"
-    >
-      <span className="eyebrow justify-center text-teal-700 mb-3">Auditable, not a black box</span>
-      <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-        The science <span className="text-gradient">behind the warnings</span>
-      </h2>
-      <p className="text-lg text-navy-600 max-w-3xl mx-auto">
-        We compare this week’s training load to the past month’s average and compute an ACWR ratio — a
-        peer-reviewed injury-risk signal. Every number is hand-verified against the raw workout data, so you
-        can trust the recommendation and see exactly how it was reached.
-      </p>
-    </motion.div>
-    <ACWRChart />
-  </Section>
+  <section className="section-padding bg-plate">
+    <div className="container-custom grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <h2 className="max-w-lg">Why workload matters</h2>
+        <p className="mt-5 max-w-xl text-lg text-navy-600">
+          Research in horses and human athletes links sharp jumps in work to more injuries. TrainingTree Performance
+          adds up every session for each horse and compares this week with what that horse is used to, so a jump shows
+          up while there’s still time to ease off.
+        </p>
+      </div>
+      <WorkloadSketch />
+    </div>
+  </section>
 )
 
 const Performance = () => (

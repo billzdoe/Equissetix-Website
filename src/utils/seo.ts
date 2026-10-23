@@ -59,7 +59,7 @@ export const pageSEO = {
   },
   guide: {
     title: 'The Numbers, Explained — Workload, Readiness & More | TrainingTree Pro',
-    description: 'Plain-language explanations of workload, the workload ratio, readiness, baselines, gait symmetry, body condition and the Wellbeing Check: what each is, how it’s worked out and what to do with it.',
+    description: 'Plain-language explanations of workload, the workload ratio, readiness, baselines, gait symmetry, body condition and the Wellbeing Check: what each is, why it matters and what to do with it.',
   },
   science: {
     title: 'The Science — Breakthroughs, Methods & Sources | Equissetix',
@@ -208,7 +208,7 @@ export const pageSEO = {
   },
   compare: {
     title: 'Compare - Equissetix',
-    description: 'See how TrainingTree compares to spreadsheets and other equine management tools. Find the right platform for your training operation.',
+    description: 'What changes when your barn runs on TrainingTree Pro instead of paper and spreadsheets, why each change matters, and an editable estimate of the time you get back.',
   },
 
   // Legal & policy
@@ -221,8 +221,8 @@ export const pageSEO = {
     description: 'The terms and conditions governing your use of Equissetix and TrainingTree.',
   },
   security: {
-    title: 'Security & Compliance - Equissetix',
-    description: 'How Equissetix keeps your data safe. Learn about our security practices, infrastructure, and compliance commitments.',
+    title: 'Security - Equissetix',
+    description: 'How TrainingTree Pro keeps your barn’s data safe: two-factor sign-in, per-horse access, logged sharing and encrypted connections.',
   },
 
   // Fallback

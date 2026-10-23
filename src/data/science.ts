@@ -31,7 +31,7 @@ export const breakthroughs: Breakthrough[] = [
     id: 'own-physiology',
     title: 'Fitness measured from your horse, not a breed average',
     summary:
-      'VO2 max comes from a regression of this horse’s own speed and heart-rate samples. Lactate threshold is reported as a speed, and a critical-speed model predicts what the horse can hold over a distance.',
+      'Aerobic fitness, threshold speed and the pace a horse can hold over a distance, worked out from that horse’s own workouts instead of a breed table.',
     matters:
       'Two horses on the same program get two different answers. When the samples can’t support an estimate, you see “not measured” instead of a borrowed number.',
     basis: 'Evans, Training and Fitness in Athletic Horses; Marlin & Nankervis, Equine Exercise Physiology (2002)',
@@ -42,9 +42,9 @@ export const breakthroughs: Breakthrough[] = [
     id: 'safety-gate',
     title: 'One safety gate in front of every recommendation',
     summary:
-      'Every workout suggestion, from every part of the app, is checked against the same three things: an acute-to-chronic workload ratio above 1.3, a red readiness score, or an active rehab plan.',
+      'Every workout suggestion, from every part of the app, passes the same check first: is this horse’s work rising too fast, is it not ready today, or is it in rehab?',
     matters:
-      'While a horse has an active rehab plan, its suggestions stay within the plan’s stage. The 28-day workload ratio is calculated the same way throughout the app, so the chart and the advice use the same figure.',
+      'A suggestion is only worth following if it never pushes a horse that shouldn’t be pushed. One gate, everywhere, means no corner of the app can forget, and the chart and the advice always agree.',
     basis: 'Hulin et al., British Journal of Sports Medicine (2016); Gabbett (2016)',
     status: 'live',
     source: 'backend/app/services/workout_recommendation_service.py',
@@ -53,9 +53,9 @@ export const breakthroughs: Breakthrough[] = [
     id: 'calibrated-sensors',
     title: 'Phone-sensor gait, calibrated to each horse',
     summary:
-      'A short calibration ride aligns the phone’s sensors to the horse’s own axes and stride amplitude. Walk, trot, canter and gallop are then read from stride frequency, with bands you can tune per horse.',
+      'A short calibration ride sets the phone up for each horse, so its gaits are recognised and measured the same way every time.',
     matters:
-      'Gait numbers stop depending on where the phone sat or how the horse is built, so this week can be compared with last month.',
+      'Every horse is built differently and every phone sits a little differently. Calibration means this week’s gait can be compared fairly with last month’s.',
     basis: 'Patent pending: US provisional application filed November 2025',
     status: 'testing',
     statusNote: 'Analysis is live; phone capture is in device testing.',
@@ -63,12 +63,12 @@ export const breakthroughs: Breakthrough[] = [
   },
   {
     id: 'video-gait',
-    title: 'Video gait analysis that tells you how it measured',
+    title: 'Gait analysis from a phone video',
     summary:
-      'Film the horse trotting past on a phone. Optical flow measures stride frequency, stride count, left-right symmetry and stride-to-stride consistency, and two dates play side by side with the differences listed.',
+      'Film the horse trotting past on a phone. TrainingTree Pro measures its rhythm, how evenly it moves left and right, and how steady it stays from stride to stride, and plays two dates side by side.',
     matters:
-      'Each result names the method behind it, and every clip is checked for frame rate and light, so a result from poor footage is marked as such.',
-    basis: 'Optical-flow motion analysis; symmetry bands set per horse',
+      'Slight unevenness is hard to see by eye. A measured record you can compare gives the vet something specific to examine, and footage that’s too poor to measure is marked, not trusted.',
+    basis: 'Compared against each horse’s own sound baseline',
     status: 'live',
     source: 'backend/app/services/video_gait_pipeline.py',
   },
@@ -76,10 +76,10 @@ export const breakthroughs: Breakthrough[] = [
     id: 'track-or-horse',
     title: 'Is it the track, or is it the horse?',
     summary:
-      'The going is estimated from each horse’s own form, after itemised allowances for workload, recovery, distance and days off.',
+      'TrainingTree Pro reads the going from how your own horses have run, after allowing for how hard they’ve been worked and how rested they are.',
     matters:
       'You can see when a “slow track” is really a tired horse. A reading built on a single horse is marked low confidence.',
-    basis: 'Each horse’s own form, with every adjustment itemised',
+    basis: 'Each horse’s own form, with every allowance listed',
     status: 'live',
     source: 'backend/app/services/track_condition_service.py',
   },
@@ -87,9 +87,9 @@ export const breakthroughs: Breakthrough[] = [
     id: 'feed-follows-work',
     title: 'Feed that follows the work',
     summary:
-      'Energy, protein, lysine and minerals are set from the work the horse actually logged over 28 days, with timing for refuelling after hard sessions and before scheduled ones.',
+      'Energy, protein and minerals are matched to the work the horse has actually done, with timing for refuelling around hard sessions.',
     matters:
-      'Feeds a horse keeps refusing are flagged, and every assumption in the ration is written next to it.',
+      'A horse in hard work and a horse on a rest week need different rations. Feeding to the real work keeps one fuelled and the other from carrying weight, and feeds a horse keeps refusing are flagged.',
     basis: 'National Research Council, Nutrient Requirements of Horses (2007)',
     status: 'live',
     source: 'backend/app/services/feed_recommendation.py',
@@ -98,9 +98,9 @@ export const breakthroughs: Breakthrough[] = [
     id: 'wellbeing',
     title: 'A wellbeing check from records you already keep',
     summary:
-      'Body condition, feeding, turnout, company, rest, vaccinations, hoof care, injuries and workload are arranged by the Five Domains model of animal welfare.',
+      'The records a barn already keeps, from turnout and company to hoof care and rest, are brought together into a welfare overview using the Five Domains model.',
     matters:
-      'A record you don’t keep in the app is left out, never scored as zero. Mental state is inferred, as the model says it should be, and never given a number.',
+      'Welfare is more than the absence of injury. A record you don’t keep is left out, never scored as zero, so the overview never pretends to know more than it does.',
     basis: 'Mellor et al., The 2020 Five Domains Model, Animals 10(10):1870',
     status: 'live',
     source: 'backend/app/services/wellbeing_check.py',
@@ -155,7 +155,7 @@ export const performanceFeatures: FeatureLine[] = [
 export const vetCareFeatures: FeatureLine[] = [
   {
     title: 'Vitals against the horse’s own baseline',
-    detail: 'Temperature, resting pulse and respiration are compared with the horse’s own 30-day normal, so a fever or a raised resting heart rate is flagged for that horse.',
+    detail: 'Temperature, resting pulse and respiration are compared with the horse’s own normal, so a fever or a raised resting heart rate is flagged for that horse.',
     guide: 'baseline',
   },
   {
@@ -189,6 +189,18 @@ export const vetCareFeatures: FeatureLine[] = [
   {
     title: 'Farrier, dentist and chiropractor',
     detail: 'Care appointments with reminders, plus hoof measurements and shoeing history.',
+  },
+  {
+    title: 'A health history you can hand over',
+    detail: 'One PDF of a horse’s health and care history for a new vet or a buyer, so nothing depends on memory or a pile of paper.',
+  },
+  {
+    title: 'Emergency sheets for every horse',
+    detail: 'Handling notes, medical alerts and contacts on one sheet per horse, ready for whoever is on duty when something goes wrong.',
+  },
+  {
+    title: 'Isolation and biosecurity',
+    detail: 'Keep track of which horses are in isolation and when, so a cough in one stall doesn’t become the whole barn’s problem.',
   },
   {
     title: 'Owners and vets see the same file',

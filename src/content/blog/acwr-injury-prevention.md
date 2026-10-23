@@ -1,80 +1,67 @@
-# Understanding Training Load: How TrainingTree Pro Measures the Work Your Horse Does
+# Understanding Training Load: Why the Work Your Horse Does Needs Counting
 
-Every trainer manages training load, whether or not they call it that. You know when a horse has had a big week, when it's had a few easy days, and when it's coming back from a break. Training-load monitoring puts numbers on that judgement so you can see the trend at a glance and share it with everyone involved in the horse's care.
+Every trainer manages training load, whether or not they call it that. You know when a horse has had a big week, when it's had a few easy days, and when it's coming back from a break. Training-load monitoring puts numbers on that judgement, so you can see the trend at a glance and share it with everyone involved in the horse's care.
 
-This article explains how TrainingTree Pro measures load, which published methods it uses, and how the numbers appear in the app.
+This article explains what TrainingTree Pro measures, and why each measure matters to the horse.
 
-## Step one: the load of a single session
+## The load of a single session
 
-A session's load depends on how long the horse worked and how hard. TrainingTree Pro measures intensity from heart rate where it's available.
+A session's load depends on how long the horse worked and how hard. Forty minutes of steady hacking and ten minutes of fast work can both be hard days for different reasons. Workload puts them on the same scale.
 
-- **TRIMP (training impulse).** Based on Banister's 1991 model, TRIMP weights each session's duration by how high the heart rate ran relative to the horse's resting and maximum heart rates. Harder minutes count for more than easy ones. The app uses the sex-specific coefficients from that model.
-- **Heart-rate zones.** Heart rate is placed in five zones using the heart-rate-reserve method (Karvonen, 1957), so "zone 3" means the same relative effort for every horse.
-- **The horse's own resting heart rate** is used where it's recorded. Maximum heart rate uses a Thoroughbred-type value of about 230 bpm.
+Where you record heart rate, TrainingTree Pro uses it to tell how hard each minute really was for that horse, so the same session counts differently for a fit horse and an unfit one. Without heart rate, the load is estimated and clearly labelled as an estimate.
 
-When a session has no heart-rate data, the app says the load is estimated rather than presenting it as measured.
+**Why it matters:** horses get fitter when they're asked for a little more than they're used to, and get hurt when they're asked for a lot more too soon. You can only manage that balance if the work is counted.
 
-## Step two: fatigue, fitness and the balance between them
+## Fitness and fatigue
 
-A single session tells you little on its own. What matters is how sessions add up over time. TrainingTree Pro tracks three related figures, following the approach used widely in endurance sport:
+A single session tells you little on its own. What matters is how sessions add up over time. TrainingTree Pro shows two views of the same work:
 
-- **Acute load (ATL):** a 7-day weighted average of recent work. Think of it as current fatigue.
-- **Chronic load (CTL):** a 42-day weighted average. Think of it as the fitness the horse has built.
-- **Training stress balance (TSB):** chronic minus acute. A positive balance suggests a fresher horse; a negative one suggests accumulated fatigue.
+- **Fatigue:** how much the horse has done lately. It rises and falls quickly.
+- **Fitness:** what the horse has built over the season. It moves slowly.
 
-## Step three: the acute-to-chronic workload ratio
+**Why it matters:** a horse can be fit and tired at the same time. Seeing both tells you whether it needs a harder week or an easier one.
 
-The **acute-to-chronic workload ratio (ACWR)** compares the last week's work with what the horse has been doing over the last month. Research in human athletes, including Hulin and colleagues (*British Journal of Sports Medicine*, 2016) and Gabbett (2016), associated sharp rises in this ratio with a higher rate of injury, and well-built chronic load with greater resilience.
+## The workload ratio
 
-TrainingTree Pro uses these reference bands:
+The **acute-to-chronic workload ratio** compares this week's work with what the horse is used to. A ratio of 1.0 means the same as usual.
 
-| Ratio | What it suggests |
-|---|---|
-| Below 0.8 | Work is lighter than the horse is used to |
-| 0.8 – 1.3 | Work is building at a steady pace |
-| Above 1.3 | Work is rising quickly |
-| Above 1.5 | Work is rising steeply |
+Research in human athletes, including Hulin and colleagues (*British Journal of Sports Medicine*, 2016) and Gabbett (2016), linked sharp rises in this ratio with a higher rate of injury, and steadily built fitness with greater resilience. Studies of racehorses point the same way: injuries follow how quickly hard work accumulates.
 
-These bands come from research in human sport. They're a guide for the trainer's judgement, not a diagnosis, and they're shown that way in the app.
+**Why it matters:** the ratio shows a jump in work while there's still time to ease off, before the horse pays for it. It's a guide for the trainer's judgement, not a diagnosis, and the app shows it that way.
 
-### Two details that keep the ratio honest
-
-**A fixed 28-day window, the same everywhere.** The ratio is always calculated over the 28 days ending today, with rest days counted as days of zero work. A horse that stopped working a week ago shows a falling ratio, as it should. Every chart, card and suggestion in the app uses the same calculation, so the numbers always agree.
-
-**Enough data before a ratio is shown.** With only a handful of sessions in a month, the ratio reflects when the sessions happened to fall more than the training pattern. TrainingTree Pro waits until a horse has at least eight days with logged work in the window before it reports a ratio, and explains why when it doesn't.
+TrainingTree Pro calculates the ratio the same way in every chart, card and suggestion, so the number on the horse's page is always the number the advice was based on, and it waits until there's enough logged work for the ratio to mean something.
 
 ## How the numbers are used in the app
 
 ### On the horse's page
-Each horse shows its acute and chronic load, training stress balance, workload ratio and a trend label (decreasing, stable, increasing or rapidly increasing).
+Each horse shows its fatigue, fitness and workload ratio, with a plain trend label: decreasing, stable, increasing or rapidly increasing.
 
 ### In daily readiness
-The **readiness score** (0–100) combines health, training load, recovery since the last hard session and injury risk, with green, yellow and red bands. It lists which inputs were measured and which were not.
+The **readiness score** (0 to 100) brings together health, training load, recovery since the last hard session and injury risk, shown green, yellow or red. It lists which inputs were measured and which were not.
 
 ### Before any workout suggestion
-Every workout suggestion in TrainingTree Pro passes the same check first. If the workload ratio is above 1.3, readiness is red, or the horse has an active rehab plan, the suggestion is adjusted to lighter or rehab-appropriate work, and the reason is shown.
+Every suggestion in TrainingTree Pro passes the same safety check first. If work is rising too fast, readiness is red, or the horse has an active rehab plan, the suggestion is made lighter, and the reason is shown.
 
 ### In training plans
-Generated plans keep week-over-week planned load within a 10% progressive-overload guideline and avoid scheduling a session within 48 hours of hard work.
+Generated plans build work up gradually and leave recovery time after hard sessions.
 
 ## Getting started
 
 Training-load monitoring works best with consistent records:
 
 1. **Log every session,** including easy days and hacks. Rest days are counted automatically.
-2. **Record heart rate where you can.** A heart-rate monitor gives the most accurate load; without one, the app estimates and labels it.
-3. **Give it a few weeks.** Chronic load needs a month of history to mean much, and the ratio appears once there's enough data.
+2. **Record heart rate where you can.** It gives the most accurate picture of how hard the work really was.
+3. **Give it a few weeks.** Fitness takes a month or so of history to mean much.
 4. **Use the numbers alongside your eye.** Load figures are one input to your decisions, together with how the horse looks, moves and feels.
 
 ## Further reading
 
-- Banister, E. W. (1991). Modeling elite athletic performance. In *Physiological Testing of Elite Athletes*. Human Kinetics.
 - Gabbett, T. J. (2016). The training–injury prevention paradox. *British Journal of Sports Medicine*, 50, 273–280.
 - Hulin, B. T., et al. (2016). The acute:chronic workload ratio predicts injury. *British Journal of Sports Medicine*, 50, 231–236.
-- Karvonen, M. J., Kentala, E., & Mustala, O. (1957). The effects of training on heart rate. *Annales Medicinae Experimentalis et Biologiae Fenniae*, 35, 307–315.
+- Verheyen, K., et al. (2006). Exercise distance and speed affect the risk of fracture in racehorses. *Bone*, 39(6), 1322–1330.
 
 ---
 
 *This article is for general information. Training decisions should take account of your veterinarian's advice and the individual horse.*
 
-*See training load on your own horses. [Request a demo](/contact).*
+*See training load on your own horses. [Join the pilot program](/contact).*

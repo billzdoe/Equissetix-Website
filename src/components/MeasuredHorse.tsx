@@ -55,7 +55,7 @@ const MeasuredHorse = ({ className = '' }: { className?: string }) => (
     <div className="grid grid-cols-2 gap-px bg-white/15 sm:grid-cols-4">
       {[
         ['Gait', 'Canter', 'Read from the stride rate'],
-        ['Stride frequency', '2.1 Hz', 'Canter band 1.9–2.4'],
+        ['Stride frequency', '2.1 Hz', 'Typical of a canter'],
         ['Strides measured', '9', 'Across the clip'],
         ['Stride to stride', 'Steady', 'Little change in rhythm'],
       ].map(([label, value, note]) => (

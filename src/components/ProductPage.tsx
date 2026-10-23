@@ -93,7 +93,6 @@ const ProductPage = ({ product, featureSlot }: ProductPageProps) => {
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
               transition={{ duration: 0.4 }}
             >
-              <span className={`eyebrow ${accent.eyebrow} mb-3`}>{`0${idx + 1}`}</span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 mb-4">{pillar.title}</h2>
               <p className="text-lg text-navy-600 leading-relaxed">{pillar.blurb}</p>
             </motion.div>

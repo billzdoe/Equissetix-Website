@@ -53,7 +53,7 @@ const About = () => {
               Built by Horse People, <span className="text-gradient">For Horse People</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-700">
-              TrainingTree<sup className="text-sm">™</sup> was created to solve the real problems facing professional horse trainers—because we understand your world.
+              TrainingTree Pro was created to solve the real problems facing professional horse trainers—because we understand your world.
             </p>
           </motion.div>
         </div>
@@ -69,13 +69,13 @@ const About = () => {
           >
             <h2 className="text-4xl font-bold mb-6">Our Story</h2>
             <p className="text-lg text-slate-700 mb-4">
-              Born and bred in Kentucky—the heart of horse country—TrainingTree<sup className="text-sm">™</sup> by Equissetix<sup className="text-sm">™</sup> emerged from watching trainers struggle with scattered notebooks, illegible handwriting, and preventable injuries that could've been caught with better data.
+              Born and bred in Kentucky—the heart of horse country—TrainingTree Pro by Equissetix<sup className="text-sm">™</sup> emerged from watching trainers struggle with scattered notebooks, illegible handwriting, and preventable injuries that could've been caught with better data.
             </p>
             <p className="text-lg text-slate-700 mb-4">
               We saw the gap between old-school training wisdom and modern technology. Trainers had the expertise but lacked the tools to track what really mattered: training load patterns, injury risk indicators, and performance trends that paper logs simply can't reveal.
             </p>
             <p className="text-lg text-slate-700">
-              So we built TrainingTree<sup className="text-sm">™</sup>—a mobile-first platform that respects the craft of training while bringing sports science, AI insights, and financial management into one powerful system. Designed for the barn, not the boardroom. Built in Kentucky, for trainers everywhere.
+              So we built TrainingTree Pro—a mobile-first platform that respects the craft of training while bringing sports science, AI insights, and financial management into one powerful system. Designed for the barn, not the boardroom. Built in Kentucky, for trainers everywhere.
             </p>
           </motion.div>
 
@@ -97,7 +97,7 @@ const About = () => {
                   </div>
                   <h3 className="font-bold mb-3 text-lg">Our Mission</h3>
                   <p className="text-sm text-slate-700 leading-relaxed">
-                    Help trainers optimize performance, prevent injuries, and build stronger relationships with owners through intelligent technology.
+                    Help trainers bring out the best in every horse, catch problems early, and build stronger relationships with owners.
                   </p>
                 </div>
               </Card>
@@ -163,7 +163,7 @@ const About = () => {
           className="text-center mb-12 relative z-10"
         >
           <h2 className="text-4xl font-bold mb-4">
-            Why <span className="text-gradient">TrainingTree<sup className="text-xs">™</sup></span> is Different
+            Why <span className="text-gradient">TrainingTree Pro</span> is Different
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             We're not just another software company. We're horse people who happen to build great technology.
@@ -185,7 +185,7 @@ const About = () => {
                 <div>
                   <h3 className="font-bold text-xl mb-2">Built on Real Experience</h3>
                   <p className="text-slate-600">
-                    Every feature in TrainingTree<sup className="text-xs">™</sup> came from real conversations with trainers, not boardroom assumptions. We've walked barns at 5 AM and understand the actual workflow.
+                    Every feature in TrainingTree Pro came from real conversations with trainers, not boardroom assumptions. We've walked barns at 5 AM and understand the actual workflow.
                   </p>
                 </div>
               </div>
@@ -206,7 +206,7 @@ const About = () => {
                 <div>
                   <h3 className="font-bold text-xl mb-2">Science-Backed Approach</h3>
                   <p className="text-slate-600">
-                    We combine traditional training wisdom with cutting-edge sports science like ACWR monitoring, gait analysis, and auditable injury-risk scoring—not buzzwords, real tools.
+                    We combine traditional training wisdom with published sports science: workload, readiness, gait and injury-risk grading, each one showing where its numbers came from.
                   </p>
                 </div>
               </div>
@@ -237,7 +237,7 @@ const About = () => {
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Join Us?</h2>
           <p className="text-xl text-slate-700 mb-8">
-            See how TrainingTree<sup className="text-sm">™</sup> can transform your training operation with sports-science insights and real-time data.
+            See how TrainingTree Pro can transform your training operation with sports-science insights and real-time data.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/contact" variant="primary" size="lg">

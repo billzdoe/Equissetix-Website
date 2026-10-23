@@ -73,17 +73,15 @@ const Terms = () => {
                   TrainingTree is a comprehensive equine training management platform that provides:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-700">
-                  <li>Training and workout tracking with 23+ thoroughbred-specific workout types</li>
-                  <li>ACWR (Acute:Chronic Workload Ratio) calculation and monitoring for injury prevention</li>
-                  <li>Patent-pending multi-sensor fusion technology combining IMU (up to 60 Hz), GPS, and video data</li>
-                  <li>Workout recommendations from deterministic, rules-based sports-science formulas you can audit</li>
-                  <li>Video gait analysis (optical-flow by default; 25-keypoint pose estimation is opt-in)</li>
-                  <li>Injury risk scoring based on ACWR (0.25 weight), progression (0.15), HRV (0.15), and fatigue (0.20)</li>
-                  <li>Health monitoring with automated veterinary alerts and notifications</li>
-                  <li>Financial management tools including invoicing, expense tracking, and profitability analysis</li>
-                  <li>Racing and competition management with race outlook from real entries, career records, and gallop-out metrics</li>
-                  <li>Integration with 8+ wearable devices (Equimetre, Polar Equine, StrideSAFE, etc.)</li>
-                  <li>Mobile applications with offline functionality and QR code horse identification</li>
+                  <li>Training and workout tracking, with workload and readiness for each horse</li>
+                  <li>Workout suggestions based on published sports science</li>
+                  <li>Gait analysis from phone video and phone sensors</li>
+                  <li>Injury-risk grading</li>
+                  <li>Health records, with alerts when a horse’s vitals move away from its own normal</li>
+                  <li>Financial tools including invoicing, expense tracking and per-horse costs</li>
+                  <li>Racing and competition management</li>
+                  <li>Optional connections to wearable devices</li>
+                  <li>QR code horse identification</li>
                 </ul>
               </div>
             </Card>
@@ -169,7 +167,7 @@ const Terms = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Platform Ownership</h3>
                   <p className="text-slate-700">
-                    The Platform, including all software, algorithms, AI models, patent-pending technologies, and content, is owned by Equissetix and protected by intellectual property laws. Our patent-pending multi-sensor fusion technology and gait analysis algorithms are proprietary.
+                    The Platform, including all software, algorithms, AI models, patent-pending technologies, and content, is owned by Equissetix and protected by intellectual property laws. Our patent-pending methods are proprietary.
                   </p>
                 </div>
 
@@ -202,14 +200,7 @@ const Terms = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Subscription Plans</h3>
                   <p className="text-slate-700">
-                    TrainingTree offers subscription plans (Starter, Professional, Enterprise) with different features and pricing. Plans are billed monthly or annually as selected.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-lg mb-2 text-navy-900">Free Trial</h3>
-                  <p className="text-slate-700">
-                    We offer a 14-day free trial. You may cancel at any time during the trial without charge. If you do not cancel, your subscription will begin automatically after the trial period.
+                    The plan, price and billing period that apply to you are set out when you sign up, or in your pilot program agreement.
                   </p>
                 </div>
 

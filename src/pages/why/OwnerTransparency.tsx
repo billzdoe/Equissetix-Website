@@ -24,7 +24,7 @@ const data: WhyData = {
       items: [
         'Itemized, accurate invoices tied to real activity',
         'Owner split-billing for partnerships and shares',
-        'Fewer billing disputes, faster payment',
+        'Each charge linked to the care behind it',
       ],
     },
     {
@@ -33,12 +33,12 @@ const data: WhyData = {
       items: [
         'QR stall cards and public horse profiles',
         'Complete vet, farrier, and care history on file',
-        'Marketing-ready summaries for syndication or sale',
+        'A public profile you choose what to show on',
       ],
     },
     {
       title: 'Trust that compounds',
-      body: 'Owners who can see consistent, professional care stay longer and refer more. Transparency isn’t a feature here — it’s a retention strategy.',
+      body: 'Owners who can see the care their horse gets don’t have to take it on faith. That openness is how a barn earns trust that lasts.',
     },
   ],
   cta: { label: 'Compare products', to: '/products' },

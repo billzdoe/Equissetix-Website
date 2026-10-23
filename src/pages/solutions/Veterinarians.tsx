@@ -36,7 +36,7 @@ const data: SolutionData = {
     {
       title: 'Each horse against its own normal',
       description:
-        'Temperature, resting pulse and respiration are compared with that horse’s own 30-day baseline. A rise of 1.5 °F, or 20 beats a minute at rest, is flagged the morning it happens.',
+        'Temperature, resting pulse and respiration are compared with that horse’s own normal, and a meaningful rise for that horse is flagged the morning it happens.',
       benefits: [
         'Morning rounds board, horses in stall order, exceptions first',
         'Hand readings taken without signal are kept and sent later',

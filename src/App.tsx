@@ -32,7 +32,6 @@ const StableManagers = lazy(() => import('./pages/solutions/StableManagers'))
 const BarnOwners = lazy(() => import('./pages/solutions/BarnOwners'))
 const HorseOwners = lazy(() => import('./pages/solutions/HorseOwners'))
 const Veterinarians = lazy(() => import('./pages/solutions/Veterinarians'))
-const TrainingFacilities = lazy(() => import('./pages/solutions/TrainingFacilities'))
 const BoardingBarns = lazy(() => import('./pages/solutions/BoardingBarns'))
 const BreedingFarms = lazy(() => import('./pages/solutions/BreedingFarms'))
 
@@ -42,14 +41,11 @@ const WhyOwnerTransparency = lazy(() => import('./pages/why/OwnerTransparency'))
 
 // Other pages
 const NotFound = lazy(() => import('./pages/NotFound'))
-const CaseStudies = lazy(() => import('./pages/CaseStudies'))
 const Blog = lazy(() => import('./pages/Blog'))
 const BlogPost = lazy(() => import('./pages/BlogPost'))
 const Privacy = lazy(() => import('./pages/Privacy'))
 const Terms = lazy(() => import('./pages/Terms'))
 const Security = lazy(() => import('./pages/Security'))
-const Breeds = lazy(() => import('./pages/Breeds'))
-const Disciplines = lazy(() => import('./pages/Disciplines'))
 const Compare = lazy(() => import('./pages/Compare'))
 
 const PageLoader = () => (
@@ -91,7 +87,9 @@ function AppContent() {
           {/* New stable-first audience pages */}
           <Route path="/solutions/boarding-barns" element={<BoardingBarns />} />
           <Route path="/solutions/breeding-farms" element={<BreedingFarms />} />
-          <Route path="/solutions/large-operations" element={<TrainingFacilities />} />
+          {/* Claims audit 2026-10-22: large-operations promised an "Enterprise" edition,
+              account managers, SLAs and white-label that do not exist. File kept. */}
+          <Route path="/solutions/large-operations" element={<Navigate to="/solutions/stable-managers" replace />} />
 
           {/* Why Equissetix routes */}
           <Route path="/why/compliance" element={<WhyCompliance />} />
@@ -99,7 +97,7 @@ function AppContent() {
           <Route path="/why/the-science" element={<Science />} />
           <Route path="/solutions/horse-owners" element={<HorseOwners />} />
           <Route path="/solutions/veterinarians" element={<Veterinarians />} />
-          <Route path="/solutions/training-facilities" element={<TrainingFacilities />} />
+          <Route path="/solutions/training-facilities" element={<Navigate to="/solutions/stable-managers" replace />} />
 
           {/* Old feature pages, redirected 2026-10-22 (Billy): they named third-party
               brands and made gait and lameness claims the product doesn't support.
@@ -117,13 +115,16 @@ function AppContent() {
           <Route path="/pricing" element={<Navigate to="/contact" replace />} />
 
           {/* Resources routes */}
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/case-studies/:id" element={<CaseStudies />} />
+          {/* No case studies yet: send visitors to the pilot program instead. File kept. */}
+          <Route path="/case-studies" element={<Navigate to="/contact" replace />} />
+          <Route path="/case-studies/:id" element={<Navigate to="/contact" replace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/resources" element={<Blog />} />
-          <Route path="/breeds" element={<Breeds />} />
-          <Route path="/disciplines" element={<Disciplines />} />
+          {/* Breeds / Disciplines promised per-breed analytics and AI race predictions
+              that are not built. Files kept; both land on /performance. */}
+          <Route path="/breeds" element={<Navigate to="/performance" replace />} />
+          <Route path="/disciplines" element={<Navigate to="/performance" replace />} />
           <Route path="/compare" element={<Compare />} />
 
           {/* Legal & Policy routes */}

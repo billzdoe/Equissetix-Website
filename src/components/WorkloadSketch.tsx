@@ -33,7 +33,9 @@ const WorkloadSketch = () => {
         {[0.8, 1.0, 1.3, 1.5].map((v) => (
           <g key={v}>
             <line x1={PAD.l} x2={W - PAD.r} y1={y(v)} y2={y(v)} stroke={v === 1.3 ? '#b45c09' : '#d4d9d4'} strokeWidth={v === 1.3 ? 1.5 : 1} strokeDasharray={v === 1.3 ? '5 4' : undefined} />
-            <text x={PAD.l - 8} y={y(v) + 4} textAnchor="end" fontSize="12" fill="#586273" className="tabular">{v.toFixed(1)}</text>
+            {v === 1.0 && (
+              <text x={PAD.l - 8} y={y(v) + 4} textAnchor="end" fontSize="12" fill="#586273" className="tabular">1.0</text>
+            )}
           </g>
         ))}
         <text x={PAD.l + 6} y={y(1.3) - 7} fontSize="12" fontWeight="600" fill="#b45c09">Safety gate</text>
@@ -48,7 +50,7 @@ const WorkloadSketch = () => {
         ))}
       </svg>
       <figcaption className="mt-2 text-sm leading-relaxed text-navy-600">
-        1.0 means the horse did about as much as usual. In week 6 it jumped past 1.3, faster than the horse was used to,
+        1.0 means the horse did about as much as usual. In week 6 it jumped past the safety gate, faster than the horse was used to,
         so its suggested work eased off until the ratio settled.{' '}
         <Link to="/guide#workload-ratio" className="font-semibold text-brand-600 underline underline-offset-2 hover:text-brand-700">
           What is the workload ratio?

@@ -16,13 +16,13 @@ The National Research Council's *Nutrient Requirements of Horses* (6th revised e
 
 ## Work level from the work itself
 
-Instead of asking you to pick "light", "moderate" or "heavy" and hoping it stays true, TrainingTree Pro reads the horse's **last 28 days of logged sessions** and works out the NRC work category from them. Step up the training and the requirements follow. Give the horse a quiet month and they ease back.
+Instead of asking you to pick "light", "moderate" or "heavy" and hoping it stays true, TrainingTree Pro reads the horse's **recent logged sessions** and works out the NRC work category from them. Step up the training and the requirements follow. Give the horse a quiet month and they ease back.
 
 ## Timing around hard work
 
 Hard sessions change what a horse needs and when. TrainingTree Pro notices:
 
-- **After a hard session** in the last three days, the horse is in a recovery phase, and guidance focuses on refuelling.
+- **After a hard session,** the horse is in a recovery phase, and guidance focuses on refuelling.
 - **Before a hard session** scheduled today or tomorrow, guidance focuses on fuelling.
 
 Each piece of guidance says when it applies (before, after or daily), what it is and why, with its source.
@@ -49,4 +49,4 @@ Feed planning is part of TrainingTree Pro and StableTree, alongside body-conditi
 
 ---
 
-*See feed recommendations for your own horses. [Request a demo](/contact).*
+*See feed recommendations for your own horses. [Join the pilot program](/contact).*

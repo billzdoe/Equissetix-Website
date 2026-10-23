@@ -15,7 +15,7 @@ const Guide = () => (
 
     <TopicHero title="What every number in TrainingTree Pro means.">
       <p>
-        Workload, readiness, baselines, symmetry: each one in plain words, how it’s worked out, and what to do with
+        Workload, readiness, baselines, symmetry: each one in plain words, why it matters, and what to do with
         it. No sports-science background needed.
       </p>
     </TopicHero>
@@ -58,8 +58,8 @@ const Guide = () => (
                         <dd className="mt-1 text-navy-600">{e.what}</dd>
                       </div>
                       <div>
-                        <dt className="font-semibold text-navy-900">How it’s worked out</dt>
-                        <dd className="mt-1 text-navy-600">{e.how}</dd>
+                        <dt className="font-semibold text-navy-900">Why it matters</dt>
+                        <dd className="mt-1 text-navy-600">{e.why}</dd>
                       </div>
                       <div>
                         <dt className="font-semibold text-navy-900">What you do with it</dt>

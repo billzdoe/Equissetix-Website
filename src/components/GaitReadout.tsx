@@ -40,7 +40,7 @@ const GaitReadout = ({ className = '' }: { className?: string }) => (
       <div>
         <dt className="text-sm text-navy-600">Stride frequency</dt>
         <dd className="tabular font-condensed text-3xl font-extrabold">1.62 Hz</dd>
-        <dd className="text-sm text-navy-600">Inside the trot range, 1.3–1.9</dd>
+        <dd className="text-sm text-navy-600">Normal for this horse at the trot</dd>
       </div>
       <div>
         <dt className="text-sm text-navy-600">Left-right symmetry</dt>
@@ -57,7 +57,7 @@ const GaitReadout = ({ className = '' }: { className?: string }) => (
       </div>
     </dl>
     <figcaption className="mt-5 text-sm text-navy-600">
-      Clip check passed: 60 frames a second, good light. Measured by optical flow from phone video.
+      Clip check passed: the footage was good enough to measure. Taken from an ordinary phone video.
     </figcaption>
   </figure>
 )

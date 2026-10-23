@@ -36,7 +36,7 @@ const RoundsBoard = () => (
     </div>
     <div className="overflow-x-auto">
       <table className="w-full text-left text-sm tabular sm:min-w-[30rem]">
-        <caption className="sr-only">Example morning rounds: each horse's temperature and resting pulse against its own 30-day baseline</caption>
+        <caption className="sr-only">Example morning rounds: each horse's temperature and resting pulse against its own normal</caption>
         <thead className="text-navy-500">
           <tr>
             <th scope="col" className="hidden px-4 py-2 font-medium sm:table-cell sm:px-5">Stall</th>
@@ -66,7 +66,7 @@ const RoundsBoard = () => (
       </table>
     </div>
     <figcaption className="border-t border-navy-100 px-4 py-3 text-sm leading-relaxed text-navy-600 sm:px-5">
-      The small figures are the difference from each horse’s own 30-day normal. Bishop’s Gate reads 100.6 °F, inside the textbook range, and is still flagged: it is 1.6° above his normal, and the app flags 1.5° or more.
+      The small figures are the difference from each horse’s own normal. Bishop’s Gate reads 100.6 °F, inside the textbook range, and is still flagged: for him, that’s a fever.
     </figcaption>
   </figure>
 )

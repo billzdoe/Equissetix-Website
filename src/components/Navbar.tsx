@@ -50,8 +50,6 @@ const productGroups: { heading: string; links: MenuLink[] }[] = [
 const resourceLinks: MenuLink[] = [
   { path: '/guide', label: 'The numbers, explained' },
   { path: '/blog', label: 'Blog' },
-  { path: '/disciplines', label: 'Disciplines' },
-  { path: '/breeds', label: 'Breeds' },
   { path: '/compare', label: 'Compare' },
   { path: '/why/compliance', label: 'Compliance and records' },
   { path: '/why/owner-transparency', label: 'Owner transparency' },

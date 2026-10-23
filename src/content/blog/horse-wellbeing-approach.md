@@ -19,22 +19,22 @@ We built the Wellbeing Check on it for three reasons:
 Each part comes from records that already exist in the barn's day-to-day work in TrainingTree Pro.
 
 **Nutrition**
-- **Body condition:** the latest Henneke score from the last 90 days. The ideal range is 4 to 6.
-- **Feeding:** whether feed was logged on each of the last three days.
+- **Body condition:** the latest Henneke score. The ideal range is 4 to 6.
+- **Feeding:** whether feeding is being logged day to day.
 
 **Physical environment**
-- **Turnout:** how many of the last seven days the horse went out.
+- **Turnout:** how often the horse has been going out.
 
 **Health**
 - **Vaccinations:** whether any are past their next-due date.
 - **Deworming:** whether the next dose is overdue.
-- **Hoof care:** whether the farrier is past the next-visit date, or eight weeks if none was set.
+- **Hoof care:** whether the farrier visit is overdue.
 - **Injuries:** any active injury, scored by its severity.
-- **Workload:** the horse's 28-day acute-to-chronic workload ratio. Up to 1.3 is a steady build; above 1.3 is a fast rise, and above 1.5 is high risk.
+- **Workload:** whether the horse's work is building steadily or rising faster than it has been prepared for.
 
 **Behavioural interactions**
-- **Company:** turnout with other horses over the last seven days.
-- **Rest:** at least two days without work in the last fourteen.
+- **Company:** turnout with other horses.
+- **Rest:** regular days without work.
 
 **Mental state**
 - Inferred from the four domains above, exactly as the model describes. It's never given a number of its own, because records can't measure what a horse feels. They can only show the conditions that shape it.
@@ -64,7 +64,7 @@ The Wellbeing Check is a records-based view of a horse's welfare. It doesn't rep
 
 Wellbeing in TrainingTree Pro doesn't stop at the check. It runs through the whole platform:
 
-- **Vitals against each horse's own normal.** Temperature and resting pulse are compared with that horse's 30-day baseline, so a fever shows up even when the reading looks "normal" in a textbook.
+- **Vitals against each horse's own normal.** Temperature and resting pulse are compared with that horse's own normal, so a fever shows up even when the reading looks "normal" in a textbook.
 - **Rehab plans that hold the line.** While a plan is active, every training suggestion stays inside its stage.
 - **Feed that follows the work,** set from the horse's logged workload using the National Research Council's *Nutrient Requirements of Horses* (2007).
 
@@ -72,4 +72,4 @@ Good horse care has always depended on people who notice. TrainingTree Pro gives
 
 ---
 
-*Want to see the Wellbeing Check on your own horses? [Request a demo](/contact).*
+*Want to see the Wellbeing Check on your own horses? [Join the pilot program](/contact).*
