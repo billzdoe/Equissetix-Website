@@ -75,7 +75,8 @@ function AppContent() {
           {/* Product family routes */}
           <Route path="/products" element={<ProductsOverview />} />
           <Route path="/products/stabletree" element={<StableTree />} />
-          <Route path="/products/trainingtree-pro" element={<TrainingTreePro />} />
+          <Route path="/products/trainingtree" element={<TrainingTreePro />} />
+          <Route path="/products/trainingtree-pro" element={<Navigate to="/products/trainingtree" replace />} />
           <Route path="/products/performance" element={<Performance />} />
 
           {/* Solutions routes */}

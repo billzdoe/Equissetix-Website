@@ -75,9 +75,9 @@ const data: SolutionData = {
     },
   ],
   recommend: {
-    slug: 'trainingtree-pro',
+    slug: 'trainingtree',
     reason:
-      'Owners usually get access through their barn’s TrainingTree Pro or StableTree, at no extra effort. If your horses live at home and you do it all yourself, TrainingTree Pro Lite is made for small farms like yours.',
+      'Owners usually get access through their barn’s TrainingTree or StableTree, at no extra effort. If your horses live at home and you do it all yourself, TrainingTree Lite is made for small farms like yours.',
     alsoSee: {
       slug: 'stabletree',
       reason: 'For the health file, care calendar and records without the training tools,',

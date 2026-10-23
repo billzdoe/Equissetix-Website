@@ -222,7 +222,7 @@ const ComparisonTable = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-brand-500 to-brand-600 p-6 text-white">
         <h2 className="text-3xl font-bold mb-2">Feature Comparison</h2>
-        <p className="text-brand-100">See how TrainingTree Pro stacks up against alternatives</p>
+        <p className="text-brand-100">See how TrainingTree stacks up against alternatives</p>
       </div>
 
       {/* Table */}
@@ -234,7 +234,7 @@ const ComparisonTable = () => {
               <th className="py-4 px-4 text-center bg-gradient-to-br from-brand-50 to-blue-50">
                 <div className="flex flex-col items-center">
                   <Trophy className="h-6 w-6 text-brand-600 mb-2" />
-                  <p className="font-bold text-brand-900">TrainingTree Pro</p>
+                  <p className="font-bold text-brand-900">TrainingTree</p>
                   <p className="text-xs text-slate-600">Our Platform</p>
                 </div>
               </th>

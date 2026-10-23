@@ -10,7 +10,7 @@
  *   (🔴 items are simply omitted from this file by design)
  */
 
-export type ProductSlug = 'stabletree' | 'trainingtree-pro' | 'performance'
+export type ProductSlug = 'stabletree' | 'trainingtree' | 'performance'
 
 export type CapStatus = 'included' | 'setup'
 
@@ -20,23 +20,22 @@ export interface Capability {
 }
 
 /**
- * How the lineup actually fits together — see WEBSITE_REVAMP_PLAN.md, F0.
+ * How the lineup fits together (Billy, 2026-10-23).
  *
- * TrainingTree Pro IS the platform. StableTree and Performance are the two
- * halves it divides into: a barn takes one half, or both (which is Pro).
+ * TrainingTree is ONE app with three levels: Lite, Pro and Performance. A
+ * barn moves up a level in place. StableTree is a separate app for barns that
+ * don't train; TrainingTree Veterinary is a separate app for vets.
  *
- *   'platform' → the whole; contains both halves
- *   'half'     → one side of the platform, sold standalone
+ *   'app'        → TrainingTree, the app the levels belong to
+ *   'level'      → a level of TrainingTree with its own page (Performance)
+ *   'standalone' → its own app (StableTree)
  *
- * This is a `role`, not a display order, precisely so that layouts cannot
- * quietly re-flatten the family into three co-equal sibling cards — which is
- * exactly what the site did before. Anything rendering the lineup must branch
- * on this field rather than mapping over `products` in array order.
+ * This is a `role`, not a display order, so layouts cannot quietly flatten
+ * the levels and the separate apps into one row of co-equal cards. Anything
+ * rendering the lineup must branch on this field (or use the accessors at the
+ * bottom) rather than mapping over `products` in array order.
  */
-export type ProductRole = 'platform' | 'half'
-
-/** Which side of the platform a half covers. */
-export type ProductHalf = 'barn' | 'athlete'
+export type ProductRole = 'app' | 'level' | 'standalone'
 
 export interface Product {
   slug: ProductSlug
@@ -46,10 +45,7 @@ export interface Product {
   tagline: string
   oneLiner: string
   who: string
-  /** platform (the whole) vs half (one side of it) */
   role: ProductRole
-  /** for halves only: which side of the platform this is */
-  half?: ProductHalf
   /** one line on how this product relates to the others */
   relationship: string
   /** tailwind accent family used for per-product theming */
@@ -73,10 +69,9 @@ export const products: Product[] = [
     oneLiner:
       'Keep every horse healthy, compliant, and cared for on schedule — with the records, staff, and billing that run the barn behind it.',
     who: 'Boarding & training barns, breeding farms, sport-horse yards, lesson & show barns.',
-    role: 'half',
-    half: 'barn',
+    role: 'standalone',
     relationship:
-      'The barn half of TrainingTree Pro, sold on its own. Add the training half later without re-entering a thing.',
+      'Its own app, for barns that board, breed or teach and don’t need the training tools. It keeps the same stable records TrainingTree does.',
     accent: 'green',
     route: '/products/stabletree',
     pillars: [
@@ -157,12 +152,11 @@ export const products: Product[] = [
     shortName: 'Equissetix ▸ TrainingTree Performance',
     tagline: 'Condition the athlete',
     oneLiner:
-      'Sports science, gait analysis, readiness, wearables, and racing ops — the athletic performance product.',
+      'The top level of TrainingTree, for racing and competition programmes: sports science, gait analysis, readiness and racing operations, with the whole barn behind them.',
     who: 'Racing trainers, syndicates, and sport-horse conditioning programs.',
-    role: 'half',
-    half: 'athlete',
+    role: 'level',
     relationship:
-      'The training half of TrainingTree Pro, sold on its own. Add the barn half later without re-entering a thing.',
+      'The top level of TrainingTree. Everything in Pro, built around racing and competition programmes. Move up from Lite or Pro in place.',
     accent: 'teal',
     route: '/products/performance',
     pillars: [
@@ -209,33 +203,27 @@ export const products: Product[] = [
         ],
       },
     ],
-    notIncluded: [
-      'Financial ERP, invoicing & owner split-billing',
-      'Barn / stall / facility operations',
-      'Staff time-clock & payroll',
-      'Inventory, nutrition planning, deworming, records vault',
-    ],
   },
   {
-    slug: 'trainingtree-pro',
-    name: 'TrainingTree Pro',
-    shortName: 'Equissetix ▸ TrainingTree Pro',
-    tagline: 'Everything, in one platform',
+    slug: 'trainingtree',
+    name: 'TrainingTree',
+    shortName: 'Equissetix ▸ TrainingTree',
+    tagline: 'One app, three levels',
     oneLiner:
-      'Run the barn and condition the athlete in one platform, with a Lite edition for small farms where one person does it all.',
-    who: 'Racing stables & training centers that want operations and sports science together.',
-    role: 'platform',
+      'Run the barn and condition the athlete in one app: Lite for the small farm where one person does it all, Pro for growing barns, Performance for racing and competition programmes.',
+    who: 'Small farms, training barns, racing stables and training centers.',
+    role: 'app',
     relationship:
-      'The whole platform — both halves together. Divides into StableTree or Performance if you only need one side.',
+      'One app with three levels. Move up a level in place, with everything you’ve logged carried over.',
     accent: 'gold',
-    route: '/products/trainingtree-pro',
+    route: '/products/trainingtree',
     pillars: [
       {
-        title: 'Everything in StableTree',
+        title: 'Run the barn',
         blurb:
           'The full stable-management stack — compliance, records, staff, money, health.',
         capabilities: [
-          { label: 'All StableTree operations & compliance', status: 'included' },
+          { label: 'Stable operations & compliance', status: 'included' },
           { label: 'Owner portals, ERP, invoicing, payroll', status: 'included' },
         ],
       },
@@ -263,26 +251,62 @@ export const productBySlug = (slug: ProductSlug) =>
 
 // ── Structural accessors ─────────────────────────────────────────────────
 // Use these instead of mapping over `products` in array order. The lineup is
-// a platform containing two halves, not three peers, and rendering it as a
-// flat list is the exact defect F0 documents.
+// one app with three levels plus two separate apps, not a row of peers.
 
-/** TrainingTree Pro — the platform that contains both halves. */
-export const platformProduct = products.find((p) => p.role === 'platform')!
+/** TrainingTree — the one app the three levels belong to. */
+export const appProduct = products.find((p) => p.role === 'app')!
 
-/** StableTree (barn) and Performance (athlete), in barn-first order. */
-export const halfProducts = products
-  .filter((p) => p.role === 'half')
-  .sort((a) => (a.half === 'barn' ? -1 : 1))
+/** TrainingTree Performance — the top level, which has its own page. */
+export const performanceLevel = products.find((p) => p.role === 'level')!
 
-/** The barn half — StableTree. */
-export const barnHalf = halfProducts.find((p) => p.half === 'barn')!
+/** StableTree — its own app, for barns that don't train. */
+export const stableProduct = products.find((p) => p.role === 'standalone')!
 
-/** The training half — TrainingTree Performance. */
-export const athleteHalf = halfProducts.find((p) => p.half === 'athlete')!
+export type LevelKey = 'lite' | 'pro' | 'performance'
+
+/** The three levels of TrainingTree, smallest first. Each includes the one
+ *  before it; a barn moves up in place. */
+export const levels: { key: LevelKey; name: string; who: string; blurb: string; route: string }[] = [
+  {
+    key: 'lite',
+    name: 'Lite',
+    who: 'The small farm where you do it all',
+    blurb: 'Every record a small farm runs on, for up to 15 horses, with the performance tools shown as previews.',
+    route: '/products/trainingtree#lite',
+  },
+  {
+    key: 'pro',
+    name: 'Pro',
+    who: 'Growing barns and training programmes',
+    blurb: 'No horse limit, and the performance science switched on: workload, readiness, gait and the safety check.',
+    route: '/products/trainingtree',
+  },
+  {
+    key: 'performance',
+    name: 'Performance',
+    who: 'Racing and competition programmes',
+    blurb: 'Everything in Pro, built around the racing and competition calendar.',
+    route: '/products/performance',
+  },
+]
+
+/**
+ * TrainingTree Veterinary — the separate app for vets. Not a Product (no
+ * product page): it is still being built, so it is shown as coming, and
+ * nothing here claims more than the barn-side vet sharing it extends.
+ */
+export const vetApp = {
+  name: 'TrainingTree Veterinary',
+  tagline: 'For vets',
+  blurb: 'Scan a barn’s code and see the records it shares with you, on your phone, between visits.',
+  route: '/solutions/veterinarians',
+  status: 'Coming soon',
+}
 
 // ── Family comparison matrix (for /products) ─────────────────────────────
-// Columns: StableTree · TT Pro (Lite) · TT Pro · Performance
+// Columns: Lite · Pro · Performance (the TrainingTree levels) · StableTree
 // Cells: 'yes' | 'teaser' | 'no' | 'setup'
+// Performance includes everything in Pro, so its column matches Pro's.
 
 export type MatrixCell = 'yes' | 'teaser' | 'no' | 'setup'
 
@@ -290,41 +314,41 @@ export interface MatrixRow {
   category: string
   name: string
   stabletree: MatrixCell
-  proLite: MatrixCell
+  lite: MatrixCell
   pro: MatrixCell
   performance: MatrixCell
 }
 
 export const comparisonMatrix: MatrixRow[] = [
-  { category: 'Compliance & Records', name: 'Document vault + expirations', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Compliance & Records', name: 'Insurance + renewal alerts', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Compliance & Records', name: 'Deworming + BCS timeline', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Compliance & Records', name: 'Med. withdrawal calculator', stabletree: 'no', proLite: 'yes', pro: 'yes', performance: 'yes' },
-  { category: 'Compliance & Records', name: 'HISA / ADMC / licensing', stabletree: 'no', proLite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Compliance & Records', name: 'Document vault + expirations', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Compliance & Records', name: 'Insurance + renewal alerts', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Compliance & Records', name: 'Deworming + BCS timeline', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Compliance & Records', name: 'Med. withdrawal calculator', stabletree: 'no', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Compliance & Records', name: 'HISA / ADMC / licensing', stabletree: 'no', lite: 'yes', pro: 'yes', performance: 'yes' },
 
-  { category: 'Stable Operations', name: 'Barn map + stall assignment', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Stable Operations', name: 'Turnout rotation', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Stable Operations', name: 'Facility repairs + maintenance', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Stable Operations', name: 'Inventory + reorder alerts', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
+  { category: 'Stable Operations', name: 'Barn map + stall assignment', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Stable Operations', name: 'Turnout rotation', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Stable Operations', name: 'Facility repairs + maintenance', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Stable Operations', name: 'Inventory + reorder alerts', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
 
-  { category: 'Staff & Money', name: 'Time-clock + payroll', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Staff & Money', name: 'Double-entry ERP + invoicing', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Staff & Money', name: 'Owner portals + split-billing', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
-  { category: 'Staff & Money', name: 'QuickBooks / Xero export', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'no' },
+  { category: 'Staff & Money', name: 'Time-clock + payroll', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Staff & Money', name: 'Double-entry ERP + invoicing', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Staff & Money', name: 'Owner portals + split-billing', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Staff & Money', name: 'QuickBooks / Xero export', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
 
-  { category: 'Health Baseline', name: 'Vet exams, vaccinations, meds', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'yes' },
-  { category: 'Health Baseline', name: 'Rehab plans + farrier', stabletree: 'yes', proLite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Health Baseline', name: 'Vet exams, vaccinations, meds', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Health Baseline', name: 'Rehab plans + farrier', stabletree: 'yes', lite: 'yes', pro: 'yes', performance: 'yes' },
 
-  { category: 'Sports Science', name: 'Workload + readiness', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
-  { category: 'Sports Science', name: 'Injury-risk + fitness scores', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
-  { category: 'Sports Science', name: 'Workout recommendations', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
+  { category: 'Sports Science', name: 'Workload + readiness', stabletree: 'no', lite: 'teaser', pro: 'yes', performance: 'yes' },
+  { category: 'Sports Science', name: 'Injury-risk + fitness scores', stabletree: 'no', lite: 'teaser', pro: 'yes', performance: 'yes' },
+  { category: 'Sports Science', name: 'Workout recommendations', stabletree: 'no', lite: 'teaser', pro: 'yes', performance: 'yes' },
 
-  { category: 'Gait & Racing', name: 'Video gait analysis + compare', stabletree: 'no', proLite: 'teaser', pro: 'yes', performance: 'yes' },
-  { category: 'Gait & Racing', name: 'Racing ops (entries, jockeys)', stabletree: 'no', proLite: 'yes', pro: 'yes', performance: 'yes' },
+  { category: 'Gait & Racing', name: 'Video gait analysis + compare', stabletree: 'no', lite: 'teaser', pro: 'yes', performance: 'yes' },
+  { category: 'Gait & Racing', name: 'Racing ops (entries, jockeys)', stabletree: 'no', lite: 'yes', pro: 'yes', performance: 'yes' },
 
-  { category: 'Integrations & AI', name: 'Wearable devices (8 vendors)', stabletree: 'no', proLite: 'setup', pro: 'setup', performance: 'setup' },
-  { category: 'Integrations & AI', name: 'Voice barn-walk (Claude)', stabletree: 'setup', proLite: 'setup', pro: 'setup', performance: 'setup' },
-  { category: 'Integrations & AI', name: 'AI daily brief', stabletree: 'no', proLite: 'teaser', pro: 'setup', performance: 'setup' },
+  { category: 'Integrations & AI', name: 'Wearable devices (8 vendors)', stabletree: 'no', lite: 'setup', pro: 'setup', performance: 'setup' },
+  { category: 'Integrations & AI', name: 'Voice barn-walk (Claude)', stabletree: 'setup', lite: 'setup', pro: 'setup', performance: 'setup' },
+  { category: 'Integrations & AI', name: 'AI daily brief', stabletree: 'no', lite: 'teaser', pro: 'setup', performance: 'setup' },
 
-  { category: 'Scale', name: 'More than 15 horses', stabletree: 'yes', proLite: 'no', pro: 'yes', performance: 'yes' },
+  { category: 'Scale', name: 'More than 15 horses', stabletree: 'yes', lite: 'no', pro: 'yes', performance: 'yes' },
 ]

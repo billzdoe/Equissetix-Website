@@ -35,7 +35,7 @@ export const photos: Record<string, SitePhoto> = {
   'ky-fence-dusk': { name: 'ky-fence-dusk', ratio: 2400 / 1600, source: unsplash('cJ3buXe-aJw') },
   'ky-trees': { name: 'ky-trees', ratio: 2400 / 1759, source: unsplash('zaEPrwSdaWA') },
   // Public domain (USDA APHIS, Kentucky, 2023): equine vets at work. These
-  // show the science around the horse; TrainingTree Pro does not do thermal
+  // show the science around the horse; TrainingTree does not do thermal
   // imaging, X-ray or ultrasound, so no page may caption them as its own.
   'thermal-tablet': { name: 'thermal-tablet', ratio: 3840 / 2560, source: 'https://commons.wikimedia.org/wiki/File:Kentucky_Celebration_Harrodsburg-APHIS-15-16_September_2023_(20230916-CDP-APHIS-0022).jpg' },
   'thermal-camera': { name: 'thermal-camera', ratio: 3840 / 2560, source: 'https://commons.wikimedia.org/wiki/File:Kentucky_Celebration_Harrodsburg-APHIS-15-16_September_2023_(20230915-CDP-APHIS-0664).jpg' },

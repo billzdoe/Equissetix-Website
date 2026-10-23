@@ -76,7 +76,7 @@ const data: SolutionData = {
       ],
     },
   ],
-  // Checked 2026-10-23 against TrainingTree Pro 1d094fe: training-plans +
+  // Checked 2026-10-23 against TrainingTree 1d094fe: training-plans +
   // AttendanceCard (schedules), Calendar.tsx + calendar_events (five event
   // types; Google/Outlook sync needs credentials), barn-walk-log-system (voice
   // structuring needs ANTHROPIC_API_KEY + the mobile app), conditioning
@@ -96,7 +96,7 @@ const data: SolutionData = {
         label: 'Training schedules',
         title: 'A training schedule for every horse',
         lead:
-          'Choose the horse’s focus, from speed and stamina to recovery, technique or a balance of all of them, and TrainingTree Pro lays out the weeks ahead around that horse’s readiness and age, in your own training style.',
+          'Choose the horse’s focus, from speed and stamina to recovery, technique or a balance of all of them, and TrainingTree lays out the weeks ahead around that horse’s readiness and age, in your own training style.',
         points: [
           'Work builds gradually from week to week, so no week leaps past the one before it',
           'Rest days fall after hard work, and each one says why it’s there',
@@ -188,12 +188,12 @@ const data: SolutionData = {
     ],
   },
   recommend: {
-    slug: 'trainingtree-pro',
+    slug: 'trainingtree',
     reason:
-      'Most trainers run a barn as well as a string. TrainingTree Pro does both: the performance science plus vet care, staff and owners.',
+      'Most trainers run a barn as well as a string. TrainingTree does both: the performance science plus vet care, staff and owners.',
     alsoSee: {
       slug: 'performance',
-      reason: 'If someone else runs the barn and you only need the training side,',
+      reason: 'For racing and competition programmes, the top level of TrainingTree,'
     },
   },
 }

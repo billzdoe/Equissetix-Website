@@ -177,7 +177,7 @@ const Contact = () => {
         <Beat className="!min-h-[70svh] !pb-14">
           <h1 className="max-w-4xl text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7rem]">Join the pilot program.</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-            We’re opening TrainingTree Pro to a small group of barns, trainers, vets and owners first. Pilot members use it
+            We’re opening TrainingTree to a small group of barns, trainers, vets and owners first. Pilot members use it
             with their own horses, work directly with the team that builds it, and help decide what comes next.
           </p>
         </Beat>

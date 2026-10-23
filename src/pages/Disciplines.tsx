@@ -478,7 +478,7 @@ const Disciplines = () => {
         >
           <h2 className="text-4xl font-bold mb-6">Train Smarter in Your Discipline</h2>
           <p className="text-xl text-slate-700 mb-8">
-            TrainingTree Pro adapts to your discipline with specialized tools, metrics, and insights
+            TrainingTree adapts to your discipline with specialized tools, metrics, and insights
           </p>
           <Button to="/contact" variant="primary" size="lg">
             Join the pilot

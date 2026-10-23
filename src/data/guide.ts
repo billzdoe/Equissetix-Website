@@ -64,7 +64,7 @@ export const guide: GuideGroup[] = [
         short: 'This week’s work compared with what the horse is used to. 1.0 means the same as usual.',
         what: 'One number that answers one question: is the horse being asked for more than it has been prepared for?',
         why: 'Published research in human athletes and racehorses links sudden jumps in work to more injuries. The ratio shows a jump while there’s still time to ease off.',
-        use: 'Near 1.0, the horse is doing what it’s used to. A little above, it’s building. Well above, the work is rising faster than the horse has been prepared for, and TrainingTree Pro eases its suggestions.',
+        use: 'Near 1.0, the horse is doing what it’s used to. A little above, it’s building. Well above, the work is rising faster than the horse has been prepared for, and TrainingTree eases its suggestions.',
         example: 'A horse that usually does the equivalent of 5 hours of steady work a week and does 7.5 this week has a ratio of about 1.5: a big jump.',
       },
       {
@@ -105,7 +105,7 @@ export const guide: GuideGroup[] = [
         id: 'safety-gate',
         term: 'The safety gate',
         short: 'One check every workout suggestion passes before you see it.',
-        what: 'A shared rule in front of every suggestion in TrainingTree Pro, from a quick suggestion to a full conditioning program.',
+        what: 'A shared rule in front of every suggestion in TrainingTree, from a quick suggestion to a full conditioning program.',
         why: 'A suggestion is only useful if it never pushes a horse that shouldn’t be pushed. One gate, everywhere, means no corner of the app can forget.',
         use: 'If a horse’s work is rising fast, its readiness is red, or it’s in rehab, the suggestion is made lighter and the reason is shown. Follow it, or overrule it with your own judgement.',
       },
@@ -114,7 +114,7 @@ export const guide: GuideGroup[] = [
   {
     id: 'health',
     title: 'Health and vet care',
-    intro: 'How TrainingTree Pro tells normal from not-normal for each horse.',
+    intro: 'How TrainingTree tells normal from not-normal for each horse.',
     entries: [
       {
         id: 'baseline',
@@ -140,7 +140,7 @@ export const guide: GuideGroup[] = [
         short: 'How long a medication has to clear before a horse can compete.',
         what: 'The number of days after a dose before the horse can race or show under the rules.',
         why: 'An entry inside a withdrawal window can mean a positive test, a disqualification and a fine. It’s an easy mistake to make from memory.',
-        use: 'Log each dose with who gave it. TrainingTree Pro blocks a race entry that falls inside a withdrawal window.',
+        use: 'Log each dose with who gave it. TrainingTree blocks a race entry that falls inside a withdrawal window.',
       },
       {
         id: 'bcs',

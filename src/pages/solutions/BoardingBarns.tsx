@@ -73,7 +73,7 @@ const data: SolutionData = {
     reason:
       'A boarding or training barn needs the operations, compliance, and billing—not a sports-science lab you’ll never open. StableTree is exactly that stack, with nothing to pay for or navigate around that you won’t use.',
     alsoSee: {
-      slug: 'trainingtree-pro',
+      slug: 'trainingtree',
       reason: 'If you also condition racehorses or sport horses and want training load and gait analysis in the same system,',
     },
   },

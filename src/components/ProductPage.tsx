@@ -143,7 +143,7 @@ const ProductPage = ({ product, featureSlot }: ProductPageProps) => {
               <p className="text-sm text-navy-700">
                 Need those?{' '}
                 <Link to="/products" className="font-semibold text-brand-600 hover:text-brand-700 underline">
-                  See how TrainingTree Pro &amp; Performance compare →
+                  See how StableTree and TrainingTree compare →
                 </Link>
               </p>
             </Card>

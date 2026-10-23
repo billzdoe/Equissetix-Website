@@ -14,7 +14,7 @@ const ThreeIdeas = () => (
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
         <h2 id="three-ideas">Three ideas behind every number</h2>
         <p className="text-lg text-navy-600">
-          You don’t need a sports-science background to use TrainingTree Pro. Almost everything it tells you comes back
+          You don’t need a sports-science background to use TrainingTree. Almost everything it tells you comes back
           to these three ideas.
         </p>
       </div>

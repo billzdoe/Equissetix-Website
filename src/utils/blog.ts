@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
     id: 8,
     title: 'Our Approach to Horse Wellbeing: The Five Domains, Built Into the Barn',
     excerpt:
-      'How TrainingTree Pro turns the records a barn already keeps into a Wellbeing Check on the Five Domains model, and why a missing record is never scored as zero.',
+      'How TrainingTree turns the records a barn already keeps into a Wellbeing Check on the Five Domains model, and why a missing record is never scored as zero.',
     author: 'Equissetix Team',
     date: '2026-10-22',
     category: 'Wellbeing',
@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
     id: 9,
     title: 'Every Horse Has Its Own Normal',
     excerpt:
-      'Why TrainingTree Pro checks temperature and resting pulse against each horse’s own normal, and how morning rounds put the horses that need a look first.',
+      'Why TrainingTree checks temperature and resting pulse against each horse’s own normal, and how morning rounds put the horses that need a look first.',
     author: 'Equissetix Team',
     date: '2026-10-22',
     category: 'Vet care',
@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 5,
-    title: 'Gait Analysis in TrainingTree Pro: Video, Sensors and Symmetry',
+    title: 'Gait Analysis in TrainingTree: Video, Sensors and Symmetry',
     excerpt:
       'What phone video and phone sensors tell you about how a horse moves, why it matters, and how to film for results you can compare.',
     author: 'Equissetix Team',
@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
-    title: 'Running the Numbers: Financial Management in TrainingTree Pro and StableTree',
+    title: 'Running the Numbers: Financial Management in TrainingTree and StableTree',
     excerpt:
       'Double-entry books, owner invoicing, shared ownership, labour and supplier costs, and exports for your accountant.',
     author: 'Equissetix Team',

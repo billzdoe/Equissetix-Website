@@ -1,8 +1,8 @@
-# Running the Numbers: Financial Management in TrainingTree Pro and StableTree
+# Running the Numbers: Financial Management in TrainingTree and StableTree
 
 Barns run on thin margins and a lot of small charges: board, training days, farrier and vet pass-throughs, supplements, extra turnout, shipping. Keeping track of them by hand is slow, and things are easy to miss.
 
-TrainingTree Pro and StableTree include a complete financial system built around horses and their owners. This article walks through what it does.
+TrainingTree and StableTree include a complete financial system built around horses and their owners. This article walks through what it does.
 
 ## Proper double-entry books
 

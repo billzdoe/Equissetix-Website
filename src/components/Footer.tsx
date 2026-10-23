@@ -70,8 +70,8 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Products</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/products/stabletree" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  StableTree
+                <Link to="/products/trainingtree" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  TrainingTree
                 </Link>
               </li>
               <li>
@@ -80,8 +80,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/products/trainingtree-pro" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
-                  TrainingTree Pro
+                <Link to="/products/stabletree" className="text-slate-400 hover:text-gold-400 transition-colors text-sm">
+                  StableTree
                 </Link>
               </li>
               <li>

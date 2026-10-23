@@ -76,12 +76,12 @@ const About = () => (
           <h2 id="what-we-make">What we make</h2>
           <div className="text-lg text-navy-600">
             <p>
-              One platform, TrainingTree Pro, built in two halves: StableTree runs the barn, and TrainingTree
-              Performance conditions the athlete. Take either half, or both together.
+              TrainingTree, one app in three levels: Lite is made for small farms where one person is the owner, the
+              barn manager and the trainer; Pro for growing barns; Performance for racing and competition programmes.
             </p>
             <p className="mt-4">
-              TrainingTree Pro Lite is made for small farms where one person is the owner, the barn manager and the
-              trainer.
+              StableTree is its own app for barns that don’t train, and TrainingTree Veterinary, coming soon, gives
+              vets the records barns share with them.
             </p>
           </div>
         </div>

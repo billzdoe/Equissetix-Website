@@ -97,7 +97,7 @@ const PerformanceScience = () => (
             <InkDrawing id="gait-gallop" tone="dark" alt="Line drawing of a horse at the gallop" />
           </div>
           <figcaption className="mt-4 text-sm text-white/60">
-            The paces, drawn for a Victorian horse manual. TrainingTree Pro reads them from video.
+            The paces, drawn for a Victorian horse manual. TrainingTree reads them from video.
           </figcaption>
         </figure>
         <ul className="mt-10 border-t border-white/15">
@@ -135,15 +135,15 @@ const PerformanceScience = () => (
       <div className="container-custom max-w-3xl">
         <h2 className="text-3xl sm:text-4xl">Where this lives</h2>
         <p className="mt-4 text-lg text-navy-600">
-          The performance tools are TrainingTree Performance on their own, or part of TrainingTree Pro together with
-          the barn and vet records.
+          The performance tools switch on at TrainingTree, and TrainingTree Performance is the level built around
+          racing and competition. Both keep the barn and vet records alongside.
         </p>
         <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <Link to="/products/performance" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
             TrainingTree Performance
           </Link>
-          <Link to="/products/trainingtree-pro" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
-            TrainingTree Pro
+          <Link to="/products/trainingtree" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+            TrainingTree
           </Link>
         </div>
       </div>

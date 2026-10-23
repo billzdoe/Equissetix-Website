@@ -6,9 +6,10 @@ import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
 import { productBySlug } from '../../data/products'
 
-// Lite vs Pro. Lite is positioned for the small farm where the owner is also
-// the barn manager and the trainer (Billy, 2026-10-23). Same platform: moving
-// to Pro switches the performance tools on, with nothing to re-enter.
+// Lite vs Pro, two of TrainingTree's three levels. Lite is positioned for the
+// small farm where the owner is also the barn manager and the trainer (Billy,
+// 2026-10-23). Same app: moving to Pro switches the performance tools on, with
+// nothing to re-enter. Performance (the third level) has its own page.
 const editionRows: { label: string; lite: 'yes' | 'teaser' | string; pro: 'yes' | string }[] = [
   { label: 'Horse records, documents, vet care, medications, vaccinations, body condition', lite: 'yes', pro: 'yes' },
   { label: 'Workout logging, with splits, templates and a calendar', lite: 'yes', pro: 'yes' },
@@ -47,7 +48,8 @@ const ProLiteSlot = () => (
       <p className="text-lg text-navy-600 max-w-3xl mx-auto">
         You own the horses, run the barn and do the training. Lite gives you every record a small farm needs, for up
         to 15 horses, and shows the performance tools as previews. When you want workload, readiness and gait
-        analysis switched on, move to full TrainingTree Pro in place: nothing to move, nothing to re-enter.
+        analysis switched on, move up to Pro in place: nothing to move, nothing to re-enter. Racing and competition
+        programmes go one level further, to Performance, which includes everything in Pro.
       </p>
     </motion.div>
 
@@ -73,7 +75,7 @@ const ProLiteSlot = () => (
         </table>
       </div>
       <div className="bg-navy-50 px-5 py-3 text-xs text-navy-500">
-        Preview: you can see the feature in Lite, and it switches on fully when you move to TrainingTree Pro.
+        Preview: you can see the feature in Lite, and it switches on fully when you move up to Pro.
       </div>
     </div>
   </Section>
@@ -84,9 +86,9 @@ const TrainingTreePro = () => (
     <SEO
       title={pageSEO.productTrainingTreePro.title}
       description={pageSEO.productTrainingTreePro.description}
-      path="/products/trainingtree-pro"
+      path="/products/trainingtree"
     />
-    <ProductPage product={productBySlug('trainingtree-pro')} featureSlot={<ProLiteSlot />} />
+    <ProductPage product={productBySlug('trainingtree')} featureSlot={<ProLiteSlot />} />
   </>
 )
 

@@ -68,7 +68,7 @@ const Science = () => (
       <Beat className="!min-h-[calc(100svh-5rem)] !pb-12">
         <h1 className="max-w-5xl text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7.5rem]">Measured, not guessed.</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-          Everything TrainingTree Pro calculates comes from published equine physiology, applied to each horse’s own
+          Everything TrainingTree calculates comes from published equine physiology, applied to each horse’s own
           records. Here is what we’ve built on it, how we treat missing data, and what we don’t claim.
         </p>
         <p className="mt-4 text-white/80">
@@ -96,7 +96,7 @@ const Science = () => (
           </p>
           <p className="mt-4 text-lg text-white/75">
             Frames 2 and 3 answered it. Instead of arguing from what people thought they saw, Muybridge measured.
-            TrainingTree Pro carries that idea into the barn: measure each horse, then decide.
+            TrainingTree carries that idea into the barn: measure each horse, then decide.
           </p>
         </div>
         <GallopPlate />
@@ -109,7 +109,7 @@ const Science = () => (
           <h2>Built on the anatomy books</h2>
           <p className="max-w-2xl text-lg text-navy-600">
             Vets and trainers have studied how the horse is built and how it moves for centuries. Every measurement in
-            TrainingTree Pro stands on that work, and adds the one thing the old books couldn’t: your own horse’s
+            TrainingTree stands on that work, and adds the one thing the old books couldn’t: your own horse’s
             numbers, every day.
           </p>
         </div>

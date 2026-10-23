@@ -11,8 +11,8 @@ import Button from './Button'
  * click or hover and close on Escape or an outside click. No pricing link:
  * pricing is unpublished (Billy, 2026-10-22).
  *
- * The lineup is a PLATFORM (TrainingTree Pro) that divides into two HALVES.
- * Not three peers — see WEBSITE_REVAMP_PLAN.md F0. Keep Pro first.
+ * The lineup is ONE app (TrainingTree) with three levels, plus StableTree as
+ * its own app (Billy, 2026-10-23). Keep TrainingTree first.
  */
 
 type MenuLink = { path: string; label: string; desc?: string }
@@ -25,12 +25,12 @@ const primary: MenuLink[] = [
 
 const productGroups: { heading: string; links: MenuLink[] }[] = [
   {
-    heading: 'The platform',
+    heading: 'Products',
     links: [
-      { path: '/products/trainingtree-pro', label: 'TrainingTree Pro', desc: 'Performance, vet care and the barn, together.' },
-      { path: '/products/performance', label: 'TrainingTree Performance', desc: 'The training half: workload, readiness, gait, racing.' },
-      { path: '/products/stabletree', label: 'StableTree', desc: 'The barn half: records, health, staff, owners.' },
-      { path: '/products', label: 'Compare the three', desc: 'What’s in each, side by side.' },
+      { path: '/products/trainingtree', label: 'TrainingTree', desc: 'One app, three levels: Lite, Pro and Performance.' },
+      { path: '/products/performance', label: 'TrainingTree Performance', desc: 'The top level: racing and competition programmes.' },
+      { path: '/products/stabletree', label: 'StableTree', desc: 'Its own app for barns that don’t train.' },
+      { path: '/products', label: 'Compare levels', desc: 'What’s in each, side by side.' },
     ],
   },
   {

@@ -78,7 +78,7 @@ export const companyPrinciples: CompanyPrinciple[] = [
   {
     title: 'Care comes with every edition.',
     body:
-      // Checked on live TrainingTree Pro 9d30a01: vitals, medications, emergency
+      // Checked on live TrainingTree 9d30a01: vitals, medications, emergency
       // sheets, incidents and safety share carry no Pro gate. Wellbeing Check
       // and hand-entered alerts reach Lite only with the unpushed re-split
       // (128a407) -- name them here once that is live.

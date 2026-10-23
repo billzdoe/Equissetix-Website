@@ -67,7 +67,7 @@ const MeasuredHorse = ({ className = '' }: { className?: string }) => (
       ))}
     </div>
     <figcaption className="mt-3 text-sm text-white/70">
-      An example clip, read the way TrainingTree Pro reads a side-on phone video. Each clip is checked for frame rate
+      An example clip, read the way TrainingTree reads a side-on phone video. Each clip is checked for frame rate
       and light before anything is measured.
     </figcaption>
   </figure>

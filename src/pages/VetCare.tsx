@@ -38,7 +38,7 @@ const VetCare = () => (
           <div>
             <h1 className="text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7.5rem]">Every vital. Every stride.</h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              TrainingTree Pro reads each horse’s temperature, pulse and breathing against its own normal, and measures
+              TrainingTree reads each horse’s temperature, pulse and breathing against its own normal, and measures
               how it moves from a phone video. A change shows up the morning it starts, for the vet, the trainer and the
               owner alike.
             </p>
@@ -66,7 +66,7 @@ const VetCare = () => (
           <div>
             <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">Gait, measured from a phone video.</h2>
             <p className="mt-6 max-w-md text-lg text-white/85">
-              Film the horse trotting past, side-on. TrainingTree Pro measures its stride frequency, how evenly it
+              Film the horse trotting past, side-on. TrainingTree measures its stride frequency, how evenly it
               moves left and right, and how steady it stays from stride to stride. Two dates play side by side with the
               differences listed.
             </p>
@@ -173,7 +173,7 @@ const VetCare = () => (
             chasing the barn for them.
           </p>
           <Link to="/solutions/veterinarians" className={`mt-4 ${textLink}`}>
-            How vets use TrainingTree Pro
+            How vets use TrainingTree
           </Link>
         </div>
         <div>
@@ -189,8 +189,8 @@ const VetCare = () => (
       <div className="container-custom mt-14 max-w-3xl">
         <p className="text-navy-600">
           Everything on this page comes with{' '}
-          <Link to="/products/trainingtree-pro" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">TrainingTree Pro</Link>.{' '}
-          <Link to="/products/stabletree" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">StableTree</Link>, the barn half on its own, includes the health file, vitals alerts, rehab and body condition, without gait analysis, race entries or the wellbeing check.
+          <Link to="/products/trainingtree" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">TrainingTree</Link>.{' '}
+          <Link to="/products/stabletree" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">StableTree</Link>, the app for barns that don’t train, includes the health file, vitals alerts, rehab and body condition, without gait analysis, race entries or the wellbeing check.
         </p>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 Many soft-tissue injuries in athletes don't come from hard work. They come from **hard work arriving too fast**: a big week after an easy month, a horse back from a break who feels fresh and gets asked for too much.
 
-Sports science has a well-studied way to see that coming, and TrainingTree Pro puts it in front of every workout suggestion it makes.
+Sports science has a well-studied way to see that coming, and TrainingTree puts it in front of every workout suggestion it makes.
 
 ## The workload ratio
 
@@ -10,11 +10,11 @@ The **acute-to-chronic workload ratio** compares what a horse has done lately wi
 
 Near 1.0, a horse is doing what it's used to. A little above, it's building. Well above, the work is rising faster than the horse has been prepared for.
 
-TrainingTree Pro works the ratio out from every logged session, the same way in every chart, card and recommendation. The number on the horse's page is always the number the advice was based on.
+TrainingTree works the ratio out from every logged session, the same way in every chart, card and recommendation. The number on the horse's page is always the number the advice was based on.
 
 ## The gate
 
-Every suggestion, from every part of TrainingTree Pro, passes through the same check before you see it:
+Every suggestion, from every part of TrainingTree, passes through the same check before you see it:
 
 1. **Is work rising too fast?** Then the suggestion eases off.
 2. **Is the horse's readiness red?** Then today is not the day to push.
@@ -32,7 +32,7 @@ When some inputs haven't been measured, the score says which ones it used and wh
 
 ## Programs that adapt, session by session
 
-TrainingTree Pro's conditioning programs for base fitness, eventing, endurance, flat racing, show jumping and dressage follow the published structure of conditioning: a base of long, slow work before strength and speed, gradual increases, and a lighter week every few weeks (Clayton 1991; Marlin & Nankervis 2002).
+TrainingTree's conditioning programs for base fitness, eventing, endurance, flat racing, show jumping and dressage follow the published structure of conditioning: a base of long, slow work before strength and speed, gradual increases, and a lighter week every few weeks (Clayton 1991; Marlin & Nankervis 2002).
 
 The difference is that each session is fitted to the horse it's for. When a horse's work is rising fast, readiness is red or a rehab plan is active, the session changes, and **every change is listed with its reason**.
 

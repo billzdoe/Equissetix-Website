@@ -5,7 +5,7 @@ import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 /**
  * For veterinarians. Rewritten 2026-10-22: the previous page promised
  * "real-time" gait analysis and automated vet notifications the product does
- * not have. Every line below maps to a live TrainingTree Pro feature.
+ * not have. Every line below maps to a live TrainingTree feature.
  */
 
 const data: SolutionData = {
@@ -75,9 +75,9 @@ const data: SolutionData = {
     },
   ],
   recommend: {
-    slug: 'trainingtree-pro',
+    slug: 'trainingtree',
     reason:
-      'Baselines, rehab gates and gait video depend on the training records, so they live in TrainingTree Pro. Most vets get access through the barns they already work with; a practice that boards or rehabs horses can run it directly.',
+      'Baselines, rehab gates and gait video depend on the training records, so they live in TrainingTree. Most vets get access through the barns they already work with, and TrainingTree Veterinary, an app of their own, is coming soon; a practice that boards or rehabs horses can run TrainingTree directly.',
     alsoSee: {
       slug: 'stabletree',
       reason: 'For a barn that needs the health file and vitals alerts without the training tools,',

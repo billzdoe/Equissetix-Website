@@ -1,8 +1,8 @@
-# Gait Analysis in TrainingTree Pro: Video, Sensors and Symmetry
+# Gait Analysis in TrainingTree: Video, Sensors and Symmetry
 
 How a horse moves is one of the most useful things a trainer, rider or vet can track. Small changes in rhythm or evenness are worth noticing, and they're far easier to notice when you can compare one week with another side by side.
 
-TrainingTree Pro gives you two ways to record movement, a phone video and phone sensors, and keeps every result on the horse's record. This article explains what each one tells you and why it matters.
+TrainingTree gives you two ways to record movement, a phone video and phone sensors, and keeps every result on the horse's record. This article explains what each one tells you and why it matters.
 
 ## Video gait analysis
 
@@ -50,10 +50,10 @@ Every analysis is stored on the horse's record and graded from minimal to severe
 
 ## Where gait fits in
 
-Gait results sit alongside the rest of the horse's record in TrainingTree Pro: training load, readiness, vet examinations and rehab plans. A change in movement can be read against what the horse has been doing, and while a rehab plan is active, training suggestions stay within its stage.
+Gait results sit alongside the rest of the horse's record in TrainingTree: training load, readiness, vet examinations and rehab plans. A change in movement can be read against what the horse has been doing, and while a rehab plan is active, training suggestions stay within its stage.
 
 ---
 
-*Gait analysis in TrainingTree Pro is a record-keeping and comparison tool. It does not diagnose lameness and is not a substitute for examination by a veterinarian.*
+*Gait analysis in TrainingTree is a record-keeping and comparison tool. It does not diagnose lameness and is not a substitute for examination by a veterinarian.*
 
 *See gait analysis on your own horses. [Join the pilot program](/contact).*

@@ -14,7 +14,7 @@ const AnimatedPlatformShowcase = ({
   desktopImage,
   mobileImage,
   tabletImage,
-  title = "See TrainingTree Pro in Action",
+  title = "See TrainingTree in Action",
   description = "Powerful desktop analytics, mobile QR scanning, seamless sync across all devices"
 }: PlatformShowcaseProps) => {
   const containerRef = useRef<HTMLDivElement>(null)

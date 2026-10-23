@@ -4,7 +4,7 @@ import { Pause, Play } from 'lucide-react'
 
 /**
  * The hero: three weeks of one example horse, scrubbable day by day, showing
- * TrainingTree Pro reacting. (Billy, 2026-10-22: the Muybridge plate didn't
+ * TrainingTree reacting. (Billy, 2026-10-22: the Muybridge plate didn't
  * say what the product does.)
  *
  * The numbers are COMPUTED here, not typed in, with the app's own rules:
@@ -288,7 +288,7 @@ const HorseStory = () => {
       </div>
 
       <figcaption className="border-t border-navy-200 px-4 py-3 text-xs text-navy-500 sm:px-5">
-        An example horse. Numbers are worked out with TrainingTree Pro’s rules, simplified for this page.{' '}
+        An example horse. Numbers are worked out with TrainingTree’s rules, simplified for this page.{' '}
         <Link to="/guide#readiness" className="font-semibold text-brand-600 underline underline-offset-2 hover:text-brand-700">
           What these numbers mean
         </Link>

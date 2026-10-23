@@ -2,7 +2,7 @@
  * Performance, vet care and science copy, one source for Home, /performance,
  * /vet-care and /science.
  *
- * Every line here was checked against the live TrainingTree Pro code
+ * Every line here was checked against the live TrainingTree code
  * (CAPABILITIES.md and the services named in `source`) on 2026-10-22.
  * Same rule as products.ts: production features are stated plainly; anything
  * that needs setup or is still in testing carries a `status` and the pages
@@ -65,7 +65,7 @@ export const breakthroughs: Breakthrough[] = [
     id: 'video-gait',
     title: 'Gait analysis from a phone video',
     summary:
-      'Film the horse trotting past on a phone. TrainingTree Pro measures its rhythm, how evenly it moves left and right, and how steady it stays from stride to stride, and plays two dates side by side.',
+      'Film the horse trotting past on a phone. TrainingTree measures its rhythm, how evenly it moves left and right, and how steady it stays from stride to stride, and plays two dates side by side.',
     matters:
       'Slight unevenness is hard to see by eye. A measured record you can compare gives the vet something specific to examine, and footage that’s too poor to measure is marked, not trusted.',
     basis: 'Compared against each horse’s own sound baseline',
@@ -76,7 +76,7 @@ export const breakthroughs: Breakthrough[] = [
     id: 'track-or-horse',
     title: 'Is it the track, or is it the horse?',
     summary:
-      'TrainingTree Pro reads the going from how your own horses have run, after allowing for how hard they’ve been worked and how rested they are.',
+      'TrainingTree reads the going from how your own horses have run, after allowing for how hard they’ve been worked and how rested they are.',
     matters:
       'You can see when a “slow track” is really a tired horse. A reading built on a single horse is marked low confidence.',
     basis: 'Each horse’s own form, with every allowance listed',

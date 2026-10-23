@@ -11,7 +11,7 @@ import { TopicHero, CloseCTA } from '../components/TopicPage'
  * "patent-pending ACWR science" (the provisional covers other methods), and
  * promised "10x faster", "100% offline" and released iOS and Android apps.
  * The page now compares a barn's own paper-and-spreadsheet week with the same
- * week on TrainingTree Pro, and keeps the editable time estimate.
+ * week on TrainingTree, and keeps the editable time estimate.
  */
 
 const changes = [
@@ -51,7 +51,7 @@ const Compare = () => (
   <div className="pt-20">
     <SEO title={pageSEO.compare.title} description={pageSEO.compare.description} path="/compare" />
 
-    <TopicHero title="Your barn today, and on TrainingTree Pro.">
+    <TopicHero title="Your barn today, and on TrainingTree.">
       <p>
         What changes when the records, the vitals and the training all live in one place, and why each change matters to
         the horse.
@@ -70,8 +70,8 @@ const Compare = () => (
           ))}
         </ul>
         <p className="mt-14 max-w-3xl text-lg text-navy-600">
-          This is TrainingTree Pro, the whole platform. StableTree is the barn half on its own, and TrainingTree
-          Performance is the training half.{' '}
+          This is TrainingTree, in any of its three levels. StableTree is the barn on its own, for barns that don’t
+          train.{' '}
           <Link to="/products" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
             See what’s in each
           </Link>

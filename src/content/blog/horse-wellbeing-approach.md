@@ -2,7 +2,7 @@
 
 Ask ten horse people whether a horse is doing well and you'll get ten good answers, each built on a different part of the picture. The groom knows he cleaned up his feed. The manager knows he went out with his friends. The vet knows his vaccinations are current. The trainer knows he's had two easy days. Nobody holds the whole picture at once.
 
-TrainingTree Pro does. Its **Wellbeing Check** pulls together the records a barn already keeps and lays them out on one of the most widely used welfare frameworks in animal science, so everyone around the horse sees the same picture.
+TrainingTree does. Its **Wellbeing Check** pulls together the records a barn already keeps and lays them out on one of the most widely used welfare frameworks in animal science, so everyone around the horse sees the same picture.
 
 ## Why the Five Domains
 
@@ -16,7 +16,7 @@ We built the Wellbeing Check on it for three reasons:
 
 ## What the check looks at
 
-Each part comes from records that already exist in the barn's day-to-day work in TrainingTree Pro.
+Each part comes from records that already exist in the barn's day-to-day work in TrainingTree.
 
 **Nutrition**
 - **Body condition:** the latest Henneke score. The ideal range is 4 to 6.
@@ -45,7 +45,7 @@ Barns keep records differently. One logs every feed; another tracks turnout on a
 
 So the Wellbeing Check follows three rules:
 
-1. **A part with no records is left out, never scored as zero.** If your barn doesn't log turnout in TrainingTree Pro, the turnout part simply doesn't appear.
+1. **A part with no records is left out, never scored as zero.** If your barn doesn't log turnout in TrainingTree, the turnout part simply doesn't appear.
 2. **Every domain counts equally.** A domain with five records can't drown out a domain with one. Weighting one area of a horse's life over another is a welfare judgement we leave to you and your vet.
 3. **The overall result needs enough evidence.** With fewer than three scored parts, or fewer than two scored domains, the check tells you what it needs instead of producing a number.
 
@@ -62,13 +62,13 @@ The Wellbeing Check is a records-based view of a horse's welfare. It doesn't rep
 
 ## Part of a bigger picture
 
-Wellbeing in TrainingTree Pro doesn't stop at the check. It runs through the whole platform:
+Wellbeing in TrainingTree doesn't stop at the check. It runs through the whole platform:
 
 - **Vitals against each horse's own normal.** Temperature and resting pulse are compared with that horse's own normal, so a fever shows up even when the reading looks "normal" in a textbook.
 - **Rehab plans that hold the line.** While a plan is active, every training suggestion stays inside its stage.
 - **Feed that follows the work,** set from the horse's logged workload using the National Research Council's *Nutrient Requirements of Horses* (2007).
 
-Good horse care has always depended on people who notice. TrainingTree Pro gives everyone around the horse the same view, every morning.
+Good horse care has always depended on people who notice. TrainingTree gives everyone around the horse the same view, every morning.
 
 ---
 

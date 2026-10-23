@@ -58,7 +58,7 @@ export const pageSEO = {
     description: 'Vitals read against each horse’s own 30-day normal, gait measured from phone video, plus vet exams, medication withdrawal, rehab plans, body condition and a Five Domains wellbeing check.',
   },
   guide: {
-    title: 'The Numbers, Explained — Workload, Readiness & More | TrainingTree Pro',
+    title: 'The Numbers, Explained — Workload, Readiness & More | TrainingTree',
     description: 'Plain-language explanations of workload, the workload ratio, readiness, baselines, gait symmetry, body condition and the Wellbeing Check: what each is, why it matters and what to do with it.',
   },
   science: {
@@ -67,36 +67,35 @@ export const pageSEO = {
   },
   pricing: {
     title: 'Pricing — Equissetix',
-    description: 'Take the half of the platform you need, or both. Plans sized from a single barn to a full racing stable, upgrading in place.',
+    description: 'TrainingTree in three levels, Lite, Pro and Performance, from a single barn to a full racing stable, upgrading in place.',
   },
   contact: {
     title: 'Pilot Program — Equissetix',
-    description: 'Apply to join the TrainingTree Pro pilot program: use it with your own horses, work directly with the team that builds it, and help shape what comes next.',
+    description: 'Apply to join the TrainingTree pilot program: use it with your own horses, work directly with the team that builds it, and help shape what comes next.',
   },
   about: {
     title: 'About Equissetix',
     description: 'Equissetix is a Kentucky company building the science of horse care into everyday software: the problems we work on, what we make and how we work.',
   },
 
-  // Products — the platform and its two halves.
-  // Framing rule (see WEBSITE_REVAMP_PLAN.md F0): TrainingTree Pro IS the
-  // platform; StableTree and Performance are the halves it divides into.
-  // Never describe these as three co-equal products.
+  // Products (Billy, 2026-10-23): TrainingTree is one app with three levels
+  // (Lite, Pro, Performance); StableTree is a separate app for barns that
+  // don't train.
   products: {
-    title: 'Products — One Platform, Two Halves | Equissetix',
-    description: 'TrainingTree Pro runs the barn and conditions the athlete. Need only one half? Take StableTree or Performance on its own — and add the other in place later.',
+    title: 'Products — One App, Three Levels | Equissetix',
+    description: 'TrainingTree runs the barn and conditions the athlete, in three levels: Lite, Pro and Performance. Move up in place. StableTree is its own app for barns that don’t train.',
   },
   productStableTree: {
     title: 'StableTree — Run the Whole Barn | Equissetix',
     description: 'Stable management, compliance, records, staff, and money in one system. Vaccinations, Coggins, farrier dates, stalls, shifts, invoices, and owner updates, all on time.',
   },
   productTrainingTreePro: {
-    title: 'TrainingTree Pro — The Complete Platform | Equissetix',
-    description: 'Run the barn and condition the athlete in one platform. TrainingTree Pro Lite is made for small farms where the owner runs the barn and does the training.',
+    title: 'TrainingTree — One App, Three Levels | Equissetix',
+    description: 'Run the barn and condition the athlete in one app. Lite is made for small farms where the owner runs the barn and does the training; Pro and Performance switch on the performance science.',
   },
   productPerformance: {
-    title: 'TrainingTree Performance — Condition the Athlete | Equissetix',
-    description: 'Peer-reviewed equine sports science: ACWR/TRIMP training load, daily readiness, injury-risk, video gait analysis, wearables, and racing operations.',
+    title: 'TrainingTree Performance — The Top Level for Racing & Competition | Equissetix',
+    description: 'The top level of TrainingTree, for racing and competition programmes: training load, daily readiness, injury-risk grading, video gait analysis and racing operations, with the whole barn behind them.',
   },
 
   // Why Equissetix
@@ -123,15 +122,15 @@ export const pageSEO = {
     description: 'A complete file on every horse from foaling to sale: health, identity, pedigree, ownership shares, and care history across the whole herd. Sale- and vetting-ready.',
   },
   solutionsRacingTrainers: {
-    title: 'For Trainers — Workload, Readiness & Gait | TrainingTree Pro',
+    title: 'For Trainers — Workload, Readiness & Gait | TrainingTree',
     description: 'Know which horse is ready to work and which needs the day: workload ratio, daily readiness, adaptive conditioning programs and gait video, for racing and sport horses.',
   },
   solutionsHorseOwners: {
-    title: 'For Horse Owners — Your Horse’s Health & Work | TrainingTree Pro',
+    title: 'For Horse Owners — Your Horse’s Health & Work | TrainingTree',
     description: 'Follow your horse’s health, care and work through your barn’s owner portal, and ask the barn for turnout, grooming, the farrier or the vet in writing.',
   },
   solutionsVeterinarians: {
-    title: 'For Veterinarians — Vitals, Rehab & Gait Between Visits | TrainingTree Pro',
+    title: 'For Veterinarians — Vitals, Rehab & Gait Between Visits | TrainingTree',
     description: 'Vitals against each horse’s own baseline, exam and medication history with withdrawal times, rehab plans that cap training, and side-by-side gait video.',
   },
   solutionsStableManagers: {
@@ -208,7 +207,7 @@ export const pageSEO = {
   },
   compare: {
     title: 'Compare - Equissetix',
-    description: 'What changes when your barn runs on TrainingTree Pro instead of paper and spreadsheets, why each change matters, and an editable estimate of the time you get back.',
+    description: 'What changes when your barn runs on TrainingTree instead of paper and spreadsheets, why each change matters, and an editable estimate of the time you get back.',
   },
 
   // Legal & policy
@@ -222,7 +221,7 @@ export const pageSEO = {
   },
   security: {
     title: 'Security - Equissetix',
-    description: 'How TrainingTree Pro keeps your barn’s data safe: two-factor sign-in, per-horse access, logged sharing and encrypted connections.',
+    description: 'How TrainingTree keeps your barn’s data safe: two-factor sign-in, per-horse access, logged sharing and encrypted connections.',
   },
 
   // Fallback

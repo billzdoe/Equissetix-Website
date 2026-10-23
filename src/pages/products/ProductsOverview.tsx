@@ -8,7 +8,7 @@ import FarmPattern from '../../components/FarmPattern'
 import PlatformLineup from '../../components/PlatformLineup'
 import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
-import { halfProducts, comparisonMatrix, type MatrixCell } from '../../data/products'
+import { appProduct, performanceLevel, stableProduct, comparisonMatrix, type MatrixCell } from '../../data/products'
 
 const accentDot: Record<string, string> = {
   green: 'bg-brand-600',
@@ -54,27 +54,27 @@ const ProductsOverview = () => {
           className="relative z-10 max-w-4xl mx-auto"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6 leading-[1.05]">
-            Take the half you need. <span className="text-gradient">Or both.</span>
+            One app. <span className="text-gradient">Three levels.</span>
           </h1>
           <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            <strong>TrainingTree Pro</strong> is the whole platform: it runs the barn <em>and</em> conditions
-            the athlete. Only need one side? <strong>StableTree</strong> is the barn half and{' '}
-            <strong>Performance</strong> is the training half—each sold on its own, each able to add the other
-            later without re-entering a thing.
+            <strong>TrainingTree</strong> runs the barn <em>and</em> conditions the athlete. Start on{' '}
+            <strong>Lite</strong>, <strong>Pro</strong> or <strong>Performance</strong>, and move up in place with
+            everything you’ve logged carried over. Barns that don’t train have their own app,{' '}
+            <strong>StableTree</strong>.
           </p>
         </motion.div>
       </Section>
 
-      {/* The platform and its two halves */}
+      {/* The app, its three levels, and the separate apps */}
       <Section background="white" className="relative">
         <FarmPattern variant="fields" opacity={0.03} color="#0F5132" animated={false} />
         <div className="relative z-10">
           <PlatformLineup showCompare={false} />
         </div>
 
-        {/* Who each half is for */}
-        <div className="relative z-10 mt-12 max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
-          {halfProducts.map((p, i) => (
+        {/* Who each one is for */}
+        <div className="relative z-10 mt-12 max-w-4xl mx-auto grid sm:grid-cols-3 gap-6">
+          {[appProduct, performanceLevel, stableProduct].map((p, i) => (
             <motion.div
               key={p.slug}
               initial={{ opacity: 0, y: 16 }}
@@ -85,9 +85,7 @@ const ProductsOverview = () => {
             >
               <div className="flex items-center gap-2 mb-2">
                 <span className={`w-2 h-2 rounded-full ${accentDot[p.accent]}`} />
-                <span className="text-sm font-semibold text-navy-400">
-                  {p.half === 'barn' ? 'The barn half' : 'The training half'}
-                </span>
+                <span className="text-sm font-semibold text-navy-400">{p.tagline}</span>
               </div>
               <h2 className="text-xl font-bold text-navy-900 mb-2">{p.name}</h2>
               <p className="text-sm text-navy-600 leading-relaxed mb-3">{p.oneLiner}</p>
@@ -110,12 +108,12 @@ const ProductsOverview = () => {
           <h3 className="text-2xl font-bold text-navy-900">Lite: for the small farm where you do it all</h3>
           <p className="mt-3 text-navy-700">
             If you own the horses, run the barn and train them yourself, you need one place for all of it, not three
-            systems. TrainingTree Pro Lite keeps every record a small farm runs on, for up to 15 horses: health and
+            systems. TrainingTree Lite keeps every record a small farm runs on, for up to 15 horses: health and
             vet care, feed and turnout, workouts, the books and owner updates. The performance tools appear as
-            previews, so you can see what they would show for your horses, and switching on full TrainingTree Pro
-            is instant, with everything you’ve logged carried over.
+            previews, so you can see what they would show for your horses, and moving up to Pro is instant, with
+            everything you’ve logged carried over.
           </p>
-          <Link to="/products/trainingtree-pro#lite" className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+          <Link to="/products/trainingtree#lite" className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
             What’s in Lite
           </Link>
         </div>
@@ -129,9 +127,9 @@ const ProductsOverview = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What&rsquo;s in each half</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What&rsquo;s in each level</h2>
           <p className="text-lg text-navy-600 max-w-2xl mx-auto">
-            Pro is both halves together — its column is the union of the other two. We show our work, including what needs setup.
+            Each level of TrainingTree includes the one before it. StableTree is the barn on its own. We show our work, including what needs setup.
           </p>
         </motion.div>
 
@@ -143,10 +141,10 @@ const ProductsOverview = () => {
                   <th className="py-4 px-5 text-left text-sm font-bold text-navy-700 bg-navy-50 sticky left-0">
                     Capability
                   </th>
-                  <th className="py-4 px-3 text-center text-sm font-bold text-brand-700 bg-brand-50">StableTree</th>
+                  <th className="py-4 px-3 text-center text-sm font-bold text-navy-700 bg-navy-50">Lite</th>
+                  <th className="py-4 px-3 text-center text-sm font-bold text-gold-700 bg-gold-50">Pro</th>
                   <th className="py-4 px-3 text-center text-sm font-bold text-teal-700 bg-teal-50">Performance</th>
-                  <th className="py-4 px-3 text-center text-sm font-bold text-navy-700 bg-navy-50">Lite (small farms)</th>
-                  <th className="py-4 px-3 text-center text-sm font-bold text-gold-700 bg-gold-50">TT Pro</th>
+                  <th className="py-4 px-3 text-center text-sm font-bold text-brand-700 bg-brand-50">StableTree</th>
                 </tr>
               </thead>
               {Object.entries(grouped).map(([category, rows]) => (
@@ -159,10 +157,10 @@ const ProductsOverview = () => {
                     {rows.map((row, i) => (
                       <tr key={row.name} className={`border-b border-navy-50 ${i % 2 ? 'bg-navy-50/30' : 'bg-white'}`}>
                         <td className="py-3 px-5 text-sm text-navy-700">{row.name}</td>
-                        <td className="py-3 px-3 text-center"><MatrixValue value={row.stabletree} /></td>
-                        <td className="py-3 px-3 text-center"><MatrixValue value={row.performance} /></td>
-                        <td className="py-3 px-3 text-center"><MatrixValue value={row.proLite} /></td>
+                        <td className="py-3 px-3 text-center"><MatrixValue value={row.lite} /></td>
                         <td className="py-3 px-3 text-center bg-gold-50/30"><MatrixValue value={row.pro} /></td>
+                        <td className="py-3 px-3 text-center"><MatrixValue value={row.performance} /></td>
+                        <td className="py-3 px-3 text-center"><MatrixValue value={row.stabletree} /></td>
                       </tr>
                     ))}
                 </tbody>
@@ -182,42 +180,42 @@ const ProductsOverview = () => {
       <Section id="chooser" background="white" className="relative">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">How much do you need?</h2>
-          <p className="text-navy-600 mb-8">The barn half, the training half, the whole platform, or Lite for a small farm. Whichever you start with, you can add the rest in place.</p>
+          <p className="text-navy-600 mb-8">Three levels of TrainingTree, or StableTree for a barn that doesn’t train. Start where you fit and move up in place.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-            <Card variant="bordered" className="h-full">
-              <p className="text-sm font-semibold text-navy-400 mb-2">The barn half</p>
-              <p className="text-sm text-navy-700 mb-4">
-                You board, breed, teach, or run a sport-horse yard and just need the barn to run right.
-              </p>
-              <Link to="/products/stabletree" className="text-sm font-semibold text-brand-600 hover:text-brand-700">
-                → StableTree
-              </Link>
-            </Card>
-            <Card variant="bordered" className="h-full">
-              <p className="text-sm font-semibold text-navy-400 mb-2">The training half</p>
-              <p className="text-sm text-navy-700 mb-4">
-                You want training load, gait, readiness, and racing ops — someone else handles the books.
-              </p>
-              <Link to="/products/performance" className="text-sm font-semibold text-teal-700 hover:text-teal-800">
-                → Performance
-              </Link>
-            </Card>
-            <Card variant="bordered" className="h-full">
-              <p className="text-sm font-semibold text-navy-400 mb-2">Both: the whole platform</p>
-              <p className="text-sm text-navy-700 mb-4">
-                You run the operation and condition racehorses, and want it all in one place.
-              </p>
-              <Link to="/products/trainingtree-pro" className="text-sm font-semibold text-gold-700 hover:text-gold-800">
-                → TrainingTree Pro
-              </Link>
-            </Card>
             <Card variant="bordered" className="h-full">
               <p className="text-sm font-semibold text-navy-400 mb-2">A small farm</p>
               <p className="text-sm text-navy-700 mb-4">
                 You own the horses, run the barn and do the training yourself, with up to 15 horses.
               </p>
-              <Link to="/products/trainingtree-pro#lite" className="text-sm font-semibold text-gold-700 hover:text-gold-800">
-                → TrainingTree Pro Lite
+              <Link to="/products/trainingtree#lite" className="text-sm font-semibold text-gold-700 hover:text-gold-800">
+                → TrainingTree Lite
+              </Link>
+            </Card>
+            <Card variant="bordered" className="h-full">
+              <p className="text-sm font-semibold text-navy-400 mb-2">A growing barn</p>
+              <p className="text-sm text-navy-700 mb-4">
+                You run the operation and train, and want workload, readiness and gait switched on.
+              </p>
+              <Link to="/products/trainingtree" className="text-sm font-semibold text-gold-700 hover:text-gold-800">
+                → TrainingTree Pro
+              </Link>
+            </Card>
+            <Card variant="bordered" className="h-full">
+              <p className="text-sm font-semibold text-navy-400 mb-2">Racing and competition</p>
+              <p className="text-sm text-navy-700 mb-4">
+                You condition racehorses or competition horses and run the barn behind them.
+              </p>
+              <Link to="/products/performance" className="text-sm font-semibold text-teal-700 hover:text-teal-800">
+                → TrainingTree Performance
+              </Link>
+            </Card>
+            <Card variant="bordered" className="h-full">
+              <p className="text-sm font-semibold text-navy-400 mb-2">A barn that doesn’t train</p>
+              <p className="text-sm text-navy-700 mb-4">
+                You board, breed, teach, or run a sport-horse yard and just need the barn to run right.
+              </p>
+              <Link to="/products/stabletree" className="text-sm font-semibold text-brand-600 hover:text-brand-700">
+                → StableTree
               </Link>
             </Card>
           </div>

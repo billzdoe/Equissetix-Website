@@ -149,14 +149,15 @@ const Home = () => (
     <section id="what-we-make" className="section-padding scroll-mt-20 bg-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-          <h2>One platform for the horse and the barn.</h2>
+          <h2>One app for the horse and the barn.</h2>
           <div className="text-lg text-navy-600">
             <p>
-              TrainingTree Pro is the whole platform. Take the barn half, StableTree, the training half, TrainingTree
-              Performance, or both together.
+              TrainingTree runs the barn and conditions the athlete, in three levels: Lite for the small farm where
+              one person does it all, Pro for growing barns, and Performance for racing and competition programmes.
             </p>
             <p className="mt-4">
-              Small farms where the owner is also the barn manager and the trainer start on TrainingTree Pro Lite.
+              Barns that don’t train have their own app, StableTree, and vets are getting theirs: TrainingTree
+              Veterinary.
             </p>
           </div>
         </div>
@@ -179,7 +180,7 @@ const Home = () => (
             <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">Watch it catch a problem.</h2>
             <p className="mt-6 max-w-md text-lg text-white/85">
               Juniper is an example eventer. Press play on her three weeks, or drag through the days, and see the day
-              her workload climbs and a fever shows up, and what TrainingTree Pro tells you to do.
+              her workload climbs and a fever shows up, and what TrainingTree tells you to do.
             </p>
           </div>
           <HorseStory />
@@ -308,7 +309,7 @@ const Home = () => (
       <div className="container-custom relative section-padding">
         <h2 className="max-w-2xl text-6xl leading-[0.92] text-white sm:text-7xl">Breakthroughs</h2>
         <p className="mt-6 max-w-xl text-lg text-white/80">
-          Advances in equine science that TrainingTree Pro brings out of the lab and into the barn. Each one builds on
+          Advances in equine science that TrainingTree brings out of the lab and into the barn. Each one builds on
           published research, and each one runs on your own horses’ data.
         </p>
         <ul className="mt-14 grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-2">

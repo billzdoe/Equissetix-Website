@@ -105,7 +105,7 @@ const GaitSymmetryShowcase = () => {
             </h2>
             <p className="text-lg sm:text-xl text-charcoal-700 max-w-3xl mx-auto">
               Detect lameness early with real-time left-right balance monitoring.
-              TrainingTree Pro analyzes every stride to catch problems before they become serious injuries.
+              TrainingTree analyzes every stride to catch problems before they become serious injuries.
             </p>
           </motion.div>
         </div>

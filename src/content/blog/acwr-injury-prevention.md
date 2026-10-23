@@ -2,19 +2,19 @@
 
 Every trainer manages training load, whether or not they call it that. You know when a horse has had a big week, when it's had a few easy days, and when it's coming back from a break. Training-load monitoring puts numbers on that judgement, so you can see the trend at a glance and share it with everyone involved in the horse's care.
 
-This article explains what TrainingTree Pro measures, and why each measure matters to the horse.
+This article explains what TrainingTree measures, and why each measure matters to the horse.
 
 ## The load of a single session
 
 A session's load depends on how long the horse worked and how hard. Forty minutes of steady hacking and ten minutes of fast work can both be hard days for different reasons. Workload puts them on the same scale.
 
-Where you record heart rate, TrainingTree Pro uses it to tell how hard each minute really was for that horse, so the same session counts differently for a fit horse and an unfit one. Without heart rate, the load is estimated and clearly labelled as an estimate.
+Where you record heart rate, TrainingTree uses it to tell how hard each minute really was for that horse, so the same session counts differently for a fit horse and an unfit one. Without heart rate, the load is estimated and clearly labelled as an estimate.
 
 **Why it matters:** horses get fitter when they're asked for a little more than they're used to, and get hurt when they're asked for a lot more too soon. You can only manage that balance if the work is counted.
 
 ## Fitness and fatigue
 
-A single session tells you little on its own. What matters is how sessions add up over time. TrainingTree Pro shows two views of the same work:
+A single session tells you little on its own. What matters is how sessions add up over time. TrainingTree shows two views of the same work:
 
 - **Fatigue:** how much the horse has done lately. It rises and falls quickly.
 - **Fitness:** what the horse has built over the season. It moves slowly.
@@ -29,7 +29,7 @@ Research in human athletes, including Hulin and colleagues (*British Journal of 
 
 **Why it matters:** the ratio shows a jump in work while there's still time to ease off, before the horse pays for it. It's a guide for the trainer's judgement, not a diagnosis, and the app shows it that way.
 
-TrainingTree Pro calculates the ratio the same way in every chart, card and suggestion, so the number on the horse's page is always the number the advice was based on, and it waits until there's enough logged work for the ratio to mean something.
+TrainingTree calculates the ratio the same way in every chart, card and suggestion, so the number on the horse's page is always the number the advice was based on, and it waits until there's enough logged work for the ratio to mean something.
 
 ## How the numbers are used in the app
 
@@ -40,7 +40,7 @@ Each horse shows its fatigue, fitness and workload ratio, with a plain trend lab
 The **readiness score** (0 to 100) brings together health, training load, recovery since the last hard session and injury risk, shown green, yellow or red. It lists which inputs were measured and which were not.
 
 ### Before any workout suggestion
-Every suggestion in TrainingTree Pro passes the same safety check first. If work is rising too fast, readiness is red, or the horse has an active rehab plan, the suggestion is made lighter, and the reason is shown.
+Every suggestion in TrainingTree passes the same safety check first. If work is rising too fast, readiness is red, or the horse has an active rehab plan, the suggestion is made lighter, and the reason is shown.
 
 ### In training plans
 Generated plans build work up gradually and leave recovery time after hard sessions.

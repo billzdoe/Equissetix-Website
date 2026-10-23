@@ -73,7 +73,7 @@ const data: SolutionData = {
     reason:
       'StableTree covers the barn: care, compliance, staff, money and owners. It is the place to start if your horses aren’t in competition work.',
     alsoSee: {
-      slug: 'trainingtree-pro',
+      slug: 'trainingtree',
       reason: 'If you train or condition horses for competition as well,',
     },
   },

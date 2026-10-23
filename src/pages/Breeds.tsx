@@ -35,7 +35,7 @@ const breeds: Record<Breed, BreedInfo> = {
   thoroughbred: {
     name: 'Thoroughbred',
     tagline: 'Speed, athleticism, and racing excellence',
-    description: 'The premier racing breed known for speed, stamina, and competitive spirit. TrainingTree Pro optimizes flat racing performance with ACWR load management, speed metrics, and race-day analytics.',
+    description: 'The premier racing breed known for speed, stamina, and competitive spirit. TrainingTree optimizes flat racing performance with ACWR load management, speed metrics, and race-day analytics.',
     primaryDisciplines: ['Flat Racing', 'Eventing', 'Show Jumping', 'Polo', 'Fox Hunting'],
     physicalTraits: [
       'Hot-blooded temperament',
@@ -489,7 +489,7 @@ const Breeds = () => {
         >
           <h2 className="text-4xl font-bold mb-6">Optimize Your Breed's Performance</h2>
           <p className="text-xl text-slate-700 mb-8">
-            TrainingTree Pro adapts to your breed's unique characteristics with specialized analytics and training tools
+            TrainingTree adapts to your breed's unique characteristics with specialized analytics and training tools
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button to="/disciplines" variant="secondary" size="lg">

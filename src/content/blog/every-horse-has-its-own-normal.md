@@ -2,11 +2,11 @@
 
 Textbooks put an adult horse's resting temperature at about 99 to 101 °F and resting pulse at about 28 to 44 beats a minute. Those ranges are right for horses in general. They're not right for your horse in particular.
 
-A horse that usually runs at 99.0 °F and reads 100.6 °F this morning is inside the textbook range. He's also 1.6 degrees above his own normal, and that's worth a look. TrainingTree Pro is built to catch exactly that.
+A horse that usually runs at 99.0 °F and reads 100.6 °F this morning is inside the textbook range. He's also 1.6 degrees above his own normal, and that's worth a look. TrainingTree is built to catch exactly that.
 
 ## How it works
 
-Every temperature, pulse and respiration reading goes into the horse's record, whether it comes from a sensor, a barn walk or a thermometer read on the shed row. From those readings TrainingTree Pro learns each horse's **own normal**, then checks every new reading against it. A rise in temperature or resting pulse that's meaningful for that horse is flagged, and a quick second reading confirms it before anyone is called out.
+Every temperature, pulse and respiration reading goes into the horse's record, whether it comes from a sensor, a barn walk or a thermometer read on the shed row. From those readings TrainingTree learns each horse's **own normal**, then checks every new reading against it. A rise in temperature or resting pulse that's meaningful for that horse is flagged, and a quick second reading confirms it before anyone is called out.
 
 A horse without enough readings yet isn't flagged against a guess; the app learns its normal first.
 
@@ -26,7 +26,7 @@ Every flag says where its reading came from (a hand reading, a sensor or a barn 
 
 ## The rest of the health file
 
-Baselines are one part of a complete health record in TrainingTree Pro and StableTree:
+Baselines are one part of a complete health record in TrainingTree and StableTree:
 
 - Vet examinations from pre-purchase to emergency, with flexion, cardiac, respiratory and dental findings.
 - Vaccinations and deworming on separate schedules with their own reminders.

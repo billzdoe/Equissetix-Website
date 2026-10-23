@@ -71,9 +71,9 @@ const data: SolutionData = {
   recommend: {
     slug: 'stabletree',
     reason:
-      'StableTree is the barn half: rounds, health records, turnout, staff, stock and owners, with nothing you have to navigate around.',
+      'StableTree is the barn on its own: rounds, health records, turnout, staff, stock and owners, with nothing you have to navigate around.',
     alsoSee: {
-      slug: 'trainingtree-pro',
+      slug: 'trainingtree',
       reason: 'If horses in your barn are also in serious work and the trainer wants workload and readiness in the same system,',
     },
   },

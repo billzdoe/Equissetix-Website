@@ -4,7 +4,7 @@ import { TopicHero, CloseCTA } from '../components/TopicPage'
 
 /**
  * /security. Rewritten 2026-10-22 so every line matches what the
- * TrainingTree Pro code and hosting actually do (checked in the live repo,
+ * TrainingTree code and hosting actually do (checked in the live repo,
  * 1d094fe): bcrypt, authenticator 2FA with backup codes, 30-minute access
  * tokens renewing for 14 days, sign-in IP logging, rate-limited sign-in and
  * sign-up, per-horse permissions, append-only audit trails
@@ -67,7 +67,7 @@ const Security = () => (
 
     <TopicHero title="How we keep your barn’s data safe.">
       <p>
-        Health records, workouts and owner details are sensitive. Here is exactly how TrainingTree Pro protects them,
+        Health records, workouts and owner details are sensitive. Here is exactly how TrainingTree protects them,
         written so you can check every line.
       </p>
     </TopicHero>

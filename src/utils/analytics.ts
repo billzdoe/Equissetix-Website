@@ -244,7 +244,7 @@ export const trackPurchase = (transactionId: string, value: number, plan: string
       currency: 'USD',
       items: [{
         item_id: plan,
-        item_name: `TrainingTree Pro - ${plan}`,
+        item_name: `TrainingTree - ${plan}`,
         item_category: 'Subscription',
         price: value
       }]

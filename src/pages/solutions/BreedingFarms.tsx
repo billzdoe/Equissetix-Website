@@ -73,7 +73,7 @@ const data: SolutionData = {
     reason:
       'Breeding and sport-horse farms live on records, health, identity, and ownership—not race-day training load. StableTree covers all of it, and leaves out the racing and sports-science tooling you don’t need.',
     alsoSee: {
-      slug: 'performance',
+      slug: 'trainingtree',
       reason: 'When those young horses go into a conditioning program and you want gait analysis and training load,',
     },
   },
