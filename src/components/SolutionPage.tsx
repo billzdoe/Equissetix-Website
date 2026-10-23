@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom'
 import Button from './Button'
 import Breadcrumbs from './Breadcrumbs'
 import { TopicHero, CloseCTA } from './TopicPage'
+import Photo from './Photo'
+import StatusNote from './StatusNote'
 import { productBySlug, type ProductSlug } from '../data/products'
+import type { photos } from '../data/photos'
+import type { ClaimStatus } from '../data/science'
 
 /**
  * Audience page template (vets, stable managers, trainers, barn owners, horse
@@ -23,6 +27,12 @@ export interface SolutionData {
   painPoints: { problem: string; impact: string }[]
   /** how the platform solves each cluster */
   solutions: { title: string; description: string; benefits: string[] }[]
+  /** optional feature-by-feature tour, with jump links; rendered after `solutions` */
+  walkthrough?: {
+    heading: string
+    intro: string
+    items: WalkthroughItem[]
+  }
   /** the routing recommendation — which product this persona should start with */
   recommend: {
     slug: ProductSlug
@@ -30,6 +40,19 @@ export interface SolutionData {
     /** optional secondary product ("...and grow into X") */
     alsoSee?: { slug: ProductSlug; reason: string }
   }
+}
+
+export interface WalkthroughItem {
+  /** anchor for the jump links, e.g. /solutions/trainers#calendar */
+  id: string
+  /** short label for the jump links */
+  label: string
+  title: string
+  lead: string
+  points: string[]
+  status?: ClaimStatus
+  statusNote?: string
+  photo?: { id: keyof typeof photos; alt: string; focus?: string }
 }
 
 const link = 'font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700'
@@ -102,8 +125,64 @@ const SolutionPage = ({ data }: { data: SolutionData }) => {
         </div>
       </section>
 
+      {/* Feature-by-feature tour: jump links, then one row per feature, photo side alternating */}
+      {data.walkthrough && (
+        <section className="section-padding">
+          <div className="container-custom">
+            <div className="max-w-2xl">
+              <h2>{data.walkthrough.heading}</h2>
+              <p className="mt-4 text-lg text-navy-600">{data.walkthrough.intro}</p>
+            </div>
+            <nav aria-label="Jump to a feature" className="mt-8 flex flex-wrap gap-2">
+              {data.walkthrough.items.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="rounded-full border border-navy-200 px-4 py-1.5 text-sm font-semibold text-navy-700 transition-colors hover:border-brand-600 hover:text-brand-700"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <div className="mt-14 space-y-16 lg:space-y-24">
+              {data.walkthrough.items.map((item, i) => (
+                <article
+                  key={item.id}
+                  id={item.id}
+                  className="grid scroll-mt-28 grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16"
+                >
+                  {item.photo && (
+                    <Photo
+                      id={item.photo.id}
+                      alt={item.photo.alt}
+                      focus={item.photo.focus}
+                      fill="h-64 sm:h-80 lg:h-[26rem]"
+                      className={i % 2 ? 'lg:order-2' : ''}
+                    />
+                  )}
+                  <div className={item.photo ? '' : 'lg:col-span-2'}>
+                    <h3 className="text-2xl">{item.title}</h3>
+                    <p className="mt-3 text-lg text-navy-700">{item.lead}</p>
+                    <ul className="mt-5 space-y-2.5">
+                      {item.points.map((p) => (
+                        <li key={p} className="flex gap-3 text-navy-600">
+                          <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                    {/* after the list: each note qualifies the last point (or, for rides, the whole item) */}
+                    {item.status && <StatusNote status={item.status} note={item.statusNote} />}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Where to start */}
-      <section className="section-padding">
+      <section className={`section-padding ${data.walkthrough ? 'border-t border-navy-200' : ''}`}>
         <div className="container-custom grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
           <h2>Where to start</h2>
           <div className="max-w-2xl">
