@@ -54,7 +54,7 @@ const ProductPage = ({ product, featureSlot }: ProductPageProps) => {
         <FarmPattern variant="mixed" opacity={0.05} color={accent.heroPattern} animated />
         <div className="relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] ${accent.eyebrow} mb-4`}>
+            <p className={`inline-flex items-center gap-2 text-sm font-semibold ${accent.eyebrow} mb-4`}>
               <span className={`w-2 h-2 rounded-full ${accent.dot}`} />
               {product.shortName}
             </p>

@@ -54,8 +54,8 @@ export const pageSEO = {
     description: 'Condition each horse on its own numbers: TRIMP, 28-day workload ratio, daily readiness, video and sensor gait analysis, and conditioning programs that adapt per horse.',
   },
   vetCare: {
-    title: 'Vet Care — Vitals Against Each Horse’s Normal | Equissetix',
-    description: 'Fever and resting-pulse alerts against each horse’s own 30-day baseline, vet exams, medication withdrawal, rehab plans, body condition and a Five Domains wellbeing check.',
+    title: 'Vet Care: Health Metrics and Gait Analysis | Equissetix',
+    description: 'Vitals read against each horse’s own 30-day normal, gait measured from phone video, plus vet exams, medication withdrawal, rehab plans, body condition and a Five Domains wellbeing check.',
   },
   guide: {
     title: 'The Numbers, Explained — Workload, Readiness & More | TrainingTree Pro',

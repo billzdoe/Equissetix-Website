@@ -3,7 +3,8 @@ import { photos } from '../data/photos'
 /**
  * A photograph from data/photos.ts, with an optional caption. The box holds the image's own
  * aspect ratio before it loads, so nothing shifts; `fill` lets a parent set the
- * shape instead (e.g. a full-bleed band) with object-cover cropping.
+ * shape instead (e.g. a full-bleed band) with object-cover cropping; a band drifts
+ * gently as the page scrolls (.photo-drift in index.css).
  */
 
 type Props = {
@@ -35,7 +36,7 @@ const Photo = ({ id, alt, caption, focus = '50% 50%', fill, tone = 'light', size
           alt={alt}
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full object-cover ${fill ? 'photo-drift' : ''}`}
           style={{ objectPosition: focus }}
         />
       </div>

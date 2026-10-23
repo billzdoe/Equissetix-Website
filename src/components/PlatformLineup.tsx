@@ -61,7 +61,7 @@ const PlatformLineup = ({ tone = 'light', showCompare = true }: Props) => {
                 The complete platform — both halves together
               </p>
             </div>
-            <ArrowRight className={`h-4 w-4 ${platformName} opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all`} />
+            <ArrowRight className={`h-4 w-4 ${platformName} opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[color,background-color,border-color,opacity,transform]`} />
           </div>
         </Link>
 
@@ -73,7 +73,7 @@ const PlatformLineup = ({ tone = 'light', showCompare = true }: Props) => {
                 to={p.route}
                 className={`group flex flex-col h-full rounded-xl border ${halfCard} p-4 sm:p-5 transition-colors`}
               >
-                <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${halfTag} mb-1.5`}>
+                <span className={`text-sm font-semibold ${halfTag} mb-1.5`}>
                   {p.half === 'barn' ? 'The barn half' : 'The training half'}
                 </span>
                 <span className={`text-base font-bold ${halfName} mb-1.5`}>{p.name}</span>

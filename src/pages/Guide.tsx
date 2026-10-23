@@ -13,7 +13,7 @@ const Guide = () => (
   <div className="pt-20">
     <SEO title={pageSEO.guide.title} description={pageSEO.guide.description} path="/guide" />
 
-    <TopicHero kicker="The numbers, explained" title="What every number in TrainingTree Pro means.">
+    <TopicHero title="What every number in TrainingTree Pro means.">
       <p>
         Workload, readiness, baselines, symmetry: each one in plain words, how it’s worked out, and what to do with
         it. No sports-science background needed.

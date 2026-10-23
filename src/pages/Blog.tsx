@@ -28,7 +28,7 @@ const Blog = () => {
     <div className="pt-20">
       <SEO title={pageSEO.blog.title} description={pageSEO.blog.description} path="/blog" />
 
-      <TopicHero kicker="Articles" title="The science and care behind TrainingTree Pro.">
+      <TopicHero title="The science and care behind TrainingTree Pro.">
         <p>How we measure horses, how we look after them, and the research it all stands on.</p>
       </TopicHero>
 

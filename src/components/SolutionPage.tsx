@@ -14,6 +14,7 @@ import { productBySlug, type ProductSlug } from '../data/products'
 export interface SolutionData {
   breadcrumb: string
   /** short audience label shown above the headline, sentence case */
+  /** not shown on the page any more (no label above the title); the data files still carry it */
   eyebrow: string
   /** hero headline, rendered as one sentence */
   headline: [string, string]
@@ -39,7 +40,7 @@ const SolutionPage = ({ data }: { data: SolutionData }) => {
 
   return (
     <div className="pt-20">
-      <TopicHero kicker={data.eyebrow} title={`${data.headline[0]} ${data.headline[1]}`}>
+      <TopicHero title={`${data.headline[0]} ${data.headline[1]}`}>
         <p>{data.subhead}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button to="/contact" variant="primary" size="lg">

@@ -433,3 +433,86 @@ img[loading="lazy"] {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/*
+ * Scroll-linked motion. Each effect is tied to what it shows:
+ *  .photo-drift  modern full-width photos move slightly slower than the page
+ *  .print-develop archive photos come up from faded sepia, like a print in the tray
+ *  .ink-reveal   line drawings are drawn in, left to right
+ * Only where the browser supports scroll timelines and the visitor allows
+ * motion; everywhere else the images simply sit still.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .photo-drift {
+      animation: photo-drift linear both;
+      animation-timeline: view();
+    }
+    .print-develop {
+      animation: print-develop linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+    .ink-reveal {
+      -webkit-mask-image: linear-gradient(to right, #000 45%, transparent 55%);
+      mask-image: linear-gradient(to right, #000 45%, transparent 55%);
+      -webkit-mask-size: 240% 100%;
+      mask-size: 240% 100%;
+      animation: ink-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 50%;
+    }
+  }
+}
+
+@keyframes photo-drift {
+  from { transform: translateY(-5%) scale(1.12); }
+  to { transform: translateY(5%) scale(1.12); }
+}
+
+@keyframes print-develop {
+  from { filter: sepia(0.9) contrast(0.7) brightness(1.25) blur(3px); opacity: 0.55; }
+  to { filter: none; opacity: 1; }
+}
+
+@keyframes ink-reveal {
+  from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+  to { -webkit-mask-position: 0 0; mask-position: 0 0; }
+}
+
+/* Browser surfaces, themed from the palette instead of left at defaults */
+@layer base {
+  ::selection { background: #fbcb4d; color: #0f2a20; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, figcaption { text-wrap: pretty; }
+  :focus-visible { outline: 2px solid #F59E0B; outline-offset: 3px; }
+  html { -webkit-tap-highlight-color: transparent; }
+  a, button { touch-action: manipulation; }
+}
+
+/* Scenes: the pinned picture eases from a slight zoom to rest across its scene;
+   archive pictures also come up from sepia. Static where unsupported. */
+.scene { view-timeline-name: --scene; }
+.scene-aged { filter: sepia(0.35) contrast(1.05); }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scene-zoom {
+      animation: scene-zoom linear both;
+      animation-timeline: --scene;
+      animation-range: entry 0% exit 100%;
+    }
+    .scene-zoom.scene-aged {
+      animation: scene-zoom linear both, scene-age linear both;
+      animation-timeline: --scene, --scene;
+      animation-range: entry 0% exit 100%, entry 0% contain 30%;
+    }
+  }
+}
+@keyframes scene-zoom {
+  from { transform: scale(1.14); }
+  to { transform: scale(1); }
+}
+@keyframes scene-age {
+  from { filter: sepia(1) contrast(0.75) brightness(1.2) blur(4px); }
+  to { filter: sepia(0.35) contrast(1.05); }
+}

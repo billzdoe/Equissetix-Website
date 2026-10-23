@@ -5,6 +5,7 @@ import WorkloadSketch from '../components/WorkloadSketch'
 import StatusNote from '../components/StatusNote'
 import FeatureGrid from '../components/FeatureGrid'
 import Photo from '../components/Photo'
+import { InkDrawing } from '../components/Archive'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs, performanceFeatures } from '../data/science'
 
@@ -17,7 +18,7 @@ const PerformanceScience = () => (
   <div className="pt-20">
     <SEO title={pageSEO.performance.title} description={pageSEO.performance.description} path="/performance" />
 
-    <TopicHero kicker="Equine performance" title="Condition each horse on its own numbers.">
+    <TopicHero title="Condition each horse on its own numbers.">
       <p>
         Workload, readiness, fitness and gait, worked out from each horse’s own sessions and heart rate. For racing,
         eventing, endurance, jumping and dressage.
@@ -61,6 +62,17 @@ const PerformanceScience = () => (
     <section className="section-padding bg-ink text-white">
       <div className="container-custom">
         <h2 className="text-white">The science under it</h2>
+        <figure className="mt-10">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4">
+            <InkDrawing id="gait-walk" tone="dark" alt="Line drawing of a horse at the walk" />
+            <InkDrawing id="gait-trot" tone="dark" alt="Line drawing of a horse at the trot" />
+            <InkDrawing id="gait-canter" tone="dark" alt="Line drawing of a horse at the canter" />
+            <InkDrawing id="gait-gallop" tone="dark" alt="Line drawing of a horse at the gallop" />
+          </div>
+          <figcaption className="mt-4 text-sm text-white/60">
+            The paces, drawn for a Victorian horse manual. TrainingTree Pro reads them from video.
+          </figcaption>
+        </figure>
         <ul className="mt-10 border-t border-white/15">
           {science.map((b) => (
             <li key={b.id} className="grid grid-cols-1 gap-3 border-b border-white/15 py-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
@@ -79,6 +91,14 @@ const PerformanceScience = () => (
         </Link>
       </div>
     </section>
+
+    <Photo
+      id="pack-away"
+      alt="Jockeys and racehorses seen from behind as they race away around a dirt bend"
+      fill="h-[40vh] min-h-[260px] max-h-[520px]"
+      focus="50% 40%"
+      sizes="100vw"
+    />
 
     <section className="section-padding">
       <div className="container-custom max-w-3xl">

@@ -68,7 +68,7 @@ const Card = ({
 
   return (
     <div
-      className={`${surfaces[variant]} ${pad} transition-all duration-300 ${hoverStyles} ${className}`}
+      className={`${surfaces[variant]} ${pad} transition-[color,background-color,border-color,opacity,transform] duration-300 ${hoverStyles} ${className}`}
     >
       {children}
     </div>

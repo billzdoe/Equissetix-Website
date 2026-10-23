@@ -35,29 +35,29 @@ const RoundsBoard = () => (
       <p className="text-sm text-navy-500">Example barn</p>
     </div>
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[30rem] text-left text-sm tabular">
+      <table className="w-full text-left text-sm tabular sm:min-w-[30rem]">
         <caption className="sr-only">Example morning rounds: each horse's temperature and resting pulse against its own 30-day baseline</caption>
         <thead className="text-navy-500">
           <tr>
-            <th scope="col" className="px-4 py-2 font-medium sm:px-5">Stall</th>
-            <th scope="col" className="px-2 py-2 font-medium">Horse</th>
+            <th scope="col" className="hidden px-4 py-2 font-medium sm:table-cell sm:px-5">Stall</th>
+            <th scope="col" className="py-2 pl-3 pr-2 font-medium sm:pl-2">Horse</th>
             <th scope="col" className="px-2 py-2 font-medium">Temp °F</th>
             <th scope="col" className="px-2 py-2 font-medium">Pulse</th>
-            <th scope="col" className="px-4 py-2 font-medium sm:px-5">Needs a look</th>
+            <th scope="col" className="py-2 pl-2 pr-3 font-medium sm:px-5">Needs a look</th>
           </tr>
         </thead>
         <tbody>
           {ROWS.map((r) => (
             <tr key={r.stall} className={`border-t border-navy-100 ${r.flag ? 'bg-gold-50' : ''}`}>
-              <td className="px-4 py-2.5 text-navy-500 sm:px-5">{r.stall}</td>
-              <th scope="row" className="px-2 py-2.5 font-semibold text-navy-900">{r.horse}</th>
+              <td className="hidden px-4 py-2.5 text-navy-500 sm:table-cell sm:px-5">{r.stall}</td>
+              <th scope="row" className="py-2.5 pl-3 pr-2 font-semibold text-navy-900 sm:pl-2">{r.horse}</th>
               <td className="px-2 py-2.5 text-navy-800">
                 {r.temp.toFixed(1)} <span className="text-navy-400">{delta(r.temp, r.tempBase)}</span>
               </td>
               <td className="px-2 py-2.5 text-navy-800">
                 {r.pulse} <span className="text-navy-400">{delta(r.pulse, r.pulseBase, 0)}</span>
               </td>
-              <td className="px-4 py-2.5 sm:px-5">
+              <td className="py-2.5 pl-2 pr-3 sm:px-5">
                 {r.flag ? <span className="font-semibold text-gold-800">{r.flag}</span> : <span className="text-navy-400">No</span>}
               </td>
             </tr>

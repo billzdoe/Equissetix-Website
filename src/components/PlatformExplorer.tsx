@@ -53,7 +53,7 @@ const StatusRows = ({ rows }: { rows: { label: string; value: string; tone: 'ok'
 
 const CompliancePreview = () => (
   <div>
-    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400 mb-3">Compliance board</p>
+    <p className="text-sm font-semibold text-navy-400 mb-3">Compliance board</p>
     <StatusRows
       rows={[
         { label: 'Coggins & health certs', value: 'Current', tone: 'ok' },
@@ -68,7 +68,7 @@ const CompliancePreview = () => (
 
 const OpsPreview = () => (
   <div>
-    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400 mb-3">This morning</p>
+    <p className="text-sm font-semibold text-navy-400 mb-3">This morning</p>
     <StatusRows
       rows={[
         { label: 'Stalls occupied', value: '22 / 24', tone: 'ok' },
@@ -83,7 +83,7 @@ const OpsPreview = () => (
 
 const HealthPreview = () => (
   <div>
-    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400 mb-3">Nova · health file</p>
+    <p className="text-sm font-semibold text-navy-400 mb-3">Nova · health file</p>
     <div className="space-y-2">
       {[
         { d: 'Vaccination — EEE/WEE', t: 'Apr 2' },
@@ -102,7 +102,7 @@ const HealthPreview = () => (
 
 const MoneyPreview = () => (
   <div>
-    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400 mb-3">Month to date</p>
+    <p className="text-sm font-semibold text-navy-400 mb-3">Month to date</p>
     <div className="grid grid-cols-2 gap-2 mb-2">
       <div className="bg-white border border-navy-100 rounded-lg px-3 py-3 text-center shadow-soft">
         <p className="text-[11px] text-navy-400 font-bold">Invoiced</p>
@@ -125,7 +125,7 @@ const MoneyPreview = () => (
 const PerformancePreview = () => (
   <div>
     <div className="flex items-center justify-between mb-3">
-      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-navy-400">ACWR · 7 weeks</p>
+      <p className="text-sm font-semibold text-navy-400">ACWR · 7 weeks</p>
       <span className="text-[11px] inline-flex items-center gap-1 bg-brand-50 text-brand-700 px-2 py-0.5 rounded-full font-bold border border-brand-200">
         <span className="w-1.5 h-1.5 rounded-full bg-brand-500" /> Optimal
       </span>
@@ -251,7 +251,7 @@ const PlatformExplorer = () => {
           <button
             key={t.id}
             onClick={() => setActive(i)}
-            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border whitespace-nowrap transition-all ${
+            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold border whitespace-nowrap transition-[color,background-color,border-color,opacity,transform] ${
               i === active
                 ? accentActive[t.accent]
                 : 'bg-white text-navy-600 border-navy-200 hover:border-navy-300 hover:text-navy-900'

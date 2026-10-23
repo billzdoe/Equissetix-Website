@@ -43,7 +43,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-br from-brand-500 via-brand-600 to-blue-600 text-white rounded-full shadow-modern-lg hover:shadow-modern-lg hover:scale-110 transition-all flex items-center justify-center group"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-br from-brand-500 via-brand-600 to-blue-600 text-white rounded-full shadow-modern-lg hover:shadow-modern-lg hover:scale-110 transition-[color,background-color,border-color,opacity,transform] flex items-center justify-center group"
           aria-label="Back to top"
         >
           <ArrowUp className="h-5 w-5 group-hover:-translate-y-1 transition-transform" />

@@ -157,7 +157,7 @@ const ROICalculator = () => {
       <div className="px-6 sm:px-8 py-7 bg-brand-50/60 border-b border-navy-100">
         <div className="flex flex-wrap items-end gap-x-10 gap-y-5">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-700 mb-1">
+            <p className="text-sm font-semibold text-brand-700 mb-1">
               Admin hours returned per week
             </p>
             <p className="text-4xl sm:text-5xl font-bold text-brand-700 font-mono tabular-nums leading-none">

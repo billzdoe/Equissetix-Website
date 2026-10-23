@@ -86,7 +86,7 @@ const ProductsOverview = () => {
             >
               <div className="flex items-center gap-2 mb-2">
                 <span className={`w-2 h-2 rounded-full ${accentDot[p.accent]}`} />
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-navy-400">
+                <span className="text-sm font-semibold text-navy-400">
                   {p.half === 'barn' ? 'The barn half' : 'The training half'}
                 </span>
               </div>
@@ -108,7 +108,7 @@ const ProductsOverview = () => {
 
         {/* Lite vs Pro — the edition flip within the platform */}
         <div className="relative z-10 mt-12 max-w-4xl mx-auto bg-navy-50/60 border border-navy-100 rounded-2xl p-6 sm:p-8">
-          <p className="text-center text-sm font-bold uppercase tracking-[0.16em] text-navy-400 mb-3">
+          <p className="text-center text-sm font-semibold text-navy-400 mb-3">
             Within the platform: Lite captures, Pro interprets
           </p>
           <p className="text-center text-sm text-navy-600 max-w-2xl mx-auto">
@@ -152,7 +152,7 @@ const ProductsOverview = () => {
               {Object.entries(grouped).map(([category, rows]) => (
                 <tbody key={category}>
                     <tr className="bg-navy-100/60">
-                      <td colSpan={5} className="py-2 px-5 text-xs font-bold uppercase tracking-wide text-navy-700">
+                      <td colSpan={5} className="py-2 px-5 text-sm font-semibold text-navy-700">
                         {category}
                       </td>
                     </tr>
@@ -186,7 +186,7 @@ const ProductsOverview = () => {
           <p className="text-navy-600 mb-8">Two halves and the whole. Whichever you start with, the other side can be added in place.</p>
           <div className="grid sm:grid-cols-3 gap-4 text-left">
             <Card variant="bordered" className="h-full">
-              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">The barn half</p>
+              <p className="text-sm font-semibold text-navy-400 mb-2">The barn half</p>
               <p className="text-sm text-navy-700 mb-4">
                 You board, breed, teach, or run a sport-horse yard and just need the barn to run right.
               </p>
@@ -195,7 +195,7 @@ const ProductsOverview = () => {
               </Link>
             </Card>
             <Card variant="bordered" className="h-full">
-              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">The training half</p>
+              <p className="text-sm font-semibold text-navy-400 mb-2">The training half</p>
               <p className="text-sm text-navy-700 mb-4">
                 You want training load, gait, readiness, and racing ops — someone else handles the books.
               </p>
@@ -204,7 +204,7 @@ const ProductsOverview = () => {
               </Link>
             </Card>
             <Card variant="bordered" className="h-full">
-              <p className="text-xs font-bold uppercase tracking-wide text-navy-400 mb-2">Both — the whole platform</p>
+              <p className="text-sm font-semibold text-navy-400 mb-2">Both: the whole platform</p>
               <p className="text-sm text-navy-700 mb-4">
                 You run the operation and condition racehorses, and want it all in one place.
               </p>

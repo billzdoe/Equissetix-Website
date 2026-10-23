@@ -270,7 +270,7 @@ const Contact = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
                       >
-                        <option value="">Select one...</option>
+                        <option value="">Select one…</option>
                         <option value="Racing Trainer">Racing Trainer</option>
                         <option value="Horse Owner">Horse Owner</option>
                         <option value="Training Facility">Training Facility</option>
@@ -289,7 +289,7 @@ const Contact = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
                       >
-                        <option value="">Select range...</option>
+                        <option value="">Select range…</option>
                         <option value="1-10">1-10</option>
                         <option value="10-25">10-25</option>
                         <option value="25-50">25-50</option>
@@ -309,7 +309,7 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
                     >
-                      <option value="">Select one...</option>
+                      <option value="">Select one…</option>
                       <option value="Injury Prevention">Injury Prevention</option>
                       <option value="Time Management">Time Management</option>
                       <option value="Owner Communication">Owner Communication</option>
@@ -329,7 +329,7 @@ const Contact = () => {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your operation and what you'd like to see in the demo..."
+                      placeholder="Tell us about your operation and what you'd like to see in the demo…"
                       className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all resize-none"
                     />
                   </div>

@@ -95,7 +95,7 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="flex-1 px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all text-sm"
+          className="flex-1 px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-[color,background-color,border-color,opacity,transform] text-sm"
           disabled={status === 'loading'}
         />
         <Button
@@ -125,7 +125,7 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-[color,background-color,border-color,opacity,transform]"
               disabled={status === 'loading'}
             />
           </div>
@@ -167,7 +167,7 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="flex-1 px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
+            className="flex-1 px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition-[color,background-color,border-color,opacity,transform]"
             disabled={status === 'loading'}
           />
           <Button

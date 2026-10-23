@@ -2,11 +2,10 @@ import { ReactNode } from 'react'
 import Button from './Button'
 
 /** Header band for the topic pages (/performance, /vet-care, /science). */
-export const TopicHero = ({ kicker, title, children }: { kicker: string; title: string; children: ReactNode }) => (
+export const TopicHero = ({ title, children }: { title: string; children: ReactNode }) => (
   <section className="bg-ink text-white">
     <div className="container-custom py-14 sm:py-20 lg:py-24">
-      <p className="text-lg font-semibold text-gold-300">{kicker}</p>
-      <h1 className="mt-3 max-w-4xl text-[2.6rem] leading-[0.98] text-white sm:text-6xl lg:text-7xl">{title}</h1>
+      <h1 className="max-w-4xl text-[2.6rem] leading-[0.98] text-white sm:text-6xl lg:text-7xl">{title}</h1>
       <div className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">{children}</div>
     </div>
   </section>

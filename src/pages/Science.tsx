@@ -3,6 +3,7 @@ import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import StatusNote from '../components/StatusNote'
 import GallopPlate from '../components/GallopPlate'
+import { ArchivePrint, InkDrawing } from '../components/Archive'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { breakthroughs } from '../data/science'
 
@@ -55,7 +56,7 @@ const Science = () => (
   <div className="pt-20">
     <SEO title={pageSEO.science.title} description={pageSEO.science.description} path="/science" />
 
-    <TopicHero kicker="The science" title="Built on published equine physiology. Honest about its limits.">
+    <TopicHero title="Built on published equine physiology. Honest about its limits.">
       <p>
         Everything TrainingTree Pro calculates comes from research you can look up, applied to each horse’s own records.
         Here is what we’ve built on it, how we treat missing data, and what we don’t claim.
@@ -84,6 +85,44 @@ const Science = () => (
           </p>
         </div>
         <GallopPlate />
+      </div>
+    </section>
+
+    <section className="section-padding">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+          <h2>Built on the anatomy books</h2>
+          <p className="max-w-2xl text-lg text-navy-600">
+            Vets and trainers have studied how the horse is built and how it moves for centuries. Every measurement in
+            TrainingTree Pro stands on that work, and adds the one thing the old books couldn’t: your own horse’s
+            numbers, every day.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 items-end gap-8 lg:grid-cols-4">
+          <ArchivePrint
+            id="skeleton-engraving"
+            alt="Engraving of a horse's skeleton walking through a landscape"
+            caption="A horse skeleton, from a Dutch series of animal engravings."
+            sizes="(min-width: 1024px) 22vw, 50vw"
+          />
+          <ArchivePrint
+            id="shoulder-plate"
+            alt="Hand-coloured anatomical plate of the muscles of a horse's shoulder"
+            caption="Shoulder muscles, from The Horse in Motion (1882)."
+            sizes="(min-width: 1024px) 22vw, 50vw"
+          />
+          <ArchivePrint
+            id="lameness-drawing"
+            alt="Engraving of a standing horse from a veterinary textbook"
+            caption="A clinical drawing from an early lameness textbook."
+            sizes="(min-width: 1024px) 22vw, 50vw"
+          />
+          <InkDrawing
+            id="stride-silhouettes"
+            alt="Twelve silhouettes of a horse showing one stride frame by frame"
+            caption="One stride, frame by frame, from The Horse in Motion (1882)."
+          />
+        </div>
       </div>
     </section>
 

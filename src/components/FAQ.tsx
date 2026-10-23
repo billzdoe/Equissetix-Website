@@ -46,7 +46,7 @@ const FAQ = ({ items, showSearch = true, showCategories = false }: FAQProps) => 
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search frequently asked questions..."
+              placeholder="Search frequently asked questions…"
               className="w-full pl-12 pr-4 py-4 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             />
           </div>
