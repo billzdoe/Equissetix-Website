@@ -157,7 +157,7 @@ const Security = () => {
                 <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">Cloud Infrastructure</h3>
                   <p className="text-slate-700">
-                    We use leading cloud providers (AWS, Azure) with SOC 2 Type II certification. Infrastructure is deployed across multiple availability zones for redundancy and disaster recovery.
+                    TrainingTree Pro runs on established cloud hosting, and every connection between your devices and our servers is encrypted.
                   </p>
                 </div>
 
@@ -196,35 +196,14 @@ const Security = () => {
                 <div className="w-12 h-12 bg-gradient-to-br from-success-500 to-success-600 rounded-lg flex items-center justify-center text-white shadow-modern">
                   <CheckCircle className="h-6 w-6" />
                 </div>
-                <h2 className="text-2xl font-bold text-navy-900">Compliance & Certifications</h2>
+                <h2 className="text-2xl font-bold text-navy-900">Data Protection</h2>
               </div>
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-bold text-lg mb-2 text-navy-900">SOC 2 Type II</h3>
-                  <p className="text-slate-700">
-                    We maintain SOC 2 Type II certification, demonstrating our commitment to security, availability, processing integrity, confidentiality, and privacy controls.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-lg mb-2 text-navy-900">HIPAA Ready</h3>
-                  <p className="text-slate-700">
-                    Our infrastructure and processes are designed to meet HIPAA requirements for protected health information (PHI). We can execute Business Associate Agreements (BAAs) for healthcare providers.
-                  </p>
-                </div>
-
-                <div>
                   <h3 className="font-bold text-lg mb-2 text-navy-900">GDPR Compliance</h3>
                   <p className="text-slate-700">
                     We comply with GDPR requirements for EU users, including data portability, right to deletion, and privacy by design principles.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-lg mb-2 text-navy-900">Regular Audits</h3>
-                  <p className="text-slate-700">
-                    Third-party security firms conduct annual audits of our systems, processes, and code. Audit reports are available to Enterprise customers upon request.
                   </p>
                 </div>
               </div>

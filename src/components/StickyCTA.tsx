@@ -3,9 +3,23 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
+// Closing the card keeps it closed for the rest of the visit, across pages and
+// reloads. Storage can be unavailable (private windows, blocked site data), so
+// every access is guarded and the card simply falls back to staying closed for
+// this page view.
+const DISMISS_KEY = 'pilot-card-dismissed'
+
+const readDismissed = () => {
+  try {
+    return window.sessionStorage.getItem(DISMISS_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 const StickyCTA = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [isDismissed, setIsDismissed] = useState(false)
+  const [isDismissed, setIsDismissed] = useState(readDismissed)
 
   useEffect(() => {
     let rafId: number | null = null
@@ -33,6 +47,11 @@ const StickyCTA = () => {
   const handleDismiss = () => {
     setIsDismissed(true)
     setIsVisible(false)
+    try {
+      window.sessionStorage.setItem(DISMISS_KEY, '1')
+    } catch {
+      // storage unavailable: the card stays closed for this page view only
+    }
   }
 
   return (
@@ -48,7 +67,7 @@ const StickyCTA = () => {
             <button
               onClick={handleDismiss}
               className="absolute top-2 right-2 p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors"
-              aria-label="Dismiss"
+              aria-label="Close the pilot program card"
             >
               <X className="h-5 w-5" />
             </button>

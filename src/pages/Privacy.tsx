@@ -168,8 +168,6 @@ const Privacy = () => {
                   <li><strong>Encryption:</strong> All data is encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
                   <li><strong>Access Controls:</strong> Role-based access control ensures only authorized users can view data</li>
                   <li><strong>Audit Logs:</strong> Comprehensive logging of all data access and modifications</li>
-                  <li><strong>Regular Security Audits:</strong> Third-party security assessments and penetration testing</li>
-                  <li><strong>Compliance:</strong> SOC 2 Type II certified, HIPAA-ready infrastructure</li>
                   <li><strong>Backup & Recovery:</strong> Automated daily backups with point-in-time recovery</li>
                 </ul>
               </div>

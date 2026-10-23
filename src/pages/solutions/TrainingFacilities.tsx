@@ -64,11 +64,10 @@ const TrainingFacilities = () => {
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Enterprise Security & Compliance",
-      description: "Bank-level security, audit trails, and compliance features designed for large operations with multiple stakeholders and regulatory requirements.",
+      description: "Audit trails and access controls for operations with many owners, staff and vets.",
       benefits: [
-        "SOC 2 Type II certified infrastructure",
         "Comprehensive audit logging",
-        "HIPAA-ready for health data",
+        "Per-horse permissions for owners and vets",
         "Role-based access controls"
       ]
     }
