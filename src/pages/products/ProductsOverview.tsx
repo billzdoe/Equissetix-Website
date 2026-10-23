@@ -54,12 +54,13 @@ const ProductsOverview = () => {
           className="relative z-10 max-w-4xl mx-auto"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6 leading-[1.05]">
-            One app. <span className="text-gradient">Three levels.</span>
+            One platform. <span className="text-gradient">Every barn.</span>
           </h1>
           <p className="text-lg sm:text-xl text-navy-600 max-w-3xl mx-auto">
-            <strong>TrainingTree</strong> runs the barn <em>and</em> conditions the athlete. Start on{' '}
-            <strong>Lite</strong>, <strong>Pro</strong> or <strong>Performance</strong>, and move up in place with
-            everything you’ve logged carried over. Barns that don’t train have their own app,{' '}
+            <strong>TrainingTree</strong> runs the barn <em>and</em> conditions the athlete. Choose{' '}
+            <strong>Lite</strong> for the small farm, <strong>Pro</strong> for enterprise barns or{' '}
+            <strong>Performance</strong> for racing and competition, and change edition in place with everything
+            you’ve logged carried over. Barns that don’t train have their own product,{' '}
             <strong>StableTree</strong>.
           </p>
         </motion.div>
@@ -127,9 +128,9 @@ const ProductsOverview = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What&rsquo;s in each level</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">What&rsquo;s in each edition</h2>
           <p className="text-lg text-navy-600 max-w-2xl mx-auto">
-            Each level of TrainingTree includes the one before it. StableTree is the barn on its own. We show our work, including what needs setup.
+            Lite, Pro and Performance are editions of TrainingTree. StableTree is the barn on its own. We show our work, including what needs setup.
           </p>
         </motion.div>
 
@@ -180,7 +181,7 @@ const ProductsOverview = () => {
       <Section id="chooser" background="white" className="relative">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">How much do you need?</h2>
-          <p className="text-navy-600 mb-8">Three levels of TrainingTree, or StableTree for a barn that doesn’t train. Start where you fit and move up in place.</p>
+          <p className="text-navy-600 mb-8">Three editions of TrainingTree, or StableTree for a barn that doesn’t train. Start where you fit and change in place.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
             <Card variant="bordered" className="h-full">
               <p className="text-sm font-semibold text-navy-400 mb-2">A small farm</p>

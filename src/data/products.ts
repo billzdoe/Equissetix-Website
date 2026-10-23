@@ -71,7 +71,7 @@ export const products: Product[] = [
     who: 'Boarding & training barns, breeding farms, sport-horse yards, lesson & show barns.',
     role: 'standalone',
     relationship:
-      'Its own app, for barns that board, breed or teach and don’t need the training tools. It keeps the same stable records TrainingTree does.',
+      'Its own product, for barns that board, breed or teach and don’t need the training tools. It keeps the same stable records TrainingTree does.',
     accent: 'green',
     route: '/products/stabletree',
     pillars: [
@@ -152,11 +152,11 @@ export const products: Product[] = [
     shortName: 'Equissetix ▸ TrainingTree Performance',
     tagline: 'Condition the athlete',
     oneLiner:
-      'The top level of TrainingTree, for racing and competition programmes: sports science, gait analysis, readiness and racing operations, with the whole barn behind them.',
+      'The TrainingTree edition built for racing and competition programmes: sports science, gait analysis, readiness and racing operations, with every horse’s health record alongside.',
     who: 'Racing trainers, syndicates, and sport-horse conditioning programs.',
     role: 'level',
     relationship:
-      'The top level of TrainingTree. Everything in Pro, built around racing and competition programmes. Move up from Lite or Pro in place.',
+      'A TrainingTree edition with its own job: conditioning athletes for the racing and competition calendar. Same platform, same records.',
     accent: 'teal',
     route: '/products/performance',
     pillars: [
@@ -208,13 +208,13 @@ export const products: Product[] = [
     slug: 'trainingtree',
     name: 'TrainingTree',
     shortName: 'Equissetix ▸ TrainingTree',
-    tagline: 'One app, three levels',
+    tagline: 'One product, three editions',
     oneLiner:
-      'Run the barn and condition the athlete in one app: Lite for the small farm where one person does it all, Pro for growing barns, Performance for racing and competition programmes.',
+      'Run the barn and condition the athlete in one product: Lite for the small farm where one person does it all, Pro for enterprise barns and training centres, Performance for racing and competition programmes.',
     who: 'Small farms, training barns, racing stables and training centers.',
     role: 'app',
     relationship:
-      'One app with three levels. Move up a level in place, with everything you’ve logged carried over.',
+      'One product in three editions. Change edition in place, with everything you’ve logged carried over.',
     accent: 'gold',
     route: '/products/trainingtree',
     pillars: [
@@ -256,7 +256,7 @@ export const productBySlug = (slug: ProductSlug) =>
 /** TrainingTree — the one app the three levels belong to. */
 export const appProduct = products.find((p) => p.role === 'app')!
 
-/** TrainingTree Performance — the top level, which has its own page. */
+/** TrainingTree Performance — the racing and competition edition, which has its own page. */
 export const performanceLevel = products.find((p) => p.role === 'level')!
 
 /** StableTree — its own app, for barns that don't train. */
@@ -264,8 +264,10 @@ export const stableProduct = products.find((p) => p.role === 'standalone')!
 
 export type LevelKey = 'lite' | 'pro' | 'performance'
 
-/** The three levels of TrainingTree, smallest first. Each includes the one
- *  before it; a barn moves up in place. */
+/** The three editions of TrainingTree (Billy, 2026-10-23: Pro is the edition
+ *  for enterprise barns; Performance is not a level above it, it serves a
+ *  distinct role -- racing and competition conditioning). A barn changes
+ *  edition in place. */
 export const levels: { key: LevelKey; name: string; who: string; blurb: string; route: string }[] = [
   {
     key: 'lite',
@@ -277,15 +279,15 @@ export const levels: { key: LevelKey; name: string; who: string; blurb: string; 
   {
     key: 'pro',
     name: 'Pro',
-    who: 'Growing barns and training programmes',
-    blurb: 'No horse limit, and the performance science switched on: workload, readiness, gait and the safety check.',
+    who: 'Enterprise barns and training centres',
+    blurb: 'The complete platform for large operations: no horse limit, the whole barn, and the performance science switched on.',
     route: '/products/trainingtree',
   },
   {
     key: 'performance',
     name: 'Performance',
     who: 'Racing and competition programmes',
-    blurb: 'Everything in Pro, built around the racing and competition calendar.',
+    blurb: 'Built for conditioning athletes: the training science, gait and race-day operations, around the racing and competition calendar.',
     route: '/products/performance',
   },
 ]
@@ -306,7 +308,7 @@ export const vetApp = {
 // ── Family comparison matrix (for /products) ─────────────────────────────
 // Columns: Lite · Pro · Performance (the TrainingTree levels) · StableTree
 // Cells: 'yes' | 'teaser' | 'no' | 'setup'
-// Performance includes everything in Pro, so its column matches Pro's.
+// Performance's column matches what its code switches on today (the same as Pro).
 
 export type MatrixCell = 'yes' | 'teaser' | 'no' | 'setup'
 

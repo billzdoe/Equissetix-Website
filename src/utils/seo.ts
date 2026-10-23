@@ -46,8 +46,8 @@ type PageSEOEntry = {
 export const pageSEO = {
   // Core pages
   home: {
-    title: 'Equissetix — Software for Horse Care, Training and the Barn',
-    description: 'Equissetix builds software for trainers, vets, stable managers, barn owners and owners: every workout, vital sign and care record in one place, read against each horse’s own normal.',
+    title: 'Equissetix — Know Every Horse. Run Every Barn.',
+    description: 'Equissetix brings each horse’s health, training, feed and care together with the barn’s daily work: TrainingTree for training barns and racing stables, StableTree for boarding and breeding farms, and TrainingTree Veterinary for vets.',
   },
   performance: {
     title: 'Equine Performance — Workload, Readiness & Gait | Equissetix',
@@ -82,20 +82,20 @@ export const pageSEO = {
   // (Lite, Pro, Performance); StableTree is a separate app for barns that
   // don't train.
   products: {
-    title: 'Products — One App, Three Levels | Equissetix',
-    description: 'TrainingTree runs the barn and conditions the athlete, in three levels: Lite, Pro and Performance. Move up in place. StableTree is its own app for barns that don’t train.',
+    title: 'Products — One Platform, Every Barn | Equissetix',
+    description: 'TrainingTree runs the barn and conditions the athlete, in three editions: Lite for small farms, Pro for enterprise barns, Performance for racing and competition. StableTree is its own product for barns that don’t train.',
   },
   productStableTree: {
     title: 'StableTree — Run the Whole Barn | Equissetix',
     description: 'Stable management, compliance, records, staff, and money in one system. Vaccinations, Coggins, farrier dates, stalls, shifts, invoices, and owner updates, all on time.',
   },
   productTrainingTreePro: {
-    title: 'TrainingTree — One App, Three Levels | Equissetix',
-    description: 'Run the barn and condition the athlete in one app. Lite is made for small farms where the owner runs the barn and does the training; Pro and Performance switch on the performance science.',
+    title: 'TrainingTree — One Product, Three Editions | Equissetix',
+    description: 'Run the barn and condition the athlete in one product. Lite is made for small farms where the owner runs the barn and does the training; Pro is the enterprise edition; Performance is built for racing and competition.',
   },
   productPerformance: {
-    title: 'TrainingTree Performance — The Top Level for Racing & Competition | Equissetix',
-    description: 'The top level of TrainingTree, for racing and competition programmes: training load, daily readiness, injury-risk grading, video gait analysis and racing operations, with the whole barn behind them.',
+    title: 'TrainingTree Performance — Built for Racing & Competition | Equissetix',
+    description: 'TrainingTree Performance, built for the horses that compete: workload and readiness from every session, adaptive conditioning, gait from a phone video and race-day operations, with the whole barn behind them.',
   },
 
   // Why Equissetix

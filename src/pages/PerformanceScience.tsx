@@ -135,8 +135,8 @@ const PerformanceScience = () => (
       <div className="container-custom max-w-3xl">
         <h2 className="text-3xl sm:text-4xl">Where this lives</h2>
         <p className="mt-4 text-lg text-navy-600">
-          The performance tools switch on at TrainingTree, and TrainingTree Performance is the level built around
-          racing and competition. Both keep the barn and vet records alongside.
+          The performance tools are in TrainingTree Pro, for enterprise barns, and TrainingTree Performance, the
+          edition built for racing and competition programmes. Both keep the health records alongside.
         </p>
         <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <Link to="/products/performance" className="font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">

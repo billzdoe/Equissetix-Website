@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { appProduct, levels, stableProduct, vetApp } from '../data/products'
 
 /**
  * The product lineup, rendered as what it is (Billy, 2026-10-23).
  *
- * TrainingTree is ONE app with three levels — Lite, Pro, Performance — so the
- * levels sit inside the app's frame as steps, smallest first. StableTree and
- * TrainingTree Veterinary are separate apps, so they sit outside the frame.
+ * TrainingTree is ONE product in three editions — Lite, Pro, Performance — so the
+ * editions sit side by side inside its frame (Performance is a distinct role,
+ * not a step above Pro). StableTree and
+ * TrainingTree Veterinary are separate products, so they sit outside the frame.
  * Do not flatten this into a single `products.map()` grid.
  */
 
@@ -33,7 +34,6 @@ const PlatformLineup = ({ tone = 'light', showCompare = true }: Props) => {
   const cardName = dark ? 'text-white' : 'text-navy-900'
   const cardBody = dark ? 'text-white/70' : 'text-navy-600'
   const cardTag = dark ? 'text-white/45' : 'text-navy-400'
-  const stepTone = dark ? 'text-white/35' : 'text-navy-300'
   const footTone = dark ? 'text-white/70' : 'text-navy-600'
   const linkTone = dark ? 'text-gold-300 hover:text-gold-200' : 'text-brand-600 hover:text-brand-700'
   const soonTone = dark ? 'bg-white/10 text-white/70' : 'bg-navy-50 text-navy-500'
@@ -54,35 +54,29 @@ const PlatformLineup = ({ tone = 'light', showCompare = true }: Props) => {
               <h3 className={`text-lg sm:text-xl font-bold ${appName} group-hover:underline decoration-2 underline-offset-4`}>
                 {appProduct.name}
               </h3>
-              <p className={`text-xs sm:text-sm ${appSub} mt-0.5`}>One app, three levels</p>
+              <p className={`text-xs sm:text-sm ${appSub} mt-0.5`}>One product, three editions</p>
             </div>
             <ArrowRight className={`h-4 w-4 ${appName} opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-[color,background-color,border-color,opacity,transform]`} />
           </div>
         </Link>
 
-        {/* The levels, smallest first, with a step between each */}
-        <div className="grid sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-3 sm:gap-2 items-stretch">
-          {levels.map((level, i) => (
-            <div key={level.key} className="contents">
-              {i > 0 && (
-                <div className="hidden sm:flex items-center justify-center" aria-hidden="true">
-                  <ChevronRight className={`h-5 w-5 ${stepTone}`} strokeWidth={2.5} />
-                </div>
-              )}
-              <Link
-                to={level.route}
-                className={`group flex flex-col h-full rounded-xl border ${card} p-4 sm:p-5 transition-colors`}
-              >
-                <span className={`text-sm font-semibold ${cardTag} mb-1.5`}>{level.who}</span>
-                <span className={`text-base font-bold ${cardName} mb-1.5`}>{level.name}</span>
-                <span className={`text-sm ${cardBody} leading-relaxed flex-grow`}>{level.blurb}</span>
-              </Link>
-            </div>
+        {/* The editions, side by side: Performance is a distinct role, not a step above Pro */}
+        <div className="grid sm:grid-cols-3 gap-3 items-stretch">
+          {levels.map((level) => (
+            <Link
+              key={level.key}
+              to={level.route}
+              className={`group flex flex-col h-full rounded-xl border ${card} p-4 sm:p-5 transition-colors`}
+            >
+              <span className={`text-sm font-semibold ${cardTag} mb-1.5`}>{level.who}</span>
+              <span className={`text-base font-bold ${cardName} mb-1.5`}>{level.name}</span>
+              <span className={`text-sm ${cardBody} leading-relaxed flex-grow`}>{level.blurb}</span>
+            </Link>
           ))}
         </div>
 
         <p className={`text-sm ${footTone} mt-5 text-center`}>
-          Start at the level that fits. Moving up is a switch, not a move: everything you’ve logged comes with you.
+          Start with the edition that fits. Changing edition is a switch, not a move: everything you’ve logged comes with you.
         </p>
       </div>
 
@@ -94,7 +88,7 @@ const PlatformLineup = ({ tone = 'light', showCompare = true }: Props) => {
         >
           <span className={`text-sm font-semibold ${cardTag} mb-1.5`}>Barns that don’t train</span>
           <span className={`text-base font-bold ${cardName} mb-1.5`}>{stableProduct.name}</span>
-          <span className={`text-sm ${cardBody} leading-relaxed flex-grow`}>{stableProduct.tagline}: records, health, staff and owners, in its own app.</span>
+          <span className={`text-sm ${cardBody} leading-relaxed flex-grow`}>{stableProduct.tagline}: records, health, staff and owners, as its own product.</span>
           <span className={`inline-flex items-center gap-1 text-xs font-semibold ${linkTone} mt-3`}>
             What’s included
             <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />

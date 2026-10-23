@@ -104,3 +104,84 @@ export const companyPrinciples: CompanyPrinciple[] = [
 /** One paragraph on the company, for the hero and the About page. */
 export const companySummary =
   'Equissetix is a Kentucky company that builds software for the people who look after horses: trainers, vets, stable managers, barn owners and owners. We bring every workout, vital sign and care record into one place and read it against each horse’s own normal.'
+
+/**
+ * The big selling points of the whole suite, for the Home page (Billy,
+ * 2026-10-23: the home page leaned on vet care and one product; "give the big
+ * selling points of the solution on the homepage").
+ *
+ * Each point is live on TrainingTree 9d30a01 (and StableTree where it says
+ * barn): vitals baseline + rounds, owner portal per-horse permissions,
+ * messaging with photos, health-history PDF, workload/readiness + safety gate,
+ * conditioning protocols, video_gait_pipeline, feed_recommendation (NRC),
+ * barn map, checklists (aa49879), time clock + payroll, invoicing, document
+ * expiry reminders, emergency sheets, racing entries + withdrawal block,
+ * full-barn export (ef95096), TOTP two-factor. Built-but-unpushed work (40
+ * programs, offline workouts, vet QR access) is NOT claimed here until it is
+ * live. Capability and why, never the method or its thresholds.
+ */
+export interface SellingPoint {
+  id: string
+  title: string
+  body: string
+  link: { to: string; label: string }
+}
+
+export const sellingPoints: SellingPoint[] = [
+  {
+    id: 'one-record',
+    title: 'One record for every horse',
+    body:
+      'Health, work, feed, care and paperwork live in one file per horse, shared horse by horse with its owner, vet and staff.',
+    link: { to: '/solutions/horse-owners', label: 'How sharing works' },
+  },
+  {
+    id: 'early',
+    title: 'See a change the morning it starts',
+    body:
+      'Temperature, pulse and breathing are read against each horse’s own normal, and morning rounds show who needs a look first.',
+    link: { to: '/vet-care', label: 'Explore health' },
+  },
+  {
+    id: 'adaptive',
+    title: 'Training that adapts to the horse',
+    body:
+      'Every session updates workload and readiness, conditioning programs adjust day by day, and one safety check sits in front of every suggestion.',
+    link: { to: '/performance', label: 'Explore training' },
+  },
+  {
+    id: 'gait',
+    title: 'Gait, measured from a phone video',
+    body:
+      'Film the horse trotting past and get a measured record of rhythm and evenness, with two dates side by side.',
+    link: { to: '/science#video-gait', label: 'How gait works' },
+  },
+  {
+    id: 'feed',
+    title: 'Feed that follows the work',
+    body:
+      'Rations are matched to the work each horse has actually done, built on the published nutrient standards for horses.',
+    link: { to: '/blog/11', label: 'Read about feed' },
+  },
+  {
+    id: 'barn',
+    title: 'The whole barn, run from one place',
+    body:
+      'Stalls, turnout, daily checklists, staff hours and payroll, owner billing, and reminders before a Coggins or a vaccine lapses.',
+    link: { to: '/products/stabletree', label: 'Explore the barn tools' },
+  },
+  {
+    id: 'race-day',
+    title: 'Race day and compliance built in',
+    body:
+      'Entries, results, jockey bookings and furlong splits, with any entry inside a medication withdrawal window stopped before it goes in.',
+    link: { to: '/products/performance', label: 'Meet TrainingTree Performance' },
+  },
+  {
+    id: 'yours',
+    title: 'Your records stay yours',
+    body:
+      'You choose who sees each horse, sign-in can be protected with a second step, and the whole barn exports in one click whenever you want it.',
+    link: { to: '/security', label: 'Security and privacy' },
+  },
+]

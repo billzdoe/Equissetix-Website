@@ -13,42 +13,100 @@ import ThreeIdeas from '../components/ThreeIdeas'
 import { Scene, Beat, Reading } from '../components/Scene'
 import { ArchivePrint, InkDrawing } from '../components/Archive'
 import { breakthroughs } from '../data/science'
-import { companyProblems, companyPrinciples } from '../data/company'
+import { companyPrinciples, sellingPoints } from '../data/company'
 
 /**
- * Home, 2026-10 revamp. Opens on Equissetix the company -- what it does and
- * the problems it works on (Billy, 2026-10-23: the page was "primarily
- * focused on TT pro and the vet") -- then performance, vet care and the
- * science, for five buyers: vets, stable managers, trainers, barn owners and horse
- * owners (Billy, 2026-10-22). Confident, positive tone on this page. Claims
- * stay true: "only/first in the market" is not used until counsel clears
- * comparative claims; everything else is the product as it runs today.
- * No pricing anywhere on the site until Billy says so.
+ * Home, 2026-10-23 rewrite. Leads with the whole Equissetix suite -- the
+ * TrainingTree app (Lite, Pro, Performance), StableTree and TrainingTree
+ * Veterinary -- and its big selling points, instead of one product and vet
+ * care (Billy, 2026-10-23). Order: value proposition -> the eight selling
+ * points -> the three apps -> a live demo (Juniper) -> training, health and
+ * barn scenes -> the science -> how we work -> questions -> join the pilot.
  *
- * Layout (Billy, 2026-10-22: "blow the pictures up huge in the background
- * with design elements over"): the page is a run of Scenes. Each pins one
- * picture full-screen while its words, readings and drawings scroll over it,
- * then the next picture slides up. Plain sections between scenes are rests.
- * The readings over the hero follow the product's real rules (readiness
- * green at 80+, workload ratio steady at 0.8 to 1.3) and are marked as an
- * example horse.
+ * Voice (feedback-website-marketing-voice): positive and confident, outcome
+ * first; no "only/first in the market" until counsel clears comparative
+ * claims; no invented customers, numbers or guarantees; no pricing. Every
+ * capability named here is live -- see the comment on sellingPoints in
+ * data/company.ts. Readings over pictures are an example horse or barn.
  */
 
 const audiences = [
-  { to: '/solutions/veterinarians', title: 'Veterinarians', line: 'See what happened between visits.' },
-  { to: '/solutions/stable-managers', title: 'Stable managers', line: 'Run the whole day from one screen.' },
   { to: '/solutions/trainers', title: 'Trainers', line: 'Know who’s ready to work today.' },
+  { to: '/solutions/stable-managers', title: 'Stable managers', line: 'Run the whole day from one screen.' },
   { to: '/solutions/barn-owners', title: 'Barn owners', line: 'Care, staff and books, all in view.' },
+  { to: '/solutions/veterinarians', title: 'Veterinarians', line: 'See what happened between visits.' },
   { to: '/solutions/horse-owners', title: 'Horse owners', line: 'Follow your horse’s health and work.' },
 ]
 
+const barnTools = [
+  'Barn map, stalls and turnout rotation',
+  'Daily care checklists that repeat on their own',
+  'Staff shifts, time clock and payroll',
+  'Invoices, owner billing and split ownership',
+  'Owner portal and barn-wide announcements',
+  'Coggins, vaccine and insurance reminders',
+  'Feed chart, stock and reorder alerts',
+  'Emergency sheet for every horse',
+]
+
+const platformParts = [
+  {
+    title: 'The full system at the desk',
+    body: 'Every tool in any desktop browser: plans and calendars, the books and payroll, reports and owner billing. Nothing to install.',
+  },
+  {
+    title: 'The day’s work in the aisle',
+    body: 'The same system on a phone or tablet for rounds, vitals, workouts and video. Readings taken without signal send when it returns.',
+  },
+  {
+    title: 'One live record',
+    body: 'Every screen reads the same record, so a temperature logged in the aisle is on the office screen straight away, and messages and alerts arrive as they happen.',
+  },
+  {
+    title: 'Built to be trusted',
+    body: 'Each barn’s records are kept apart from every other barn’s, roles decide what each person can do, and sign-in can take a second step.',
+  },
+]
+
+const connections = [
+  'Accounting export',
+  'A barn calendar any phone can subscribe to',
+  'Spreadsheet, Excel and PDF reports',
+  'One-click full-barn export',
+  'Heart-rate wearables, with setup',
+]
+
+const questions = [
+  {
+    q: 'Do I need sensors or wearables?',
+    a: 'No. Workload and readiness come from the sessions you log, vital signs from a thermometer and a hand on the pulse, and gait from a phone video. Heart-rate wearables can be connected for more detail.',
+  },
+  {
+    q: 'Which product is right for my barn?',
+    a: 'If you train, TrainingTree: Lite for a small farm where one person does it all, Pro for enterprise barns and training centres, Performance for racing and competition programmes. If you board, breed or teach and don’t train, StableTree.',
+  },
+  {
+    q: 'Do I need to install anything?',
+    a: 'No. The whole platform runs in the browser on any desktop or laptop, and on phones and tablets in the barn. Your records live in the cloud, so every screen sees the same thing.',
+  },
+  {
+    q: 'Can I start small and grow?',
+    a: 'Yes. Lite covers up to 15 horses. Changing to Pro or Performance is a switch, not a move: every record comes with you.',
+  },
+  {
+    q: 'Who sees my horses’ records?',
+    a: 'Only the people you choose. Owners and vets are given access horse by horse, and you can export the whole barn whenever you like.',
+  },
+]
+
 const lightLink = 'inline-block font-semibold text-gold-300 underline decoration-2 underline-offset-4 hover:text-gold-200'
+const darkLink = 'inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700'
 
 const Home = () => (
   <div className="pt-20">
     <SEO title={pageSEO.home.title} description={pageSEO.home.description} path="/" />
 
-    {/* Race day: the opening scene */}
+    {/* The opening scene: what Equissetix does, in one breath */}
     <Scene
       picture={{ photo: 'race-pack' }}
       alt="A field of racehorses charges toward the camera on a dirt track, kicking up sand"
@@ -56,41 +114,41 @@ const Home = () => (
       eager
     >
       <Beat className="!min-h-[calc(100svh-5rem)] !pb-12">
-        <h1 className="text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7.5rem]">
-          The new science of horse care.
+        <h1 className="max-w-5xl text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7rem]">
+          Know every horse. Run every barn.
         </h1>
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
           <div>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              Horse care still runs on notebooks, group texts and memory, so small changes slip by and the vet sees
-              only visit day. Equissetix gives every horse one file, shared with its vet and owner: vital signs read
-              against its own normal, workload and readiness from every session, gait measured from a phone video,
-              and the barn’s feed, staff and records alongside.
+              Equissetix is the operations platform for horse care: every horse’s health, training and feed, with the
+              barn’s daily work and its books, in one cloud system from the office desktop to the barn aisle. Everyone
+              around the horse works from the same picture, and sees a change the morning it starts.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/contact" variant="primary" size="lg">
                 Join the pilot
               </Button>
               <Button
-                to="/about"
+                to="/products"
                 size="lg"
                 variant="ghost"
                 className="!border-white/40 !bg-transparent !text-white hover:!border-white hover:!bg-white/10"
               >
-                What we do
+                Explore the platform
               </Button>
             </div>
-            <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example readings for one horse">
+            <p className="mt-6 text-sm text-white/65">One platform: TrainingTree · StableTree · TrainingTree Veterinary</p>
+            <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example readings from one barn">
               <Reading compact label="Readiness" value="86" note="Ready for full work" />
-              <Reading compact label="Workload ratio" value="1.12" note="Building steadily" />
-              <Reading compact label="Resting pulse" value="34 bpm" note="Inside its normal" />
+              <Reading compact label="Temperature" value="99.8 °F" note="Inside its normal" />
+              <Reading compact label="Coggins" value="21 days" note="Renewal reminder set" />
             </div>
           </div>
-          <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings for one horse">
-            <p className="text-sm text-white/70">An example horse, this morning</p>
+          <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings from one barn">
+            <p className="text-sm text-white/70">An example barn, this morning</p>
             <Reading label="Readiness" value="86" note="Ready for full work" />
-            <Reading label="Workload ratio" value="1.12" note="Building steadily" />
-            <Reading label="Resting pulse" value="34 bpm" note="Inside its own normal" />
+            <Reading label="Temperature" value="99.8 °F" note="Inside its own normal" />
+            <Reading label="Coggins" value="21 days" note="Renewal reminder set" />
           </div>
         </div>
       </Beat>
@@ -112,52 +170,46 @@ const Home = () => (
       </Beat>
     </Scene>
 
-    {/* What Equissetix is here to solve: the problems, pinned over the fence line */}
-    <Scene
-      id="what-we-solve"
-      picture={{ photo: 'ky-fence-dusk' }}
-      alt="Black board fencing runs across a Kentucky horse farm at dusk"
-      focus="50% 50%"
-      shade="full"
-    >
-      <Beat align="center">
-        <h2 className="max-w-4xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">What we’re here to solve.</h2>
-        <p className="mt-6 max-w-xl text-lg text-white/85">
-          Horse care runs on close attention and good records. The attention has always been there. The records are
-          where we come in.
-        </p>
-      </Beat>
-      <div className="container-custom pb-24">
-        <ul className="divide-y divide-white/20 border-y border-white/20">
-          {companyProblems.map((p) => (
-            <li key={p.id} className="grid grid-cols-1 gap-4 py-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-12 lg:py-14">
-              <p className="font-condensed text-[2rem] font-extrabold leading-[1.02] text-white sm:text-5xl">{p.problem}</p>
-              <div>
-                <p className="text-white/70">{p.today}</p>
-                <p className="mt-4 text-lg text-white">{p.answer}</p>
-                <Link to={p.link.to} className={`mt-4 ${lightLink}`}>
-                  {p.link.label}
-                </Link>
-              </div>
+    {/* The big selling points */}
+    <section id="what-you-get" aria-labelledby="what-you-get-title" className="section-padding scroll-mt-20 bg-white">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-12">
+          <h2 id="what-you-get-title" className="max-w-xl">Everything a horse needs, in one system.</h2>
+          <p className="text-lg text-navy-600 lg:pt-3">
+            Care, conditioning and the business of the barn usually live in separate places. Equissetix puts them
+            side by side, so every decision about a horse is made with the whole picture in view.
+          </p>
+        </div>
+        <ul className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {sellingPoints.map((s) => (
+            <li key={s.id} className="flex flex-col border-t-2 border-ink pt-5">
+              <h3 className="font-condensed text-[1.7rem] font-extrabold leading-[1.05]">{s.title}</h3>
+              <p className="mt-3 flex-grow text-navy-700">{s.body}</p>
+              <Link to={s.link.to} className={`mt-4 text-sm ${darkLink}`}>
+                {s.link.label}
+              </Link>
             </li>
           ))}
         </ul>
       </div>
-    </Scene>
+    </section>
 
-    {/* What we make: the family, right after the problems it answers */}
-    <section id="what-we-make" className="section-padding scroll-mt-20 bg-white">
+    {/* The suite */}
+    <section id="what-we-make" className="section-padding scroll-mt-20 bg-plate">
       <div className="container-custom">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-          <h2>One app for the horse and the barn.</h2>
+          <h2>One platform. Three products.</h2>
           <div className="text-lg text-navy-600">
             <p>
-              TrainingTree runs the barn and conditions the athlete, in three levels: Lite for the small farm where
-              one person does it all, Pro for growing barns, and Performance for racing and competition programmes.
+              <span className="font-semibold text-navy-900">TrainingTree</span> runs the barn and conditions the
+              athlete, in the edition that fits: Lite for the small farm, Pro for enterprise barns and training
+              centres, Performance for racing and competition programmes.
             </p>
             <p className="mt-4">
-              Barns that don’t train have their own app, StableTree, and vets are getting theirs: TrainingTree
-              Veterinary.
+              <span className="font-semibold text-navy-900">StableTree</span> gives boarding, breeding and lesson
+              barns the same care records and barn tools, without the training science.{' '}
+              <span className="font-semibold text-navy-900">TrainingTree Veterinary</span> is coming next, so vets can
+              open the records a barn shares with them, on their phone.
             </p>
           </div>
         </div>
@@ -167,7 +219,40 @@ const Home = () => (
       </div>
     </section>
 
-    {/* Juniper's three weeks, played over the gallops */}
+    {/* The platform: full stack, desktop browser to the barn aisle (Billy,
+        2026-10-23: "it's more than apps, it's full stack with a desktop
+        browser"). Live on 9d30a01: web app, offline vitals queue, WebSocket
+        push, tenant isolation + roles, TOTP, full-barn export, accounting
+        export, ICS calendar feed, CSV/Excel/PDF reports. Wearables = setup. */}
+    <section id="platform" aria-labelledby="platform-title" className="section-padding scroll-mt-20 bg-ink text-white">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-12">
+          <h2 id="platform-title" className="max-w-xl text-white">From the office desk to the barn aisle.</h2>
+          <p className="text-lg text-white/75 lg:pt-3">
+            Equissetix is a full platform: one cloud system behind every screen, with the complete product in any
+            desktop browser and the day’s work on the phone in your pocket.
+          </p>
+        </div>
+        <ul className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {platformParts.map((p) => (
+            <li key={p.title} className="border-t-2 border-gold-500 pt-5">
+              <h3 className="font-condensed text-[1.7rem] font-extrabold leading-[1.05] text-white">{p.title}</h3>
+              <p className="mt-3 text-white/80">{p.body}</p>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-8 lg:flex-row lg:items-baseline lg:gap-10">
+          <p className="shrink-0 font-semibold text-gold-300">Works with what you already use</p>
+          <ul className="flex flex-wrap gap-x-8 gap-y-2 text-white/80">
+            {connections.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* Juniper's three weeks: the product, working */}
     <Scene
       picture={{ photo: 'ky-sunset' }}
       alt="Horses graze in a Kentucky paddock at sunset, backlit by low sun through the trees"
@@ -188,10 +273,7 @@ const Home = () => (
       </Beat>
     </Scene>
 
-    {/* A rest: the three ideas, before the scenes that use them */}
-    <ThreeIdeas />
-
-    {/* Performance */}
+    {/* Training */}
     <Scene
       id="performance"
       picture={{ photo: 'lunge-arena' }}
@@ -202,11 +284,12 @@ const Home = () => (
       <Beat>
         <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">Train the horse in front of you.</h2>
         <p className="mt-6 max-w-xl text-lg text-white/85">
-          Every session updates that horse’s workload and readiness the moment it’s logged. Programs adapt to the
-          horse, session by session, and show exactly what they changed and why.
+          Every session updates that horse’s workload and readiness the moment it’s logged. Conditioning programs for
+          racing, eventing, endurance, jumping and dressage adapt session by session, and show what they changed and
+          why.
         </p>
         <Link to="/performance" className={`mt-6 ${lightLink}`}>
-          Explore performance
+          Explore training
         </Link>
       </Beat>
       <Beat align="center">
@@ -219,9 +302,12 @@ const Home = () => (
       </Beat>
     </Scene>
 
-    {/* Vet care */}
+    {/* A rest: the three ideas behind the training numbers */}
+    <ThreeIdeas />
+
+    {/* Health */}
     <Scene
-      id="vet-care"
+      id="health"
       picture={{ photo: 'legs-wraps' }}
       alt="Close view of a racehorse's legs and leg wraps as it walks on a training track"
       focus="55% 60%"
@@ -232,11 +318,11 @@ const Home = () => (
             <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">Every vital. Every stride.</h2>
             <p className="mt-6 max-w-xl text-lg text-white/85">
               Temperature, pulse and breathing are read against each horse’s own normal, and gait is measured from a
-              phone video. A change shows up the morning it starts, with the full health file open to the vet, the
-              trainer and the owner.
+              phone video. Medication, rehab, exams and vaccinations sit in the same file, open to the people you
+              choose.
             </p>
             <Link to="/vet-care" className={`mt-6 ${lightLink}`}>
-              Explore vet care
+              Explore health and vet care
             </Link>
           </div>
           <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example vital signs for one horse">
@@ -256,6 +342,56 @@ const Home = () => (
       </Beat>
     </Scene>
 
+    {/* The barn */}
+    <Scene
+      id="barn"
+      picture={{ photo: 'ky-farm-road' }}
+      alt="A farm road runs between board-fenced paddocks on a Kentucky horse farm"
+      focus="50% 55%"
+      shade="left"
+    >
+      <Beat>
+        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
+          <div>
+            <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">The whole barn, in one place.</h2>
+            <p className="mt-6 max-w-xl text-lg text-white/85">
+              The day’s work, the people doing it and the books behind it run from the same screen as the horses’
+              care, in TrainingTree and in StableTree.
+            </p>
+            <Link to="/solutions/stable-managers" className={`mt-6 ${lightLink}`}>
+              For stable managers
+            </Link>
+          </div>
+          <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings from one barn">
+            <p className="text-sm text-white/70">An example barn, this morning</p>
+            <Reading label="Stalls" value="24 of 26" note="Two open for the waitlist" />
+            <Reading label="Morning checklist" value="18 of 22" note="Four left before turnout" />
+          </div>
+        </div>
+      </Beat>
+      <Beat align="center">
+        <div className="bg-chalk p-6 text-navy-900 sm:p-10">
+          <h3 className="font-condensed text-3xl font-extrabold leading-tight sm:text-4xl">What runs from it</h3>
+          <ul className="mt-8 grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
+            {barnTools.map((t) => (
+              <li key={t} className="flex items-start gap-3 text-lg">
+                <span aria-hidden className="mt-2.5 h-2 w-2 shrink-0 bg-gold-500" />
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+            <Link to="/products/stabletree" className={darkLink}>
+              Meet StableTree
+            </Link>
+            <Link to="/products/trainingtree" className={darkLink}>
+              Meet TrainingTree
+            </Link>
+          </div>
+        </div>
+      </Beat>
+    </Scene>
+
     {/* Then and now: the archive */}
     <Scene
       picture={{ archive: 'horse-ambulance' }}
@@ -266,9 +402,8 @@ const Home = () => (
       <Beat align="center">
         <h2 className="max-w-4xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">Horse people have always measured.</h2>
         <p className="mt-6 max-w-xl text-lg text-white/85">
-          The stopwatch on the gallops, the thermometer in the stall, the vet’s hand on a tendon. For a century those
-          readings lived in notebooks and memory. Equissetix keeps every one, for every horse, and reads them
-          together.
+          The stopwatch on the gallops, the thermometer in the stall, the vet’s hand on a tendon. Equissetix keeps
+          every one of those readings, for every horse, and reads them together.
         </p>
       </Beat>
       <Beat align="center">
@@ -309,7 +444,7 @@ const Home = () => (
       <div className="container-custom relative section-padding">
         <h2 className="max-w-2xl text-6xl leading-[0.92] text-white sm:text-7xl">Breakthroughs</h2>
         <p className="mt-6 max-w-xl text-lg text-white/80">
-          Advances in equine science that TrainingTree brings out of the lab and into the barn. Each one builds on
+          Advances in equine science that Equissetix brings out of the lab and into the barn. Each one builds on
           published research, and each one runs on your own horses’ data.
         </p>
         <ul className="mt-14 grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-2">
@@ -350,6 +485,24 @@ const Home = () => (
               <h3 className="font-condensed text-3xl font-extrabold leading-tight">{c.title}</h3>
               <p className="mt-3 text-lg text-navy-700">{c.body}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Questions */}
+    <section aria-labelledby="questions" className="section-padding bg-white">
+      <div className="container-custom grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+        <h2 id="questions">Good questions</h2>
+        <div className="border-t-2 border-ink">
+          {questions.map((item) => (
+            <details key={item.q} className="group border-b border-navy-100 py-5">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-condensed text-2xl font-extrabold leading-tight [&::-webkit-details-marker]:hidden">
+                {item.q}
+                <span aria-hidden className="mt-1 text-gold-600 transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <p className="mt-3 max-w-2xl text-lg text-navy-700">{item.a}</p>
+            </details>
           ))}
         </div>
       </div>

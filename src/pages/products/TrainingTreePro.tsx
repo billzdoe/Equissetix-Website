@@ -49,7 +49,7 @@ const ProLiteSlot = () => (
         You own the horses, run the barn and do the training. Lite gives you every record a small farm needs, for up
         to 15 horses, and shows the performance tools as previews. When you want workload, readiness and gait
         analysis switched on, move up to Pro in place: nothing to move, nothing to re-enter. Racing and competition
-        programmes go one level further, to Performance, which includes everything in Pro.
+        programmes have their own edition, Performance, built around the race and competition calendar.
       </p>
     </motion.div>
 

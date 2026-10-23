@@ -193,7 +193,7 @@ const data: SolutionData = {
       'Most trainers run a barn as well as a string. TrainingTree does both: the performance science plus vet care, staff and owners.',
     alsoSee: {
       slug: 'performance',
-      reason: 'For racing and competition programmes, the top level of TrainingTree,'
+      reason: 'The TrainingTree edition built for racing and competition programmes,'
     },
   },
 }

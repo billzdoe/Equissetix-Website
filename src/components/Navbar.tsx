@@ -27,10 +27,10 @@ const productGroups: { heading: string; links: MenuLink[] }[] = [
   {
     heading: 'Products',
     links: [
-      { path: '/products/trainingtree', label: 'TrainingTree', desc: 'One app, three levels: Lite, Pro and Performance.' },
-      { path: '/products/performance', label: 'TrainingTree Performance', desc: 'The top level: racing and competition programmes.' },
-      { path: '/products/stabletree', label: 'StableTree', desc: 'Its own app for barns that don’t train.' },
-      { path: '/products', label: 'Compare levels', desc: 'What’s in each, side by side.' },
+      { path: '/products/trainingtree', label: 'TrainingTree', desc: 'One product, three editions: Lite, Pro and Performance.' },
+      { path: '/products/performance', label: 'TrainingTree Performance', desc: 'The edition for racing and competition programmes.' },
+      { path: '/products/stabletree', label: 'StableTree', desc: 'Its own product for barns that don’t train.' },
+      { path: '/products', label: 'Compare editions', desc: 'What’s in each, side by side.' },
     ],
   },
   {
