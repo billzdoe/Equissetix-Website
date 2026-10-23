@@ -222,7 +222,7 @@ export const products: Product[] = [
     shortName: 'Equissetix ▸ TrainingTree Pro',
     tagline: 'Everything, in one platform',
     oneLiner:
-      'Run the barn and condition the racehorse in one platform. Ships in Pro & Lite editions.',
+      'Run the barn and condition the athlete in one platform, with a Lite edition for small farms where one person does it all.',
     who: 'Racing stables & training centers that want operations and sports science together.',
     role: 'platform',
     relationship:
@@ -324,7 +324,7 @@ export const comparisonMatrix: MatrixRow[] = [
 
   { category: 'Integrations & AI', name: 'Wearable devices (8 vendors)', stabletree: 'no', proLite: 'setup', pro: 'setup', performance: 'setup' },
   { category: 'Integrations & AI', name: 'Voice barn-walk (Claude)', stabletree: 'setup', proLite: 'setup', pro: 'setup', performance: 'setup' },
-  { category: 'Integrations & AI', name: 'Claude daily brief', stabletree: 'no', proLite: 'teaser', pro: 'setup', performance: 'setup' },
+  { category: 'Integrations & AI', name: 'AI daily brief', stabletree: 'no', proLite: 'teaser', pro: 'setup', performance: 'setup' },
 
-  { category: 'Scale', name: 'Horse cap', stabletree: 'yes', proLite: 'no', pro: 'yes', performance: 'yes' },
+  { category: 'Scale', name: 'More than 15 horses', stabletree: 'yes', proLite: 'no', pro: 'yes', performance: 'yes' },
 ]

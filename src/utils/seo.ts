@@ -92,7 +92,7 @@ export const pageSEO = {
   },
   productTrainingTreePro: {
     title: 'TrainingTree Pro — The Complete Platform | Equissetix',
-    description: 'Run the barn and condition the athlete in one platform — both halves together. Ships in Pro and Lite editions; start on Lite and upgrade in place.',
+    description: 'Run the barn and condition the athlete in one platform. TrainingTree Pro Lite is made for small farms where the owner runs the barn and does the training.',
   },
   productPerformance: {
     title: 'TrainingTree Performance — Condition the Athlete | Equissetix',

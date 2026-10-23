@@ -105,17 +105,19 @@ const ProductsOverview = () => {
           ))}
         </div>
 
-        {/* Lite vs Pro — the edition flip within the platform */}
-        <div className="relative z-10 mt-12 max-w-4xl mx-auto bg-navy-50/60 border border-navy-100 rounded-2xl p-6 sm:p-8">
-          <p className="text-center text-sm font-semibold text-navy-400 mb-3">
-            Within the platform: Lite captures, Pro interprets
+        {/* Lite: the small farm where one person does it all (Billy, 2026-10-23) */}
+        <div className="relative z-10 mt-12 max-w-4xl mx-auto bg-plate p-6 sm:p-8">
+          <h3 className="text-2xl font-bold text-navy-900">Lite: for the small farm where you do it all</h3>
+          <p className="mt-3 text-navy-700">
+            If you own the horses, run the barn and train them yourself, you need one place for all of it, not three
+            systems. TrainingTree Pro Lite keeps every record a small farm runs on, for up to 15 horses: health and
+            vet care, feed and turnout, workouts, the books and owner updates. The performance tools appear as
+            previews, so you can see what they would show for your horses, and switching on full TrainingTree Pro
+            is instant, with everything you’ve logged carried over.
           </p>
-          <p className="text-center text-sm text-navy-600 max-w-2xl mx-auto">
-            TrainingTree Pro also ships a <strong>Lite</strong> edition (up to 15 horses) that keeps the full
-            daily record-keeping loop and shows the sports-science readouts as locked teasers. Moving to full
-            Pro is a per-tenant flip—same codebase, same database—so every workout logged on Lite lights up
-            the moment you upgrade.
-          </p>
+          <Link to="/products/trainingtree-pro#lite" className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+            What’s in Lite
+          </Link>
         </div>
       </Section>
 
@@ -143,7 +145,7 @@ const ProductsOverview = () => {
                   </th>
                   <th className="py-4 px-3 text-center text-sm font-bold text-brand-700 bg-brand-50">StableTree</th>
                   <th className="py-4 px-3 text-center text-sm font-bold text-teal-700 bg-teal-50">Performance</th>
-                  <th className="py-4 px-3 text-center text-sm font-bold text-navy-700 bg-navy-50">TT Pro · Lite</th>
+                  <th className="py-4 px-3 text-center text-sm font-bold text-navy-700 bg-navy-50">Lite (small farms)</th>
                   <th className="py-4 px-3 text-center text-sm font-bold text-gold-700 bg-gold-50">TT Pro</th>
                 </tr>
               </thead>
@@ -170,7 +172,7 @@ const ProductsOverview = () => {
           <div className="bg-navy-50 px-5 py-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-navy-600">
             <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-brand-600" strokeWidth={3} /> Included</span>
             <span className="flex items-center gap-1.5"><Settings className="h-4 w-4 text-gold-500" /> Setup required</span>
-            <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-navy-300" /> Locked teaser (upsell)</span>
+            <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-navy-300" /> Preview in Lite</span>
             <span className="flex items-center gap-1.5"><Minus className="h-4 w-4 text-navy-300" /> / <X className="h-4 w-4 text-navy-200" /> Not included</span>
           </div>
         </div>
@@ -180,8 +182,8 @@ const ProductsOverview = () => {
       <Section id="chooser" background="white" className="relative">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-3">How much do you need?</h2>
-          <p className="text-navy-600 mb-8">Two halves and the whole. Whichever you start with, the other side can be added in place.</p>
-          <div className="grid sm:grid-cols-3 gap-4 text-left">
+          <p className="text-navy-600 mb-8">The barn half, the training half, the whole platform, or Lite for a small farm. Whichever you start with, you can add the rest in place.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
             <Card variant="bordered" className="h-full">
               <p className="text-sm font-semibold text-navy-400 mb-2">The barn half</p>
               <p className="text-sm text-navy-700 mb-4">
@@ -207,6 +209,15 @@ const ProductsOverview = () => {
               </p>
               <Link to="/products/trainingtree-pro" className="text-sm font-semibold text-gold-700 hover:text-gold-800">
                 → TrainingTree Pro
+              </Link>
+            </Card>
+            <Card variant="bordered" className="h-full">
+              <p className="text-sm font-semibold text-navy-400 mb-2">A small farm</p>
+              <p className="text-sm text-navy-700 mb-4">
+                You own the horses, run the barn and do the training yourself, with up to 15 horses.
+              </p>
+              <Link to="/products/trainingtree-pro#lite" className="text-sm font-semibold text-gold-700 hover:text-gold-800">
+                → TrainingTree Pro Lite
               </Link>
             </Card>
           </div>

@@ -6,20 +6,21 @@ import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
 import { productBySlug } from '../../data/products'
 
-// Pro vs Lite — same codebase & database, edition is a per-tenant flip.
-// "Lite captures the data. Pro interprets it."
+// Lite vs Pro. Lite is positioned for the small farm where the owner is also
+// the barn manager and the trainer (Billy, 2026-10-23). Same platform: moving
+// to Pro switches the performance tools on, with nothing to re-enter.
 const editionRows: { label: string; lite: 'yes' | 'teaser' | string; pro: 'yes' | string }[] = [
-  { label: 'Horse records, documents, vet / meds / vaccinations, BCS', lite: 'yes', pro: 'yes' },
-  { label: 'Workout logging (all types, splits, templates, calendar)', lite: 'yes', pro: 'yes' },
-  { label: 'Barn map, turnout, staff, inventory, ERP, owner portal', lite: 'yes', pro: 'yes' },
-  { label: 'Reports / CSV export, reminder alerts', lite: 'yes', pro: 'yes' },
-  { label: 'Withdrawal calculator & compliance (never paywalled)', lite: 'yes', pro: 'yes' },
-  { label: 'Horse cap', lite: '15 horses', pro: 'Unlimited' },
-  { label: 'Sports-science readouts (TRIMP / ACWR / readiness / VO2)', lite: 'teaser', pro: 'yes' },
-  { label: 'Workout recommendations + decision matrix', lite: 'teaser', pro: 'yes' },
-  { label: 'Video gait analysis + compare', lite: 'teaser', pro: 'yes' },
-  { label: 'Claude daily brief, wellness monitor, wearables, benchmarking', lite: 'teaser', pro: 'yes' },
-  { label: 'Injury-risk “Race Outlook”', lite: 'teaser', pro: 'yes' },
+  { label: 'Horse records, documents, vet care, medications, vaccinations, body condition', lite: 'yes', pro: 'yes' },
+  { label: 'Workout logging, with splits, templates and a calendar', lite: 'yes', pro: 'yes' },
+  { label: 'Barn map, turnout, feed and stock, the books, owner portal', lite: 'yes', pro: 'yes' },
+  { label: 'Reports, exports and reminders', lite: 'yes', pro: 'yes' },
+  { label: 'Medication withdrawal checks and compliance', lite: 'yes', pro: 'yes' },
+  { label: 'Horses', lite: 'Up to 15', pro: 'Unlimited' },
+  { label: 'Workload, readiness and fitness', lite: 'teaser', pro: 'yes' },
+  { label: 'Workout suggestions with a safety check', lite: 'teaser', pro: 'yes' },
+  { label: 'Gait analysis from phone video', lite: 'teaser', pro: 'yes' },
+  { label: 'AI daily brief, wellness monitor, wearables', lite: 'teaser', pro: 'yes' },
+  { label: 'Injury-risk grading', lite: 'teaser', pro: 'yes' },
 ]
 
 const Cell = ({ value }: { value: string }) => {
@@ -28,28 +29,25 @@ const Cell = ({ value }: { value: string }) => {
     return (
       <span className="inline-flex items-center gap-1 text-xs font-semibold text-navy-400">
         <Lock className="h-3.5 w-3.5" />
-        Teaser
+        Preview
       </span>
     )
   return <span className="text-sm font-semibold text-navy-800">{value}</span>
 }
 
 const ProLiteSlot = () => (
-  <Section background="gray">
+  <Section id="lite" background="gray">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="text-center mb-10"
     >
-      <span className="eyebrow justify-center text-gold-700 mb-3">Two editions, one platform</span>
-      <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
-        Lite captures the data. <span className="text-gradient">Pro interprets it.</span>
-      </h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">Lite, for the small farm where you do it all.</h2>
       <p className="text-lg text-navy-600 max-w-3xl mx-auto">
-        Same codebase, same database — the edition is a single per-tenant flip, no data migration. Start on
-        Lite and keep your entire daily record-keeping loop; every workout you log lights up the moment you
-        upgrade to Pro.
+        You own the horses, run the barn and do the training. Lite gives you every record a small farm needs, for up
+        to 15 horses, and shows the performance tools as previews. When you want workload, readiness and gait
+        analysis switched on, move to full TrainingTree Pro in place: nothing to move, nothing to re-enter.
       </p>
     </motion.div>
 
@@ -75,7 +73,7 @@ const ProLiteSlot = () => (
         </table>
       </div>
       <div className="bg-navy-50 px-5 py-3 text-xs text-navy-500">
-        Teaser = the feature stays visible as a locked upsell on Lite; upgrading unlocks it in place.
+        Preview: you can see the feature in Lite, and it switches on fully when you move to TrainingTree Pro.
       </div>
     </div>
   </Section>
