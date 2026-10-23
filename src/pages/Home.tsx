@@ -115,14 +115,15 @@ const Home = () => (
     >
       <Beat className="!min-h-[calc(100svh-5rem)] !pb-12">
         <h1 className="max-w-5xl text-[2.9rem] leading-[0.92] text-white sm:text-7xl lg:text-[7rem]">
-          Know every horse. Run every barn.
+          Built for the win.
         </h1>
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
           <div>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-              Equissetix is the operations platform for horse care: every horse’s health, training and feed, with the
-              barn’s daily work and its books, in one cloud system from the office desktop to the barn aisle. Everyone
-              around the horse works from the same picture, and sees a change the morning it starts.
+              Races and competitions are won long before the start. Equissetix gives every horse the edge: conditioning
+              programs that adapt to its own numbers, early warning when its vitals or workload drift, gait measured
+              from a phone video, and its vet working from the same record. All of it runs with the barn’s daily work,
+              from the office desktop to the barn aisle.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button to="/contact" variant="primary" size="lg">
@@ -138,17 +139,17 @@ const Home = () => (
               </Button>
             </div>
             <p className="mt-6 text-sm text-white/65">One platform: TrainingTree · StableTree · TrainingTree Veterinary</p>
-            <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example readings from one barn">
+            <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden" aria-label="Example readings for one horse">
               <Reading compact label="Readiness" value="86" note="Ready for full work" />
-              <Reading compact label="Temperature" value="99.8 °F" note="Inside its normal" />
-              <Reading compact label="Coggins" value="21 days" note="Renewal reminder set" />
+              <Reading compact label="Workload ratio" value="1.12" note="Building steadily" />
+              <Reading compact label="Withdrawal" value="Clear" note="Free to enter" />
             </div>
           </div>
           <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings from one barn">
-            <p className="text-sm text-white/70">An example barn, this morning</p>
+            <p className="text-sm text-white/70">An example horse, entry week</p>
             <Reading label="Readiness" value="86" note="Ready for full work" />
-            <Reading label="Temperature" value="99.8 °F" note="Inside its own normal" />
-            <Reading label="Coggins" value="21 days" note="Renewal reminder set" />
+            <Reading label="Workload ratio" value="1.12" note="Building steadily" />
+            <Reading label="Withdrawal" value="Clear" note="Free to enter Saturday" />
           </div>
         </div>
       </Beat>
@@ -174,10 +175,10 @@ const Home = () => (
     <section id="what-you-get" aria-labelledby="what-you-get-title" className="section-padding scroll-mt-20 bg-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-12">
-          <h2 id="what-you-get-title" className="max-w-xl">Everything a horse needs, in one system.</h2>
+          <h2 id="what-you-get-title" className="max-w-xl">Performance and operations, in one system.</h2>
           <p className="text-lg text-navy-600 lg:pt-3">
-            Care, conditioning and the business of the barn usually live in separate places. Equissetix puts them
-            side by side, so every decision about a horse is made with the whole picture in view.
+            Conditioning the athlete and running the business of the barn come together in one place, so every
+            decision about a horse is made with the whole picture in view.
           </p>
         </div>
         <ul className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -305,6 +306,56 @@ const Home = () => (
     {/* A rest: the three ideas behind the training numbers */}
     <ThreeIdeas />
 
+    {/* The barn */}
+    <Scene
+      id="barn"
+      picture={{ photo: 'ky-farm-road' }}
+      alt="A farm road runs between board-fenced paddocks on a Kentucky horse farm"
+      focus="50% 55%"
+      shade="left"
+    >
+      <Beat>
+        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
+          <div>
+            <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">The whole barn, in one place.</h2>
+            <p className="mt-6 max-w-xl text-lg text-white/85">
+              The day’s work, the people doing it and the books behind it run from the same screen as the horses’
+              care, in TrainingTree and in StableTree.
+            </p>
+            <Link to="/solutions/stable-managers" className={`mt-6 ${lightLink}`}>
+              For stable managers
+            </Link>
+          </div>
+          <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings from one barn">
+            <p className="text-sm text-white/70">An example barn, this morning</p>
+            <Reading label="Stalls" value="24 of 26" note="Two open for the waitlist" />
+            <Reading label="Withdrawal" value="Clear" note="Free to enter Saturday" />
+          </div>
+        </div>
+      </Beat>
+      <Beat align="center">
+        <div className="bg-chalk p-6 text-navy-900 sm:p-10">
+          <h3 className="font-condensed text-3xl font-extrabold leading-tight sm:text-4xl">What runs from it</h3>
+          <ul className="mt-8 grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
+            {barnTools.map((t) => (
+              <li key={t} className="flex items-start gap-3 text-lg">
+                <span aria-hidden className="mt-2.5 h-2 w-2 shrink-0 bg-gold-500" />
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+            <Link to="/products/stabletree" className={darkLink}>
+              Meet StableTree
+            </Link>
+            <Link to="/products/trainingtree" className={darkLink}>
+              Meet TrainingTree
+            </Link>
+          </div>
+        </div>
+      </Beat>
+    </Scene>
+
     {/* Health */}
     <Scene
       id="health"
@@ -338,56 +389,6 @@ const Home = () => (
             <RoundsBoard />
           </div>
           <GaitReadout />
-        </div>
-      </Beat>
-    </Scene>
-
-    {/* The barn */}
-    <Scene
-      id="barn"
-      picture={{ photo: 'ky-farm-road' }}
-      alt="A farm road runs between board-fenced paddocks on a Kentucky horse farm"
-      focus="50% 55%"
-      shade="left"
-    >
-      <Beat>
-        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)]">
-          <div>
-            <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">The whole barn, in one place.</h2>
-            <p className="mt-6 max-w-xl text-lg text-white/85">
-              The day’s work, the people doing it and the books behind it run from the same screen as the horses’
-              care, in TrainingTree and in StableTree.
-            </p>
-            <Link to="/solutions/stable-managers" className={`mt-6 ${lightLink}`}>
-              For stable managers
-            </Link>
-          </div>
-          <div className="hidden flex-col items-end gap-3 lg:flex" aria-label="Example readings from one barn">
-            <p className="text-sm text-white/70">An example barn, this morning</p>
-            <Reading label="Stalls" value="24 of 26" note="Two open for the waitlist" />
-            <Reading label="Morning checklist" value="18 of 22" note="Four left before turnout" />
-          </div>
-        </div>
-      </Beat>
-      <Beat align="center">
-        <div className="bg-chalk p-6 text-navy-900 sm:p-10">
-          <h3 className="font-condensed text-3xl font-extrabold leading-tight sm:text-4xl">What runs from it</h3>
-          <ul className="mt-8 grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
-            {barnTools.map((t) => (
-              <li key={t} className="flex items-start gap-3 text-lg">
-                <span aria-hidden className="mt-2.5 h-2 w-2 shrink-0 bg-gold-500" />
-                {t}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-            <Link to="/products/stabletree" className={darkLink}>
-              Meet StableTree
-            </Link>
-            <Link to="/products/trainingtree" className={darkLink}>
-              Meet TrainingTree
-            </Link>
-          </div>
         </div>
       </Beat>
     </Scene>

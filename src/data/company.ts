@@ -129,6 +129,41 @@ export interface SellingPoint {
 
 export const sellingPoints: SellingPoint[] = [
   {
+    id: 'adaptive',
+    title: 'Training that adapts to the horse',
+    body:
+      'Every session updates workload and readiness, conditioning programs adjust day by day, and one safety check sits in front of every suggestion.',
+    link: { to: '/performance', label: 'Explore training' },
+  },
+  {
+    id: 'barn',
+    title: 'The whole barn, run from one place',
+    body:
+      'Stalls, turnout, daily checklists, staff hours and payroll, owner billing, and reminders before a Coggins or a vaccine lapses.',
+    link: { to: '/products/stabletree', label: 'Explore the barn tools' },
+  },
+  {
+    id: 'gait',
+    title: 'Gait, measured from a phone video',
+    body:
+      'Film the horse trotting past and get a measured record of rhythm and evenness, with two dates side by side.',
+    link: { to: '/science#video-gait', label: 'How gait works' },
+  },
+  {
+    id: 'race-day',
+    title: 'Race day and compliance built in',
+    body:
+      'Entries, results, jockey bookings and furlong splits, with any entry inside a medication withdrawal window stopped before it goes in.',
+    link: { to: '/products/performance', label: 'Meet TrainingTree Performance' },
+  },
+  {
+    id: 'feed',
+    title: 'Feed that follows the work',
+    body:
+      'Rations are matched to the work each horse has actually done, built on the published nutrient standards for horses.',
+    link: { to: '/blog/11', label: 'Read about feed' },
+  },
+  {
     id: 'one-record',
     title: 'One record for every horse',
     body:
@@ -141,41 +176,6 @@ export const sellingPoints: SellingPoint[] = [
     body:
       'Temperature, pulse and breathing are read against each horse’s own normal, and morning rounds show who needs a look first.',
     link: { to: '/vet-care', label: 'Explore health' },
-  },
-  {
-    id: 'adaptive',
-    title: 'Training that adapts to the horse',
-    body:
-      'Every session updates workload and readiness, conditioning programs adjust day by day, and one safety check sits in front of every suggestion.',
-    link: { to: '/performance', label: 'Explore training' },
-  },
-  {
-    id: 'gait',
-    title: 'Gait, measured from a phone video',
-    body:
-      'Film the horse trotting past and get a measured record of rhythm and evenness, with two dates side by side.',
-    link: { to: '/science#video-gait', label: 'How gait works' },
-  },
-  {
-    id: 'feed',
-    title: 'Feed that follows the work',
-    body:
-      'Rations are matched to the work each horse has actually done, built on the published nutrient standards for horses.',
-    link: { to: '/blog/11', label: 'Read about feed' },
-  },
-  {
-    id: 'barn',
-    title: 'The whole barn, run from one place',
-    body:
-      'Stalls, turnout, daily checklists, staff hours and payroll, owner billing, and reminders before a Coggins or a vaccine lapses.',
-    link: { to: '/products/stabletree', label: 'Explore the barn tools' },
-  },
-  {
-    id: 'race-day',
-    title: 'Race day and compliance built in',
-    body:
-      'Entries, results, jockey bookings and furlong splits, with any entry inside a medication withdrawal window stopped before it goes in.',
-    link: { to: '/products/performance', label: 'Meet TrainingTree Performance' },
   },
   {
     id: 'yours',

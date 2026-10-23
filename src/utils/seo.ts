@@ -46,8 +46,8 @@ type PageSEOEntry = {
 export const pageSEO = {
   // Core pages
   home: {
-    title: 'Equissetix — Know Every Horse. Run Every Barn.',
-    description: 'Equissetix brings each horse’s health, training, feed and care together with the barn’s daily work: TrainingTree for training barns and racing stables, StableTree for boarding and breeding farms, and TrainingTree Veterinary for vets.',
+    title: 'Equissetix — Built for the Win',
+    description: 'Races and competitions are won long before the start. Equissetix gives every horse the edge: adaptive conditioning programs, early warning on vitals and workload, phone-video gait analysis and the vet on the same record, alongside the barn’s daily work.',
   },
   performance: {
     title: 'Equine Performance — Workload, Readiness & Gait | Equissetix',
