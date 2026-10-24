@@ -39,6 +39,9 @@ const ThreeIdeas = () => (
       <Link to="/guide" className="mt-10 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
         Every number, explained
       </Link>
+      <Link to="/performance#example-program" className="ml-8 mt-10 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700">
+        See an example program
+      </Link>
     </div>
   </section>
 )

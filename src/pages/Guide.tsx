@@ -2,6 +2,7 @@ import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import { TopicHero, CloseCTA } from '../components/TopicPage'
 import { guide } from '../data/guide'
+import ExampleProgram from '../components/ExampleProgram'
 
 /**
  * /guide — "The numbers, explained". Every measure on the site in plain
@@ -18,6 +19,9 @@ const Guide = () => (
         Workload, readiness, baselines, symmetry: each one in plain words, why it matters, and what to do with
         it. No sports-science background needed.
       </p>
+      <a href="#example-program" className="mt-6 inline-block font-semibold text-white underline decoration-2 underline-offset-4 hover:text-gold-300">
+        See an example conditioning program
+      </a>
     </TopicHero>
 
     <section className="section-padding">
@@ -74,6 +78,8 @@ const Guide = () => (
         </div>
       </div>
     </section>
+
+    <ExampleProgram />
 
     <CloseCTA title="See these numbers for your own horses." />
   </div>

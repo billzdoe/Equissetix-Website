@@ -40,11 +40,11 @@ export const breakthroughs: Breakthrough[] = [
   },
   {
     id: 'safety-gate',
-    title: 'One safety gate in front of every recommendation',
+    title: 'One safety check in front of every recommendation',
     summary:
-      'Every workout suggestion, from every part of the app, passes the same check first: is this horse’s work rising too fast, is it not ready today, or is it in rehab?',
+      'Every workout suggestion, from every part of the app, passes the same check first, so the work fits the horse it is for.',
     matters:
-      'A suggestion is only worth following if it never pushes a horse that shouldn’t be pushed. One gate, everywhere, means no corner of the app can forget, and the chart and the advice always agree.',
+      'A suggestion is only worth following if it respects the horse it’s for. One check, everywhere, means the chart and the advice tell the same story.',
     basis: 'Hulin et al., British Journal of Sports Medicine (2016); Gabbett (2016)',
     status: 'live',
     source: 'backend/app/services/workout_recommendation_service.py',

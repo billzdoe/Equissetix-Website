@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { pageSEO } from '../utils/seo'
 import WorkloadSketch from '../components/WorkloadSketch'
+import ExampleProgram from '../components/ExampleProgram'
 import StatusNote from '../components/StatusNote'
 import FeatureGrid from '../components/FeatureGrid'
 import { InkDrawing } from '../components/Archive'
@@ -59,9 +60,12 @@ const PerformanceScience = () => (
           <div>
             <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">Every session, read the moment it’s logged.</h2>
             <p className="mt-6 max-w-xl text-lg text-white/85">
-              Workload and readiness update after each session, and one safety gate checks every suggestion before you
-              see it: a fast rise in workload, a red readiness score or an active rehab plan changes the work.
+              Workload and readiness update after each session, and one safety check sits in front of every
+              suggestion, so when a horse needs an easier day, the work changes and tells you why.
             </p>
+            <a href="#example-program" className="mt-6 inline-block font-semibold text-gold-300 underline decoration-2 underline-offset-4 hover:text-gold-200">
+              See an example program
+            </a>
           </div>
           <div className="bg-chalk p-5 text-navy-900 sm:p-6">
             <WorkloadSketch />
@@ -69,6 +73,8 @@ const PerformanceScience = () => (
         </div>
       </Beat>
     </Scene>
+
+    <ExampleProgram />
 
     <section className="section-padding">
       <div className="container-custom">

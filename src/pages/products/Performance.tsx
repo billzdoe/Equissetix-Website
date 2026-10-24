@@ -94,9 +94,14 @@ const Performance = () => (
               and one safety check sits in front of every suggestion, so the plan builds fitness at the pace each
               horse is ready for.
             </p>
-            <Link to="/guide" className={`mt-6 ${lightLink}`}>
-              What the numbers mean
-            </Link>
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+              <Link to="/performance#example-program" className={lightLink}>
+                See an example program
+              </Link>
+              <Link to="/guide" className={lightLink}>
+                What the numbers mean
+              </Link>
+            </div>
           </div>
           <div className="bg-chalk p-5 text-navy-900 sm:p-6">
             <WorkloadSketch />
