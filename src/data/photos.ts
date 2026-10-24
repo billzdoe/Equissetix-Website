@@ -29,7 +29,7 @@ export const photos: Record<string, SitePhoto> = {
   'pack-away': { name: 'pack-away', ratio: 2400 / 1120, source: unsplash('U-yHjENTmMg'), depth: true },
   'canter-black': { name: 'canter-black', ratio: 2400 / 1600, source: unsplash('JtQjUqWwr4k'), depth: true },
   // Kentucky horse farms: board fences, bluegrass, paddocks
-  'ky-lane': { name: 'ky-lane', ratio: 2400 / 1603, source: unsplash('2TVL1lHp_2U') },
+  'ky-lane': { name: 'ky-lane', ratio: 2400 / 1603, source: unsplash('2TVL1lHp_2U'), depth: true },
   'ky-fence-horse': { name: 'ky-fence-horse', ratio: 2400 / 1735, source: unsplash('ojeniae90bI'), depth: true },
   'ky-sunset': { name: 'ky-sunset', ratio: 2400 / 1350, source: unsplash('tnLyJQeVi6M'), depth: true },
   'ky-grazing': { name: 'ky-grazing', ratio: 2400 / 1617, source: unsplash('msivm9v3-h8') },

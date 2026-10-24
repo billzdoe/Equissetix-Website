@@ -68,7 +68,7 @@ export const products: Product[] = [
     tagline: 'Care for every horse',
     oneLiner:
       'Keep every horse healthy, compliant, and cared for on schedule — with the records, staff, and billing that run the barn behind it.',
-    who: 'Boarding & training barns, breeding farms, sport-horse yards, lesson & show barns.',
+    who: 'Boarding barns, breeding farms, sport-horse yards, lesson and show barns.',
     role: 'standalone',
     relationship:
       'Its own product, for barns that board, breed or teach and don’t need the training tools. It keeps the same stable records TrainingTree does.',
@@ -134,7 +134,7 @@ export const products: Product[] = [
           { label: 'Vitals vs each horse’s own baseline + morning rounds', status: 'included' },
           { label: 'Health-history PDF for vets and buyers', status: 'included' },
           { label: 'Farrier visits + hoof measurements + shoe inventory', status: 'included' },
-          { label: 'Voice barn-walk structuring (Claude)', status: 'setup' },
+          { label: 'Voice barn walks turned into records', status: 'setup' },
         ],
       },
     ],
@@ -143,7 +143,7 @@ export const products: Product[] = [
       'Video & sensor gait analysis',
       'Wearable device integrations',
       'Racing operations & race-day compliance',
-      'Claude daily brief',
+      'AI daily brief',
     ],
   },
   {
@@ -199,7 +199,7 @@ export const products: Product[] = [
           { label: 'Jockey booking + eligibility checks', status: 'included' },
           { label: 'Medication withdrawal calculator + HISA / ADMC / licensing', status: 'included' },
           { label: 'Wearable device integrations (8 vendors)', status: 'setup' },
-          { label: 'Claude daily brief', status: 'setup' },
+          { label: 'AI daily brief', status: 'setup' },
         ],
       },
     ],
@@ -239,7 +239,7 @@ export const products: Product[] = [
           { label: 'Video gait analysis + side-by-side compare', status: 'included' },
           { label: 'Racing ops + medication withdrawal calculator', status: 'included' },
           { label: 'Wearable device integrations (8 vendors)', status: 'setup' },
-          { label: 'Claude daily brief', status: 'setup' },
+          { label: 'AI daily brief', status: 'setup' },
         ],
       },
     ],
@@ -349,7 +349,7 @@ export const comparisonMatrix: MatrixRow[] = [
   { category: 'Gait & Racing', name: 'Racing ops (entries, jockeys)', stabletree: 'no', lite: 'yes', pro: 'yes', performance: 'yes' },
 
   { category: 'Integrations & AI', name: 'Wearable devices (8 vendors)', stabletree: 'no', lite: 'setup', pro: 'setup', performance: 'setup' },
-  { category: 'Integrations & AI', name: 'Voice barn-walk (Claude)', stabletree: 'setup', lite: 'setup', pro: 'setup', performance: 'setup' },
+  { category: 'Integrations & AI', name: 'Voice barn walks', stabletree: 'setup', lite: 'setup', pro: 'setup', performance: 'setup' },
   { category: 'Integrations & AI', name: 'AI daily brief', stabletree: 'no', lite: 'teaser', pro: 'setup', performance: 'setup' },
 
   { category: 'Scale', name: 'More than 15 horses', stabletree: 'yes', lite: 'no', pro: 'yes', performance: 'yes' },
