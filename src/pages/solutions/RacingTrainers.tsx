@@ -11,6 +11,7 @@ import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
  */
 
 const data: SolutionData = {
+  hero: { photo: 'hooves-dirt', alt: 'Close view of a horse\'s hooves striking a dirt surface', focus: '50% 60%' },
   breadcrumb: 'Trainers',
   eyebrow: 'For trainers',
   headline: ['Know which horse is ready to work,', 'and which one needs the day.'],

@@ -9,6 +9,7 @@ import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
  */
 
 const data: SolutionData = {
+  hero: { photo: 'ky-grazing', alt: 'A grey horse and a bay horse graze in a Kentucky paddock beside a run-in shed', focus: '50% 55%' },
   breadcrumb: 'Horse owners',
   eyebrow: 'For horse owners',
   headline: ['See how your horse is doing,', 'without the phone tag.'],

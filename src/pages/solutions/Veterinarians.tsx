@@ -9,6 +9,7 @@ import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
  */
 
 const data: SolutionData = {
+  hero: { photo: 'legs-wraps', alt: 'Close view of a racehorse\'s legs and leg wraps as it walks on a training track', focus: '55% 60%' },
   breadcrumb: 'Veterinarians',
   eyebrow: 'For veterinarians',
   headline: ['See what happened between visits,', 'not just what the barn remembers.'],

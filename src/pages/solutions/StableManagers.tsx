@@ -3,6 +3,7 @@ import { pageSEO } from '../../utils/seo'
 import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
 const data: SolutionData = {
+  hero: { photo: 'ky-farm-road', alt: 'A farm road runs between board-fenced paddocks on a Kentucky horse farm', focus: '50% 55%' },
   breadcrumb: 'Stable managers',
   eyebrow: 'For stable managers',
   headline: ['Run the day from one screen,', 'not three whiteboards.'],

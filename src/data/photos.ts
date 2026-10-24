@@ -32,10 +32,10 @@ export const photos: Record<string, SitePhoto> = {
   'ky-lane': { name: 'ky-lane', ratio: 2400 / 1603, source: unsplash('2TVL1lHp_2U'), depth: true },
   'ky-fence-horse': { name: 'ky-fence-horse', ratio: 2400 / 1735, source: unsplash('ojeniae90bI'), depth: true },
   'ky-sunset': { name: 'ky-sunset', ratio: 2400 / 1350, source: unsplash('tnLyJQeVi6M'), depth: true },
-  'ky-grazing': { name: 'ky-grazing', ratio: 2400 / 1617, source: unsplash('msivm9v3-h8') },
+  'ky-grazing': { name: 'ky-grazing', ratio: 2400 / 1617, source: unsplash('msivm9v3-h8'), depth: true },
   'ky-farm-road': { name: 'ky-farm-road', ratio: 2400 / 1600, source: unsplash('tzgtK4TcbxE'), depth: true },
   'ky-fence-dusk': { name: 'ky-fence-dusk', ratio: 2400 / 1600, source: unsplash('cJ3buXe-aJw'), depth: true },
-  'ky-trees': { name: 'ky-trees', ratio: 2400 / 1759, source: unsplash('zaEPrwSdaWA') },
+  'ky-trees': { name: 'ky-trees', ratio: 2400 / 1759, source: unsplash('zaEPrwSdaWA'), depth: true },
   // Public domain (USDA APHIS, Kentucky, 2023): equine vets at work. These
   // show the science around the horse; TrainingTree does not do thermal
   // imaging, X-ray or ultrasound, so no page may caption them as its own.

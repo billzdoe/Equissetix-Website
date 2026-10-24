@@ -3,6 +3,7 @@ import { pageSEO } from '../../utils/seo'
 import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
 const data: SolutionData = {
+  hero: { photo: 'ky-fence-dusk', alt: 'Black board fencing runs across a Kentucky horse farm at dusk', focus: '50% 50%' },
   breadcrumb: 'Barn owners',
   eyebrow: 'For barn owners',
   headline: ['Know your horses are cared for', 'and your business adds up.'],

@@ -3,6 +3,7 @@ import { pageSEO } from '../../utils/seo'
 import SolutionPage, { type SolutionData } from '../../components/SolutionPage'
 
 const data: SolutionData = {
+  hero: { photo: 'ky-sunset', alt: 'Horses graze in a Kentucky paddock at sunset, backlit by low sun through the trees', focus: '50% 60%' },
   breadcrumb: 'Breeding & Sport-Horse Farms',
   eyebrow: 'For breeding & sport-horse farms',
   headline: ['A complete file on every horse,', 'from foaling to sale.'],

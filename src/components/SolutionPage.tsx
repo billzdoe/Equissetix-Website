@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Button from './Button'
 import Breadcrumbs from './Breadcrumbs'
 import { TopicHero, CloseCTA } from './TopicPage'
+import { Scene, Beat } from './Scene'
 import Photo from './Photo'
 import StatusNote from './StatusNote'
 import { productBySlug, type ProductSlug } from '../data/products'
@@ -22,6 +23,8 @@ export interface SolutionData {
   eyebrow: string
   /** hero headline, rendered as one sentence */
   headline: [string, string]
+  /** full-screen photo behind the headline (a Scene); without it, the plain ink header */
+  hero?: { photo: keyof typeof photos; alt: string; focus?: string }
   subhead: string
   /** the pain → what it costs, in the visitor's own words */
   painPoints: { problem: string; impact: string }[]
@@ -63,6 +66,31 @@ const SolutionPage = ({ data }: { data: SolutionData }) => {
 
   return (
     <div className="pt-20">
+      {data.hero ? (
+        <Scene picture={{ photo: data.hero.photo }} alt={data.hero.alt} focus={data.hero.focus} shade="left" eager>
+          <Beat className="!min-h-[calc(100svh-5rem)] !pb-16">
+            <h1 className="max-w-5xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-[6rem]">
+              {data.headline[0]} {data.headline[1]}
+            </h1>
+            <div className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+        <p>{data.subhead}</p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button to="/contact" variant="primary" size="lg">
+            Join the pilot
+          </Button>
+          <Button
+            to={product.route}
+            size="lg"
+            variant="ghost"
+            className="!border-white/30 !bg-transparent !text-white hover:!border-white hover:!bg-white/10"
+          >
+            See {product.name}
+          </Button>
+        </div>
+            </div>
+          </Beat>
+        </Scene>
+      ) : (
       <TopicHero title={`${data.headline[0]} ${data.headline[1]}`}>
         <p>{data.subhead}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -79,6 +107,7 @@ const SolutionPage = ({ data }: { data: SolutionData }) => {
           </Button>
         </div>
       </TopicHero>
+      )}
 
       <div className="container-custom pt-6">
         <Breadcrumbs items={[{ label: 'Who it’s for', path: '/' }, { label: data.breadcrumb }]} />
