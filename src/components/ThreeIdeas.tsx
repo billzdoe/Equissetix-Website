@@ -25,7 +25,7 @@ const ThreeIdeas = () => (
             <div key={id} className="border-t-2 border-ink pt-5">
               <h3 className="font-condensed text-3xl font-extrabold">{e.term}</h3>
               <p className="mt-3 text-lg text-navy-900">{e.short}</p>
-              {e.example && <p className="mt-3 text-navy-600">{e.example}</p>}
+              <p className="mt-3 text-navy-600">{e.why}</p>
               <Link
                 to={`/guide#${id}`}
                 className="mt-4 inline-block font-semibold text-brand-600 underline decoration-2 underline-offset-4 hover:text-brand-700"

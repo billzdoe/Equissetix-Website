@@ -101,11 +101,11 @@ export const pageSEO = {
   // Why Equissetix
   whyCompliance: {
     title: 'Compliance & Records — Nothing Lapses | Equissetix',
-    description: 'Coggins, vaccinations, insurance, licensing, and medication withdrawal windows on a traffic-light dashboard that warns you before anything lapses.',
+    description: 'Health papers, vaccinations, insurance, licences and medication withdrawals in one place, with a warning while there’s still time.',
   },
   whyOwnerTransparency: {
     title: 'Owner Transparency — The Care Behind the Bill | Equissetix',
-    description: 'Give every owner a private portal into their horse’s health, care, and invoices. Itemized billing tied to real activity turns status calls into logins.',
+    description: 'Give every owner a private view of their horse’s health, care and invoices, and turn status calls into trust.',
   },
   whyTheScience: {
     title: 'The Science — Auditable Sports Science, Honest AI | Equissetix',

@@ -2,43 +2,36 @@ import SEO from '../../components/SEO'
 import { pageSEO } from '../../utils/seo'
 import WhyPage, { type WhyData } from '../../components/WhyPage'
 
+/*
+ * Verified 2026-10-24 against TrainingTree (bce1c59) and StableTree (79da6115):
+ * owner portal scoped to the owner's horses with per-category sharing
+ * (owner_portal.py, data categories), charges booked per horse, ownership
+ * percentages (owner_distribution_service), QR codes + public horse profile
+ * (qr_codes.py, public_horse_profile.py).
+ */
 const data: WhyData = {
-  breadcrumb: 'Owner Transparency',
-  eyebrow: 'Why Equissetix',
+  breadcrumb: 'Owner transparency',
   headline: ['Owners see the care', 'behind every bill.'],
   subhead:
-    'The “how’s my horse doing?” text becomes a login. Give each owner a clear window into their own horse’s health, care, and invoices — and turn transparency into trust and retention.',
+    'Give each owner their own window into their horse: its health, its care and its invoices. Fewer “how’s he doing?” calls, and more trust.',
+  hero: { photo: 'ky-fence-horse', alt: 'A horse at a board fence on a Kentucky farm', focus: '34% 60%' },
+  intro: 'Owners who can see the care their horse gets don’t have to take it on faith. That openness is how a barn keeps its owners.',
   points: [
     {
-      title: 'A portal per owner, scoped to their horses',
-      body: 'Each owner sees their own horses’ training, health, and financials — and nothing that isn’t theirs. You control exactly what’s visible, per horse and per data category.',
-      items: [
-        'Per-horse, per-category privacy controls',
-        'Owners never see other owners’ data',
-        'Read access without giving up control of the record',
-      ],
+      title: 'A private view for every owner',
+      body: 'Each owner sees their own horses and nothing else, and you decide what’s shared.',
     },
     {
-      title: 'The story behind the invoice',
-      body: 'Board days, services, and expenses book to the right horse automatically, so an invoice isn’t a mystery line item — it’s backed by the care the owner can see.',
-      items: [
-        'Itemized, accurate invoices tied to real activity',
-        'Owner split-billing for partnerships and shares',
-        'Each charge linked to the care behind it',
-      ],
+      title: 'Bills that explain themselves',
+      body: 'Charges are tied to the horse and the care behind them, and shared ownership is handled too.',
     },
     {
-      title: 'Health history, a scan away',
-      body: 'A QR code on the stall card opens a public profile; the full health and care history lives in the portal — so answers don’t require a phone call to you.',
-      items: [
-        'QR stall cards and public horse profiles',
-        'Complete vet, farrier, and care history on file',
-        'A public profile you choose what to show on',
-      ],
+      title: 'History, a scan away',
+      body: 'A code on the stall card opens the horse’s profile, showing only what you choose to show.',
     },
     {
-      title: 'Trust that compounds',
-      body: 'Owners who can see the care their horse gets don’t have to take it on faith. That openness is how a barn earns trust that lasts.',
+      title: 'You stay in control',
+      body: 'Owners can look; the record stays yours to keep.',
     },
   ],
   cta: { label: 'Compare products', to: '/products' },

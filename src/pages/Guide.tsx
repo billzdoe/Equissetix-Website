@@ -66,12 +66,6 @@ const Guide = () => (
                         <dd className="mt-1 text-navy-600">{e.use}</dd>
                       </div>
                     </dl>
-                    {e.example && (
-                      <p className="mt-6 max-w-3xl border-l-2 border-gold-400 bg-white px-4 py-3 text-navy-700">
-                        <span className="font-semibold text-navy-900">Example: </span>
-                        {e.example}
-                      </p>
-                    )}
                   </article>
                 ))}
               </div>
