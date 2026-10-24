@@ -20,7 +20,7 @@ import { companyPrinciples, sellingPoints } from '../data/company'
  * TrainingTree app (Lite, Pro, Performance), StableTree and TrainingTree
  * Veterinary -- and its big selling points, instead of one product and vet
  * care (Billy, 2026-10-23). Order: value proposition -> the eight selling
- * points -> the three apps -> a live demo (Juniper) -> training, health and
+ * points -> the three apps -> a live demo (one example horse per breed) -> training, health and
  * barn scenes -> the science -> how we work -> questions -> join the pilot.
  *
  * Voice (feedback-website-marketing-voice): positive and confident, outcome
@@ -265,8 +265,9 @@ const Home = () => (
           <div>
             <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">Watch it catch a problem.</h2>
             <p className="mt-6 max-w-md text-lg text-white/85">
-              Juniper is an example eventer. Press play on her three weeks, or drag through the days, and see the day
-              her workload climbs and a fever shows up, and what TrainingTree tells you to do.
+              Pick a breed, from Juniper, a 2-year-old Thoroughbred in race training, to a Friesian at his first dressage
+              show. Press play on three weeks, or drag through the days, and see the day the work catches up, and what
+              TrainingTree tells you to do. The rules are the same for every breed: each horse against its own normal.
             </p>
           </div>
           <HorseStory />

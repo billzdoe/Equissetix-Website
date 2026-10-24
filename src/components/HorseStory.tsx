@@ -1,120 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Pause, Play } from 'lucide-react'
+import { HORSE_STORIES, computeStory } from '../data/horseStories'
 
 /**
  * The hero: three weeks of one example horse, scrubbable day by day, showing
  * TrainingTree reacting. (Billy, 2026-10-22: the Muybridge plate didn't
- * say what the product does.)
+ * say what the product does. 2026-10-24: one example horse per breed,
+ * Juniper first as a 2-year-old Thoroughbred.)
  *
- * The numbers are COMPUTED here, not typed in, with the app's own rules:
- *  - workload ratio: EWMA acute (7-day) / chronic (28-day), as in
- *    equine_sports_science.py; each morning sees work through yesterday
- *  - readiness weights 35/30/20/15 (daily_readiness_service.py); the mapping
- *    from inputs to sub-scores is simplified for the page, and it says so
- *  - fever flag at +1.5 °F over the horse's own baseline (fever_alert.py)
- *  - safety gate: ratio above 1.3 or red readiness (workout_recommendation_service.py)
+ * The horses and the app's rules live in data/horseStories.ts; every number
+ * on the card is computed there, not typed in.
  *
  * Layout never moves while it plays: every text block has a fixed height and
  * numbers use tabular figures.
  */
-
-type DayInput = { load: number; temp: number; planned: string; event: string }
-
-const HISTORY = Array.from({ length: 35 }, (_, i) => (i % 7 === 6 ? 0 : 300))
-const BASELINE_TEMP = 99.2
-const HARD_LOAD = 700
-
-const DAYS: DayInput[] = [
-  { load: 320, temp: 99.1, planned: 'Long, slow work: 40 min walk and trot', event: 'Week 1 of her eventing program. Steady base work.' },
-  { load: 340, temp: 99.3, planned: 'Flatwork, 45 min', event: 'Work builds a little each session.' },
-  { load: 0, temp: 99.2, planned: 'Rest day', event: 'Planned rest day.' },
-  { load: 360, temp: 99.0, planned: 'Hill work, 40 min', event: 'Week 1, building steadily.' },
-  { load: 380, temp: 99.4, planned: 'Flatwork with canter sets', event: 'Workload ratio sits comfortably near 1.0.' },
-  { load: 370, temp: 99.2, planned: 'Gridwork and flatwork', event: 'Readiness green every morning.' },
-  { load: 0, temp: 99.3, planned: 'Rest day', event: 'Planned rest day.' },
-  { load: 400, temp: 99.1, planned: 'Interval canters: 3 × 3 min', event: 'Week 2: interval work begins.' },
-  { load: 420, temp: 99.2, planned: 'Flatwork, 50 min', event: 'Fitness is building.' },
-  { load: 0, temp: 99.3, planned: 'Rest day', event: 'Planned rest day.' },
-  { load: 440, temp: 99.4, planned: 'Interval canters: 3 × 4 min', event: 'Longer intervals, still well within range.' },
-  { load: 450, temp: 99.2, planned: 'Jumping school', event: 'A good jumping school.' },
-  { load: 900, temp: 99.5, planned: 'Cross-country school', event: 'Cross-country school: the biggest day of her month.' },
-  { load: 0, temp: 100.8, planned: 'Interval canters: 3 × 4 min', event: 'The morning after: her workload ratio has jumped, and a fever is caught against her own normal.' },
-  { load: 200, temp: 99.9, planned: 'Flatwork, 45 min', event: 'Temperature settling. Readiness back to yellow.' },
-  { load: 300, temp: 99.4, planned: 'Flatwork, 45 min', event: 'Back to green. The program picks up where it left off.' },
-  { load: 300, temp: 99.2, planned: 'Long, slow work: 40 min', event: 'Back on track, with no big jump in work.' },
-  { load: 0, temp: 99.1, planned: 'Rest day', event: 'Planned rest day.' },
-  { load: 360, temp: 99.3, planned: 'Interval canters: 3 × 3 min', event: 'Week 3: intervals resume.' },
-  { load: 380, temp: 99.2, planned: 'Flatwork, 50 min', event: 'Steady again.' },
-  { load: 400, temp: 99.2, planned: 'Interval canters: 3 × 4 min', event: 'Three weeks, one setback caught early, and back to the plan.' },
-]
-
-type DayView = {
-  ratio: number
-  readiness: number
-  band: 'green' | 'yellow' | 'red'
-  parts: { label: string; score: number; weight: number }[]
-  tempDelta: number
-  fever: boolean
-  plan: string
-  why: string[]
-  gated: boolean
-}
-
-function computeStory(): DayView[] {
-  const la = 2 / (7 + 1)
-  const lc = 2 / (28 + 1)
-  let acute = 0
-  let chronic = 0
-  const ratioAfter: number[] = []
-  for (const l of [...HISTORY, ...DAYS.map((d) => d.load)]) {
-    acute = la * l + (1 - la) * acute
-    chronic = lc * l + (1 - lc) * chronic
-    ratioAfter.push(chronic > 0 ? acute / chronic : 0)
-  }
-  let lastHard = -Infinity
-  let feverDay = -Infinity
-  return DAYS.map((d, i) => {
-    // The morning of day i sees work through yesterday.
-    const ratio = ratioAfter[HISTORY.length + i - 1]
-    const tempDelta = d.temp - BASELINE_TEMP
-    const fever = tempDelta >= 1.5
-    if (fever) feverDay = i
-    const daysSinceHard = i - lastHard
-
-    const health = fever ? 20 : i - feverDay === 1 ? 70 : 95
-    const load = ratio > 1.5 ? 30 : ratio > 1.3 ? 55 : ratio < 0.8 ? 75 : 90
-    const recovery = daysSinceHard <= 1 ? 40 : daysSinceHard === 2 ? 70 : 95
-    const injury = ratio > 1.5 ? 30 : ratio > 1.3 ? 60 : 90
-    const parts = [
-      { label: 'Health', score: health, weight: 35 },
-      { label: 'Workload', score: load, weight: 30 },
-      { label: 'Recovery', score: recovery, weight: 20 },
-      { label: 'Injury risk', score: injury, weight: 15 },
-    ]
-    const readiness = Math.round(parts.reduce((s, p) => s + (p.score * p.weight) / 100, 0))
-    const band = readiness >= 80 ? 'green' : readiness >= 50 ? 'yellow' : 'red'
-
-    let plan = d.planned
-    const why: string[] = []
-    let gated = false
-    if (ratio > 1.3 || band === 'red') {
-      gated = true
-      plan = 'Rest. Hand-walk only.'
-      if (ratio > 1.3) why.push(`Work is rising faster than she’s used to (ratio ${ratio.toFixed(2)})`)
-      if (band === 'red') why.push(`Readiness is red (${readiness})`)
-      if (fever) why.push(`Fever: ${d.temp.toFixed(1)} °F, well above her normal`)
-    } else if (band === 'yellow') {
-      gated = true
-      plan = 'Moderate: walk and trot, 30 min'
-      why.push(`Readiness is yellow (${readiness}); planned: ${d.planned.toLowerCase()}`)
-    } else {
-      why.push(d.load === 0 ? 'On the program' : 'Ready to work, as planned')
-    }
-    if (d.load >= HARD_LOAD) lastHard = i
-    return { ratio, readiness, band, parts, tempDelta, fever, plan, why, gated }
-  })
-}
 
 const BAND = {
   green: { text: 'Ready to push', color: 'text-green-600', bar: 'bg-green-500' },
@@ -124,15 +24,18 @@ const BAND = {
 
 const ratioLabel = (r: number) => (r > 1.5 ? 'Rising steeply' : r > 1.3 ? 'Rising quickly' : r < 0.8 ? 'Lighter than usual' : 'Steady build')
 
-const START_DAY = 10
 const STEP_MS = 1700
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
 const HorseStory = () => {
-  const story = useMemo(computeStory, [])
-  const [day, setDay] = useState(prefersReducedMotion() ? 14 : START_DAY)
+  const [horseId, setHorseId] = useState(HORSE_STORIES[0].id)
+  const horse = HORSE_STORIES.find((h) => h.id === horseId) ?? HORSE_STORIES[0]
+  const DAYS = horse.days
+  const their = horse.pronoun === 'she' ? 'her' : 'his'
+  const story = useMemo(() => computeStory(horse), [horse])
+  const [day, setDay] = useState(prefersReducedMotion() ? HORSE_STORIES[0].focusDay : 10)
   const [playing, setPlaying] = useState(false)
   const timer = useRef<number | undefined>(undefined)
   // Once the visitor touches the controls, the autoplay never takes over again.
@@ -159,7 +62,21 @@ const HorseStory = () => {
       })
     }, STEP_MS)
     return () => window.clearInterval(timer.current)
-  }, [playing])
+  }, [playing, DAYS.length])
+
+  // Picking a breed plays that horse's three weeks from day 1.
+  const pickHorse = (id: string) => {
+    touched.current = true
+    const next = HORSE_STORIES.find((h) => h.id === id) ?? HORSE_STORIES[0]
+    setHorseId(id)
+    if (prefersReducedMotion()) {
+      setPlaying(false)
+      setDay(next.focusDay)
+    } else {
+      setDay(1)
+      setPlaying(true)
+    }
+  }
 
   const v = story[day - 1]
   const band = BAND[v.band]
@@ -181,10 +98,31 @@ const HorseStory = () => {
 
   return (
     <figure className="rounded-sm bg-chalk text-navy-900 shadow-elevation ring-1 ring-white/10">
+      {/* Breed picker */}
+      <div className="border-b border-navy-200 px-4 pt-3 pb-2.5 sm:px-5" role="group" aria-label="Pick a breed">
+        <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5 sm:flex-wrap sm:overflow-visible">
+          {HORSE_STORIES.map((h) => (
+            <button
+              key={h.id}
+              type="button"
+              onClick={() => pickHorse(h.id)}
+              aria-pressed={h.id === horse.id}
+              className={`shrink-0 whitespace-nowrap rounded-sm px-2.5 py-1 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 ${
+                h.id === horse.id ? 'bg-ink text-white' : 'bg-navy-100 text-navy-700 hover:bg-navy-200'
+              }`}
+            >
+              {h.breed}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Header */}
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-navy-200 px-4 pt-4 pb-3 sm:px-5">
-        <p className="font-condensed text-2xl font-extrabold">Juniper</p>
-        <p className="text-sm text-navy-500">Example horse, 7-year-old eventer</p>
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-navy-200 px-4 pt-3 pb-3 sm:px-5">
+        <p className="font-condensed text-2xl font-extrabold">{horse.name}</p>
+        <p className="text-sm text-navy-500">
+          Example horse: {horse.breed}, {horse.about}
+        </p>
       </div>
 
       {/* Day scrubber */}
@@ -260,18 +198,18 @@ const HorseStory = () => {
 
         {/* Temperature */}
         <div className="border-b border-navy-200 p-4 sm:border-b-0 sm:border-r sm:p-5">
-          <p className="text-sm font-semibold text-navy-500">Temperature vs her normal</p>
+          <p className="text-sm font-semibold text-navy-500">Temperature vs {their} normal</p>
           <p className="mt-1 flex items-baseline gap-2">
             <span className={`font-condensed text-5xl font-extrabold tabular ${v.fever ? 'text-burgundy-600' : 'text-navy-900'}`}>
               {DAYS[day - 1].temp.toFixed(1)}
             </span>
             <span className="text-sm text-navy-600 tabular">
               °F, {v.tempDelta >= 0 ? '+' : '−'}
-              {Math.abs(v.tempDelta).toFixed(1)}° vs {BASELINE_TEMP.toFixed(1)}
+              {Math.abs(v.tempDelta).toFixed(1)}° vs {horse.baselineTemp.toFixed(1)}
             </span>
           </p>
           <p className={`mt-3 inline-block rounded-sm px-2 py-1 text-xs font-semibold ${v.fever ? 'bg-burgundy-600 text-white' : 'bg-green-100 text-green-700'}`}>
-            {v.fever ? 'Fever flagged: well above her normal' : 'Within her normal'}
+            {v.fever ? `Fever flagged: well above ${their} normal` : `Within ${their} normal`}
           </p>
         </div>
 
