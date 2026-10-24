@@ -144,9 +144,9 @@ export const sellingPoints: SellingPoint[] = [
   },
   {
     id: 'gait',
-    title: 'Gait, measured from a phone video',
+    title: 'Gait, measured from a phone',
     body:
-      'Film the horse trotting past and get a measured record of rhythm and evenness, with two dates side by side.',
+      'A measured record of each horse’s rhythm and evenness, taken with a phone, with two dates side by side.',
     link: { to: '/science#video-gait', label: 'How gait works' },
   },
   {

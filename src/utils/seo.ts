@@ -47,7 +47,7 @@ export const pageSEO = {
   // Core pages
   home: {
     title: 'Equissetix — Built for the Win',
-    description: 'Races and competitions are won long before the start. Equissetix gives every horse the edge: adaptive conditioning programs, early warning on vitals and workload, phone-video gait analysis and the vet on the same record, alongside the barn’s daily work.',
+    description: 'Races and competitions are won long before the start. Equissetix gives every horse the edge: adaptive conditioning programs, early warning on vitals and workload, gait measured from a phone and the vet on the same record, alongside the barn’s daily work.',
   },
   performance: {
     title: 'Equine Performance — Workload, Readiness & Gait | Equissetix',
@@ -95,7 +95,7 @@ export const pageSEO = {
   },
   productPerformance: {
     title: 'TrainingTree Performance — Built for Racing & Competition | Equissetix',
-    description: 'TrainingTree Performance, built for the horses that compete: workload and readiness from every session, adaptive conditioning, gait from a phone video and race-day operations, with the whole barn behind them.',
+    description: 'TrainingTree Performance, built for the horses that compete: workload and readiness from every session, adaptive conditioning, gait measured from a phone and race-day operations, with the whole barn behind them.',
   },
 
   // Why Equissetix

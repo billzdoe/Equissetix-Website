@@ -79,7 +79,7 @@ const connections = [
 const questions = [
   {
     q: 'Do I need sensors or wearables?',
-    a: 'No. Workload and readiness come from the sessions you log, vital signs from a thermometer and a hand on the pulse, and gait from a phone video. Heart-rate wearables can be connected for more detail.',
+    a: 'No. Workload and readiness come from the sessions you log, vital signs from a thermometer and a hand on the pulse, and gait from a phone. Heart-rate wearables can be connected for more detail.',
   },
   {
     q: 'Which product is right for my barn?',
@@ -122,7 +122,7 @@ const Home = () => (
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
               Races and competitions are won long before the start. Equissetix gives every horse the edge: conditioning
               programs that adapt to its own numbers, early warning when its vitals or workload drift, gait measured
-              from a phone video, and its vet working from the same record. All of it runs with the barn’s daily work,
+              from a phone, and its vet working from the same record. All of it runs with the barn’s daily work,
               from the office desktop to the barn aisle.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -369,7 +369,7 @@ const Home = () => (
             <h2 className="max-w-3xl text-[2.6rem] leading-[0.95] text-white sm:text-7xl lg:text-8xl">Every vital. Every stride.</h2>
             <p className="mt-6 max-w-xl text-lg text-white/85">
               Temperature, pulse and breathing are read against each horse’s own normal, and gait is measured from a
-              phone video. Medication, rehab, exams and vaccinations sit in the same file, open to the people you
+              phone. Medication, rehab, exams and vaccinations sit in the same file, open to the people you
               choose.
             </p>
             <Link to="/vet-care" className={`mt-6 ${lightLink}`}>
