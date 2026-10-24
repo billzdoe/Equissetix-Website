@@ -1,18 +1,32 @@
 /**
  * Example horses for the home-page story (HorseStory.tsx), one per breed.
  * (Billy, 2026-10-24: Juniper becomes a 2-year-old Thoroughbred, with a
- * similar story for each breed.)
+ * similar story for each breed, each on its sport's real program.)
+ *
+ * Breed does not choose the program in TrainingTree; the discipline, level
+ * and age do. Each horse here follows a real protocol from
+ * conditioning_protocols.py (TrainingTree Pro bce1c59): `program` is its
+ * name, every `planned` is that protocol's session title for that week, in
+ * the protocol's order, at its sessions per week. Days with no session are
+ * rest or turnout, as the app says.
  *
  * Only the work done (`load`) and the morning temperature are typed in. Every
- * ratio, readiness score and suggestion is COMPUTED in computeStory with the
- * app's own rules, so edit loads and temperatures here, never the results,
- * and re-check each `event` line against what the page then shows.
- *
- * The rules are the same for every breed: each horse is measured against its
- * own normal, not a breed table.
+ * ratio, score and adjustment is COMPUTED in computeStory with the app's own
+ * rules, so edit loads and temperatures here, never the results, and re-check
+ * each `event` line against what the page then shows.
  */
 
-export type DayInput = { load: number; temp: number; planned: string; event: string }
+export type DayInput = {
+  /** Program week this day belongs to. */
+  week: number
+  /** The protocol session scheduled today, or null: rest or turnout. */
+  planned: string | null
+  /** 'fast' = a z4/z5 session (lick, breeze); 'walk' = walk-only session. */
+  tag?: 'fast' | 'walk'
+  load: number
+  temp: number
+  event: string
+}
 
 export type HorseStoryData = {
   id: string
@@ -21,13 +35,23 @@ export type HorseStoryData = {
   /** Shown under the name, e.g. "2-year-old filly in race training". */
   about: string
   pronoun: 'she' | 'he'
+  /** Under 3: the young-horse ceiling applies (young_horse_policy.py). */
+  young?: boolean
+  program: string
+  /** Set when the program is only in one edition. */
+  edition?: 'Performance'
+  programWeeks: number
   baselineTemp: number
-  /** The day the page opens on when motion is reduced: the setback. */
+  /** The day the page opens on when motion is reduced. */
   focusDay: number
   days: DayInput[]
 }
 
-const rest = (temp: number, event = 'Planned rest day.'): DayInput => ({ load: 0, temp, planned: 'Rest day', event })
+const ON_PROGRAM = 'On the program.'
+const NO_SESSION = 'No session today: rest or turnout.'
+
+const on = (week: number, planned: string, load: number, temp: number, event = ON_PROGRAM, tag?: DayInput['tag']): DayInput => ({ week, planned, load, temp, event, tag })
+const off = (week: number, temp: number, event = NO_SESSION, load = 0): DayInput => ({ week, planned: null, load, temp, event })
 
 export const HORSE_STORIES: HorseStoryData[] = [
   {
@@ -36,30 +60,34 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Juniper',
     about: '2-year-old filly in race training',
     pronoun: 'she',
+    young: true,
+    program: 'Flat racing: two-year-old to a first start',
+    edition: 'Performance',
+    programWeeks: 10,
     baselineTemp: 99.2,
     focusDay: 14,
     days: [
-      { load: 320, temp: 99.1, planned: 'Jog 1 mile, gallop 1 mile', event: 'Week 1 of her race training. Steady base work for a young horse.' },
-      { load: 340, temp: 99.3, planned: 'Gallop 1½ miles', event: 'Work builds a little each session.' },
-      rest(99.2),
-      { load: 360, temp: 99.0, planned: 'Starting-gate schooling, then jog', event: 'Learning the starting gate, calmly.' },
-      { load: 380, temp: 99.4, planned: 'Gallop 1½ miles', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.2, planned: 'Gallop, then walk the shed row', event: 'Readiness green every morning.' },
-      rest(99.3),
-      { load: 400, temp: 99.1, planned: 'Gallop 2 miles', event: 'Week 2: a little more distance.' },
-      { load: 420, temp: 99.2, planned: 'Gallop, last quarter-mile stronger', event: 'Her fitness is building.' },
-      rest(99.3),
-      { load: 440, temp: 99.4, planned: 'Gallop 2 miles', event: 'Still well within range.' },
-      { load: 450, temp: 99.2, planned: 'Gate work, then gallop', event: 'She breaks from the gate cleanly.' },
-      { load: 900, temp: 99.5, planned: 'First breeze: 3 furlongs', event: 'Her first breeze: the biggest day of her month.' },
-      { load: 0, temp: 100.8, planned: 'Gallop 2 miles', event: 'The morning after: her workload ratio has jumped, and a fever is caught against her own normal.' },
-      { load: 200, temp: 99.9, planned: 'Gallop 1½ miles', event: 'Temperature settling. Readiness back to yellow.' },
-      { load: 300, temp: 99.4, planned: 'Gallop 1½ miles', event: 'Back to green. The program picks up where it left off.' },
-      { load: 300, temp: 99.2, planned: 'Jog 1 mile, gallop 1 mile', event: 'Back on track, with no big jump in work.' },
-      rest(99.1),
-      { load: 360, temp: 99.3, planned: 'Gallop 2 miles', event: 'Week 3: distance builds again.' },
-      { load: 380, temp: 99.2, planned: 'Gate work, then gallop', event: 'Steady again.' },
-      { load: 400, temp: 99.2, planned: 'Gallop, last quarter-mile stronger', event: 'Three weeks, one setback caught early, and back to the plan.' },
+      on(1, 'Jog and walk', 150, 99.1, 'Week 1 of her program: five days a week, one faster day.'),
+      on(1, 'Jog and canter', 250, 99.3),
+      on(1, 'Jog and walk', 150, 99.0),
+      off(1, 99.2),
+      on(1, 'Jog and canter', 250, 99.4),
+      on(1, '2 furlongs at a two-minute lick', 220, 99.2, 'Her fast day. At two, the app turns it into a steady canter.', 'fast'),
+      off(1, 99.3),
+      on(2, 'Jog and walk', 150, 99.1, 'Week 2: three furlongs on the fast day.'),
+      on(2, 'Jog and canter', 260, 99.2),
+      on(2, 'Jog and walk', 150, 99.3),
+      off(2, 99.2),
+      on(2, 'Jog and canter', 260, 99.4),
+      on(2, '3 furlongs at a two-minute lick', 800, 99.5, 'Vanned to the training track for her work, schooled in company and vanned home: her biggest day yet.', 'fast'),
+      off(2, 100.9, 'A fever, against her own normal and confirmed by a second reading. An alert goes to her trainer and her vet.'),
+      on(3, 'Jog and walk', 120, 99.6, 'Back to her normal temperature, and checked by the vet. Her workload has jumped, so the session is cut.'),
+      on(3, 'Jog and canter', 230, 99.3, 'Back to the session as written.'),
+      on(3, 'Gate schooling', 150, 99.2, 'Week 3: gate schooling, calmly, at a walk first.'),
+      off(3, 99.1),
+      on(3, 'Jog and canter', 250, 99.3),
+      on(3, 'Breeze 3 furlongs', 260, 99.2, 'Her first breeze is on the plan. At two, the ceiling keeps it a steady canter.', 'fast'),
+      off(3, 99.2, 'Three weeks: a big day and a fever caught, and the young-horse limits held throughout.'),
     ],
   },
   {
@@ -68,30 +96,32 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Dusty',
     about: '6-year-old gelding, barrel racing',
     pronoun: 'he',
+    program: 'Barrel racing: speed and acceleration',
+    programWeeks: 10,
     baselineTemp: 99.4,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.3, planned: 'Long trot, 40 min', event: 'Week 1 of his build-up to a weekend barrel race.' },
-      { load: 340, temp: 99.5, planned: 'Slow pattern work', event: 'Walking and trotting the pattern, nothing fast.' },
-      rest(99.4),
-      { load: 360, temp: 99.2, planned: 'Hill work, 40 min', event: 'Hills for strength behind.' },
-      { load: 380, temp: 99.6, planned: 'Pattern work at a lope', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.4, planned: 'Trail ride, 60 min', event: 'A relaxed day out.' },
-      rest(99.5),
-      { load: 400, temp: 99.3, planned: 'Long trot and lope sets', event: 'Week 2: a little more work.' },
-      { load: 420, temp: 99.4, planned: 'Pattern work, one run at speed', event: 'One fast run, and he comes back well.' },
-      rest(99.5),
-      { load: 420, temp: 99.6, planned: 'Hill work, 45 min', event: 'Readiness green every morning.' },
-      { load: 380, temp: 99.4, planned: 'Light pattern work', event: 'A light day before the weekend.' },
-      { load: 850, temp: 99.7, planned: 'Barrel race: two runs, long haul home', event: 'Race day: two runs and four hours in the trailer.' },
-      { load: 0, temp: 99.8, planned: 'Pattern work at a lope', event: 'The morning after: no fever, but his workload has jumped. Hard work waits.' },
-      { load: 200, temp: 99.5, planned: 'Long trot, 40 min', event: 'Back to green a day later, and the plan was easy work anyway.' },
-      { load: 300, temp: 99.4, planned: 'Hill work, 40 min', event: 'Back to normal work.' },
-      { load: 320, temp: 99.3, planned: 'Slow pattern work', event: 'Back on track, with no big jump in work.' },
-      rest(99.4),
-      { load: 360, temp: 99.5, planned: 'Long trot and lope sets', event: 'Week 3: building toward the next race.' },
-      { load: 380, temp: 99.4, planned: 'Pattern work at a lope', event: 'Steady again.' },
-      { load: 400, temp: 99.4, planned: 'Pattern work, one run at speed', event: 'A race weekend absorbed, and back to the plan for the next one.' },
+      on(1, 'Long trot and lope out', 280, 99.3, 'Week 1 of his program: five sessions a week.'),
+      on(1, 'Sprints', 260, 99.5, 'Short straight-line sprints from a lope.'),
+      on(1, 'Hill walk and trot', 240, 99.2),
+      off(1, 99.4),
+      on(1, 'Pattern work', 230, 99.6, 'The pattern at a controlled lope: full speed is for race day.'),
+      on(1, 'Suppling', 200, 99.4),
+      off(1, 99.5),
+      on(2, 'Long trot and lope out', 290, 99.3),
+      on(2, 'Sprints', 270, 99.4),
+      on(2, 'Hill walk and trot', 250, 99.5),
+      off(2, 99.4),
+      on(2, 'Pattern work', 230, 99.6),
+      on(2, 'Suppling', 200, 99.4, 'A light day before the race.'),
+      off(2, 99.7, 'Race day, on a day off the program: two runs and four hours in the trailer. Logged, so it counts.', 900),
+      on(3, 'Long trot and lope out', 200, 99.5, 'The morning after: his workload has jumped, so trot and lope are cut.'),
+      on(3, 'Sprints', 260, 99.4, 'Still high, so cut again.'),
+      on(3, 'Hill walk and trot', 250, 99.3, 'Cut once more. Tomorrow is a day off.'),
+      off(3, 99.4),
+      on(3, 'Pattern work', 240, 99.5, 'Back to the session as written.'),
+      on(3, 'Suppling', 200, 99.4),
+      off(3, 99.4, 'A race weekend absorbed, and back to the program for the next one.'),
     ],
   },
   {
@@ -100,62 +130,66 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Safira',
     about: '9-year-old mare, endurance',
     pronoun: 'she',
+    program: 'Endurance: stepping up to 80 km (50 miles)',
+    programWeeks: 14,
     baselineTemp: 99.0,
     focusDay: 15,
     days: [
-      { load: 330, temp: 98.9, planned: 'Conditioning ride, 8 miles', event: 'Week 1 of her lead-up to a 50-mile ride.' },
-      { load: 340, temp: 99.1, planned: 'Hill work, 60 min', event: 'Long, steady miles are her job.' },
-      rest(99.0),
-      { load: 360, temp: 98.8, planned: 'Conditioning ride, 10 miles', event: 'Building distance, not speed.' },
-      { load: 380, temp: 99.2, planned: 'Trot sets on varied ground', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.0, planned: 'Flatwork, 45 min', event: 'Readiness green every morning.' },
-      rest(99.1),
-      { load: 420, temp: 98.9, planned: 'Conditioning ride, 12 miles', event: 'Week 2: her longest training ride.' },
-      { load: 380, temp: 99.0, planned: 'Hill work, 60 min', event: 'Recovering well between rides.' },
-      rest(99.1),
-      { load: 360, temp: 99.2, planned: 'Easy ride, 6 miles', event: 'Tapering before the big day.' },
-      { load: 250, temp: 99.0, planned: 'Hand-walk and short trot', event: 'A quiet day before the ride.' },
-      { load: 1400, temp: 99.4, planned: '50-mile endurance ride', event: 'Ride day: 50 miles, and she passes every vet check.' },
-      { load: 0, temp: 99.3, planned: 'Rest day', event: 'The morning after a ride like that, rest is planned anyway.' },
-      { load: 0, temp: 99.1, planned: 'Easy ride, 6 miles', event: 'The plan says ride again. Her workload says not yet.' },
-      { load: 150, temp: 99.0, planned: 'Hand-walk and short trot', event: 'Back in range. Light work first.' },
-      { load: 250, temp: 99.0, planned: 'Easy ride, 6 miles', event: 'Easing back in.' },
-      rest(98.9),
-      { load: 280, temp: 99.1, planned: 'Flatwork, 45 min', event: 'Week 3: building back up.' },
-      { load: 300, temp: 99.0, planned: 'Conditioning ride, 8 miles', event: 'Steady miles again.' },
-      { load: 330, temp: 99.0, planned: 'Hill work, 60 min', event: 'A 50-mile ride absorbed, and back to building, one step at a time.' },
+      on(13, 'Long ride, about 40 km', 460, 98.9, 'Week 13 of 14: her final long training ride.'),
+      on(13, 'Hill work', 320, 99.1),
+      off(13, 99.0),
+      on(13, 'Steady ride, about 16 km', 370, 98.8),
+      off(13, 99.2),
+      on(13, 'Suppling flatwork', 260, 99.0),
+      off(13, 99.1),
+      on(14, 'Long ride, about 20 km', 330, 98.9, 'Week 14: tapering to the ride, so her workload eases on purpose.'),
+      on(14, 'Hill work', 220, 99.0),
+      off(14, 99.1),
+      on(14, 'Steady ride, about 10 km', 230, 99.2),
+      off(14, 99.0),
+      on(14, 'Suppling flatwork', 150, 99.1, 'A quiet day before the ride.'),
+      off(14, 99.4, 'Ride day: 80 km, and she passes every vet check. Logged, so it counts.', 1500),
+      on(1, 'Walk out in hand', 60, 99.3, 'Her program switches to “Endurance: between rides”. Week 1 is recovery.', 'walk'),
+      on(1, 'Walk exercise', 80, 99.1, 'Walk only. Her workload is still high, and walking is all that’s asked.', 'walk'),
+      off(1, 99.0),
+      on(1, 'Easy hack', 120, 99.0, 'Back in range: an easy hack, as written.'),
+      off(1, 98.9),
+      on(1, 'Easy suppling', 100, 99.1, 'Her workload is low after a recovery week, which is the point.'),
+      off(1, 99.0, 'An 80 km ride absorbed. Next week: back to distance.'),
     ],
   },
   {
     id: 'standardbred',
     breed: 'Standardbred',
     name: 'Brody',
-    about: '4-year-old gelding, harness racing',
+    about: '15-year-old gelding, retired pacer, now pleasure driving',
     pronoun: 'he',
+    program: 'Driving: pleasure driving fitness',
+    programWeeks: 8,
     baselineTemp: 99.3,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.2, planned: 'Jog 4 miles', event: 'Week 1 of his build-up to a qualifier.' },
-      { load: 340, temp: 99.4, planned: 'Jog 5 miles', event: 'Long, easy jog miles.' },
-      rest(99.3),
-      { load: 380, temp: 99.1, planned: 'Training mile, then jog', event: 'His first training mile of the month.' },
-      { load: 360, temp: 99.5, planned: 'Jog 5 miles', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.3, planned: 'Jog, then turnout', event: 'Readiness green every morning.' },
-      rest(99.4),
-      { load: 420, temp: 99.2, planned: 'Two training miles', event: 'Week 2: a little faster.' },
-      { load: 380, temp: 99.3, planned: 'Jog 5 miles', event: 'Fitness is building.' },
-      rest(99.4),
-      { load: 460, temp: 99.5, planned: 'Two training miles', event: 'Still well within range.' },
-      { load: 320, temp: 99.3, planned: 'Jog 3 miles', event: 'An easy day before the qualifier.' },
-      { load: 850, temp: 99.6, planned: 'Qualifier race and warm-up miles', event: 'Qualifier day: warm-up miles and a race.' },
-      { load: 0, temp: 101.0, planned: 'Jog 5 miles', event: 'The morning after: his workload has jumped, and a fever is caught against his own normal.' },
-      { load: 200, temp: 100.0, planned: 'Jog 4 miles', event: 'Temperature settling. Readiness back to yellow.' },
-      { load: 300, temp: 99.5, planned: 'Jog 5 miles', event: 'Back to green.' },
-      { load: 320, temp: 99.3, planned: 'Training mile, then jog', event: 'Back on track, with no big jump in work.' },
-      rest(99.2),
-      { load: 360, temp: 99.4, planned: 'Jog 5 miles', event: 'Week 3: building again.' },
-      { load: 380, temp: 99.3, planned: 'Two training miles', event: 'Steady again.' },
-      { load: 400, temp: 99.3, planned: 'Jog, then turnout', event: 'A fever caught the morning it showed, before any more fast work.' },
+      on(1, 'Drive out', 240, 99.2, 'Week 1 of his program: four drives a week.'),
+      on(1, 'Hill drive', 230, 99.4),
+      off(1, 99.3),
+      on(1, 'Arena driving', 200, 99.1),
+      off(1, 99.5),
+      on(1, 'Walk out in hand or under saddle', 190, 99.3, ON_PROGRAM, 'walk'),
+      off(1, 99.4),
+      on(2, 'Drive out', 250, 99.2, 'Week 2: a little longer.'),
+      on(2, 'Hill drive', 0, 99.3, 'His owner is away for the week. Missed.'),
+      off(2, 99.4),
+      on(2, 'Arena driving', 0, 99.5, 'Missed.'),
+      off(2, 99.3),
+      on(2, 'Walk out in hand or under saddle', 0, 99.3, 'Missed.', 'walk'),
+      off(2, 99.4, 'One of four sessions done: week 2 doesn’t count as done, so it will be repeated, not skipped.'),
+      on(2, 'Drive out', 250, 99.2, 'Week 2 again. His workload has dropped: ride as written, no making up for lost days.'),
+      on(2, 'Hill drive', 240, 99.3),
+      off(2, 99.4),
+      on(2, 'Arena driving', 210, 99.2),
+      off(2, 99.3),
+      on(2, 'Walk out in hand or under saddle', 120, 99.3, ON_PROGRAM, 'walk'),
+      off(2, 99.3, 'A missed week repeated, not doubled up. Next week, week 3.'),
     ],
   },
   {
@@ -164,62 +198,66 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Otto',
     about: '8-year-old gelding, show jumping',
     pronoun: 'he',
+    program: 'Show jumping: first courses',
+    programWeeks: 8,
     baselineTemp: 99.5,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.4, planned: 'Flatwork, 45 min', event: 'Week 1 of his build-up to a two-day show.' },
-      { load: 340, temp: 99.6, planned: 'Gymnastic grid', event: 'Grids for footwork and shape.' },
-      rest(99.5),
-      { load: 360, temp: 99.3, planned: 'Hill work, 40 min', event: 'Strength work out of the arena.' },
-      { load: 380, temp: 99.7, planned: 'Course work, small fences', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.5, planned: 'Flatwork with canter sets', event: 'Readiness green every morning.' },
-      rest(99.6),
-      { load: 400, temp: 99.4, planned: 'Gymnastic grid', event: 'Week 2: a little more work.' },
-      { load: 420, temp: 99.5, planned: 'Course work, show height', event: 'Jumping well.' },
-      rest(99.6),
-      { load: 380, temp: 99.7, planned: 'Flatwork, 45 min', event: 'An easy day before he ships.' },
-      { load: 450, temp: 99.5, planned: 'Ship to the show, school in the ring', event: 'Five hours on the trailer, then a school in the show ring.' },
-      { load: 850, temp: 99.8, planned: 'Two jumping rounds', event: 'Show day: two rounds, both clear.' },
-      { load: 0, temp: 101.1, planned: 'Jumping round, day 2', event: 'Day 2 of the show: his workload has jumped, and a fever is caught against his own normal. He is scratched.' },
-      { load: 200, temp: 100.1, planned: 'Flatwork, 45 min', event: 'Home again. Temperature settling. Readiness back to yellow.' },
-      { load: 300, temp: 99.7, planned: 'Flatwork, 45 min', event: 'Back to green.' },
-      { load: 320, temp: 99.5, planned: 'Hill work, 40 min', event: 'Back on track, with no big jump in work.' },
-      rest(99.4),
-      { load: 360, temp: 99.6, planned: 'Gymnastic grid', event: 'Week 3: building again.' },
-      { load: 380, temp: 99.5, planned: 'Flatwork with canter sets', event: 'Steady again.' },
-      { load: 400, temp: 99.5, planned: 'Course work, small fences', event: 'One round given up, and a sick horse kept out of the ring.' },
+      on(5, 'Schooling flatwork', 250, 99.4, 'Week 5 of 8: small grids.'),
+      on(5, 'Poles and small grids', 230, 99.6),
+      off(5, 99.5),
+      on(5, 'Hill hack', 260, 99.3),
+      off(5, 99.7),
+      on(5, 'Canter sets', 270, 99.5),
+      off(5, 99.6),
+      on(6, 'Schooling flatwork', 260, 99.4, 'Week 6: first courses.'),
+      on(6, 'Poles and small grids', 240, 99.5),
+      off(6, 99.6),
+      on(6, 'Hill hack', 270, 99.7),
+      off(6, 99.5, 'Five hours on the trailer to the show.', 150),
+      on(6, 'Canter sets', 700, 99.8, 'Show day 1 instead of canter sets: a school and two rounds.'),
+      off(6, 99.7, 'Show day 2: two more rounds, then home. Logged, so it counts.', 650),
+      on(7, 'Schooling flatwork', 180, 99.6, 'The morning after: his workload has jumped, so the flatwork’s trot and canter are cut.'),
+      on(7, 'Poles and small grids', 210, 99.5, 'Still high, so cut again.'),
+      off(7, 99.4),
+      on(7, 'Hill hack', 270, 99.5, 'Back to the session as written.'),
+      off(7, 99.6),
+      on(7, 'Canter sets', 280, 99.5),
+      off(7, 99.5, 'A two-day show absorbed, and back to the program.'),
     ],
   },
   {
     id: 'paint',
     breed: 'Paint Horse',
     name: 'Domino',
-    about: '10-year-old gelding, ranch work',
+    about: '10-year-old gelding, ranch riding',
     pronoun: 'he',
+    program: 'Ranch riding: all-day soundness',
+    programWeeks: 8,
     baselineTemp: 99.4,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.3, planned: 'Ranch riding, 45 min', event: 'Week 1 of a normal month on the ranch.' },
-      { load: 340, temp: 99.5, planned: 'Sorting cattle, 1 hour', event: 'Steady, everyday work.' },
-      rest(99.4),
-      { load: 360, temp: 99.2, planned: 'Checking fences, 2 hours at a walk', event: 'Long, easy miles.' },
-      { load: 380, temp: 99.6, planned: 'Ranch riding, 45 min', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.4, planned: 'Sorting cattle, 1 hour', event: 'Readiness green every morning.' },
-      rest(99.5),
-      { load: 400, temp: 99.3, planned: 'Roping practice', event: 'Week 2: a little more work.' },
-      { load: 420, temp: 99.4, planned: 'Ranch riding, 60 min', event: 'Fit and sound.' },
-      rest(99.5),
-      { load: 400, temp: 99.6, planned: 'Sorting cattle, 1 hour', event: 'Still well within range.' },
-      { load: 380, temp: 99.4, planned: 'Ranch riding, 45 min', event: 'An ordinary day.' },
-      { load: 950, temp: 99.8, planned: 'Branding day', event: 'Branding day: six hours of cattle work.' },
-      { load: 0, temp: 99.7, planned: 'Sorting cattle, 1 hour', event: 'The morning after: no fever, but his workload has jumped. Another horse does the sorting.' },
-      { load: 200, temp: 99.5, planned: 'Ranch riding, 45 min', event: 'Back to green a day later, for an easy ride.' },
-      { load: 300, temp: 99.4, planned: 'Checking fences, 2 hours at a walk', event: 'Back to normal work.' },
-      { load: 320, temp: 99.3, planned: 'Ranch riding, 45 min', event: 'Back on track, with no big jump in work.' },
-      rest(99.4),
-      { load: 360, temp: 99.5, planned: 'Roping practice', event: 'Week 3: normal work.' },
-      { load: 380, temp: 99.4, planned: 'Sorting cattle, 1 hour', event: 'Steady again.' },
-      { load: 400, temp: 99.4, planned: 'Ranch riding, 60 min', event: 'A long day absorbed, and back to normal work.' },
+      on(1, 'Long ride out', 330, 99.3, 'Week 1 of his program: miles first.'),
+      on(1, 'Ranch riding pattern work', 240, 99.5),
+      off(1, 99.4),
+      on(1, 'Hill walk and trot', 220, 99.2),
+      off(1, 99.6),
+      on(1, 'Logs and obstacles', 200, 99.4),
+      off(1, 99.5),
+      on(2, 'Long ride out', 340, 99.3),
+      on(2, 'Ranch riding pattern work', 250, 99.4),
+      off(2, 99.5),
+      on(2, 'Hill walk and trot', 230, 99.6),
+      off(2, 99.4),
+      on(2, 'Logs and obstacles', 210, 99.5),
+      off(2, 99.8, 'Branding day: six hours of cattle work. Logged, so it counts.', 950),
+      on(3, 'Long ride out', 240, 99.7, 'The morning after: his workload has jumped, so trot and lope are cut.'),
+      on(3, 'Ranch riding pattern work', 250, 99.5, 'Still high, so cut again.'),
+      off(3, 99.4),
+      on(3, 'Hill walk and trot', 240, 99.3, 'Back to the session as written.'),
+      off(3, 99.4),
+      on(3, 'Logs and obstacles', 210, 99.4),
+      off(3, 99.4, 'A long day absorbed, and back to the program.'),
     ],
   },
   {
@@ -228,30 +266,32 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Scout',
     about: '12-year-old mare, competitive trail',
     pronoun: 'she',
+    program: 'Competitive trail: timed distance with vet checks',
+    programWeeks: 12,
     baselineTemp: 99.2,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.1, planned: 'Trail ride, 6 miles', event: 'Week 1 of her lead-up to a 25-mile competitive trail ride.' },
-      { load: 340, temp: 99.3, planned: 'Hill work, 45 min', event: 'Building strength on the hills.' },
-      rest(99.2),
-      { load: 360, temp: 99.0, planned: 'Trail ride, 8 miles', event: 'More distance, same easy pace.' },
-      { load: 380, temp: 99.4, planned: 'Obstacle practice', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.2, planned: 'Flatwork, 40 min', event: 'Readiness green every morning.' },
-      rest(99.3),
-      { load: 400, temp: 99.1, planned: 'Trail ride, 10 miles', event: 'Week 2: her longest training ride.' },
-      { load: 420, temp: 99.2, planned: 'Hill work, 45 min', event: 'Recovering well.' },
-      rest(99.3),
-      { load: 380, temp: 99.4, planned: 'Obstacle practice', event: 'Still well within range.' },
-      { load: 300, temp: 99.2, planned: 'Easy trail ride, 4 miles', event: 'A quiet day before the ride.' },
-      { load: 1000, temp: 99.5, planned: '25-mile competitive trail ride', event: 'Ride day: 25 miles, judged on her condition all the way round.' },
-      { load: 0, temp: 99.4, planned: 'Rest day', event: 'Rest is planned the morning after anyway.' },
-      { load: 150, temp: 99.2, planned: 'Hand-walk and short trot', event: 'Back in range a day later. Light work first.' },
-      { load: 280, temp: 99.2, planned: 'Hill work, 45 min', event: 'Easing back in.' },
-      { load: 300, temp: 99.1, planned: 'Trail ride, 6 miles', event: 'Back on track, with no big jump in work.' },
-      rest(99.2),
-      { load: 360, temp: 99.3, planned: 'Obstacle practice', event: 'Week 3: building again.' },
-      { load: 380, temp: 99.2, planned: 'Trail ride, 8 miles', event: 'Steady again.' },
-      { load: 400, temp: 99.2, planned: 'Hill work, 45 min', event: 'A long ride absorbed, and back to the plan.' },
+      on(6, 'Long ride, about 22 km', 420, 99.1, 'Week 6 of 12: building distance.'),
+      on(6, 'Hill work', 260, 99.3),
+      off(6, 99.2),
+      on(6, 'Steady ride, about 10 km', 260, 99.0),
+      off(6, 99.4),
+      on(6, 'Trail obstacles', 240, 99.2),
+      off(6, 99.3),
+      on(7, 'Long ride, about 24 km', 440, 99.1),
+      on(7, 'Hill work', 260, 99.2),
+      off(7, 99.3),
+      on(7, 'Steady ride, about 11 km', 270, 99.4),
+      off(7, 99.2),
+      on(7, 'Trail obstacles', 180, 99.2, 'A quiet day before her first ride of the season.'),
+      off(7, 99.5, 'Ride day: 40 km (25 miles) at a set pace, judged on her condition. Logged, so it counts.', 1000),
+      on(8, 'Long ride, about 16 km', 230, 99.4, 'The morning after: her workload has jumped, so the trot is cut.'),
+      on(8, 'Hill work', 200, 99.3, 'Week 8 is a lighter week anyway, and the hill work is cut too.'),
+      off(8, 99.2),
+      on(8, 'Steady ride, about 8 km', 200, 99.1, 'Back to the session as written.'),
+      off(8, 99.2),
+      on(8, 'Trail obstacles', 180, 99.3),
+      off(8, 99.2, 'A long ride absorbed, and back to the program.'),
     ],
   },
   {
@@ -260,30 +300,32 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Ruby',
     about: '11-year-old mare, combined driving',
     pronoun: 'she',
+    program: 'Combined driving: marathon fitness',
+    programWeeks: 12,
     baselineTemp: 99.1,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.0, planned: 'Driving, 45 min on the flat', event: 'Week 1 of her lead-up to a driving trial.' },
-      { load: 340, temp: 99.2, planned: 'Dressage test practice in harness', event: 'Accuracy and rhythm.' },
-      rest(99.1),
-      { load: 360, temp: 98.9, planned: 'Hill work in harness, 40 min', event: 'Strength for the marathon.' },
-      { load: 380, temp: 99.3, planned: 'Cones practice', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.1, planned: 'Ridden flatwork, 40 min', event: 'Readiness green every morning.' },
-      rest(99.2),
-      { load: 400, temp: 99.0, planned: 'Marathon practice: two hazards', event: 'Week 2: a little faster.' },
-      { load: 420, temp: 99.1, planned: 'Driving, 60 min on the flat', event: 'Fitness is building.' },
-      rest(99.2),
-      { load: 400, temp: 99.3, planned: 'Cones practice', event: 'Still well within range.' },
-      { load: 350, temp: 99.1, planned: 'Dressage test practice in harness', event: 'A light day before the trial.' },
-      { load: 900, temp: 99.4, planned: 'Driving trial: marathon phase', event: 'Marathon day: 10 miles and eight hazards.' },
-      { load: 0, temp: 99.3, planned: 'Driving trial: cones phase', event: 'Cones day. No fever, but her workload has jumped, so TrainingTree says rest.' },
-      { load: 200, temp: 99.2, planned: 'Driving, 45 min on the flat', event: 'Home, and back to green for easy work.' },
-      { load: 300, temp: 99.1, planned: 'Ridden flatwork, 40 min', event: 'Back to normal work.' },
-      { load: 320, temp: 99.0, planned: 'Hill work in harness, 40 min', event: 'Back on track, with no big jump in work.' },
-      rest(99.1),
-      { load: 360, temp: 99.2, planned: 'Cones practice', event: 'Week 3: building again.' },
-      { load: 380, temp: 99.1, planned: 'Dressage test practice in harness', event: 'Steady again.' },
-      { load: 400, temp: 99.1, planned: 'Marathon practice: two hazards', event: 'A big marathon absorbed, and back to the plan.' },
+      on(9, 'Long drive', 330, 99.0, 'Week 9 of 12: competition pace.'),
+      on(9, 'Marathon sections', 300, 99.2),
+      off(9, 99.1),
+      on(9, 'Driven dressage', 220, 98.9),
+      off(9, 99.3),
+      on(9, 'Hill drive', 230, 99.1),
+      off(9, 99.2),
+      on(10, 'Long drive', 340, 99.0),
+      on(10, 'Marathon sections', 310, 99.1),
+      off(10, 99.2),
+      on(10, 'Driven dressage', 220, 99.3),
+      off(10, 99.1),
+      on(10, 'Hill drive', 650, 99.4, 'Driving trial, day 1 instead of a hill drive: dressage, then the marathon.'),
+      off(10, 99.3, 'Day 2: the cones. Logged, so it counts.', 400),
+      on(11, 'Long drive', 240, 99.3, 'Home. Her workload has jumped, so the trot is cut.'),
+      on(11, 'Marathon sections', 220, 99.2, 'Still high, so cut again.'),
+      off(11, 99.1),
+      on(11, 'Driven dressage', 230, 99.0, 'Back to the session as written.'),
+      off(11, 99.1),
+      on(11, 'Hill drive', 240, 99.1),
+      off(11, 99.1, 'A driving trial absorbed, and back to the program.'),
     ],
   },
   {
@@ -292,30 +334,32 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Oro',
     about: '7-year-old stallion, dressage',
     pronoun: 'he',
+    program: 'Dressage: Third Level to FEI',
+    programWeeks: 10,
     baselineTemp: 99.3,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.2, planned: 'Flatwork, 45 min', event: 'Week 1 of a normal training month.' },
-      { load: 340, temp: 99.4, planned: 'Collected work, 40 min', event: 'Collection asks a lot of the hind end.' },
-      rest(99.3),
-      { load: 360, temp: 99.1, planned: 'Hacking out, 45 min', event: 'A stretch and a change of scene.' },
-      { load: 380, temp: 99.5, planned: 'Flatwork, 50 min', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.3, planned: 'In-hand work, 30 min', event: 'Readiness green every morning.' },
-      rest(99.4),
-      { load: 400, temp: 99.2, planned: 'Collected work, 45 min', event: 'Week 2: a little more work.' },
-      { load: 420, temp: 99.3, planned: 'Flatwork, 50 min', event: 'Moving well.' },
-      rest(99.4),
-      { load: 400, temp: 99.5, planned: 'Hacking out, 45 min', event: 'Still well within range.' },
-      { load: 550, temp: 99.4, planned: 'Clinic, day 1: two lessons', event: 'A visiting trainer’s clinic: two lessons today.' },
-      { load: 700, temp: 99.6, planned: 'Clinic, day 2: two lessons', event: 'Day 2 of the clinic: two more lessons.' },
-      { load: 0, temp: 99.5, planned: 'Collected work, 45 min', event: 'No single huge day, but two in a row add up. His workload has jumped.' },
-      { load: 200, temp: 99.4, planned: 'Flatwork, 45 min', event: 'Back to green a day later, for easy work.' },
-      { load: 300, temp: 99.3, planned: 'Hacking out, 45 min', event: 'Back to normal work.' },
-      { load: 320, temp: 99.2, planned: 'Flatwork, 45 min', event: 'Back on track, with no big jump in work.' },
-      rest(99.3),
-      { load: 360, temp: 99.4, planned: 'Collected work, 40 min', event: 'Week 3: building again.' },
-      { load: 380, temp: 99.3, planned: 'In-hand work, 30 min', event: 'Steady again.' },
-      { load: 400, temp: 99.3, planned: 'Flatwork, 50 min', event: 'Two big days caught as they added up, not one at a time.' },
+      on(5, 'Collection', 260, 99.2, 'Week 5 of 10: collection, five sessions a week.'),
+      on(5, 'Lateral work', 230, 99.4),
+      on(5, 'Hill hack', 220, 99.1),
+      off(5, 99.3),
+      on(5, 'Raised cavaletti', 200, 99.5),
+      on(5, 'Medium paces and stretch', 240, 99.3),
+      off(5, 99.4),
+      on(6, 'Collection', 265, 99.2),
+      on(6, 'Lateral work', 235, 99.3),
+      on(6, 'Hill hack', 225, 99.4),
+      off(6, 99.3),
+      on(6, 'Raised cavaletti', 205, 99.5),
+      on(6, 'Medium paces and stretch', 550, 99.4, 'A visiting trainer’s clinic instead: two lessons today.'),
+      off(6, 99.6, 'Clinic day 2: two more lessons. Logged, so it counts.', 550),
+      on(7, 'Collection', 190, 99.5, 'No single huge day, but two in a row add up. His workload has jumped, so the session is cut.'),
+      on(7, 'Lateral work', 210, 99.4, 'Still high, so cut again.'),
+      on(7, 'Hill hack', 225, 99.3, 'Just over the line, so cut once more.'),
+      off(7, 99.2),
+      on(7, 'Raised cavaletti', 210, 99.4, 'Back to the session as written.'),
+      on(7, 'Medium paces and stretch', 245, 99.3),
+      off(7, 99.3, 'Two big days caught as they added up, not one at a time.'),
     ],
   },
   {
@@ -324,30 +368,32 @@ export const HORSE_STORIES: HorseStoryData[] = [
     name: 'Bram',
     about: '9-year-old gelding, dressage',
     pronoun: 'he',
+    program: 'Dressage: Intro and Training Level',
+    programWeeks: 8,
     baselineTemp: 99.4,
-    focusDay: 14,
+    focusDay: 15,
     days: [
-      { load: 320, temp: 99.3, planned: 'Flatwork, 40 min', event: 'Week 1 of his build-up to his first dressage show.' },
-      { load: 340, temp: 99.5, planned: 'Hacking out, 45 min', event: 'Steady base work.' },
-      rest(99.4),
-      { load: 360, temp: 99.2, planned: 'Transitions and lateral work', event: 'A big horse who works hard to carry himself.' },
-      { load: 380, temp: 99.6, planned: 'Flatwork, 45 min', event: 'Workload ratio sits comfortably near 1.0.' },
-      { load: 370, temp: 99.4, planned: 'Pole work, 30 min', event: 'Readiness green every morning.' },
-      rest(99.5),
-      { load: 400, temp: 99.3, planned: 'Test run-through', event: 'Week 2: riding the test.' },
-      { load: 420, temp: 99.4, planned: 'Flatwork, 50 min', event: 'Fitness is building.' },
-      rest(99.5),
-      { load: 400, temp: 99.6, planned: 'Hacking out, 45 min', event: 'Still well within range.' },
-      { load: 350, temp: 99.4, planned: 'Light flatwork, 30 min', event: 'A light day before the show.' },
-      { load: 800, temp: 99.9, planned: 'Show: two tests on a hot day', event: 'Show day: two tests in the heat, and he tries his heart out.' },
-      { load: 0, temp: 100.2, planned: 'Flatwork, 45 min', event: 'The morning after: warm, but not a fever for him. His workload has jumped, though.' },
-      { load: 200, temp: 99.6, planned: 'Hacking out, 45 min', event: 'Back to green a day later, for an easy hack.' },
-      { load: 300, temp: 99.4, planned: 'Flatwork, 45 min', event: 'Back to normal work.' },
-      { load: 320, temp: 99.3, planned: 'Pole work, 30 min', event: 'Back on track, with no big jump in work.' },
-      rest(99.4),
-      { load: 360, temp: 99.5, planned: 'Transitions and lateral work', event: 'Week 3: building again.' },
-      { load: 380, temp: 99.4, planned: 'Test run-through', event: 'Steady again.' },
-      { load: 400, temp: 99.4, planned: 'Flatwork, 50 min', event: 'A hot show absorbed, and back to the plan.' },
+      on(5, 'Schooling flatwork', 230, 99.3, 'Week 5 of 8: contact, four sessions a week.'),
+      on(5, 'Hill hack', 260, 99.5),
+      off(5, 99.4),
+      on(5, 'Poles on the ground', 200, 99.2),
+      off(5, 99.6),
+      on(5, 'Stretch and relax', 170, 99.4),
+      off(5, 99.5),
+      on(6, 'Schooling flatwork', 240, 99.3, 'Week 6: straightness.'),
+      on(6, 'Hill hack', 270, 99.4),
+      off(6, 99.5),
+      on(6, 'Poles on the ground', 210, 99.6),
+      off(6, 99.4),
+      on(6, 'Stretch and relax', 170, 99.4, 'A light day before his first show.'),
+      off(6, 99.9, 'Show day: two tests in the heat. Logged, so it counts.', 800),
+      on(7, 'Schooling flatwork', 170, 100.2, 'Warm this morning, but not a fever for him. His workload has jumped, so the session is cut.'),
+      on(7, 'Hill hack', 270, 99.6, 'Still high, so cut again.'),
+      off(7, 99.4),
+      on(7, 'Poles on the ground', 215, 99.3, 'Back to the session as written.'),
+      off(7, 99.4),
+      on(7, 'Stretch and relax', 175, 99.4),
+      off(7, 99.4, 'A hot show absorbed, and back to the program.'),
     ],
   },
 ]
@@ -361,47 +407,58 @@ export type DayView = {
   fever: boolean
   plan: string
   why: string[]
-  gated: boolean
+  /** The session was changed by a rule (cut, recovery). */
+  adjusted: boolean
 }
 
-/** Five weeks of ordinary work before day 1, with a rest day each week. */
-const HISTORY = Array.from({ length: 35 }, (_, i) => (i % 7 === 6 ? 0 : 300))
 const HARD_LOAD = 700
+/** conditioning_prescription.py */
+const ACWR_HIGH = 1.3
+const ACWR_LOW = 0.8
+const HIGH_ACWR_SHARE = 0.7
+/** young_horse_policy.py: intensity ceiling under 3 years. */
+const YOUNG_CAP = 0.7
 
 /**
  * The app's rules, applied to one horse:
  *  - workload ratio: EWMA acute (7-day) / chronic (28-day), as in
- *    equine_sports_science.py; each morning sees work through yesterday
+ *    equine_sports_science.py; each morning sees work through yesterday.
+ *    Before day 1 the horse has done five weeks like its first week.
  *  - readiness weights 35/30/20/15 (daily_readiness_service.py); the mapping
- *    from inputs to sub-scores is simplified for the page, and it says so
- *  - fever flag at +1.5 °F over the horse's own baseline (fever_alert.py)
- *  - safety gate: ratio above 1.3 or red readiness (workout_recommendation_service.py)
+ *    from inputs to sub-scores is simplified for the page, and it says so.
+ *    Readiness does not read temperature in the app, so neither does this.
+ *  - fever alert at +1.5 °F over the horse's own baseline, confirmed by a
+ *    second reading, to the trainer and the vet (fever_alert.py)
+ *  - the session, in conditioning_prescription.prescribe's order: red
+ *    readiness -> recovery walk and the session moves to the next session
+ *    day; ratio above 1.3 -> work above walk cut to 70%; below 0.8 -> as
+ *    written, no making up missed work; then the young-horse ceiling, which
+ *    rides a lick or breeze as a steady canter, cut to 70%.
  */
 export function computeStory(s: HorseStoryData): DayView[] {
   const days = s.days
   const theyre = s.pronoun === 'she' ? 'she’s' : 'he’s'
-  const their = s.pronoun === 'she' ? 'her' : 'his'
   const la = 2 / (7 + 1)
   const lc = 2 / (28 + 1)
+  const firstWeek = days.slice(0, 7).map((d) => d.load)
+  const history = Array.from({ length: 35 }, (_, i) => firstWeek[i % 7])
   let acute = 0
   let chronic = 0
   const ratioAfter: number[] = []
-  for (const l of [...HISTORY, ...days.map((d) => d.load)]) {
+  for (const l of [...history, ...days.map((d) => d.load)]) {
     acute = la * l + (1 - la) * acute
     chronic = lc * l + (1 - lc) * chronic
     ratioAfter.push(chronic > 0 ? acute / chronic : 0)
   }
   let lastHard = -Infinity
-  let feverDay = -Infinity
   return days.map((d, i) => {
     // The morning of day i sees work through yesterday.
-    const ratio = ratioAfter[HISTORY.length + i - 1]
+    const ratio = ratioAfter[history.length + i - 1]
     const tempDelta = d.temp - s.baselineTemp
     const fever = tempDelta >= 1.5
-    if (fever) feverDay = i
     const daysSinceHard = i - lastHard
 
-    const health = fever ? 20 : i - feverDay === 1 ? 70 : 95
+    const health = 95
     const load = ratio > 1.5 ? 30 : ratio > 1.3 ? 55 : ratio < 0.8 ? 75 : 90
     const recovery = daysSinceHard <= 1 ? 40 : daysSinceHard === 2 ? 70 : 95
     const injury = ratio > 1.5 ? 30 : ratio > 1.3 ? 60 : 90
@@ -414,23 +471,33 @@ export function computeStory(s: HorseStoryData): DayView[] {
     const readiness = Math.round(parts.reduce((sum, p) => sum + (p.score * p.weight) / 100, 0))
     const band = readiness >= 80 ? 'green' : readiness >= 50 ? 'yellow' : 'red'
 
-    let plan = d.planned
+    let plan: string
     const why: string[] = []
-    let gated = false
-    if (ratio > 1.3 || band === 'red') {
-      gated = true
-      plan = 'Rest. Hand-walk only.'
-      if (ratio > 1.3) why.push(`Work is rising faster than ${theyre} used to (ratio ${ratio.toFixed(2)})`)
-      if (band === 'red') why.push(`Readiness is red (${readiness})`)
-      if (fever) why.push(`Fever: ${d.temp.toFixed(1)} °F, well above ${their} normal`)
-    } else if (band === 'yellow') {
-      gated = true
-      plan = 'Moderate: walk and trot, 30 min'
-      why.push(`Readiness is yellow (${readiness}); planned: ${d.planned.toLowerCase()}`)
+    let adjusted = false
+    if (d.planned === null) {
+      plan = 'No session: rest or turnout'
+      why.push(d.load > 0 ? 'Not a program day. The work was logged, so it counts.' : 'Nothing scheduled today')
+    } else if (band === 'red') {
+      adjusted = true
+      plan = 'Recovery: walk only, 25 min'
+      why.push(`Readiness is red (${readiness}): ${d.planned.toLowerCase()} moves to the next session day`)
     } else {
-      why.push(d.load === 0 && d.planned === 'Rest day' ? 'On the program' : 'Ready to work, as planned')
+      plan = d.planned
+      if (ratio > ACWR_HIGH && d.tag !== 'walk') {
+        adjusted = true
+        why.push(`Work is rising faster than ${theyre} used to (ratio ${ratio.toFixed(2)}): trot and canter cut to ${HIGH_ACWR_SHARE * 100}%`)
+      } else if (ratio > ACWR_HIGH) {
+        why.push(`Ratio ${ratio.toFixed(2)} is high, and this session is walking only`)
+      } else if (ratio < ACWR_LOW) {
+        why.push(`Workload has dropped (ratio ${ratio.toFixed(2)}): as written, no making up missed work`)
+      }
+      if (s.young && d.tag === 'fast') {
+        adjusted = true
+        why.push(`Young horse: ridden as a steady canter, fast work cut to ${YOUNG_CAP * 100}%`)
+      }
+      if (why.length === 0) why.push('As written')
     }
     if (d.load >= HARD_LOAD) lastHard = i
-    return { ratio, readiness, band, parts, tempDelta, fever, plan, why, gated }
+    return { ratio, readiness, band, parts, tempDelta, fever, plan, why, adjusted }
   })
 }

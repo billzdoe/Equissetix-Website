@@ -266,8 +266,9 @@ const Home = () => (
             <h2 className="text-[2.4rem] leading-[0.95] text-white sm:text-6xl">Watch it catch a problem.</h2>
             <p className="mt-6 max-w-md text-lg text-white/85">
               Pick a breed, from Juniper, a 2-year-old Thoroughbred in race training, to a Friesian at his first dressage
-              show. Press play on three weeks, or drag through the days, and see the day the work catches up, and what
-              TrainingTree tells you to do. The rules are the same for every breed: each horse against its own normal.
+              show. Each horse follows TrainingTree’s program for its sport. Press play on three weeks, or drag through
+              the days, and see how the plan adjusts after a big day. The sport, level and age choose the program, not
+              the breed, and every horse is measured against its own normal.
             </p>
           </div>
           <HorseStory />

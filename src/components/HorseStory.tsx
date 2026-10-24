@@ -18,7 +18,7 @@ import { HORSE_STORIES, computeStory } from '../data/horseStories'
 
 const BAND = {
   green: { text: 'Ready to push', color: 'text-green-600', bar: 'bg-green-500' },
-  yellow: { text: 'Moderate work', color: 'text-gold-700', bar: 'bg-gold-500' },
+  yellow: { text: 'Moderate training', color: 'text-gold-700', bar: 'bg-gold-500' },
   red: { text: 'Rest needed', color: 'text-burgundy-600', bar: 'bg-burgundy-500' },
 } as const
 
@@ -123,6 +123,11 @@ const HorseStory = () => {
         <p className="text-sm text-navy-500">
           Example horse: {horse.breed}, {horse.about}
         </p>
+        <p className="w-full text-xs text-navy-500">
+          Program: <span className="font-semibold text-navy-700">{horse.program}</span>
+          {horse.edition ? ` (TrainingTree ${horse.edition})` : ''}, week{' '}
+          <span className="tabular">{DAYS[day - 1].week}</span> of {horse.programWeeks}
+        </p>
       </div>
 
       {/* Day scrubber */}
@@ -209,14 +214,14 @@ const HorseStory = () => {
             </span>
           </p>
           <p className={`mt-3 inline-block rounded-sm px-2 py-1 text-xs font-semibold ${v.fever ? 'bg-burgundy-600 text-white' : 'bg-green-100 text-green-700'}`}>
-            {v.fever ? `Fever flagged: well above ${their} normal` : `Within ${their} normal`}
+            {v.fever ? 'Fever alert sent to the trainer and vet' : `Within ${their} normal`}
           </p>
         </div>
 
         {/* Today's plan */}
         <div className="p-4 sm:p-5">
-          <p className="text-sm font-semibold text-navy-500">Today’s suggested work</p>
-          <p className={`mt-1 min-h-[3.5rem] text-lg font-semibold leading-snug ${v.gated ? 'text-burgundy-600' : 'text-navy-900'}`}>{v.plan}</p>
+          <p className="text-sm font-semibold text-navy-500">Today’s session</p>
+          <p className={`mt-1 min-h-[3.5rem] text-lg font-semibold leading-snug ${v.adjusted ? 'text-burgundy-600' : 'text-navy-900'}`}>{v.plan}</p>
           <ul className="mt-1 min-h-[3.75rem] space-y-0.5 text-xs text-navy-600">
             {v.why.map((w) => (
               <li key={w}>{w}</li>
@@ -226,7 +231,7 @@ const HorseStory = () => {
       </div>
 
       <figcaption className="border-t border-navy-200 px-4 py-3 text-xs text-navy-500 sm:px-5">
-        An example horse. Numbers are worked out with TrainingTree’s rules, simplified for this page.{' '}
+        Example horses on real TrainingTree programs. Numbers are worked out with TrainingTree’s rules, simplified for this page.{' '}
         <Link to="/guide#readiness" className="font-semibold text-brand-600 underline underline-offset-2 hover:text-brand-700">
           What these numbers mean
         </Link>
