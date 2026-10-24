@@ -82,5 +82,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Cloudflare Web Analytics (cookieless), installed here instead of
+         Cloudflare's automatic injection. The injected tag carries an
+         integrity hash, and Cloudflare answers headless browsers with an
+         empty 204, which fails that hash and logs a console error in every
+         automated check. This plain tag runs the empty response silently. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0a3f388da3d74498a91ec4c446aa22ce", "spa": true}'></script>
   </body>
 </html>
