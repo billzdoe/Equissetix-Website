@@ -65,12 +65,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
     <script>
-      // GitHub Pages SPA redirect, the decoding half of public/404.html
-      // (rafgraph/spa-github-pages). 404.html sends /contact to /?/contact;
-      // this turns it back into /contact before the router reads the URL, so
-      // it must stay in <head>, ahead of the app bundle. The previous script
-      // read sessionStorage.redirect, which 404.html never sets, so every deep
-      // link landed on the homepage.
+      // Legacy GitHub Pages SPA links (/?/contact). Cloudflare Pages serves
+      // index.html for deep links itself (no 404.html in dist), but old
+      // shared or indexed /?/ URLs still decode back to /contact here. It
+      // must stay in <head>, ahead of the app bundle.
       (function(l) {
         if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) {
